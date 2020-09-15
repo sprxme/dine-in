@@ -1,0 +1,124 @@
+.menu{
+    display: flex;
+    flex-direction: column;
+    padding: .8em 8vw;
+
+    &__option{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1.2em 0;
+        background: $secondary-bg;
+
+        &-list{
+            font-size: 18px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: $text;
+            cursor: pointer;
+            &:not(:first-child){
+                margin-left: 10em;
+            } 
+        }
+
+        &-icon{
+            font-size: 48px;
+            margin-bottom: .2em;
+            color: $icon-primary-dark;
+        }
+    }
+
+    &__title{
+        font-size: 28px;
+        font-weight: 600;
+        margin:0;
+    }
+
+    &__container:focus{
+        outline: none;
+    }
+
+    &__icon{
+        float: right;
+        margin-left:auto;
+    }
+
+    &__collapse{
+        display: flex;
+        padding: .8em 5.5vw;
+        align-items: center;
+    }
+
+    &__collapse:hover{
+        background: rgba(0,0,0,0.1);
+    }
+
+    &__menu-list{
+        list-style: none;
+    }
+
+    &__menu-list:hover{
+        cursor: default;
+    }
+
+    &__menu-item{
+        display: flex;
+        align-items: center;
+        padding: .8em 0;
+    }
+
+    &__menu-item:not(:first-child){
+        border-top: 1px solid rgba(0,0,0,0.3);
+    }
+
+    &__image-container{
+        width: 110px;
+        height: 110px;
+    }
+
+    &__image{
+        display:block;
+        min-width: 110px;
+        max-width: 110px;
+        max-height: 110px;
+        min-height: 110px;
+    }
+
+    &__details{
+        margin-left: 2.5em;
+    }
+
+    &__details-title{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    &__menu-name{
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 0;
+    }
+
+    &__menu-price{
+        font-size: 18px;
+        margin-bottom: 0;
+        float: right;
+        margin-left: auto;
+    }
+
+    &__menu-desc{
+        margin-bottom:0;
+    }
+}
+
+.scrolled{
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.scrolled + .menu{
+    padding-top: 140px;
+}

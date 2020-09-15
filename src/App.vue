@@ -1,0 +1,47 @@
+<template>
+  <div class="app">
+    <Navbar v-show="$route.path.includes('/account') ? false : true" />
+    <router-view/>
+  </div>
+</template>
+
+<script>
+import Navbar from './views/Navbar';
+
+export default {
+  name: 'app',
+  components: {
+    Navbar
+  }
+}
+</script>
+
+<style lang="scss">
+@import url("https://fonts.googleapis.com/css?family=Material+Icons");
+@import '~bootstrap/scss/bootstrap.scss';
+@import '~bootstrap-vue/src/index.scss';
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+li:focus{
+  outline:none;
+}
+
+.app {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.img-fluid{
+  min-height: 100vh;
+  min-width: 75vw;
+}
+
+</style>

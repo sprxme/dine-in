@@ -1,0 +1,35 @@
+.primary-button{
+    text-decoration: none;
+    cursor: pointer;
+    background: $btn-primary;
+    color: $btn-primary-text;
+    text-transform: capitalize;
+
+    &:hover{
+        background: $btn-primary-hover;
+    }
+
+    &:active{
+        background: $btn-primary-click;
+    }
+}
+
+.icon-secondary{
+    color: $icon-secondary;
+}
+
+.icon-primary{
+    color: $icon-primary;
+}
+
+.icon-primary--dark{
+    color: $icon-primary-dark;
+}
+
+.route-menu{
+    color: $route-color;
+
+    &:hover{
+        color: $route-color-hover;
+    }
+}
