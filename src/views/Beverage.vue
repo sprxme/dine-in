@@ -70,7 +70,8 @@ export default {
                 {id: 14, name: 'Coca-cola', price:'24k', image:'food1', type: 'hot', desc:'minuman'},
                 {id: 15, name: 'Coca-cola', price:'24k', image:'food1', type: 'hot', desc:'minuman'},
                 {id: 16, name: 'Coca-cola', price:'24k', image:'food1', type: 'hot', desc:'minuman'},
-                {id: 17, name: 'Coca-cola', price:'24k', image:'food1', type: 'hot', desc:'minuman'},
+                
+                {id: 17, name: 'Segar Tea', price:'24k', image:'food1', type: 'cold', desc:'minuman'},
 
             ],
              view: {
