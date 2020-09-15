@@ -11,8 +11,8 @@ npm run serve
 ```
 
 ## Members:
-Jason Su 😴💤🛌
-Jacob Andrean 🎵🎸🎹
-Danny 🍜🛍🩸
-Harry Ronaldo Y 🍕🎮👾
+Jason Su 😴💤🛌 \
+Jacob Andrean 🎵🎸🎹\
+Danny 🍜🛍🩸\
+Harry Ronaldo Y 🍕🎮👾\
 Victor Samuel C 👁👄👁
