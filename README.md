@@ -10,6 +10,7 @@ npm install
 npm run serve
 ```
 
+
 ## Members:
 535170081   Jason Su 😴💤🛌         [@jasons_99](https://instagram.com/jasons_99) <br/>
 535170082   Jacob Andrean 🎵🎸🎹    [@jacobandrean_](https://instagram.com/jacobandrean_) <br/>
