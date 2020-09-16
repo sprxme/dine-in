@@ -4,7 +4,7 @@ import router from './router';
 import VueMaterial from 'vue-material';
 import 'vue-material/dist/vue-material.min.css';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faAngleDown , faGlassMartiniAlt, faEye , faEyeSlash, faShoppingBag, faBars, faHome, faUtensils, faUserCircle, faInfoCircle, faTasks, faMugHot} from '@fortawesome/free-solid-svg-icons';
+import { faAngleDown , faMinus, faPlus,faGlassMartiniAlt, faEye , faEyeSlash, faShoppingBag, faBars, faHome, faUtensils, faUserCircle, faInfoCircle, faTasks, faMugHot} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import BootstrapVue from 'bootstrap-vue';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -22,7 +22,9 @@ library.add(
               faInfoCircle,
               faTasks,
               faMugHot,
-              faGlassMartiniAlt
+              faGlassMartiniAlt,
+              faMinus,
+              faPlus
             );
 Vue.use(VueMaterial);
 Vue.use(BootstrapVue);

@@ -27,6 +27,7 @@
         box-shadow: $box-card-shadow;
         border-radius: 8px;
         transition: all .2s ease 0s;
+        overflow: hidden;
 
         &:hover{
             transform: translateY(-5px);
@@ -63,5 +64,53 @@
 
     &__price{
         font-weight: 600;
+    }
+    
+    &__tocart{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: .5em 1.2em;
+        margin: 0 1.2em 1em;
+        border-radius: 5px;
+        font-weight: 700;
+
+        &__icon{
+            font-size: 14px;
+            margin-left: 10px;
+        }
+    }
+
+    &__quantity{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 5px;
+        font-weight: 700;
+        cursor: default;
+        padding: .5em 1.2em;
+        margin: 0 1.2em 1em;
+        box-shadow: 0px 2px 8px 4px rgba(0,0,0,0.09);
+
+        &__number{
+            margin: 0;
+            font-size: 14px;
+        }
+
+        &__icon{
+            font-size: 14px;
+            color: $btn-primary;
+            cursor: pointer;
+        }
+    }
+
+    .left{
+        float: left;
+        margin-right: auto;
+    }
+
+    .right{
+        float: right;
+        margin-left: auto;
     }
 }
