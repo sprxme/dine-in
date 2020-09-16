@@ -113,6 +113,9 @@ export default {
 
 <style lang="scss" scoped>
 
+// =================
+//      SIDEBAR
+// =================
 .sidebar{
   display: flex;
   padding: .8em 2em;
@@ -260,6 +263,9 @@ export default {
   transform: scaleY(-1);
 }
 
+// =============
+//    CARTPOP
+// =============
 .cartpop{
   display: flex;
   position: fixed;
@@ -403,7 +409,7 @@ export default {
     position: absolute;
     right: 0;
     width: 380px;
-    box-shadow: 0px 2px 8px 1px rgba(0,0,0,0.08);
+    box-shadow: $box-card-shadow;
     border-radius: 8px;
     margin-top: 5px;
     margin-right: 5px;
