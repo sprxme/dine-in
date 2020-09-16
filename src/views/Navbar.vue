@@ -123,7 +123,8 @@ export default {
   color: $primary-color;
   height: 64px;
   align-items: center;
-  position: relative;
+  position: fixed;
+  width: 100%;
   z-index: 98;
 
   &__routes{
@@ -267,8 +268,9 @@ export default {
 //    CARTPOP
 // =============
 .cartpop{
-  display: flex;
+  display: block;
   position: fixed;
+  top: 4.0rem;
   flex-direction: column;
   background: #fff;
   padding: .8em 1.2em;
@@ -280,7 +282,7 @@ export default {
     content: '';
     display: block;
     position: absolute;
-    right: 2.85em;
+    right: 1.85rem;
     top: 0;
     width: 0; 
     height: 0; 
@@ -406,7 +408,7 @@ export default {
 @media screen and (min-width:780px){
   .cartpop{
     display: flex;
-    position: absolute;
+    position: fixed;
     right: 0;
     width: 380px;
     box-shadow: $box-card-shadow;

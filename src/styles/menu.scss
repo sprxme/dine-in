@@ -1,5 +1,5 @@
 .menu{
-    padding: 3em 10vw;
+    padding: 5em 10vw;
 
     &__title-container{
         display: flex;
@@ -18,7 +18,7 @@
 
     &__cards{
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 3fr));
+        grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
         grid-gap: 2rem;
     }
 

@@ -18,6 +18,9 @@ export default {
 </script>
 
 <style scoped>
+.home{
+  padding-top: 4em;
+}
 .logo{
   display: block;
   margin: 0 auto;
