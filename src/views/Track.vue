@@ -13,14 +13,16 @@
                     <span class = "custom__input-row">
                         <input class="field" type="text" required>
                         <span class="placeholder">Token</span>
-                        <font-awesome-icon icon="arrow-alt-circle-right" class="arrow-right"/>
+                        <router-link :to="'/track/'+token">
+                            <font-awesome-icon icon="arrow-alt-circle-right" class="arrow-right"/>
+                        </router-link>
                     </span>
                 </div>
             </div>
 
             <div class="track__right">
                 <label class="track__subtitle">Track with your account.</label>
-                <div class="track__input-container">
+                <div class="custom__input-container">
                     <div class="custom__input">
                         <span class = "custom__input-row">
                             <input class="field" type="text" required>
@@ -48,7 +50,8 @@
 export default {
      data: function(){
         return{
-        myIcon: 'eye'
+            myIcon: 'eye',
+            token: '',
         }
     },
     iconEye:{
