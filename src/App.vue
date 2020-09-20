@@ -21,6 +21,11 @@ export default {
       document.documentElement.style.overflow = this.isCartOpen ? 'hidden' : 'auto'
     }
   },
+  watch:{
+    $route: function(){
+       document.documentElement.style.overflow = 'auto'
+    }
+  },
   components: {
     Navbar
   }
