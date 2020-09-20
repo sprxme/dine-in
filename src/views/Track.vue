@@ -114,7 +114,7 @@ export default {
     }
 
     &__left{
-        padding: 0 0 0 15vw;
+        padding: 10px 0 0 15vw;
         .track__input{
             width: 400px;
             margin: auto;
