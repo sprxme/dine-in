@@ -11,9 +11,11 @@
                 <label class="track__label">Find an individual order.</label>
                 <div class="track__input">
                     <span class = "track__input-row">
-                        <input class="field" type="text" required>
+                        <input v-model = "token" class="field" type="text" required>
                         <span class="placeholder">Token</span>
-                        <font-awesome-icon icon="arrow-alt-circle-right" class="arrow-right"/>
+                        <router-link :to="'/track/'+token">
+                            <font-awesome-icon icon="arrow-alt-circle-right" class="arrow-right"/>
+                        </router-link>
                     </span>
                 </div>
             </div>
@@ -48,7 +50,8 @@
 export default {
      data: function(){
         return{
-        myIcon: 'eye'
+            myIcon: 'eye',
+            token: '',
         }
     },
     iconEye:{
