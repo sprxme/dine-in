@@ -307,6 +307,26 @@ export default {
   &__menu-list {
     overflow-y: scroll;
     max-height: 50vh;
+
+    &::-webkit-scrollbar {
+      width: 7px; 
+      height: 0px;
+    }
+
+    &::-webkit-scrollbar-track {
+      margin: 0;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: rgba(0,0,0,0.0);
+      border-radius: 10px;
+      box-shadow: rgba(255,255,255,0.3) 0 0 0 1px;
+    }
+    &:hover::-webkit-scrollbar-thumb {
+      background: rgba(0,0,0,0.45)
+    }
+    &::-webkit-scrollbar-thumb:hover {
+      background: rgba(0,0,0,0.55)
+    }
   }
 
   &__orders{
