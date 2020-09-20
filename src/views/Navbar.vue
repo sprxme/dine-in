@@ -306,7 +306,7 @@ export default {
 
   &__menu-list {
     overflow-y: scroll;
-    max-height: 40vh;
+    max-height: 50vh;
   }
 
   &__orders{
@@ -429,7 +429,7 @@ export default {
     }
 
     &__menu-list {
-      max-height: 500px;
+      //max-height: 500px;
     }
   }
 }
