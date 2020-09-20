@@ -32,11 +32,11 @@
       <div class="cartpop__empty" v-else>
           Your order is empty
       </div>
-      <router-link class="cartpop__menu route-menu" to="/track" @click.native="show = false; dim = false">
+      <router-link class="cartpop__menu route-menu" to="/track" @click.native="show = false; dim = false; $emit('change-route')">
         <font-awesome-icon icon="tasks" class="cartpop__icon" />
         <span>Track</span>
       </router-link>
-      <router-link class="cartpop__menu route-menu" to="/account" @click.native="show = false; dim = false">
+      <router-link class="cartpop__menu route-menu" to="/account" @click.native="show = false; dim = false; $emit('change-route')">
         <font-awesome-icon icon="user-circle" class="cartpop__icon" />
         <span>Sign in</span>
       </router-link>
@@ -54,7 +54,7 @@
         <font-awesome-icon icon="bars" class="sidebar__icon icon-primary--dark" @click="hide"/>
         <h2 class="sidebar__title">Supreme</h2>
       </div>
-      <router-link class="sidebar__router" to="/" @click.native="show = false; dim = false">
+      <router-link class="sidebar__router" to="/" @click.native="show = false; dim = false; $emit('change-route')">
         <font-awesome-icon icon="home" class="sidebar__icon icon-secondary" />
         Home
       </router-link>
@@ -64,10 +64,10 @@
         <font-awesome-icon id="arrow" icon="angle-down" class="sidebar__iconright" />
       </span>
       <b-collapse id="collapse-menu">
-        <router-link class="sidebar__router submenu" to="/food" @click.native="show = false; dim = false">Food</router-link>
-        <router-link class="sidebar__router submenu" to="/beverage" @click.native="show = false; dim = false">Beverage</router-link>
+        <router-link class="sidebar__router submenu" to="/food" @click.native="show = false; dim = false; $emit('change-route')">Food</router-link>
+        <router-link class="sidebar__router submenu" to="/beverage" @click.native="show = false; dim = false; $emit('change-route')">Beverage</router-link>
       </b-collapse>
-      <router-link class="sidebar__router" to="/about" @click.native="show = false; dim = false">
+      <router-link class="sidebar__router" to="/about" @click.native="show = false; dim = false; $emit('change-route')">
         <font-awesome-icon icon="info-circle" class="sidebar__icon icon-secondary" />
         About
       </router-link>

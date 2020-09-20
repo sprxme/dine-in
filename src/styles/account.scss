@@ -3,7 +3,7 @@
     background: #fff;
     padding: .8em 1.2em;
     border: 0px solid #fff;
-    min-width: 480px;
+    min-width: 250px;
     align-items: center;
     height: 100vh;
     border-radius: 15px;
@@ -39,34 +39,20 @@
     justify-content: center;
     align-items: center;
     border-radius: 3px;
-    margin: 20px 0px 0px 0px;
+    margin: 20px 0px 20px 0px;
     height: 56px;
     font-size: 18px;
 }
   
-@media only screen 
-and (min-device-width: 375px) 
-and (max-device-width: 812px) 
-and (-webkit-min-device-pixel-ratio: 3) {
-
-    .account{
-        min-width: 350px;
-
-        &__route{
-            font-size: 12px;
-        }
-    }
-}
-  
-  @media screen and (max-width:1024px){
-    
+@media screen and (max-width:1024px){
     .account{
       display: flex;
       align-items: center;
       justify-content: center;
       height: 602.55px;
+      min-width: 400px;
       max-height: 602.55px;
-      min-height: 602.55px;
+    //   min-height: 602.55px;
       width: 50vw;
       background:#fff;
       z-index: 99;
@@ -94,3 +80,52 @@ and (-webkit-min-device-pixel-ratio: 3) {
       margin: 10px 0;
     }
   }
+
+  @media screen and (max-width: 450px) {
+
+    .placeholder{
+        font-weight: 400;
+        font-size: 16px;
+    }  
+
+    .account{
+        width: 95vw;
+        height: auto;
+        min-width: 200px;
+        padding: 3em 1em;
+
+        &__route{
+            font-size: 12px;
+            text-align: center;
+        }
+
+        &__content {
+            padding: 0;
+        }
+
+        &__title{
+            font-size: 32px;
+            margin: 0px 0px 30px 0;
+        }
+
+        .field {
+            height: 55px;
+            font-size: 13px;
+            padding: 17px 12px 0px 12px;
+        }
+
+        .icon {
+            top: 23px
+        }
+    }
+
+    .primary-button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 5px;
+        margin: 20px 0px 20px 0px;
+        height: 50px;
+        font-size: 1em;
+    }
+}
