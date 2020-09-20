@@ -19,7 +19,7 @@ export default {
         return{
             drinks: [
                 {id: 1, name: 'Coca-cola', price:'24000', image:'food1', category: 'Cold', desc:'minuman'},
-                {id: 2, name: 'Mineral Water', price:'12000', image:'food2', category: 'Cold', desc:'minuman'},
+                {id: 2, name: 'Mineral Water', price:'12000', image:'food2', category: 'Cold', desc:'Pizza dengan topping olive oils, daging sapi, mozarella dan home sauce'},
                 {id: 3, name: 'Hot Ocha', price:'24000', image:'food3', category: 'Hot', desc:'minuman'},
                 {id: 4, name: 'Coca-cola', price:'24000', image:'food1', category: 'Cold', desc:'minuman'},
                 {id: 5, name: 'Coca-cola', price:'24000', image:'food4', category: 'Cold', desc:'minuman'},

@@ -124,13 +124,35 @@
     }
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 780px) {
     .menu{
-        padding: 5em 5vw;
+        padding: 5em 1em;
 
         &__cards{
             grid-template-columns: 1fr 1fr;
             grid-gap: 1rem;
+        }
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .menu{
+        padding: 5em 1em;
+
+        &__cards{
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 0.5rem;
+        }
+
+        &__details{
+            padding: .5em .5em;
+            display:flex;
+            flex-direction: column;
+        }
+
+        &__tocart{
+            padding: .4em 1.2em;
+            margin: 0 .5em .6em;
         }
     }
 }

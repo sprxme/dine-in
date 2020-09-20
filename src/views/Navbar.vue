@@ -4,7 +4,7 @@
     <font-awesome-icon icon="bars" class="sidebar__icon" v-b-toggle.sidebar-1/>
     <div class="sidebar__end">
       <div class="sidebar__end-shop">
-        <font-awesome-icon icon="shopping-bag" class="sidebar__icon icon-primary" v-on:click="show = !show; dim = !dim"/>
+        <font-awesome-icon icon="shopping-bag" class="sidebar__icon icon-primary" v-on:click="show = !show; dim = !dim; $emit('tap-cart')"/>
         <div class="sidebar__orders-badge" v-if="orders.length">
           <span class="sidebar__orders-badge-text">{{orders.length}}</span>
         </div>
@@ -14,20 +14,16 @@
   <div class="cartpop" v-if="show" @blur="show=false">
     <div class="cartpop__content">
       <ul class="cartpop__orders" v-if="orders.length">
-        <li v-for="index in 3" :key="index" class="cartpop__order-menu">
-          <div class="cartpop__image-container">
-             <img :src="require('../assets/food/'+orders[index-1].image+'.jpg')" class="cartpop__image"/>
-          </div>
-          <div class="cartpop__order-details">
-            <span class="cartpop__menu-name">{{orders[index-1].name}}</span>
-            <span class="cartpop__menu-quantity">x{{orders[index-1].quantity}}</span>
-          </div>
-        </li>
-        <div class="cartpop__menu-more" v-if="orders.length - 3 > 1">
-          <span class="cartpop__menu-more-label">{{orders.length - 3}} more items in your order</span>
-        </div>
-        <div class="cartpop__menu-more" v-else-if="orders.length - 3 > 0">
-          <span class="cartpop__menu-more-label">{{orders.length - 3}} more item in your order</span>
+        <div class="cartpop__menu-list">
+          <li v-for="order in orders" :key="order.id" class="cartpop__order-menu">
+            <div class="cartpop__image-container">
+              <img :src="require('../assets/food/'+order.image+'.jpg')" class="cartpop__image"/>
+            </div>
+            <div class="cartpop__order-details">
+              <span class="cartpop__menu-name">{{order.name}}</span>
+              <span class="cartpop__menu-quantity">x{{order.quantity}}</span>
+            </div>
+          </li>
         </div>
         <router-link class="cartpop__placeorder primary-button" to ="/order" @click.native="show = false; dim = false">
           Place order
@@ -36,11 +32,6 @@
       <div class="cartpop__empty" v-else>
           Your order is empty
       </div>
-      <router-link class="cartpop__menu route-menu" to="/order" @click.native="show = false; dim = false">
-        <font-awesome-icon icon="shopping-bag" class="cartpop__icon" />
-        <span>Order</span> 
-        <span v-if="orders.length"> ({{orders.length}})</span>
-      </router-link>
       <router-link class="cartpop__menu route-menu" to="/track" @click.native="show = false; dim = false">
         <font-awesome-icon icon="tasks" class="cartpop__icon" />
         <span>Track</span>
@@ -83,7 +74,7 @@
     </div>
   </b-sidebar>
   <transition name="fade">
-    <div class="screen--dim" v-if="dim" v-on:click="show =false; dim=false"/>
+    <div class="screen--dim" v-if="dim" v-on:click="show =false; dim=false; $emit('tap-cart')"/>
   </transition>
 </div>
 </template>
@@ -100,6 +91,14 @@ export default {
         {id: 2, name:'Ravioli', quantity:'1', price: '79000',image:'food2'},
         {id: 3, name:'Sparkling Water',  quantity:'1', price: '44000',image:'food3'},
         {id: 4, name:'Mineral Water',  quantity:'1', price: '12000',image:'food3'},
+        {id: 5, name:'Aglio e Olio', quantity:'1', price: '79000', image:'food1'},
+        {id: 6, name:'Ravioli', quantity:'1', price: '79000',image:'food2'},
+        {id: 7, name:'Sparkling Water',  quantity:'1', price: '44000',image:'food3'},
+        {id: 8, name:'Mineral Water',  quantity:'1', price: '12000',image:'food3'},
+        {id: 9, name:'Aglio e Olio', quantity:'1', price: '79000', image:'food1'},
+        {id: 10, name:'Ravioli', quantity:'1', price: '79000',image:'food2'},
+        {id: 11, name:'Sparkling Water',  quantity:'1', price: '44000',image:'food3'},
+        {id: 12, name:'Mineral Water',  quantity:'1', price: '12000',image:'food3'}
       ],
     }
   },
@@ -118,7 +117,7 @@ export default {
 // =================
 .sidebar{
   display: flex;
-  padding: .8em 2em;
+  padding: .8em 1em;
   background: $primary-bg;
   color: $primary-color;
   height: 64px;
@@ -171,7 +170,7 @@ export default {
     font-size: 18px;
     padding: 0;
     margin: 0;
-    padding-left: .5rem;
+    padding-left: 0.295rem;
     margin-block-start: 0.45em;
     margin-block-end: 0.45em;
     color: $sidebar-color-title;
@@ -274,16 +273,15 @@ export default {
   top: 4.0rem;
   flex-direction: column;
   background: #fff;
-  padding: .8em 1.2em;
   width: 100vw;
   z-index: 98;
-  padding: 0em 2em 0.6em 2em;
+  padding: 0em 1em 0.6em 1em;
 
   &::before{
     content: '';
     display: block;
     position: absolute;
-    right: 1.85rem;
+    right: .85rem;
     top: 0;
     width: 0; 
     height: 0; 
@@ -304,6 +302,11 @@ export default {
 
   &__menu{
     padding: .8em 0.1em;
+  }
+
+  &__menu-list {
+    overflow-y: scroll;
+    max-height: 40vh;
   }
 
   &__orders{
@@ -407,6 +410,10 @@ export default {
 }
 
 @media screen and (min-width:780px){
+  .sidebar{
+    padding: .8em 2.5em;
+  }
+
   .cartpop{
     display: flex;
     position: fixed;
@@ -418,8 +425,13 @@ export default {
     margin-right: 5px;
 
     &::before{
-      right: 1.5em;
+      right: 2.05em;
+    }
+
+    &__menu-list {
+      max-height: 500px;
     }
   }
 }
+
 </style>

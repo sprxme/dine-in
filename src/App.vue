@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-    <Navbar v-show="$route.path.includes('/account') ? false : true" />
+    <Navbar v-show="$route.path.includes('/account') ? false : true" v-on:tap-cart="disableScroll"/>
     <router-view/>
   </div>
 </template>
@@ -10,6 +10,17 @@ import Navbar from './views/Navbar';
 
 export default {
   name: 'app',
+  data: function(){
+    return{
+      isCartOpen: false
+    }
+  },
+  methods: {
+    disableScroll: function() {
+      this.isCartOpen = !this.isCartOpen
+      document.documentElement.style.overflow = this.isCartOpen ? 'hidden' : 'auto'
+    }
+  },
   components: {
     Navbar
   }
