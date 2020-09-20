@@ -23,7 +23,7 @@
     }
 
     &__card{
-        border: 1px solid $light-grey;
+        // border: 1px solid $light-grey;
         box-shadow: $box-card-shadow;
         border-radius: 8px;
         transition: all .2s ease 0s;
@@ -112,5 +112,16 @@
     .right{
         float: right;
         margin-left: auto;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .menu{
+        padding: 5em 5vw;
+    }
+
+    &__cards{
+        grid-template-columns: repeat(auto-fit, minmax(200px, auto));
+        grid-gap: 1rem;
     }
 }
