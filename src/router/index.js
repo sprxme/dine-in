@@ -8,6 +8,7 @@ import Food from '../views/Food'
 import Beverage from '../views/Beverage'
 import Order from '../views/Order'
 import Track from '../views/Track'
+import TrackingItem from '../views/TrackingItem'
 
 Vue.use(VueRouter)
 
@@ -45,12 +46,18 @@ Vue.use(VueRouter)
   {
     path: '/order',
     name: 'Order',
+    props: true,
     component: Order
   },
   {
     path: '/track',
     name: 'Track',
-    component: Track
+    component: Track,
+  },
+  {
+    path: '/track/:id',
+    name: 'TrackingItem',
+    component: TrackingItem,
   },
   {
     path: '/about',
@@ -71,7 +78,7 @@ const router = new VueRouter({
     } else {
       return {x: 0, y: 0}
     }
-  }
-})
+  },
+});
 
 export default router

@@ -11,8 +11,11 @@
                 <label class="track__label">Find an individual order.</label>
                 <div class="track__input">
                     <span class = "track__input-row">
-                        <input class="field" type="text" required>
+                        <input v-model = "token" class="field" type="text" required>
                         <span class="placeholder">Token</span>
+                        <router-link :to="'/track/'+token">
+                            <font-awesome-icon icon="arrow-alt-circle-right" class="arrow-right"/>
+                        </router-link>
                     </span>
                 </div>
             </div>
@@ -47,7 +50,8 @@
 export default {
      data: function(){
         return{
-        myIcon: 'eye'
+            myIcon: 'eye',
+            token: '',
         }
     },
     iconEye:{
@@ -70,13 +74,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.arrow-right{
+    top: 25px;
+    right: 16px;
+    position: absolute;
+    font-size: 24px;
+    cursor: pointer;
+    visibility: visible;
+}
 .track{
     padding: 5em 2rem;
 
     &__title{
         font-size: 50px;
         font-weight: 550;
-        margin: 25px 0px 50px 0;
+        margin: 35px 0px 50px 7vw;
     }
 
     &__label{
@@ -86,7 +98,7 @@ export default {
 
     &__sub-container{
         display: grid;
-        grid-template-columns: 1.85fr 1fr;
+        grid-template-columns: 1.5fr 1fr;
         padding: 0 15 0 0;
         margin-top: 50px;
     }
@@ -105,13 +117,18 @@ export default {
     }
 
     &__left{
-        padding: 0 7rem 0 7rem;
+        padding: 10px 0 0 15vw;
+        .track__input{
+            width: 400px;
+            margin: auto;
+            margin-top: 0;
+        }
     }
 
     &__right{
         border-left: 1px solid $light-grey;
-        padding-left: 50px;
-        padding-right: 50px;
+        padding: 10px 150px 30px 2.5rem;
+        max-width: 600px;
     }
 
     &__input{
@@ -137,8 +154,10 @@ export default {
 
     &__btn{
         text-align: center;
-        padding: .8em 1.2em;
+        margin-top: 40px;
+        padding: 1em 1.2em;
         border-radius: 10px;
+        font-weight: 600;
     }
 }
 
@@ -146,7 +165,7 @@ export default {
     width: 100%;
     font-size: 18px;
     padding: 1.3em 1.2em 0.5em 0.7em;
-    margin: 10px auto;
+    margin: 7px auto;
     display: inline-block;
     background: rgba(126,126,126,0.1);
     border: 0px solid rgba(126,126,126,0.1);
@@ -188,7 +207,92 @@ export default {
     visibility: hidden;
 }
 
-@media screen and (max-width: 780px){
-    
+@media screen and (max-width: 1200px){
+    .track{
+        &__left{
+            padding: 0 0 0 0;
+            .track__input{
+                width: 400px;
+                margin: auto;
+                margin-top: 0;
+            }
+        }
+        &__right{
+            border-left: 1px solid $light-grey;
+            padding: 10px 50px 30px 2.5rem;
+            max-width: 600px;
+        }
+    }
 }
+
+@media screen and (max-width: 900px) {
+    .track{
+        &__left{
+            padding: 0;
+            .track__input{
+                width: 400px;
+                margin: auto;
+                margin-top: 0;
+            }
+        }
+
+        &__right{
+            border-top: 1px solid $light-grey;
+            border-left: 0px;
+            padding: 80px 70px 0 70px;
+            margin-top: 100px;
+            .track__input{
+                width: 400px;
+                margin: auto;
+                margin-top: 0;
+            }
+        }
+
+        &__sub-container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .track{
+        &__title{
+            font-size: 40px;
+            font-weight: 550;
+            margin: 35px 0px 50px 0px;
+            line-height: 100%;
+            text-align: center;
+            width: 100%;
+        }
+
+        &__left{
+            padding: 0;
+            .track__input{
+                width: 80vw;
+                margin: auto;
+                margin-top: 0;
+            }
+        }
+
+        &__right{
+            border-top: 1px solid $light-grey;
+            border-left: 0px;
+            padding: 80px 0 0 0;
+            margin-top: 100px;
+            .track__input{
+                width: 80vw;
+                margin: auto;
+                margin-top: 0;
+            }
+        }
+
+        &__sub-container{
+            margin-top: 40px;
+        }
+    }
+}
+
 </style>
