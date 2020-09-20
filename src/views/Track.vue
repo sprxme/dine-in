@@ -9,9 +9,9 @@
             <div class="track__left">
                 <label class="track__subtitle">Track with your order token.</label>
                 <label class="track__label">Find an individual order.</label>
-                <div class="track__input">
-                    <span class = "track__input-row">
-                        <input v-model = "token" class="field" type="text" required>
+                <div class="custom__input">
+                    <span class = "custom__input-row">
+                        <input class="field" type="text" required>
                         <span class="placeholder">Token</span>
                         <router-link :to="'/track/'+token">
                             <font-awesome-icon icon="arrow-alt-circle-right" class="arrow-right"/>
@@ -22,15 +22,15 @@
 
             <div class="track__right">
                 <label class="track__subtitle">Track with your account.</label>
-                <div class="track__input-container">
-                    <div class="track__input">
-                        <span class = "track__input-row">
+                <div class="custom__input-container">
+                    <div class="custom__input">
+                        <span class = "custom__input-row">
                             <input class="field" type="text" required>
                             <span class="placeholder">Email</span>
                         </span>
                     </div>
-                    <div class="track__input">
-                        <span class = "track__input-row">
+                    <div class="custom__input">
+                        <span class = "custom__input-row">
                             <input class="field" type="password" id="password" required>
                             <span class="placeholder">Password</span>
                             <font-awesome-icon :icon="myIcon" class="icon" v-on:click="togglePassword()"/>
@@ -118,7 +118,7 @@ export default {
 
     &__left{
         padding: 10px 0 0 15vw;
-        .track__input{
+        .custom__input{
             width: 400px;
             margin: auto;
             margin-top: 0;
@@ -129,27 +129,7 @@ export default {
         border-left: 1px solid $light-grey;
         padding: 10px 150px 30px 2.5rem;
         max-width: 600px;
-    }
-
-    &__input{
-        position: relative;
-        width: 100%;
-    }
-
-    &__input-row{
-        display:flex; 
-    }
-
-    &__input-row input:focus + span,
-    &__input-row input:valid + span{
-        top: 12px;
-        left: 12px;
-        font-size: 14px;
-    }
-    
-    &__input-row input:focus +.placeholder + .icon,
-    &__input-row input:valid +.placeholder + .icon{
-        visibility: visible;
+        min-width: 500px;
     }
 
     &__btn{
@@ -161,57 +141,12 @@ export default {
     }
 }
 
-.field {
-    width: 100%;
-    font-size: 18px;
-    padding: 1.3em 1.2em 0.5em 0.7em;
-    margin: 7px auto;
-    display: inline-block;
-    background: rgba(126,126,126,0.1);
-    border: 0px solid rgba(126,126,126,0.1);
-    background-clip:padding-box;
-    border-radius: 3px;
-    box-sizing: border-box;
-    transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-    color: #525252;
-
-    &:hover{
-        background: #e7e7e7;
-      }
-      
-    &:focus{
-        background: transparent;
-    }
-}
-
-.placeholder{
-    pointer-events: none;
-    position: absolute;
-    top: 30%;
-    left: 8%;
-    font-weight: 400;
-    font-size: 20px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}  
-
-.password{
-    padding-right: 42px;
-}
-
-.icon{
-    top: 28px;
-    right: 10px;
-    position: absolute;
-    font-size: 24px;
-    cursor: pointer;
-    visibility: hidden;
-}
-
 @media screen and (max-width: 1200px){
     .track{
         &__left{
-            padding: 0 0 0 0;
-            .track__input{
+            padding-top: 10px;
+            padding-right: 50px;
+            .custom__input{
                 width: 400px;
                 margin: auto;
                 margin-top: 0;
@@ -221,15 +156,16 @@ export default {
             border-left: 1px solid $light-grey;
             padding: 10px 50px 30px 2.5rem;
             max-width: 600px;
+            min-width: 380px;
         }
     }
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1000px) {
     .track{
         &__left{
             padding: 0;
-            .track__input{
+            .custom__input{
                 width: 400px;
                 margin: auto;
                 margin-top: 0;
@@ -241,7 +177,8 @@ export default {
             border-left: 0px;
             padding: 80px 70px 0 70px;
             margin-top: 100px;
-            .track__input{
+            min-width: 0;
+            .custom__input{
                 width: 400px;
                 margin: auto;
                 margin-top: 0;
@@ -270,7 +207,7 @@ export default {
 
         &__left{
             padding: 0;
-            .track__input{
+            .custom__input{
                 width: 80vw;
                 margin: auto;
                 margin-top: 0;
@@ -282,15 +219,24 @@ export default {
             border-left: 0px;
             padding: 80px 0 0 0;
             margin-top: 100px;
-            .track__input{
+            .custom__input{
                 width: 80vw;
                 margin: auto;
                 margin-top: 0;
             }
         }
 
+
         &__sub-container{
             margin-top: 40px;
+        }
+
+        &__btn {
+            width: 80vw;
+            margin: auto;
+            margin-top: 30px;
+            padding-left: 0px;
+            padding-right: 0px;
         }
     }
 }

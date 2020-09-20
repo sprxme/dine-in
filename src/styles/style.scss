@@ -4,6 +4,7 @@
     background: $btn-primary;
     color: $btn-primary-text;
     text-transform: capitalize;
+    font-weight: 550;
 
     &:hover{
         background: $btn-primary-hover;
@@ -38,17 +39,22 @@
 .custom__input{
     position: relative;
     width: 100%;
+
+    .field {
+        margin: 7px 0px;
+    }
 }
 
 .custom__input-row{
     display:flex; 
 }
 
-.custom__input-row input:focus + span,
-.custom__input-row input:valid + span{
+.custom__input-row input:focus + .placeholder,
+.custom__input-row input:valid + .placeholder{
     top: 12px;
     left: 12px;
     font-size: 14px;
+    color: $text;
 }
 
 .custom__input-row input:focus +.placeholder + .icon,
@@ -87,6 +93,7 @@
     font-weight: 400;
     font-size: 20px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    color: $secondary-text;
 }  
 
 .password{
