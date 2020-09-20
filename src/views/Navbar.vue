@@ -427,10 +427,6 @@ export default {
     &::before{
       right: 2.05em;
     }
-
-    &__menu-list {
-      //max-height: 500px;
-    }
   }
 }
 
