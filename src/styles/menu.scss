@@ -28,6 +28,11 @@
         border-radius: 8px;
         transition: all .2s ease 0s;
         overflow: hidden;
+        position: relative;
+        align-self: stretch;
+        justify-content: flex-start;
+        display: flex;
+        flex-direction: column;
 
         &:hover{
             transform: translateY(-8px);
@@ -64,6 +69,10 @@
 
     &__price{
         font-weight: 600;
+    }
+
+    &__button_cart {
+        margin-top: auto;
     }
     
     &__tocart{
