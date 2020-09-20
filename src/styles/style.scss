@@ -33,3 +33,71 @@
         color: $route-color-hover;
     }
 }
+
+
+.custom__input{
+    position: relative;
+    width: 100%;
+}
+
+.custom__input-row{
+    display:flex; 
+}
+
+.custom__input-row input:focus + span,
+.custom__input-row input:valid + span{
+    top: 12px;
+    left: 12px;
+    font-size: 14px;
+}
+
+.custom__input-row input:focus +.placeholder + .icon,
+.custom__input-row input:valid +.placeholder + .icon{
+    visibility: visible;
+}
+
+.field {
+    width: 100%;
+    font-size: 18px;
+    padding: 1.3em 1.2em 0.5em 0.7em;
+    margin: 10px auto;
+    display: inline-block;
+    background: rgba(126,126,126,0.1);
+    border: 0px solid rgba(126,126,126,0.1);
+    background-clip:padding-box;
+    border-radius: 3px;
+    box-sizing: border-box;
+    transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    color: #525252;
+
+    &:hover{
+        background: #e7e7e7;
+      }
+      
+    &:focus{
+        background: transparent;
+    }
+}
+
+.placeholder{
+    pointer-events: none;
+    position: absolute;
+    top: 30%;
+    left: 8%;
+    font-weight: 400;
+    font-size: 20px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}  
+
+.password{
+    padding-right: 42px;
+}
+
+.icon{
+    top: 28px;
+    right: 10px;
+    position: absolute;
+    font-size: 24px;
+    cursor: pointer;
+    visibility: hidden;
+}

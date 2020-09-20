@@ -2,14 +2,14 @@
   <div class="account">
     <div class="account__content">
       <h1 class="account__title">Sign Up</h1>
-      <div class="account__input">
-        <span class = "account__input-row">
+      <div class="custom__input">
+        <span class = "custom__input-row">
           <input class="field" type="text" required>
           <span class="placeholder">Username</span>
         </span>
       </div>
-      <div class="account__input">
-        <span class="account__input-row">
+      <div class="custom__input">
+        <span class="custom__input-row">
           <input id="password" class="field password" type="password" @blur="hidePassword()" required>
           <span class="placeholder">Password</span>
           <font-awesome-icon :icon="myIcon" class="icon" v-on:click="togglePassword()"/>
