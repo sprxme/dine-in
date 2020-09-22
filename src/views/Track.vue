@@ -11,7 +11,7 @@
                 <label class="track__label">Find an individual order.</label>
                 <div class="custom__input">
                     <span class = "custom__input-row">
-                        <input class="field" type="text" required>
+                        <input class="field" type="text" v-model="token" required>
                         <span class="placeholder">Token</span>
                         <router-link :to="'/track/'+token">
                             <font-awesome-icon icon="arrow-alt-circle-right" class="arrow-right"/>
