@@ -2,11 +2,13 @@
   <div class="app">
     <Navbar v-show="$route.path.includes('/account') ? false : true" v-on:tap-cart="disableScroll" v-on:change-route="enableScroll"/>
     <router-view/>
+    <Footer v-show="$route.path.includes('/account') ? false : true"/>
   </div>
 </template>
 
 <script>
 import Navbar from './views/Navbar';
+import Footer from './views/Footer';
 
 export default {
   name: 'app',
@@ -18,7 +20,6 @@ export default {
   methods: {
     disableScroll: function() {
       this.isCartOpen = !this.isCartOpen
-      console.log(this.isCartOpen)
       document.documentElement.style.overflow = this.isCartOpen ? 'hidden' : 'auto'
     },
     enableScroll: function () {
@@ -28,13 +29,13 @@ export default {
   },
   watch:{
     $route: function(){
-      console.log('Routing...')
       this.isCartOpen = false
       document.documentElement.style.overflow = 'auto'
     }
   },
   components: {
-    Navbar
+    Navbar,
+    Footer
   }
 }
 </script>
