@@ -1,19 +1,19 @@
-# Web Dine-in
+# :earth_asia: Web Dine-in
 
-## Project setup
+## :gear: Project setup
 ```
 npm install
 ```
 
-## Run project
+## :running: Run project
 ```
 npm run serve
 ```
 
 
-## Members:
-535170081   Jason Su 😴💤🛌         [@jasons_99](https://instagram.com/jasons_99) <br/>
-535170082   Jacob Andrean 🎵🎸🎹    [@jacobandrean_](https://instagram.com/jacobandrean_) <br/>
-535170091   Danny 🍜🛍🩸             [@dannyindratjuatja](https://instagram.com/dannyindratjuatja) <br/>
-535170093   Harry Ronaldo Y 🍕🎮👾  [@harry_ronaldo](https://instagram.com/harry_ronaldo) <br/>
-535170098   Victor Samuel C 👁👄👁   [@vctxr](https://instagram.com/vctxr)<br/>
+## :blue_book: Author:
+- Jason Su (535170081) 😴💤🛌, [@jasons_99](https://instagram.com/jasons_99) <br/>
+- Jacob Andrean (535170082) 🎵🎸🎹, [@jacobandrean_](https://instagram.com/jacobandrean_) <br/>
+- Danny (535170091) 🍜🛍🩸, [@dannyindratjuatja](https://instagram.com/dannyindratjuatja) <br/>
+- Harry Ronaldo Y (535170093) 🍕🎮👾, [@harry_ronaldo](https://instagram.com/harry_ronaldo) <br/>
+- Victor Samuel C (535170098) 👁👄👁, [@vctxr](https://instagram.com/vctxr)<br/>
