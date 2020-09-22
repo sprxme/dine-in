@@ -18,18 +18,18 @@
                 </ul>
             </div>
             <div class="footer__column">
-                <ul class="footer__column-list">
+                <ul class="footer__column-list footer__with-icons">
                     <label class="footer__title">Account</label>
                     <li class="footer__label">Create New Account</li>
                     <li class="footer__label">Manage Your Account</li>
                     <li class="footer__label">Forgot Password</li>
                 </ul>
-                <ul class="footer__column-list">
+                <ul class="footer__column-list footer__with-icons">
                     <label class="footer__title">For Business</label>
                     <li class="footer__label">Supreme and Business</li>
                     <li class="footer__label">Partnership</li>
                 </ul>
-                <ul class="footer__column-list">
+                <ul class="footer__column-list footer__with-icons">
                     <label class="footer__title">Follow Us</label>
                     <div class="footer__social-media">
                         <font-awesome-icon :icon="['fab','facebook']" class="footer__icon facebook" />
@@ -39,7 +39,7 @@
                 </ul>
             </div>
             <div class="footer__column">
-                <ul class="footer__column-list">
+                <ul class="footer__column-list footer__with-icons">
                     <label class="footer__title">About Supreme</label>
                     <li class="footer__label">Job Opportunities</li>
                     <li class="footer__label">Investors</li>
@@ -74,12 +74,12 @@ export default {
 
 <style lang="scss" scoped>
 .footer{
-    padding: .8em 25vw;
+    padding: .8em 15vw;
     border-top: 1px solid $extra-light-grey;
 
     &__columns{
         display: grid;
-        grid-template-columns: repeat(3,1fr);
+        grid-template-columns: 1.2fr 1.2fr 1fr;
         margin-top: .8rem;
     }
 
@@ -140,6 +140,7 @@ export default {
 
     &__copyright{
         display:flex;
+        flex-direction: row;
         justify-content: center;
         color: $secondary-text;
 
@@ -194,4 +195,70 @@ export default {
         padding: .8em 10vw;
     }
 }
+
+@media screen and (max-width:900px){
+    .footer {
+        &__columns{
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        &__copyright{
+            flex-direction: column;
+
+            &__middle {
+                margin-top: .3em;
+                margin-bottom: .5em;
+            }
+        }
+
+        &__with-icons {
+            margin-right: 0em;
+            margin-left: 1em;
+        }
+    }
+}
+
+@media screen and (max-width:700px){
+    .footer{
+        padding: .8em 5vw;
+
+        &__column-list {
+            margin-right: 1em;
+        }
+
+        &__with-icons {
+            margin-right: 0em;
+            margin-left: 1em;
+        }
+    }
+}
+
+@media screen and (max-width:500px){
+    .footer{
+        &__columns{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            margin-top: .8rem;
+        }
+
+        &__title{
+            font-size: 14px;
+        }
+
+        &__label{
+            font-size: 12px;
+        }
+
+        &__footer{
+            font-size: 10px;
+        }
+    }
+}
+
+@media screen and (max-width:400px){
+    .footer{
+        padding: .8em 1em;
+    }
+}
+
 </style>
