@@ -12,7 +12,7 @@ npm run serve
 
 
 ## :blue_book: Author:
-Oh how lovely this project is, if it weren't for our lovely (often highly caffeinated ☕️) in-house development team. All the thoughts and work our talented team put into this project hopes to inspire many of you boys and girls! 🧒 👧. Curious about our developer team? 🧐 **boom** instagram profile links are provided also! 
+Oh how lovely this project is, if it weren't for our lovely (often highly caffeinated ☕️) in-house development team. All the thoughts and work our talented team put into this project hopes to inspire many of you boys and girls! 🧒 👧. Curious about our development team? 🧐 **boom** instagram profile links are provided also! 
 <br/>
 
 |             Name            |    NIM    | Favorite Emoji | Instagram | 
