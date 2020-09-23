@@ -65,11 +65,12 @@
     &__desc{
         color: $secondary-text;
         font-size: 14px;
+        padding-top: .2em;
     }
 
     &__price{
         font-weight: 600;
-        margin: .4em 0 .4em;
+        margin: .5em 0 .4em;
     }
 
     &__button_cart {
@@ -185,15 +186,17 @@
         &__name{
             font-weight: 700;
             font-size: 15px;
+            margin-top: .1em;
         }
 
         &__desc {
             font-size: 12px;
+            padding-top: .3em;
         }
 
         &__price {
-            font-size: 12px;
-            margin-bottom: 0;
+            font-size: 14px;
+            margin-bottom: .1em;
         }
 
         &__details{
