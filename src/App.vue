@@ -51,6 +51,11 @@ export default {
   box-sizing: border-box;
 }
 
+body {
+      min-width: 300px;
+
+}
+
 li:focus{
   outline:none;
 }

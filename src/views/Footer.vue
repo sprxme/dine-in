@@ -39,7 +39,7 @@
                 </ul>
             </div>
             <div class="footer__column">
-                <ul class="footer__column-list footer__with-icons">
+                <ul class="footer__column-list footer__about">
                     <label class="footer__title">About Supreme</label>
                     <li class="footer__label">Job Opportunities</li>
                     <li class="footer__label">Investors</li>
@@ -114,6 +114,7 @@ export default {
     }
 
     &__footer{
+        padding-top: 2em;
         display: flex;
         flex-direction: column;   
         justify-content: space-between; 
@@ -211,7 +212,8 @@ export default {
             }
         }
 
-        &__with-icons {
+        &__with-icons,
+        &__about {
             margin-right: 0em;
             margin-left: 1em;
         }
@@ -251,6 +253,10 @@ export default {
 
         &__footer{
             font-size: 10px;
+        }
+
+        &__about {
+            margin: 0 0 1.8em 0;
         }
     }
 }
