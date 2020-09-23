@@ -69,6 +69,7 @@
 
     &__price{
         font-weight: 600;
+        margin: .4em 0 .4em;
     }
 
     &__button_cart {
@@ -132,16 +133,38 @@
             grid-template-columns: 1fr 1fr;
             grid-gap: 1rem;
         }
+
+        &__card{
+            &:hover{
+                transform: translateY(-4px);
+            }
+        }
+
+        &__price {
+            margin-bottom: .2em;
+        }
+
+        &__details{
+            padding: .5em 1em 1em;
+            display:flex;
+            flex-direction: column;
+        }
+
+        &__quantity,
+        &__tocart{
+            margin: 1em;
+            margin-top: 0;
+        }
     }
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 480px) {
     .menu{
         padding: 5em 1em 2em 1em;
 
         &__cards{
             grid-template-columns: 1fr 1fr;
-            grid-gap: 0.66rem;
+            grid-gap: 0.8rem;
         }
 
         &__card{
@@ -151,12 +174,12 @@
         }
 
         &__image-container {
-            height: 90px;
+            height: 100px;
         }
 
         &__image {
             min-height: 0px;
-            height: 90px;
+            height: 100px;
         }
 
         &__name{
@@ -170,6 +193,7 @@
 
         &__price {
             font-size: 12px;
+            margin-bottom: 0;
         }
 
         &__details{
@@ -202,6 +226,17 @@
                 color: $btn-primary;
                 cursor: pointer;
             }
+        }
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .menu{
+        padding: 5em 1em 2em 1em;
+
+        &__cards{
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 0.67rem;
         }
     }
 }
