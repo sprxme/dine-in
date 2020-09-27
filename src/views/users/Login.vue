@@ -8,18 +8,18 @@
         indicators>
         <b-carousel-slide
           class="image-carousel"
-          img-src="../assets/food/food1.jpg"
+          img-src="@/assets/food/food1.jpg"
         ></b-carousel-slide>
         <b-carousel-slide
           class="image-carousel"
-          img-src="../assets/food/food2.jpg"
+          img-src="@/assets/food/food2.jpg"
         ></b-carousel-slide>
         <b-carousel-slide
           class="image-carousel"
-          img-src="../assets/food/food6.jpg"
+          img-src="@/assets/food/food6.jpg"
         ></b-carousel-slide>
       </b-carousel>
-      <img src="../assets/food/food1.jpg" class="image media-screen">
+      <img src="@/assets/food/food1.jpg" class="image media-screen">
       <span class="screen-dim"></span>
     </div>
 </template>

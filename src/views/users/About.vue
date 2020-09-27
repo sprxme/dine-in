@@ -1,11 +1,11 @@
 <template>
   <div class="about">
     <div>
-      <img class ="about__imageabout" src="../assets/about/aboutimage.jpg"/>
+      <img class ="about__imageabout" src="@/assets/about/aboutimage.jpg"/>
     </div>
     
     <div>
-      <img class="about__logo" src="../assets/about/logo2rev.png" />
+      <img class="about__logo" src="@/assets/about/logo2rev.png" />
     </div>
 
     <div>

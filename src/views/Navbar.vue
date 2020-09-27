@@ -50,7 +50,7 @@
 </template>
 
 <script>
-import Cartpop from '../components/Cartpop';
+import Cartpop from '@/components/Cartpop';
 import { mapGetters } from 'vuex';
 
 export default {
@@ -76,10 +76,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-// =================
-//      SIDEBAR
-// =================
 .sidebar{
   display: flex;
   padding: .8em 1em;

@@ -1,14 +1,14 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-import Account from '../views/Login'
-import SignUp from '../components/SignUp'
-import Login from '../components/Login'
-import Food from '../views/Food'
-import Beverage from '../views/Beverage'
-import Order from '../views/Order'
-import Track from '../views/Track'
-import TrackingItem from '../views/TrackingItem'
+import Home from '@/views/users/Home.vue'
+import Account from '@/views/users/Login'
+import SignUp from '@/components/SignUp'
+import Login from '@/components/Login'
+import Food from '@/views/users/Food'
+import Beverage from '@/views/users/Beverage'
+import Order from '@/views/users/Order'
+import Track from '@/views/users/Track'
+import TrackingItem from '@/views/users/TrackingItem'
 
 Vue.use(VueRouter)
 
@@ -65,7 +65,7 @@ Vue.use(VueRouter)
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    component: () => import(/* webpackChunkName: "about" */ '@/views/users/About.vue')
   }
 ]
 
