@@ -1,9 +1,9 @@
 <template>
     <div class="cartpop" v-if="show" @blur="show=false">
         <div class="cartpop__content">
-        <ul class="cartpop__orders" v-if="orders.length">
+        <ul class="cartpop__orders" v-if="allOrders.length">
             <div class="cartpop__menu-list">
-            <li v-for="order in orders" :key="order.id" class="cartpop__order-menu">
+            <li v-for="order in allOrders" :key="order.id" class="cartpop__order-menu">
                 <div class="cartpop__image-container">
                 <img :src="require('../assets/food/'+order.image+'.jpg')" class="cartpop__image"/>
                 </div>
@@ -33,29 +33,18 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
     data: function(){
         return{
             dim: false,
-            orders: [
-                {id: 1, name:'Aglio e Olio', quantity:'1', price: '79000', image:'food1'},
-                {id: 2, name:'Ravioli', quantity:'1', price: '79000',image:'food2'},
-                {id: 3, name:'Sparkling Water',  quantity:'1', price: '44000',image:'food3'},
-                {id: 4, name:'Mineral Water',  quantity:'1', price: '12000',image:'food3'},
-                {id: 5, name:'Aglio e Olio', quantity:'1', price: '79000', image:'food1'},
-                {id: 6, name:'Ravioli', quantity:'1', price: '79000',image:'food2'},
-                {id: 7, name:'Sparkling Water',  quantity:'1', price: '44000',image:'food3'},
-                {id: 8, name:'Mineral Water',  quantity:'1', price: '12000',image:'food3'},
-                {id: 9, name:'Aglio e Olio', quantity:'1', price: '79000', image:'food1'},
-                {id: 10, name:'Ravioli', quantity:'1', price: '79000',image:'food2'},
-                {id: 11, name:'Sparkling Water',  quantity:'1', price: '44000',image:'food3'},
-                {id: 12, name:'Mineral Water',  quantity:'1', price: '12000',image:'food3'}
-            ],
         }
     },
     props:{
         show: Boolean
-    }
+    },
+    computed: mapGetters(['allOrders'])
 }
 </script>
 

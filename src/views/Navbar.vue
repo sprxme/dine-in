@@ -5,8 +5,8 @@
     <div class="sidebar__end">
       <div class="sidebar__end-shop">
         <font-awesome-icon icon="shopping-bag" class="sidebar__icon icon-primary" v-on:click="show = !show; dim = !dim; $emit('tap-cart')"/>
-        <div class="sidebar__orders-badge" v-if="orders.length">
-          <span class="sidebar__orders-badge-text">{{orders.length}}</span>
+        <div class="sidebar__orders-badge" v-if="allOrders.length">
+          <span class="sidebar__orders-badge-text">{{allOrders.length}}</span>
         </div>
       </div>
     </div>
@@ -51,27 +51,14 @@
 
 <script>
 import Cartpop from '../components/Cartpop';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'navbar',
   data: function(){
     return{
       show: false,
-      dim: false,
-      orders: [
-                {id: 1, name:'Aglio e Olio', quantity:'1', price: '79000', image:'food1'},
-                {id: 2, name:'Ravioli', quantity:'1', price: '79000',image:'food2'},
-                {id: 3, name:'Sparkling Water',  quantity:'1', price: '44000',image:'food3'},
-                {id: 4, name:'Mineral Water',  quantity:'1', price: '12000',image:'food3'},
-                {id: 5, name:'Aglio e Olio', quantity:'1', price: '79000', image:'food1'},
-                {id: 6, name:'Ravioli', quantity:'1', price: '79000',image:'food2'},
-                {id: 7, name:'Sparkling Water',  quantity:'1', price: '44000',image:'food3'},
-                {id: 8, name:'Mineral Water',  quantity:'1', price: '12000',image:'food3'},
-                {id: 9, name:'Aglio e Olio', quantity:'1', price: '79000', image:'food1'},
-                {id: 10, name:'Ravioli', quantity:'1', price: '79000',image:'food2'},
-                {id: 11, name:'Sparkling Water',  quantity:'1', price: '44000',image:'food3'},
-                {id: 12, name:'Mineral Water',  quantity:'1', price: '12000',image:'food3'}
-            ],
+      dim: false
     }
   },
   methods:{
@@ -81,6 +68,9 @@ export default {
   },
   components:{
     Cartpop
+  },
+  computed:{
+    ...mapGetters(['allOrders'])
   }
 }
 </script>

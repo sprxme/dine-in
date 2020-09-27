@@ -1,7 +1,8 @@
 import Vuex from 'vuex'
 import Vue from 'vue'
-import foods from './modules/foods.js'
-import drinks from './modules/drinks.js'
+import Foods from './modules/foods.js'
+import Drinks from './modules/drinks.js'
+import Orders from './modules/orders.js'
 
 // Load vuex
 Vue.use(Vuex)
@@ -9,7 +10,8 @@ Vue.use(Vuex)
 // Create store
 export default new Vuex.Store({
     modules: {
-        foods,
-        drinks
+        Foods,
+        Drinks,
+        Orders
     }
 })
