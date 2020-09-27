@@ -211,4 +211,21 @@ export default {
     background: $btn-primary-hover;
   }
 }
+
+@media screen and (min-width:780px){
+  .cartpop{
+    display: flex;
+    position: fixed;
+    right: 0;
+    width: 380px;
+    box-shadow: $box-card-shadow;
+    border-radius: 8px;
+    margin-top: 5px;
+    margin-right: 5px;
+
+    &::before{
+      right: 2.05em;
+    }
+  }
+}
 </style>
