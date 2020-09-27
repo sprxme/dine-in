@@ -11,37 +11,7 @@
       </div>
     </div>
   </div>
-  <div class="cartpop" v-if="show" @blur="show=false">
-    <div class="cartpop__content">
-      <ul class="cartpop__orders" v-if="orders.length">
-        <div class="cartpop__menu-list">
-          <li v-for="order in orders" :key="order.id" class="cartpop__order-menu">
-            <div class="cartpop__image-container">
-              <img :src="require('../assets/food/'+order.image+'.jpg')" class="cartpop__image"/>
-            </div>
-            <div class="cartpop__order-details">
-              <span class="cartpop__menu-name">{{order.name}}</span>
-              <span class="cartpop__menu-quantity">x{{order.quantity}}</span>
-            </div>
-          </li>
-        </div>
-        <router-link class="cartpop__placeorder primary-button" to ="/order" @click.native="show = false; dim = false">
-          Place order
-        </router-link>
-      </ul>
-      <div class="cartpop__empty" v-else>
-          Your order is empty
-      </div>
-      <router-link class="cartpop__menu route-menu" to="/track" @click.native="show = false; dim = false; $emit('change-route')">
-        <font-awesome-icon icon="tasks" class="cartpop__icon" />
-        <span>Track</span>
-      </router-link>
-      <router-link class="cartpop__menu route-menu" to="/account" @click.native="show = false; dim = false; $emit('change-route')">
-        <font-awesome-icon icon="user-circle" class="cartpop__icon" />
-        <span>Sign in</span>
-      </router-link>
-    </div>
-  </div>
+  <Cartpop :show="show"/>
   <b-sidebar 
     id="sidebar-1" 
     shadow
@@ -80,6 +50,8 @@
 </template>
 
 <script>
+import Cartpop from '../components/Cartpop';
+
 export default {
   name: 'navbar',
   data: function(){
@@ -87,25 +59,28 @@ export default {
       show: false,
       dim: false,
       orders: [
-        {id: 1, name:'Aglio e Olio', quantity:'1', price: '79000', image:'food1'},
-        {id: 2, name:'Ravioli', quantity:'1', price: '79000',image:'food2'},
-        {id: 3, name:'Sparkling Water',  quantity:'1', price: '44000',image:'food3'},
-        {id: 4, name:'Mineral Water',  quantity:'1', price: '12000',image:'food3'},
-        {id: 5, name:'Aglio e Olio', quantity:'1', price: '79000', image:'food1'},
-        {id: 6, name:'Ravioli', quantity:'1', price: '79000',image:'food2'},
-        {id: 7, name:'Sparkling Water',  quantity:'1', price: '44000',image:'food3'},
-        {id: 8, name:'Mineral Water',  quantity:'1', price: '12000',image:'food3'},
-        {id: 9, name:'Aglio e Olio', quantity:'1', price: '79000', image:'food1'},
-        {id: 10, name:'Ravioli', quantity:'1', price: '79000',image:'food2'},
-        {id: 11, name:'Sparkling Water',  quantity:'1', price: '44000',image:'food3'},
-        {id: 12, name:'Mineral Water',  quantity:'1', price: '12000',image:'food3'}
-      ],
+                {id: 1, name:'Aglio e Olio', quantity:'1', price: '79000', image:'food1'},
+                {id: 2, name:'Ravioli', quantity:'1', price: '79000',image:'food2'},
+                {id: 3, name:'Sparkling Water',  quantity:'1', price: '44000',image:'food3'},
+                {id: 4, name:'Mineral Water',  quantity:'1', price: '12000',image:'food3'},
+                {id: 5, name:'Aglio e Olio', quantity:'1', price: '79000', image:'food1'},
+                {id: 6, name:'Ravioli', quantity:'1', price: '79000',image:'food2'},
+                {id: 7, name:'Sparkling Water',  quantity:'1', price: '44000',image:'food3'},
+                {id: 8, name:'Mineral Water',  quantity:'1', price: '12000',image:'food3'},
+                {id: 9, name:'Aglio e Olio', quantity:'1', price: '79000', image:'food1'},
+                {id: 10, name:'Ravioli', quantity:'1', price: '79000',image:'food2'},
+                {id: 11, name:'Sparkling Water',  quantity:'1', price: '44000',image:'food3'},
+                {id: 12, name:'Mineral Water',  quantity:'1', price: '12000',image:'food3'}
+            ],
     }
   },
   methods:{
     toggleArrow: function(){
       document.getElementById("arrow").classList.toggle("flip");
     }
+  },
+  components:{
+    Cartpop
   }
 }
 </script>
