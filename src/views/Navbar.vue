@@ -11,7 +11,7 @@
       </div>
     </div>
   </div>
-  <Cartpop :show="show"/>
+  <Cartpop :show="show" v-on:change-route="enableScrollToParent"/>
   <b-sidebar 
     id="sidebar-1" 
     shadow
@@ -64,6 +64,11 @@ export default {
   methods:{
     toggleArrow: function(){
       document.getElementById("arrow").classList.toggle("flip");
+    },
+    enableScrollToParent: function(){
+      this.show = false;
+      this.dim = false;
+      this.$emit('change-route');
     }
   },
   components:{
