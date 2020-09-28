@@ -10,6 +10,7 @@ import Order from '@/views/users/Order'
 import Track from '@/views/users/Track'
 import TrackingItem from '@/views/users/TrackingItem'
 import AllOrders from '@/views/admin/AllOrders'
+import PageNotFound from '@/views/PageNotFound';
 
 //const { isNavigationFailure, NavigationFailureType} = VueRouter;
 
@@ -74,6 +75,10 @@ Vue.use(VueRouter)
     path:'/allorders',
     name: 'AllOrders',
     component: AllOrders
+  },
+  {
+    path: '*',
+    component: PageNotFound
   }
 ]
 
