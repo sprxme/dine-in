@@ -76,6 +76,8 @@ Vue.use(VueRouter)
     name: 'AllOrders',
     component: AllOrders
   },
+
+  //always put after all the other routes
   {
     path: '*',
     component: PageNotFound
