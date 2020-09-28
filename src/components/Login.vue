@@ -17,7 +17,7 @@
       </div>
       <span class="primary-button">Sign In</span>
       <a class="account__route">Forgot your username or password?</a>
-      <router-link to='/account/signup' class="account__route">Don't have an account? Create one now</router-link>
+      <router-link :to="{path: 'signup'}" append class="account__route">Don't have an account? Create one now</router-link>
     </div>
   </div>
 </template>

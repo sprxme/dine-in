@@ -10,6 +10,8 @@ import Order from '@/views/users/Order'
 import Track from '@/views/users/Track'
 import TrackingItem from '@/views/users/TrackingItem'
 
+//const { isNavigationFailure, NavigationFailureType} = VueRouter;
+
 Vue.use(VueRouter)
 
   const routes = [
@@ -66,18 +68,17 @@ Vue.use(VueRouter)
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '@/views/users/About.vue')
+  },
+  {
+    path:'/AllOrder',
+    name: 'AllOrder',
+    
   }
 ]
 
 const router = new VueRouter({
   mode: 'history',
-  routes,
-  scrollBehavior: function(to) {
-    if (to.hash) {
-      return {selector: to.hash}
-    } else {
-      return {x: 0, y: 0}
-    }
-  },
+  routes
 });
+
 export default router
