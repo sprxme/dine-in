@@ -18,7 +18,8 @@
             </router-link>
         </ul>
         <div class="cartpop__empty" v-else>
-            Your order is empty
+            <p class="cartpop__empty__title">Looking for your order?</p> 
+            <p class="cartpop__empty__subtitle">Food and beverages you select from the menu will appear here.</p> 
         </div>
         <router-link class="cartpop__menu route-menu" to="/track" @click.native="show = false; dim = false; $emit('change-route')">
             <font-awesome-icon icon="tasks" class="cartpop__icon" />
@@ -58,6 +59,7 @@ export default {
   width: 100vw;
   z-index: 98;
   padding: 0em 1em 0.6em 1em;
+  min-width: $min-width;
 
   &::before{
     content: '';
@@ -132,11 +134,24 @@ export default {
   }
 
   &__empty{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 3.5rem 0;
+    // // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    text-align: center;
+    padding: 4rem 1rem 2.4rem;
     border-bottom: 1px solid rgba(0,0,0,0.3);
+    margin-bottom: .2rem;
+
+    &__title {
+      color: $text;
+      font-weight: 700;
+      margin-bottom: 0;
+    }
+
+    &__subtitle {
+      color: $secondary-text;
+      font-size: .9em;
+    }
   }
 
   &__image{
@@ -203,7 +218,7 @@ export default {
 
 @media screen and (min-width:780px){
   .cartpop{
-    display: flex;
+    // display: flex;
     position: fixed;
     right: 0;
     width: 380px;

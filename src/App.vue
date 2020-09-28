@@ -52,7 +52,7 @@ export default {
 }
 
 body {
-      min-width: 300px;
+      min-width: $min-width;
 
 }
 

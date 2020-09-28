@@ -91,6 +91,7 @@ export default {
   position: fixed;
   width: 100%;
   z-index: 98;
+  min-width: $min-width;
 
   &__routes{
     display: flex;
