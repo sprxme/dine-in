@@ -9,6 +9,7 @@ import Beverage from '@/views/users/Beverage'
 import Order from '@/views/users/Order'
 import Track from '@/views/users/Track'
 import TrackingItem from '@/views/users/TrackingItem'
+import AllOrders from '@/views/admin/AllOrders'
 
 //const { isNavigationFailure, NavigationFailureType} = VueRouter;
 
@@ -70,9 +71,9 @@ Vue.use(VueRouter)
     component: () => import(/* webpackChunkName: "about" */ '@/views/users/About.vue')
   },
   {
-    path:'/AllOrder',
-    name: 'AllOrder',
-    
+    path:'/allorders',
+    name: 'AllOrders',
+    component: AllOrders
   }
 ]
 
