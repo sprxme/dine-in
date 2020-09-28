@@ -11,6 +11,7 @@ import Track from '@/views/users/Track'
 import TrackingItem from '@/views/users/TrackingItem'
 import AllOrders from '@/views/admin/AllOrders'
 import PageNotFound from '@/views/PageNotFound';
+import store from '@/store/index';
 
 //const { isNavigationFailure, NavigationFailureType} = VueRouter;
 
@@ -74,7 +75,8 @@ Vue.use(VueRouter)
   {
     path:'/allorders',
     name: 'AllOrders',
-    component: AllOrders
+    component: AllOrders,
+    meta: { requiresAuth: true } //requires admin auth
   },
 
   //always put after all the other routes
@@ -87,6 +89,21 @@ Vue.use(VueRouter)
 const router = new VueRouter({
   mode: 'history',
   routes
+});
+
+router.beforeEach((to,from,next) =>{
+  
+  if(to.matched.some(record => record.meta.requiresAuth)){
+    if(store.state.Auth.isAuth){
+      next();
+    }
+    else{
+      router.replace('/account');
+    }
+  }
+  else {
+    next();
+  }
 });
 
 export default router

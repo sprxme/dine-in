@@ -41,6 +41,10 @@
         <font-awesome-icon icon="info-circle" class="sidebar__icon icon-secondary" />
         About
       </router-link>
+      <router-link class="sidebar__router" to="/allorders" @click.native="show = false; dim = false; $emit('change-route')">
+        <font-awesome-icon icon="info-circle" class="sidebar__icon icon-secondary" />
+        All Orders
+      </router-link>
     </div>
   </b-sidebar>
   <transition name="fade">

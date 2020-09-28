@@ -8,8 +8,8 @@
                 <img :src="require('../assets/food/'+order.image+'.jpg')" class="cartpop__image"/>
                 </div>
                 <div class="cartpop__order-details">
-                <span class="cartpop__menu-name">{{order.name}}</span>
-                <span class="cartpop__menu-quantity">x{{order.quantity}}</span>
+                  <span class="cartpop__menu-name">{{order.name}}</span>
+                  <span class="cartpop__menu-quantity">x{{order.quantity}}</span>
                 </div>
             </li>
             </div>
