@@ -27,13 +27,14 @@
         padding: 0 5px 0 0;
         font-weight: 600;
         font-size: 18px;
+        cursor: pointer;
     }
 
     &__link{
         color: $route-color;
         display: flex;
         align-items: center;
-        
+
         &:hover{
             color: $route-color-hover;
         }
