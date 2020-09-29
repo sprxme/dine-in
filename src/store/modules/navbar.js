@@ -36,7 +36,7 @@ const state = {
             routeLink: '/about',
             child: null,
             permission: ['user','admin']
-        },
+        }
     ]
 }
 

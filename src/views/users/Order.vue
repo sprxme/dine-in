@@ -1,17 +1,22 @@
 <template>
-    <div class="order">
-        this is order 
+    <div class="orderlist">
+        <OrderCard v-for="index in 5" :key="index"/>
     </div>
 </template>
 
 <script>
+import OrderCard from '@/components/OrderCard.vue';
 export default {
-    
+    components:{
+        OrderCard
+    },
+
 }
 </script>
 
 <style lang="scss" scoped>
-.order{
-    padding: 5rem 1.2rem;
+.orderlist{
+    padding: 10em 10vw;
+
 }
 </style>
