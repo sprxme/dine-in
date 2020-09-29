@@ -1,6 +1,6 @@
 <template>
     <div class="PNF">
-        <h1 class="PNF__title">The page you're looking for can't be found</h1>
+        <h1 class="PNF__title">The page you're looking for can't be found.</h1>
         <router-link class = "PNF__link" to="/">
             <label class="PNF__label">Go to home</label>
             <font-awesome-icon icon="chevron-right" class="PNF__icon" />

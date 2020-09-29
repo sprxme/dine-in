@@ -15,6 +15,23 @@
     }
 }
 
+.destructive-button{
+    text-decoration: none;
+    cursor: pointer;
+    background: $notif;
+    color: $btn-destructive-text;
+    // text-transform: capitalize;
+    font-weight: 550;
+
+    &:hover{
+        background: $btn-destructive-hover;
+    }
+
+    &:active{
+        background: $btn-destructive-click;
+    }
+}
+
 .icon-secondary{
     color: $icon-secondary;
 }

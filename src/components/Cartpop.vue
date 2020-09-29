@@ -38,11 +38,11 @@
             <span>Sign out</span>
         </span>
         </div>
-        <b-modal id="modal-sign-out" title="Sign Out" hide-footer class="cartpop__modal">
-          <label class="cartpop__modal__label">Are you sure?</label>
+        <b-modal id="modal-sign-out" title="Sign out of your account?" hide-footer class="cartpop__modal">
+          <label class="cartpop__modal__label">Signing out will not delete any data. You can still sign in with this account.</label>
           <div class="cartpop__modal__buttons">
             <span class="cartpop__modal__button cancel"  @click="$bvModal.hide('modal-sign-out')">Cancel</span>
-            <span class="cartpop__modal__button primary-button" v-on:click="signOut()">Ok</span>
+            <span class="cartpop__modal__button destructive-button" v-on:click="signOut()">Sign out</span>
           </div>
         </b-modal>
   </div>
@@ -100,7 +100,9 @@ export default {
   &__modal{
 
     &__label{
-      font-size: 18px;
+      font-size: .95rem;
+      color: $subtitle-text;
+      margin-bottom: 1.5rem;
     }
 
     &__buttons{
@@ -108,8 +110,8 @@ export default {
       justify-content: flex-end;
 
       .cancel{
-        color: $notif;
-        font-weight: 600;
+        color: $text;
+        font-weight: 500;
 
         &:hover{
           cursor: pointer;
