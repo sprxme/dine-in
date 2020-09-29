@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import MenuCard from '@/components/MenuCard.vue';
+import MenuCard from '@/components/user/MenuCard.vue';
 import { mapGetters } from 'vuex';
 
 export default {

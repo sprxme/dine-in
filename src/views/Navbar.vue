@@ -25,7 +25,7 @@
         <h2 class="sidebar__title">Supreme</h2>
       </div>
       <ul class="sidebar__route-container">
-        <li v-for="nav in sortNav" :key="nav.name" class="sidebar__router" v-bind:class="{'menu-dropdown': nav.name == 'Menu'}">
+        <li v-for="nav in sortNav" :key="nav.name" class="sidebar__router" v-bind:class="{'menu-dropdown': nav.child != null}">
           <router-link class="sidebar__route-link" v-if="nav.child == null" :to="nav.routeLink" @click.native="show = false; dim = false; $emit('change-route')">
             <font-awesome-icon :icon="nav.icon" class="sidebar__icon icon-secondary" v-bind:class="{'home-icon': nav.name == 'Home'}" />
             <label class="sidebar__router__label">{{nav.name}}</label>
@@ -169,9 +169,11 @@ export default {
 
     &__label{
       margin: 0;
+      pointer-events: none;
     }
 
     &:hover{
+      cursor: pointer;
       text-decoration: none;
       color: $sidebar-color-hover;
       background: $sidebar-bg-hover;
