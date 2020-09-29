@@ -56,6 +56,7 @@ export default {
     methods: {
       signOut() {
         this.$store.commit("setAuth", false);
+        this.$router.replace('/');
       }
     },
     computed: mapGetters(['allOrders', 'checkAuth'])
