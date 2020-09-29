@@ -10,7 +10,6 @@ const getters = {
 
 const actions = {
     updateCart({ commit }, { food, quantity }) {
-        console.log('Food: ' + food.name + ', Quantity: ' + quantity);
         const orderItem = { ...food, quantity: quantity}
 
         if (quantity == 0) {
