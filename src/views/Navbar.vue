@@ -25,9 +25,9 @@
         <h2 class="sidebar__title">Supreme</h2>
       </div>
       <ul class="sidebar__route-container">
-        <li v-for="nav in sortNav" :key="nav.name" class="sidebar__router">
+        <li v-for="nav in sortNav" :key="nav.name" class="sidebar__router" v-bind:class="{'menu-dropdown': nav.name == 'Menu'}">
           <router-link class="sidebar__route-link" v-if="nav.child == null" :to="nav.routeLink" @click.native="show = false; dim = false; $emit('change-route')">
-            <font-awesome-icon :icon="nav.icon" class="sidebar__icon icon-secondary" />
+            <font-awesome-icon :icon="nav.icon" class="sidebar__icon icon-secondary" v-bind:class="{'home-icon': nav.name == 'Home'}" />
             <label class="sidebar__router__label">{{nav.name}}</label>
           </router-link>
           <span v-else>
@@ -38,7 +38,7 @@
             </span>
             <b-collapse id="collapse-menu">
               <li v-for="subNav of nav.child" :key="subNav.name">
-                <router-link class="sidebar__router submenu" :to="subNav.routeLink" @click.native="show = false; dim = false; $emit('change-route')">{{subNav.name}}</router-link>
+                <router-link class="sidebar__router submenu" :to="subNav.routeLink" @click.native="show = false; dim = false; $emit('change-route')" v-bind:class="{'food-submenu': subNav.name == 'Food'}">{{subNav.name}}</router-link>
               </li>
             </b-collapse> 
           </span>
@@ -117,7 +117,7 @@ export default {
     border-style: none;
     font-size: 18px;
     cursor: pointer;
-    margin-right: 1.5rem;
+    margin-right: 1.3rem;
   }
 
   &__iconright{
@@ -195,7 +195,9 @@ export default {
   &__collapse{
     display: flex;
     align-items: center;
-    padding-right: 1rem;
+    padding-left: 1.9rem;
+    padding-right: 1.9rem;
+    padding-bottom: .8rem;
   }
 
   &__orders-badge{
@@ -221,7 +223,7 @@ export default {
 
 .menu{
   margin: 0;
-  padding-left: 0.2rem;
+  padding-left: .22rem;
 }
 
 .menu:hover{
@@ -231,10 +233,16 @@ export default {
 
 .submenu{
   display:flex;
-  padding-left: 4.5rem;
+  padding-left: 5.7rem;
+  padding-bottom: 0.85rem;
+  padding-top: 0.8rem;
 }
 
 .icon-secondary{
+  margin-right: 1.56rem;
+}
+
+.home-icon {
   margin-right: 1.4rem;
 }
 
@@ -261,6 +269,16 @@ export default {
 .fade-enter,
 .fade-leave-to{
   opacity: 0;
+}
+
+.food-submenu {
+  margin-top: 0rem;
+}
+
+.menu-dropdown {
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 0;
 }
 
 @media screen and (min-width:780px){
