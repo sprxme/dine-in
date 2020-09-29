@@ -3,6 +3,7 @@
 
     &__title-container{
         display: flex;
+        align-items: center;
         border-bottom: 1px solid $light-grey;
         margin-bottom: 30px;
     }
@@ -123,6 +124,30 @@
     .right{
         float: right;
         margin-left: auto;
+    }
+
+    //======================
+    //FOR ADMIN PAGE STYLING
+    //======================
+
+    &__add{
+        float: right;
+        margin-left: auto;
+        padding: .5em 1.2em;
+        border-radius: 8px;
+        
+        &__label{
+            margin: 0;
+            pointer-events: none;
+        }
+    }
+
+    &__remove{
+        display: block;
+        text-align: center;
+        padding: .3em 1.2em;
+        margin: 1rem;
+        border-radius: 5px;
     }
 }
 
