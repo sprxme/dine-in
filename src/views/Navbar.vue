@@ -127,6 +127,9 @@ export default {
   
   &__route-link{
     color: $text;
+    width: 100%;
+    display: block;
+    padding: .8rem 1.9rem;
 
     &:hover{
       text-decoration: none;
@@ -162,7 +165,6 @@ export default {
   }
 
   &__router{
-    padding: .8rem 1.9rem;
     font-size: 18px;
     color: $sidebar-color;
     list-style: none; 
@@ -236,7 +238,7 @@ export default {
 .submenu{
   display:flex;
   padding-left: 5.7rem;
-  padding-bottom: 0.85rem;
+  padding-bottom: 0.94rem;
   padding-top: 0.8rem;
 }
 
@@ -278,9 +280,7 @@ export default {
 }
 
 .menu-dropdown {
-  padding-left: 0;
-  padding-right: 0;
-  padding-bottom: 0;
+  padding: .8rem 0 0 0;
 }
 
 @media screen and (min-width:780px){
