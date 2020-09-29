@@ -26,21 +26,21 @@
       </div>
       <ul class="sidebar__route-container">
         <li v-for="nav in sortNav" :key="nav.name" class="sidebar__router">
-          <router-link v-if="nav.child == null" :to="nav.routeLink" @click.native="show = false; dim = false; $emit('change-route')">
+          <router-link class="sidebar__route-link" v-if="nav.child == null" :to="nav.routeLink" @click.native="show = false; dim = false; $emit('change-route')">
             <font-awesome-icon :icon="nav.icon" class="sidebar__icon icon-secondary" />
-            {{nav.name}}
+            <label class="sidebar__router__label">{{nav.name}}</label>
           </router-link>
           <span v-else>
             <span class="sidebar__collapse" v-b-toggle.collapse-menu v-on:click="toggleArrow()"> 
               <font-awesome-icon icon="utensils" class="sidebar__collapse__icon icon-secondary" />
-              <label class= "sidebar__router menu">{{nav.name}}</label>
+              <label class= "menu">{{nav.name}}</label>
               <font-awesome-icon id="arrow" icon="angle-down" class="sidebar__iconright" />
             </span>
             <b-collapse id="collapse-menu">
               <li v-for="subNav of nav.child" :key="subNav.name">
                 <router-link class="sidebar__router submenu" :to="subNav.routeLink" @click.native="show = false; dim = false; $emit('change-route')">{{subNav.name}}</router-link>
               </li>
-              </b-collapse> 
+            </b-collapse> 
           </span>
         </li>
       </ul>
@@ -124,14 +124,13 @@ export default {
     justify-content: flex-end;
     margin-left: auto;
   }
-
-  &__collapse__icon{
-    //margin-left: 2.05rem;
-  }
   
-  &__router {
-    list-style: none;
-    
+  &__route-link{
+    color: $text;
+
+    &:hover{
+      text-decoration: none;
+    }
   }
 
   &__icon:focus,
@@ -166,14 +165,18 @@ export default {
     padding: .8rem 1.9rem;
     font-size: 18px;
     color: $sidebar-color;
+    list-style: none; 
 
-  }
+    &__label{
+      margin: 0;
+    }
 
-  &__router:hover,
-  &__collapse:hover{
-    text-decoration: none;
-    color: $sidebar-color-hover;
-    background: $sidebar-bg-hover;
+    &:hover{
+      text-decoration: none;
+      color: $sidebar-color-hover;
+      background: $sidebar-bg-hover;
+    }
+
   }
 
   &__end{
@@ -218,7 +221,7 @@ export default {
 
 .menu{
   margin: 0;
-  padding-left: 0.5rem;
+  padding-left: 0.2rem;
 }
 
 .menu:hover{
@@ -228,7 +231,7 @@ export default {
 
 .submenu{
   display:flex;
-  padding-left: 4.8rem;
+  padding-left: 4.5rem;
 }
 
 .icon-secondary{
