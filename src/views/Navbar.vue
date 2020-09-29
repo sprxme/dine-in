@@ -38,7 +38,7 @@
             </span>
             <b-collapse id="collapse-menu">
               <li v-for="subNav of nav.child" :key="subNav.name">
-                <router-link class="sidebar__router submenu" to="/food" @click.native="show = false; dim = false; $emit('change-route')">{{subNav.name}}</router-link>
+                <router-link class="sidebar__router submenu" :to="subNav.routeLink" @click.native="show = false; dim = false; $emit('change-route')">{{subNav.name}}</router-link>
               </li>
               </b-collapse> 
           </span>
