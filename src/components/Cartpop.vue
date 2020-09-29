@@ -33,11 +33,18 @@
             <font-awesome-icon icon="user-circle" class="cartpop__icon" />
             <span>Profile</span>
         </router-link>
-        <router-link v-if="checkAuth" class="cartpop__menu route-menu" to="/account" @click.native="show = false; dim = false; signOut(); $emit('change-route')">
+        <span v-if="checkAuth" class="cartpop__menu route-menu" v-b-modal.modal-sign-out  @click.native="show = false; dim = false; $emit('change-route')">
             <font-awesome-icon icon="sign-out-alt" class="cartpop__icon" />
             <span>Sign out</span>
-        </router-link>
+        </span>
         </div>
+        <b-modal id="modal-sign-out" title="Sign Out" hide-footer class="cartpop__modal">
+          <label class="cartpop__modal__label">Are you sure?</label>
+          <div class="cartpop__modal__buttons">
+            <span class="cartpop__modal__button cancel"  @click="$bvModal.hide('modal-sign-out')">Cancel</span>
+            <span class="cartpop__modal__button primary-button" v-on:click="signOut()">Ok</span>
+          </div>
+        </b-modal>
   </div>
 </template>
 
@@ -57,6 +64,7 @@ export default {
       signOut() {
         this.$store.commit("setAuth", false);
         this.$router.replace('/');
+        this.$router.go();
       }
     },
     computed: mapGetters(['allOrders', 'checkAuth'])
@@ -89,6 +97,35 @@ export default {
     border-bottom: 10px solid #fff;
   }
 
+  &__modal{
+
+    &__label{
+      font-size: 18px;
+    }
+
+    &__buttons{
+      display: flex;
+      justify-content: flex-end;
+
+      .cancel{
+        color: $notif;
+        font-weight: 600;
+
+        &:hover{
+          cursor: pointer;
+        }
+      }
+    }
+
+    &__button{
+      padding: .3em 1.5em;
+      border-radius: 3px;
+      &:not(:first-child){
+        margin-left: 10px;
+      }
+    }
+  }
+  
   &__content{
     display: flex;
     flex-direction: column;
@@ -100,6 +137,14 @@ export default {
 
   &__menu{
     padding: .6em 0.1em;
+
+    &:hover{
+      text-decoration: underline;
+    }
+
+    &:focus{
+      outline: none;
+    }
   }
 
   &__menu-list {
