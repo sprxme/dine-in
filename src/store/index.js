@@ -4,6 +4,7 @@ import Foods from './modules/foods.js'
 import Drinks from './modules/drinks.js'
 import Orders from './modules/orders.js'
 import Auth from './modules/auth';
+import Navbar from './modules/navbar';
 
 Vue.use(Vuex)
 
@@ -11,9 +12,10 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
     modules: {
         Auth,
+        Navbar,
         Foods,
         Drinks,
-        Orders
+        Orders,
     }
 })
 export default store

@@ -8,7 +8,12 @@ const mutations = {
     }
 }
 
+const getters = {
+    checkAuth: (state) => state.isAuth
+}
+
 export default {
     state,
+    getters,
     mutations
 }

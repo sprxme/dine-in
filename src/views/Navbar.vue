@@ -24,27 +24,26 @@
         <font-awesome-icon icon="bars" class="sidebar__icon icon-primary--dark" @click="hide"/>
         <h2 class="sidebar__title">Supreme</h2>
       </div>
-      <router-link class="sidebar__router" to="/" @click.native="show = false; dim = false; $emit('change-route')">
-        <font-awesome-icon icon="home" class="sidebar__icon icon-secondary" />
-        Home
-      </router-link>
-      <span class="sidebar__collapse" v-b-toggle.collapse-menu v-on:click="toggleArrow()"> 
-        <font-awesome-icon icon="utensils" class="sidebar__collapse__icon icon-secondary" />
-        <label class= "sidebar__router menu">Menu</label>
-        <font-awesome-icon id="arrow" icon="angle-down" class="sidebar__iconright" />
-      </span>
-      <b-collapse id="collapse-menu">
-        <router-link class="sidebar__router submenu" to="/food" @click.native="show = false; dim = false; $emit('change-route')">Food</router-link>
-        <router-link class="sidebar__router submenu" to="/beverage" @click.native="show = false; dim = false; $emit('change-route')">Beverage</router-link>
-      </b-collapse>
-      <router-link class="sidebar__router" to="/about" @click.native="show = false; dim = false; $emit('change-route')">
-        <font-awesome-icon icon="info-circle" class="sidebar__icon icon-secondary" />
-        About
-      </router-link>
-      <router-link class="sidebar__router" to="/allorders" @click.native="show = false; dim = false; $emit('change-route')">
-        <font-awesome-icon icon="info-circle" class="sidebar__icon icon-secondary" />
-        All Orders
-      </router-link>
+      <ul class="sidebar__route-container">
+        <li v-for="nav in sortNav" :key="nav.name" class="sidebar__router">
+          <router-link v-if="nav.child == null" :to="nav.routeLink" @click.native="show = false; dim = false; $emit('change-route')">
+            <font-awesome-icon :icon="nav.icon" class="sidebar__icon icon-secondary" />
+            {{nav.name}}
+          </router-link>
+          <span v-else>
+            <span class="sidebar__collapse" v-b-toggle.collapse-menu v-on:click="toggleArrow()"> 
+              <font-awesome-icon icon="utensils" class="sidebar__collapse__icon icon-secondary" />
+              <label class= "sidebar__router menu">{{nav.name}}</label>
+              <font-awesome-icon id="arrow" icon="angle-down" class="sidebar__iconright" />
+            </span>
+            <b-collapse id="collapse-menu">
+              <li v-for="subNav of nav.child" :key="subNav.name">
+                <router-link class="sidebar__router submenu" to="/food" @click.native="show = false; dim = false; $emit('change-route')">{{subNav.name}}</router-link>
+              </li>
+              </b-collapse> 
+          </span>
+        </li>
+      </ul>
     </div>
   </b-sidebar>
   <transition name="fade">
@@ -79,7 +78,18 @@ export default {
     Cartpop
   },
   computed:{
-    ...mapGetters(['allOrders'])
+    ...mapGetters(['allOrders','allNav','checkAuth']),
+    sortNav: function(){
+      if(this.checkAuth){
+        return this.allNav.filter(function(nav){
+          return nav.permission.includes('admin') ?  nav : null 
+        })
+      } else {
+        return this.allNav.filter(function(nav){
+          return nav.permission.includes('user') ?  nav : null
+        })
+      }
+    }
   }
 }
 </script>
