@@ -31,7 +31,7 @@ const state = {
             permission: ['admin']
         },
         {
-            name: 'Menu',
+            name: 'Menu Edit',
             icon: 'utensils',
             routeLink: null,
             child: [

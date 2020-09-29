@@ -172,6 +172,7 @@ export default {
     }
 
     &:hover{
+      cursor: pointer;
       text-decoration: none;
       color: $sidebar-color-hover;
       background: $sidebar-bg-hover;
