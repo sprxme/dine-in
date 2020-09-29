@@ -21,19 +21,19 @@
             <p class="cartpop__empty__title">Looking for your order?</p> 
             <p class="cartpop__empty__subtitle">Food and beverages you select from the menu will appear here.</p> 
         </div>
-        <router-link v-if="!checkAuth" class="cartpop__menu route-menu" to="/track" @click.native="show = false; dim = false; $emit('change-route')">
+        <router-link v-if="!checkAuth" class="cartpop__menu route-menu" to="/track" @click.native="dim = false; $emit('change-route')">
             <font-awesome-icon icon="tasks" class="cartpop__icon" />
             <span>Track</span>
         </router-link>
-        <router-link v-if="!checkAuth" class="cartpop__menu route-menu" to="/account" @click.native="show = false; dim = false; $emit('change-route')">
+        <router-link v-if="!checkAuth" class="cartpop__menu route-menu" to="/account" @click.native="dim = false; $emit('change-route')">
             <font-awesome-icon icon="user-circle" class="cartpop__icon" />
             <span>Sign in</span>
         </router-link>
-        <router-link v-if="checkAuth" class="cartpop__menu route-menu" to="/profile" @click.native="show = false; dim = false; $emit('change-route')">
+        <router-link v-if="checkAuth" class="cartpop__menu route-menu" to="/profile" @click.native="dim = false; $emit('change-route')">
             <font-awesome-icon icon="user-circle" class="cartpop__icon" />
             <span>Profile</span>
         </router-link>
-        <span v-if="checkAuth" class="cartpop__menu route-menu" v-b-modal.modal-sign-out  @click.native="show = false; dim = false; $emit('change-route')">
+        <span v-if="checkAuth" class="cartpop__menu route-menu" v-b-modal.modal-sign-out  @click.native="dim = false; $emit('change-route')">
             <font-awesome-icon icon="sign-out-alt" class="cartpop__icon" />
             <span>Sign out</span>
         </span>
@@ -67,7 +67,9 @@ export default {
         this.$router.go();
       }
     },
-    computed: mapGetters(['allOrders', 'checkAuth'])
+    computed: {
+      ...mapGetters(['allOrders', 'checkAuth'])
+    }
 }
 </script>
 

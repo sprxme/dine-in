@@ -27,15 +27,16 @@ Vue.use(VueRouter)
   },
   {
     path: '/account',
-    name: 'Account',
     component: Account,
     children: [
       {
         path: '',
+        name: 'login',
         component: Login
       },
       {
         path: 'signup',
+        name: 'Signup',
         component: SignUp
       }
     ]
