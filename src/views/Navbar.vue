@@ -169,6 +169,7 @@ export default {
 
     &__label{
       margin: 0;
+      pointer-events: none;
     }
 
     &:hover{

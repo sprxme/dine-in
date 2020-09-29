@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import OrderCard from '@/components/OrderCard.vue';
+import OrderCard from '@/components/user/OrderCard.vue';
 export default {
     components:{
         OrderCard
