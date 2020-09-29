@@ -33,7 +33,7 @@
                     <label class="footer__title">Follow Us</label>
                     <div class="footer__social-media">
                         <font-awesome-icon :icon="['fab','facebook']" class="footer__icon facebook" />
-                        <font-awesome-icon :icon="['fab','instagram']" class="footer__icon instagram" />
+                        <font-awesome-icon :icon="['fab','instagram']" class="footer__icon instagram" v-on:click="openIg()"/>
                         <font-awesome-icon :icon="['fab','twitter']" class="footer__icon twitter" />
                     </div>
                 </ul>
@@ -68,7 +68,11 @@
 
 <script>
 export default {
-    
+    methods:{
+        openIg: function(){
+            window.open('https://www.instagram.com/sprxme/?hl=en')
+        }
+    }
 }
 </script>
 
