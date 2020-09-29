@@ -25,7 +25,7 @@ const state = {
         },
         {
             name: 'All Orders',
-            icon: 'info-circle',
+            icon: 'list-ul',
             routeLink: '/all-orders',
             child: null,
             permission: ['admin']
