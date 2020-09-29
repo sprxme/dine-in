@@ -25,9 +25,17 @@
             <font-awesome-icon icon="tasks" class="cartpop__icon" />
             <span>Track</span>
         </router-link>
-        <router-link class="cartpop__menu route-menu" to="/account" @click.native="show = false; dim = false; $emit('change-route')">
+        <router-link v-if="!checkAuth" class="cartpop__menu route-menu" to="/account" @click.native="show = false; dim = false; $emit('change-route')">
             <font-awesome-icon icon="user-circle" class="cartpop__icon" />
             <span>Sign in</span>
+        </router-link>
+        <router-link v-if="checkAuth" class="cartpop__menu route-menu" to="/profile" @click.native="show = false; dim = false; $emit('change-route')">
+            <font-awesome-icon icon="user-circle" class="cartpop__icon" />
+            <span>Profile</span>
+        </router-link>
+        <router-link v-if="checkAuth" class="cartpop__menu route-menu" to="/account" @click.native="show = false; dim = false; signOut(); $emit('change-route')">
+            <font-awesome-icon icon="sign-out-alt" class="cartpop__icon" />
+            <span>Sign out</span>
         </router-link>
         </div>
   </div>
@@ -45,7 +53,13 @@ export default {
     props:{
         show: Boolean
     },
-    computed: mapGetters(['allOrders'])
+    methods: {
+      signOut() {
+        this.$store.commit("setAuth", false);
+        this.$router.replace('/');
+      }
+    },
+    computed: mapGetters(['allOrders', 'checkAuth'])
 }
 </script>
 
@@ -85,7 +99,7 @@ export default {
   }
 
   &__menu{
-    padding: .8em 0.1em;
+    padding: .6em 0.1em;
   }
 
   &__menu-list {

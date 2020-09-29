@@ -126,7 +126,12 @@ export default {
   }
 
   &__collapse__icon{
-    margin-left: 2.05rem;
+    //margin-left: 2.05rem;
+  }
+  
+  &__router {
+    list-style: none;
+    
   }
 
   &__icon:focus,
@@ -187,7 +192,7 @@ export default {
   &__collapse{
     display: flex;
     align-items: center;
-    padding-right: 2rem;
+    padding-right: 1rem;
   }
 
   &__orders-badge{

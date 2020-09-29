@@ -1,13 +1,6 @@
 <template>
-    <div class="order">
-        <div class="menu__category">
-            <div class="menu__title-container">
-               <span class="menu__title">Jacob</span>
-            </div>
-        </div>
-        <div class="order">
-            <OrderCard/>
-        </div>
+    <div class="orderlist">
+        <OrderCard v-for="index in 5" :key="index"/>
     </div>
 </template>
 
@@ -22,10 +15,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/styles/menu.scss";
-
-.order{
-    padding: 5em 10vw;
+.orderlist{
+    padding: 10em 10vw;
 
 }
 </style>
