@@ -12,6 +12,8 @@ import TrackingItem from '@/views/users/TrackingItem'
 import AllOrders from '@/views/admin/AllOrders'
 import PageNotFound from '@/views/PageNotFound';
 import store from '@/store/index';
+import BeverageEdit from '@/views/admin/BeverageEdit';
+import FoodEdit from '@/views/admin/FoodEdit';
 
 //const { isNavigationFailure, NavigationFailureType} = VueRouter;
 
@@ -73,9 +75,21 @@ Vue.use(VueRouter)
     component: () => import(/* webpackChunkName: "about" */ '@/views/users/About.vue')
   },
   {
-    path:'/allorders',
+    path:'/all-orders',
     name: 'AllOrders',
     component: AllOrders,
+    meta: { requiresAuth: true } //requires admin auth
+  },
+  {
+    path:'/beverage-edit',
+    name: 'BeverageEdit',
+    component: BeverageEdit,
+    meta: { requiresAuth: true } //requires admin auth
+  },
+  {
+    path:'/food-edit',
+    name: 'FoodEdit',
+    component: FoodEdit,
     meta: { requiresAuth: true } //requires admin auth
   },
 

@@ -1,0 +1,15 @@
+<template>
+    <div>
+        Food Edit
+    </div>
+</template>
+
+<script>
+export default {
+    
+}
+</script>
+
+<style lang="scss" scoped>
+
+</style>

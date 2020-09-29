@@ -26,8 +26,24 @@ const state = {
         {
             name: 'All Orders',
             icon: 'info-circle',
-            routeLink: '/allorders',
+            routeLink: '/all-orders',
             child: null,
+            permission: ['admin']
+        },
+        {
+            name: 'Menu',
+            icon: 'utensils',
+            routeLink: null,
+            child: [
+                {
+                    name:'Food',
+                    routeLink: '/food-edit'
+                },
+                {
+                    name:'Beverage',
+                    routeLink: '/beverage-edit'
+                }
+            ],
             permission: ['admin']
         },
         {
