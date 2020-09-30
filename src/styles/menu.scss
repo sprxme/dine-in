@@ -142,13 +142,31 @@
         }
     }
 
-    &__remove{
+    &__remove,
+    &__edit{
         display: block;
         text-align: center;
         padding: .3em 1.2em;
         margin: 1rem;
         border-radius: 5px;
     }
+
+    &__remove{
+        border: 1px solid $btn-destructive;
+        color: $btn-destructive;
+        font-weight: 600;
+        cursor: pointer;
+
+        &:hover{
+            color: $btn-destructive-hover;
+            border: 1px solid $btn-destructive-hover;
+        }
+
+        &:active{
+            color: $btn-destructive-click;
+            border: 1px solid $btn-destructive-click;
+        }
+    }   
 }
 
 @media only screen and (max-width: 780px) {

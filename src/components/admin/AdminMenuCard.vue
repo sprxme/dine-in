@@ -9,7 +9,8 @@
         <span class="menu__price">{{menu.price/1000}}k</span>
     </div>
      <div class="menu__button_cart">
-        <label class="menu__remove destructive-button">Remove</label>
+         <label class="menu__edit primary-button">Edit</label>
+        <label class="menu__remove">Remove</label>
     </div>
 </div>
 </template>
