@@ -10,7 +10,7 @@
                 </span>
             </div>
             <div class="menu__cards">
-                <MenuCardEdit v-for="food in sortCategory(category.name)" :key="food.id" :menu="food"/>
+                <MenuCardEdit v-for="food in sortCategory(category.name)" :key="food.id" :menu="food" :type="'food'"/>
             </div>
         </div>
     </div>

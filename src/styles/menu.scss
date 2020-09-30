@@ -37,7 +37,6 @@
 
         &:hover{
             transform: translateY(-8px);
-            cursor: pointer;
         }
     }
 
@@ -168,7 +167,6 @@
         }
     }   
 }
-
 @media only screen and (max-width: 780px) {
     .menu{
         padding: 5em 1em;

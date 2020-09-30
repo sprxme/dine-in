@@ -30,9 +30,20 @@ const getters = {
     allFoodCategories: (state) => state.categories
 }
 
-const actions = {}
+const actions = {
+    removeFoodItem({commit},{id}){
+        console.log('remove: '+id)
+        commit('removeFood',id)
+    }
+}
 
-const mutations = {}
+const mutations = {
+    //remove food item (front-end only not atcual data) because no database yet :(
+    removeFood: (state,id) => {
+        console.log('toberemoved: ' + id)
+        state.foods.splice(state.foods.findIndex(food => food.id == id ),1);
+    }
+}
 
 export default {
     state,

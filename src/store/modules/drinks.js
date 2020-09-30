@@ -30,9 +30,20 @@ const getters = {
     allDrinkCategories: (state) => state.categories
 }
 
-const actions = {}
+const actions = {
+    removeBeverageItem({commit},{id}){
+        console.log('remove: '+id)
+        commit('removeBeverage',id)
+    }
+}
 
-const mutations = {}
+const mutations = {
+    //remove drink beverage (front-end only not atcual data) because no database yet :(
+    removeBeverage: (state,id) => {
+        console.log('toberemoved: ' + id)
+        state.drinks.splice(state.drinks.findIndex(drink => drink.id == id ),1);
+    }
+}
 
 export default {
     state,
