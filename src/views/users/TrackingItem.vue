@@ -1,5 +1,94 @@
 <template>
 <div class="tracking">
+    <label class="tracking__label">Order ID: {{$route.params.id}}</label>
+    <div class="tracking__table">
+        <div class="tracking__container" v-for="trackItem in allFoods" :key="trackItem.id">
+            <div class="tracking__container__menu-status">
+                <span>{{trackItem.name}}</span>
+                <span class="tracking__container__menu-status__status">Preparing</span>
+            </div>
+            <div class="tracking__container__progress-bar"></div>
+        </div>
+    </div>
+</div>
+</template>
+
+<script>
+import { mapGetters } from 'vuex';
+
+export default {
+    computed: {...mapGetters(['allOrders', 'allFoods'])}
+}
+</script>
+
+<style lang="scss" scoped>
+.tracking{
+    padding-top: 6em;
+    &__label {
+        font-size: 40px;
+        font-weight: 550;
+        text-align: center;
+        width: 100%;
+        // &::after {
+        //     content: '';
+        //     display: flex;
+        //     margin: auto;
+        //     background: $light-grey;
+        //     width: 70%;
+        //     height: 2px;
+        // }
+    }
+
+    &__table {
+        margin: 1em 2em 5em 2em;
+    }
+
+    &__container {     
+        padding-top: 2em;
+        display: flex;
+        flex-direction: column;
+    
+        &__menu-status {
+            display: flex;
+
+            &__status {
+                float: right;
+                margin-left: auto;
+                font-weight: 300;
+                color: red;
+            }
+        }
+
+        &__progress-bar {
+            background: #333;
+            border-radius: 12px;
+            overflow: hidden;
+            height: 5px;
+            width: 100%;
+            &::after {
+                content: 'ss';
+                display: block;
+                background:lightgreen;
+                width: 36%;
+                height: 100%;
+                &::after {
+                    content: '';
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+    }
+
+}
+</style>
+
+
+
+<!--
+<template>
+<div class="tracking">
     <label class="tracking__label">tracking id: {{$route.params.id}}</label>
     <div class="tracking__status">
         <div class="tracking__status__icon">
@@ -94,95 +183,4 @@ export default {
 }
 </style>
 
-
-<!--
-<template>
-<div class="tracking">
-    <label class="tracking__label">tracking id: {{$route.params.id}}</label>
-    <div class="tracking__status-container">
-        <div class="tracking__status-name">
-            <div class="tracking__status">
-                <img class="tracking__status-icon" src="@/assets/about/logo2rev.png" />
-                <font-awesome-icon icon="user-circle" class="cartpop__icon" />
-                <span>Order not confirmed</span>
-            </div>
-            <div class="tracking__status">
-                <img class="tracking__status-icon" src="@/assets/about/logo2rev.png" />
-                <font-awesome-icon icon="user-circle" class="cartpop__icon" />
-                <span>Order confirmed</span>
-            </div>
-            <div class="tracking__status">
-                <img class="tracking__status-icon" src="@/assets/about/logo2rev.png" />
-                <font-awesome-icon icon="user-circle" class="cartpop__icon" />
-                <span>Preparing</span>
-            </div>
-            <div class="tracking__status">
-                <img class="tracking__status-icon" src="@/assets/about/logo2rev.png" />
-                <font-awesome-icon icon="user-circle" class="cartpop__icon" />
-                <span>Ready to serve</span>
-            </div>
-            <div class="tracking__status">
-                <img class="tracking__status-icon" src="@/assets/about/logo2rev.png" />
-                <font-awesome-icon icon="user-circle" class="cartpop__icon" />
-                <span>Served</span>
-            </div>
-        </div>
-        <div class="tracking__status-progress"></div>
-    </div>
-</div>
-</template>
-
-<script>
-export default {
-
-}
-</script>
-
-<style lang="scss" scoped>
-.tracking{
-    padding: 10rem;
-
-    &__label {
-        font-size: 48px;
-        color: black;
-    }
-
-    &__status-name {
-        display: grid;
-        grid-template-columns: repeat(5,1fr);
-    }
-
-    &__status-container {
-        padding-top: 1em;
-        display: flex;
-        flex-direction: column;
-    }
-
-    &__status {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    &__status-icon {
-        width: 50 px;
-        height: auto;
-    }
-
-    &__status-progress {
-        background: #333;
-        //border-radius: 13px;
-        height: 5px;
-        width: 100%;
-        &::after {
-            content: '';
-            display: block;
-            background:lightgreen;
-            width: 50%;
-            height: 100%;
-        }
-    }
-
-}
-</style>
 -->
