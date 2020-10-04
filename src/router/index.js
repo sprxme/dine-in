@@ -113,7 +113,7 @@ router.beforeEach((to,from,next) =>{
       next();
     }
     else{
-      router.replace('/account');
+      next('/account');
     }
   }
   else {
