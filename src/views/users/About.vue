@@ -13,33 +13,51 @@
       <label>Boasting an inimitably cozy dining experience. </label>
     </div>
 
+    <div class="about__garis">
+      <div class="about__baris">
+        <label class="about__boldtitle">About Us</label>
+      </div>
+
+      <div class="about__desc">
+        <p class="about__par">
+          A restaurant and bar inside a wine shop, 
+          Supreme's Kitchen is a sophisticated dining destination
+          conveniently located in Jakarta's hip Thamrin and SCBD area. 
+          Our cellar is home to the largest wine selection in the country,
+          while the kitchen focuses on an extensive comprising of European and Asian favorites. 
+        </p>
+      </div>
+    </div> 
+  
     <div class="about__column">
-        <div class="about__left">
-            <label> text1</label>
-            <label> text2 blabla</label>
-            <label> text3blablabla</label>
-        </div>
 
-        <div class="about__right">
-            <label> text1</label>
-            <label> text2blabla</label>
-            <label> text3blablabla</label>
-        </div>
-    </div>
+      <div class="about__left">
+        <label style="font-weight:bold">GRAND INDONESIA</label>
+        <label>1ST FLOOR</label>
+        <label>JL. M.H THAMRIN NO.1</label>
+        <label>JAKARTA 10310</label>
+        <br>
+        <label style="font-weight:bold">CONTACT US</label>
+        <label style="text-decoration:underline">+6221 1063 8926</label>
+      </div>
 
-    <div>
-      <img class ="about__banner" src="@/assets/about/aboutimage.jpg"/>
-    </div>
+      <div class="about__right">
+        <label style="font-weight:bold">PLAZA INDONESIA</label>
+        <label>GROUND FLOOR</label>
+        <label>JL. M.H THAMRIN NO.28-30</label>
+        <label>JAKARTA 10350</label>
+        <br>
+        <label style="font-weight:bold">CONTACT US</label>
+        <label style="text-decoration:underline">+6212 9612 5588</label>
+      </div>
 
-    <div class="about__desc">
-      <label>A restaurant and bar inside a wine shop, Supreme's Kitchen is a sophisticated dining destination conveniently located in Jakarta's hip Thamrin and SCBD area. Our cellar is home to the largest wine selection in the country while the kitchen focuses on an extensive menu comprising of European and Asian favorites.</label>
-      <span>View Menu</span>
     </div>
 
   </div>
 </template> 
-<style lang="scss" scoped>
 
+
+<style lang="scss" scoped>
 .about {
   padding:0rem 0em ;
 
@@ -47,13 +65,13 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 5em;
+    margin-top: 8em;
     padding-bottom: 1em ;
   }
 
   &__banner{
     width: 100vw;
-    margin: -5rem 0em;
+    margin: -8rem 0em;
   }
 
   &__title{
@@ -61,11 +79,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom:2em;
   }
 
   &__column{
     display: grid;
-    margin: 10em 0 10em 0;
+    margin: 0.5em 0 10em 0;
     padding: 5em 5em;
     grid-template-columns: repeat(2,1fr);
   }
@@ -85,10 +104,51 @@
   }
 
   &__desc{
-    font-size: 20px;
+    padding-top:2em;
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  &__garis{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border-top: 1px solid $light-grey;
+    margin:0vw 22vw;
+  }
+
+  &__baris{
+    display: flex;
+    white-space: nowrap;
+    justify-content: center;
+  }
+
+  &__boldtitle{
+    margin-top:2em;
+    font-size: 25px;
+    font-style: bold;
+    flex-direction: column;
+    align-items: center;
+
+  }
+
+  &__boldcolumn{
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin:2em 15em 0em 15em; 
+  }
+
+  &__par{
+    font-size: 18px;
+    line-height: 2.5;
+    text-align:center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin:0vw 10vw 2vw 10vw;
   }
 
 }
