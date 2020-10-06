@@ -3,9 +3,11 @@
         <div class="allorders__title">
             Order List
         </div>
-        <b-table hover striped class="allorders__table" :items="orderList">  
-            <template v-slot:cell(actions)>
-                
+        <b-table hover striped class="allorders__table" :items="orderList" :fields="fields">  
+            <template v-slot:cell(actions)="row">
+                <router-link :to="'/all-orders/'+row.item.token">
+                    <font-awesome-icon icon="eye"/>
+                </router-link>
             </template>
         </b-table>
     </div>
@@ -14,15 +16,20 @@
 <script>
 import { mapGetters } from 'vuex'
 export default {
+    methods:{
+        getItems: function(item){
+            console.log(item)
+        }
+    },
     computed: {
-        ...mapGetters(['orderList'])
+        ...mapGetters(['orderList','fields'])
     }
 }
 </script>
 
 <style lang="scss" scoped>
 .allorders{
-    padding-top: 10vw;
+    padding: 10vw;
 
     &__router{
         display:flex;

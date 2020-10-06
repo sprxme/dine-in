@@ -5,14 +5,26 @@ const state = {
         {id: 3, name:'Danny', table_number:91, token:'245GHF38', status:'Done'},
         {id: 4, name:'Harry', table_number:93, token:'88KDY98S', status:'In Progress'},
         {id: 5, name:'Victor', table_number:98, token:'42DHR96A', status:'Done'}
-    ]
+    ],
+    fields:['table_number','name','token','status','actions'],
 }
 
 const getters = {
-    orderList: (state) => state.allOrder
+    orderList: (state) => state.allOrder,
+    fields: (state) => state.fields,
 }
 
+const actions = {
+
+}
+
+const mutations = {
+
+}
+ 
 export default{
     state,
-    getters
+    getters,
+    actions,
+    mutations
 }

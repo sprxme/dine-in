@@ -28,7 +28,7 @@ const state = {
             icon: 'list-ul',
             routeLink: '/all-orders',
             child: null,
-            permission: ['admin']
+            permission: ['admin','user']
         },
         {
             name: 'Menu Edit',
