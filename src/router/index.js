@@ -14,6 +14,7 @@ import PageNotFound from '@/views/PageNotFound';
 import store from '@/store/index';
 import BeverageEdit from '@/views/admin/BeverageEdit';
 import FoodEdit from '@/views/admin/FoodEdit';
+import OrderDetail from '@/views/admin/OrderDetail';
 
 //const { isNavigationFailure, NavigationFailureType} = VueRouter;
 
@@ -79,6 +80,12 @@ Vue.use(VueRouter)
     path:'/all-orders',
     name: 'AllOrders',
     component: AllOrders,
+    meta: { requiresAuth: true } //requires admin auth
+  },
+  {
+    path:'/all-orders/:token',
+    name: 'OrderDetail',
+    component: OrderDetail,
     meta: { requiresAuth: true } //requires admin auth
   },
   {
