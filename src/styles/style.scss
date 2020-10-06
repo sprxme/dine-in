@@ -52,7 +52,18 @@
     }
 }
 
-
+//========================================
+//COPY PASTE THIS TO MAKE OUR CUSTOM INPUT
+//========================================
+/*
+<div class="custom__input">
+    <span class = "custom__input-row">
+        <input class="field" type="text">
+        <span class="placeholder">Placeholder</span>
+        <font-awesome-icon :icon="myIcon" class="icon" />
+    </span>
+</div>
+*/
 .custom__input{
     position: relative;
     width: 100%;
@@ -124,4 +135,8 @@
     font-size: 24px;
     cursor: pointer;
     visibility: hidden;
+
+    .visible{
+        visibility: visible;
+    }
 }

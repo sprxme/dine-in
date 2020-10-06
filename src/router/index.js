@@ -80,13 +80,13 @@ Vue.use(VueRouter)
     path:'/all-orders',
     name: 'AllOrders',
     component: AllOrders,
-    //meta: { requiresAuth: true } //requires admin auth
+    meta: { requiresAuth: true } //requires admin auth
   },
   {
     path:'/all-orders/:token',
     name: 'OrderDetail',
     component: OrderDetail,
-    //meta: { requiresAuth: true } //requires admin auth
+    meta: { requiresAuth: true } //requires admin auth
   },
   {
     path:'/beverage-edit',

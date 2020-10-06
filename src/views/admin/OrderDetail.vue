@@ -1,6 +1,12 @@
 <template>
     <div class="details">
-        
+        <div class="details__card">
+            <label class="details__title">Order Details</label>
+            <div class="details__content">
+                <span class="detail__token">{{item[0].token}}</span>
+                <label>Order Menu:</label>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -9,7 +15,7 @@ import { mapGetters } from 'vuex'
 export default {
     data: function(){
         return{
-            item: [],
+            item: '',
         }
     },
     computed: {
@@ -25,6 +31,22 @@ export default {
 
 <style lang="scss" scoped>
 .details{
+    display: flex;
+    justify-content: center;
     padding-top: 5em;
+
+    &__card{
+        margin: 2rem 15vw;
+        box-shadow: $box-card-shadow;
+        width: 75vw;
+        padding: .8em 1.2em;
+    }
+
+    &__title{
+        margin: 0;
+        font-size: 28px;
+        font-weight: 600;
+    }
+    
 }
 </style>
