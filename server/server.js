@@ -3,7 +3,7 @@ const app = express()
 const history = require('connect-history-api-fallback')
 
 const PORT = process.env.PORT || 8080
-const staticFileMiddleware = express.static(__dirname + '/dist')
+const staticFileMiddleware = express.static(__dirname + '/../dist')
 
 app.use(staticFileMiddleware)
 app.use(history({
@@ -13,7 +13,7 @@ app.use(history({
 app.use(staticFileMiddleware)
 
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + 'dist/index.html')
+    res.sendFile(__dirname + '/../dist/index.html')
 })
 
 app.listen(PORT, () => {
