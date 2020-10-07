@@ -13,7 +13,7 @@
                     </span>
                 </div>
             </div>
-            <b-table show-empty :filter="search" hover class="allorders__table" :items="orderList" :fields="fields">  
+            <b-table responsive show-empty :filter="search" hover class="allorders__table" :items="orderList" :fields="fields">  
                 <template v-slot:cell(actions)="row">
                     <router-link :to="'/all-orders/'+row.item.token">
                         <font-awesome-icon icon="eye"/>
@@ -50,7 +50,7 @@ export default {
     justify-content: center;
 
     &__title{
-        font-size: 28px;
+        font-size: 32px;
         font-weight: 600;
         margin-bottom: 25px;
     }
@@ -76,6 +76,14 @@ export default {
 .field{
     padding-right: 2em;
     height: 50px;
+}
+
+.placeholder{
+    left: 2em;
+}
+
+.icon{
+    top: 26px;
 }
 
 </style>
