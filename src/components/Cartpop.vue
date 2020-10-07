@@ -25,8 +25,8 @@
               <span class="cartpop__price-title">Total</span> 
               <span class="cartpop__price-total">Rp {{ totalPrice(allOrders) / 1000 }}k</span>
             </div>
-            <router-link class="cartpop__placeorder primary-button" to ="/order" @click.native="show = false; dim = false">
-            Place order
+            <router-link class="cartpop__placeorder primary-button" to ="/order" @click.native="show = false; dim = false; $emit('change-route')">
+              Place order
             </router-link>
         </ul>
         <div class="cartpop__empty" v-else>
