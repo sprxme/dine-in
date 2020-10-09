@@ -45,7 +45,7 @@ export default {
 
 <style lang="scss" scoped>
 .allorders{
-    padding: 8rem 10vw;
+    padding: 8rem 10vw 6rem;
     display: flex;
     justify-content: center;
 
