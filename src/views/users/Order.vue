@@ -16,7 +16,7 @@ export default {
     methods:{
         generateToken(){
             var token = Math.random().toString(36).slice(-8).toUpperCase()
-            this.$router.push('/track/'+token)
+            this.$router.push('/confirm/'+token)
         }
     }
 

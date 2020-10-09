@@ -1,6 +1,6 @@
 <template>
 <div class="tracking">
-    <label class="tracking__label">Order ID: {{$route.params.id}}</label>
+    <label class="tracking__label">Order ID: {{token.toUpperCase()}}</label>
     <div class="tracking__table">
         <div class="tracking__container" v-for="trackItem in allFoods" :key="trackItem.id">
             <div class="tracking__container__menu-status">
@@ -17,7 +17,12 @@
 import { mapGetters } from 'vuex';
 
 export default {
-    computed: {...mapGetters(['allOrders', 'allFoods'])}
+    props: {
+        token: String
+    },
+    computed: {
+        ...mapGetters(['allOrders', 'allFoods'])
+    }
 }
 </script>
 

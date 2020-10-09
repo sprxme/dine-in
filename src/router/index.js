@@ -15,6 +15,7 @@ import store from '@/store/index';
 import BeverageEdit from '@/views/admin/BeverageEdit';
 import FoodEdit from '@/views/admin/FoodEdit';
 import OrderDetail from '@/views/admin/OrderDetail';
+import ConnfirmPage from '@/views/users/ConfirmationPage';
 
 //const { isNavigationFailure, NavigationFailureType} = VueRouter;
 
@@ -64,9 +65,16 @@ Vue.use(VueRouter)
     component: Track,
   },
   {
-    path: '/track/:id',
+    path: '/track/:token',
     name: 'TrackingItem',
     component: TrackingItem,
+    props: true
+  },
+  {
+    path: '/confirm/:token',
+    name: 'TrackingItem',
+    component: ConnfirmPage,
+    props: true
   },
   {
     path: '/about',
@@ -86,6 +94,7 @@ Vue.use(VueRouter)
     path:'/all-orders/:token',
     name: 'OrderDetail',
     component: OrderDetail,
+    props: true,
     meta: { requiresAuth: true } //requires admin auth
   },
   {
