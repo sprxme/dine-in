@@ -1,5 +1,5 @@
 .menu{
-    padding: 5em 15vw;
+    padding: 2em 15vw;
 
     &__title-container{
         display: flex;
@@ -170,13 +170,13 @@
 
 @media screen and (max-width:1366px){
     .menu{
-        padding: 5em 10vw;
+        padding: 2em 10vw;
     }
 }
 
 @media only screen and (max-width: 700px) {
     .menu{
-        padding: 5em 1em;
+        padding: 2em 1em;
 
         &__cards{
             grid-template-columns: 1fr 1fr;
@@ -209,7 +209,7 @@
 
 @media only screen and (max-width: 480px) {
     .menu{
-        padding: 5em 1em 2em 1em;
+        padding: 2em 1em 2em 1em;
 
         &__cards{
             grid-template-columns: 1fr 1fr;
@@ -285,7 +285,7 @@
 
 @media only screen and (max-width: 480px) {
     .menu{
-        padding: 5em 1em 2em 1em;
+        padding: 2em 1em 2em 1em;
 
         &__cards{
             grid-template-columns: 1fr 1fr;
