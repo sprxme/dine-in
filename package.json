@@ -21,6 +21,7 @@
     "vue": "^2.6.12",
     "vue-material": "^1.0.0-beta-15",
     "vue-router": "^3.2.0",
+    "vueperslides": "^2.10.8",
     "vuex": "^3.5.1"
   },
   "devDependencies": {
