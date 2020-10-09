@@ -25,3 +25,5 @@ Oh how lovely this project is, if it weren't for our lovely (often highly caffei
 
 <br/>
 The warnings along the way, the errors that jumpscares our development team, and all the bugs we fought fiercely. May those things become our good luck charm on our next journey ahead. These memories - will stay with me. 💞
+
+<br/><br/>

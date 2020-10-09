@@ -15,7 +15,9 @@ export default {
 
 <style lang="scss" scoped>
 .safety {
+    margin-top: 64px;
     background: #0371e3;
+    cursor: pointer;
 
     &__container {
         text-align: center;

@@ -102,7 +102,7 @@ export default {
   color: $primary-color;
   height: 64px;
   align-items: center;
-  position: sticky;
+  position: fixed;
   top: 0;
   width: 100%;
   z-index: 98;
