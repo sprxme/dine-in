@@ -9,34 +9,38 @@
             <div class="track__left">
                 <label class="track__subtitle">Track with your order token.</label>
                 <label class="track__label">Find an individual order.</label>
-                <div class="custom__input">
-                    <span class = "custom__input-row">
-                        <input class="field" type="text" v-model="token" required>
-                        <span class="placeholder">Token</span>
-                        <font-awesome-icon icon="arrow-alt-circle-right" class="arrow-right" v-on:click="checkToken()"/>
-                    </span>
-                </div>
-                <span class="track__warning" v-show="alert">*We could not find the token you are looking for</span>
+                <form v-on:submit.prevent="checkToken()">
+                    <div class="custom__input">
+                        <span class = "custom__input-row">
+                            <input class="field" type="text" v-model="token" required>
+                            <span class="placeholder">Token</span>
+                            <font-awesome-icon icon="arrow-alt-circle-right" class="arrow-right" v-on:click="checkToken()"/>
+                        </span>
+                    </div>
+                </form>
+                <span class="track__warning" v-show="alert">We could not find the token you are looking for.</span>
             </div>
 
             <div class="track__right">
                 <label class="track__subtitle">Track with your account.</label>
-                <div class="custom__input-container">
-                    <div class="custom__input">
-                        <span class = "custom__input-row">
-                            <input class="field" type="text" required>
-                            <span class="placeholder">Email</span>
-                        </span>
+                <form @submit.prevent>
+                    <div class="custom__input-container">
+                        <div class="custom__input">
+                            <span class = "custom__input-row">
+                                <input class="field" type="text" required>
+                                <span class="placeholder">Email</span>
+                            </span>
+                        </div>
+                        <div class="custom__input">
+                            <span class = "custom__input-row">
+                                <input class="field" type="password" id="password" required>
+                                <span class="placeholder">Password</span>
+                                <font-awesome-icon :icon="myIcon" class="icon" v-on:click="togglePassword()"/>
+                            </span>
+                        </div>
                     </div>
-                    <div class="custom__input">
-                        <span class = "custom__input-row">
-                            <input class="field" type="password" id="password" required>
-                            <span class="placeholder">Password</span>
-                            <font-awesome-icon :icon="myIcon" class="icon" v-on:click="togglePassword()"/>
-                        </span>
-                    </div>
-                </div>
-                <span class="track__btn primary-button">Continue</span>          
+                    <input id="submit-btn" type="submit" class="track__btn primary-button" value="Continue" v-on:click="signin()"/>
+                </form>
             </div>
 
         </div>
@@ -73,10 +77,13 @@ export default {
         checkToken: function(){
             if(this.orderList.some(tokenSearch => tokenSearch.token == this.token)){
                 this.alert = false
-                this.$router.push('/confirm/'+this.token)
+                this.$router.push('/track/'+this.token)
             } else {
                 this.alert = true
             }
+        },
+        signin() {
+            console.log('Signing in...');
         }
     },
     computed: {
@@ -132,9 +139,11 @@ export default {
     &__left{
         padding: 10px 0 0 15vw;
         .custom__input{
+            min-width: 240px;
             width: 400px;
             margin: auto;
             margin-top: 0;
+            margin-bottom: 0;
         }
     }
 
@@ -143,6 +152,10 @@ export default {
         padding: 10px 150px 30px 2.5rem;
         max-width: 600px;
         min-width: 500px;
+
+        .custom__input {
+            min-width: 240px;
+        }
     }
 
     &__btn{
@@ -151,10 +164,19 @@ export default {
         padding: 1em 1.2em;
         border-radius: 10px;
         font-weight: 600;
+        min-width: 240px;
     }
 
     &__warning{
-        color: $btn-destructive;
+        // color: $btn-destructive;
+        min-width: 240px;
+        width: 400px;
+        margin: auto;
+        margin-top: 1rem;
+        padding: 12px 1rem;
+        border: 1px solid $input-error;
+        background: $secondary-input-error;
+        border-radius: 8px;
     }
 }
 
@@ -255,7 +277,17 @@ export default {
             padding-left: 0px;
             padding-right: 0px;
         }
+
+        &__warning{
+            width: 80vw;
+        }
     }
+}
+
+#submit-btn {
+  width: 100%;
+  outline: inherit;
+  border: none;
 }
 
 </style>

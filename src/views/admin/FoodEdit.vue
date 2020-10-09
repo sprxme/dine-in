@@ -37,4 +37,9 @@ export default {
 
 <style lang="scss" scoped>
 @import "@/styles/menu.scss";
+
+.menu__add {
+    padding: .5rem 2rem;
+}
+
 </style>

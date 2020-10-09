@@ -2,7 +2,7 @@
   <div class="account">
     <div class="account__content">
       <h1 class="account__title">Sign in</h1>
-      <form>
+      <form @submit.prevent>
         <div class="custom__input">
           <span class = "custom__input-row">
             <input class="field" type="text" v-model="input.username" name="username" autofocus required>
