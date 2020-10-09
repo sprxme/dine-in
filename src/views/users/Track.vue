@@ -13,11 +13,10 @@
                     <span class = "custom__input-row">
                         <input class="field" type="text" v-model="token" required>
                         <span class="placeholder">Token</span>
-                        <router-link :to="'/track/'+token">
-                            <font-awesome-icon icon="arrow-alt-circle-right" class="arrow-right"/>
-                        </router-link>
+                        <font-awesome-icon icon="arrow-alt-circle-right" class="arrow-right" v-on:click="checkToken()"/>
                     </span>
                 </div>
+                <span class="track__warning" v-show="alert">*We could not find the token you are looking for</span>
             </div>
 
             <div class="track__right">
@@ -47,11 +46,13 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 export default {
      data: function(){
         return{
             myIcon: 'eye',
             token: '',
+            alert: false,
         }
     },
     iconEye:{
@@ -59,16 +60,27 @@ export default {
     },
     methods:{
         togglePassword: function(){
-        var x = document.getElementById("password");
-        if(x.type === "password"){
-          x.type = "text"
-          this.myIcon = 'eye-slash'
-        } 
-        else{
-          x.type = "password"
-          this.myIcon = 'eye'
-        }  
-      },
+            var x = document.getElementById("password");
+            if(x.type === "password"){
+                x.type = "text"
+                this.myIcon = 'eye-slash'
+            } 
+            else{
+                x.type = "password"
+                this.myIcon = 'eye'
+            }  
+        },
+        checkToken: function(){
+            if(this.orderList.some(tokenSearch => tokenSearch.token == this.token)){
+                this.alert = false
+                this.$router.push('/track/'+this.token)
+            } else {
+                this.alert = true
+            }
+        }
+    },
+    computed: {
+        ...mapGetters(['orderList'])
     }
 }
 </script>
@@ -81,6 +93,7 @@ export default {
     font-size: 24px;
     cursor: pointer;
     visibility: visible;
+    color: $route-color;
 }
 .track{
     padding: 5em 2rem;
@@ -138,6 +151,10 @@ export default {
         padding: 1em 1.2em;
         border-radius: 10px;
         font-weight: 600;
+    }
+
+    &__warning{
+        color: $btn-destructive;
     }
 }
 
