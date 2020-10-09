@@ -26,15 +26,20 @@ Oh how lovely this project is, if it weren't for our lovely (often highly caffei
 <br/>
 The warnings along the way, the errors that jumpscares our development team, and all the bugs we fought fiercely. May those things become our good luck charm on our next journey ahead. These memories - will stay with me. 💞
 
+<br/><br/>
+
 <p align="center">
-<img alt="GitHub contributors" src="https://img.shields.io/github/contributors/A-WebProgramming/Forum?style=plastic">
+  <a href="https://github.com/sprxme/dine-in/graphs/contributors" alt="Contributors">
+    <img src="https://img.shields.io/github/contributors/sprxme/dine-in" /></a>
+  <a href="https://github.com/sprxme/dine-in/commits" alt="GitHub last commit">
+    <img src="https://img.shields.io/github/last-commit/sprxme/dine-in" /></a>
+  <a href="https://github.com/sprxme/dine-in/pulse" alt="Activity">
+    <img src="https://img.shields.io/github/commit-activity/m/sprxme/dine-in" /></a>
 </p>
 
 <p align="center">
-<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/A-WebProgramming/Forum">
-</p>
-
-<p align="center">
-<img alt="GitHub watchers" src="https://img.shields.io/github/watchers/A-WebProgramming/Forum?style=social">
-<img alt="GitHub stars" src="https://img.shields.io/github/stars/A-WebProgramming/Forum?style=social">
+  <a href="https://github.com/sprxme/dine-in/watchers" alt="GitHub watchers">
+    <img src="https://img.shields.io/github/watchers/sprxme/dine-in?style=social" /></a>
+  <a href="https://github.com/sprxme/dine-in/stargazers" alt="GitHub stars">
+    <img src="https://img.shields.io/github/stars/sprxme/dine-in?style=social"></a>
 </p>
