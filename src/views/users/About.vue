@@ -1,8 +1,26 @@
 <template>
   <div class="about">
-    <div>
-      <img class ="about__banner" src="@/assets/about/aboutimage.jpg"/>
+        <div class="container-container">
+      <b-carousel
+        class="container-carousel"
+        id="carousel"
+        :interval="4000"
+        indicators>
+        <b-carousel-slide
+          class="carousel-image"
+          img-src="@/assets/food/food1.jpg"
+        ></b-carousel-slide>
+        <b-carousel-slide
+          class="carousel-image"
+          img-src="@/assets/food/food2.jpg"
+        ></b-carousel-slide>
+        <b-carousel-slide
+          class="carousel-image"
+          img-src="@/assets/food/food6.jpg"
+        ></b-carousel-slide>
+      </b-carousel>
     </div>
+
     
     <div>
       <img class="about__logo" src="@/assets/about/logo2rev.png" />
@@ -50,8 +68,8 @@
         <label style="font-weight:bold">CONTACT US</label>
         <label style="text-decoration:underline">+6212 9612 5588</label>
       </div>
-
     </div>
+
 
   </div>
 </template> 
@@ -65,7 +83,7 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 8em;
+    margin-top: 2em;
     padding-bottom: 1em ;
   }
 
@@ -79,12 +97,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-bottom:2em;
+    padding-bottom:3em;
   }
 
   &__column{
     display: grid;
-    margin: 0.5em 0 10em 0;
+    margin: 0.5em 0 1em 0;
     padding: 5em 5em;
     grid-template-columns: repeat(2,1fr);
   }
@@ -115,7 +133,7 @@
     justify-content: center;
     flex-direction: column;
     border-top: 1px solid $light-grey;
-    margin:0vw 22vw;
+    margin:0vw 25vw;
   }
 
   &__baris{
@@ -152,4 +170,23 @@
   }
 
 }
+
+.carousel-image{
+  background-size: cover;
+  position: relative;
+  align-self: stretch;
+  height:450px;
+}
+
+.countainer-carousel{
+  display:flex;
+  min-height:60vh;
+  overflow: hidden;
+}
+
+.container-container{
+  display:flex;
+  width:100vw;
+}
+
 </style>
