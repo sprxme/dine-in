@@ -15,7 +15,7 @@ import store from '@/store/index';
 import BeverageEdit from '@/views/admin/BeverageEdit';
 import FoodEdit from '@/views/admin/FoodEdit';
 import OrderDetail from '@/views/admin/OrderDetail';
-import ConnfirmPage from '@/views/users/ConfirmationPage';
+import ConfirmPage from '@/views/users/ConfirmationPage';
 
 //const { isNavigationFailure, NavigationFailureType} = VueRouter;
 
@@ -73,7 +73,7 @@ Vue.use(VueRouter)
   {
     path: '/confirm/:token',
     name: 'TrackingItem',
-    component: ConnfirmPage,
+    component: ConfirmPage,
     props: true
   },
   {
