@@ -1,12 +1,14 @@
 <template>
     <div class="order">
-        <div class="order__image"><!--  Gambar-->
-            <img src="@/assets/food/food1.jpg" class="order__image" />
-        </div>
         <div>
-            <div class="order__details">
-                <p>Harga Diri Jacob Andrean</p>
-                <p>ZWE -1.000.000</p>
+            <div class="order__block">
+                <div class="order__details">
+                    <div class="order__image"><!--  Gambar-->
+                        <img src="@/assets/food/food1.jpg" class="order__image" />
+                    </div>
+                    <div class="order__details__name">Harga Diri Jacob Andrean</div>
+                    <div class="order__details__price">Rp 1.000.000</div>
+                </div>
             </div>
             <div class="order__iconbar">
                 <div class="order__note">
@@ -39,6 +41,9 @@ export default {
     padding-top: 20px;
     border-top: 1px solid $light-grey;
 
+    &__block{
+        display: flex;
+    }
     &__image{
         height: 150px;
         width: 150px;
@@ -48,13 +53,24 @@ export default {
     }
 
     &__details{
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        flex-wrap: wrap;
         font-size: 18px;
         font-weight: 500;
+        padding: .3em 1em;
+        flex-direction: row;
+
+        &__price{
+            display: block;
+            float: right;
+            margin-left: auto;
+        }
     }
 
     &__iconbar{
-        display: flex;
         color: $btn-primary;
+        float: right;
     }
 
     &__quantity{
