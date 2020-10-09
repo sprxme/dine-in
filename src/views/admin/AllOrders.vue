@@ -45,7 +45,7 @@ export default {
 
 <style lang="scss" scoped>
 .allorders{
-    padding: 8rem 10vw 6rem;
+    padding: 8rem 15vw 6rem;
     display: flex;
     justify-content: center;
 
@@ -56,8 +56,8 @@ export default {
     }
 
     &__card{
-        padding: 2rem 2.7em;
-        width: 75vw;
+        padding: 2em 2.7em;
+        width: 100%;
         box-shadow: $box-card-shadow;
     }
 
@@ -75,15 +75,46 @@ export default {
 
 .field{
     padding-right: 2em;
-    height: 50px;
+    // height: 50px;
 }
 
 .placeholder{
+    top: 1.3em;
     left: 2em;
 }
 
 .icon{
     top: 26px;
+    right: 1em;
+}
+
+@media screen and (max-width:1000px){
+    .allorders{
+        padding: 8rem 10vw 6rem;
+    }
+}
+
+@media screen and (max-width:500px){
+    .allorders{
+        padding: 8rem 5vw 6rem;
+    }
+}
+
+@media screen and (max-width:400px){
+    .allorders{
+        padding: 6rem 1rem 4rem;
+
+        &__title{
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: .5rem;
+        }
+
+        &__card {
+            box-shadow: none;
+            padding: 0;
+        }
+    }
 }
 
 </style>
