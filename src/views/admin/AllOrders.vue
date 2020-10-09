@@ -56,8 +56,13 @@ export default {
     }
 
     &__card{
+<<<<<<< HEAD
         padding: 2em 2.7em;
         width: 100%;
+=======
+        padding: 2rem 2.7em;
+        width: 75vw;
+>>>>>>> 93633507d3c8874fe02dd5d733ce97c3e6319237
         box-shadow: $box-card-shadow;
     }
 

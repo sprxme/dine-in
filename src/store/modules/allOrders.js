@@ -102,7 +102,24 @@ const state = {
             ]
         }
     ],
-    fields:['table_number','name','token','status','actions'],
+    fields:[
+        {
+            key: 'table_number'
+        },
+        {
+            key:'name'
+        },
+        {
+            key:'token'
+        },
+        {
+            key:'status',
+            sortable: true
+        },
+        {
+            key:'actions'
+        }
+    ]
 }
 
 const getters = {
