@@ -188,7 +188,7 @@
 
         &__cards{
             grid-template-columns: 1fr 1fr;
-            grid-gap: 1rem;
+            gap: 1rem;
         }
 
         &__card{
@@ -221,7 +221,7 @@
 
         &__cards{
             grid-template-columns: 1fr 1fr;
-            grid-gap: 0.8rem;
+            gap: .8rem .7rem
         }
 
         &__card{
@@ -263,9 +263,11 @@
         }
 
         &__tocart{
-            padding: .5em 1.2em;
-            margin: 0;
-            border-radius: 0;
+            // padding: .56em 1.2em;
+            margin: .5rem .5rem .5rem;
+
+            // margin: 0;
+            // border-radius: 0;
 
             &__icon{
                 font-size: 12px;
@@ -278,12 +280,14 @@
 
         &__quantity{
             padding: .5em 1.2em;
-            margin: 0;
-            border-radius: 0;
-            box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.09);
+            margin: .5rem .5rem .5rem;
+            border-radius: 8px;
+            // border: none;
+            // border: 1px solid ;
+            // box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.09);
     
             &__icon{
-                font-size: 12px;
+                font-size: 10px;
                 color: $btn-primary;
                 cursor: pointer;
             }
@@ -297,7 +301,6 @@
 
         &__cards{
             grid-template-columns: 1fr 1fr;
-            grid-gap: 0.67rem;
         }
     }
 }

@@ -290,6 +290,13 @@ export default {
       color: $secondary-text;
       font-size: .9em;
     }
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
   }
 
   &__image{

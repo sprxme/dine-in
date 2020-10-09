@@ -1,7 +1,7 @@
 <template>
   <div class="app">
     <Navbar v-show="$route.path.includes('/account') ? false : true" v-on:tap-cart="disableScroll" v-on:change-route="enableScroll"/>
-    <SafetyPrecautions />
+    <SafetyPrecautions v-show="$route.path.includes('/account') ? false : true" />
     <router-view/>    
     <Footer v-show="$route.path.includes('/account') ? false : true"/>
   </div>
