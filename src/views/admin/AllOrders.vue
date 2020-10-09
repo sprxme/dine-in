@@ -13,7 +13,7 @@
                     </span>
                 </div>
             </div>
-            <b-table :sort-by="status" responsive show-empty :filter="search" hover class="allorders__table" :items="orderList" :fields="fields">  
+            <b-table sort-by="status" sort-desc="true" responsive show-empty :filter="search" hover class="allorders__table" :items="orderList" :fields="fields">  
                 <template v-slot:cell(actions)="row">
                     <router-link :to="'/all-orders/'+row.item.token">
                         <font-awesome-icon icon="eye"/>
@@ -33,8 +33,8 @@ export default {
         }
     },
     methods:{
-        getItems: function(item){
-            console.log(item)
+        getItems: function(){
+            console.log(this.orderList.status)
         }
     },
     computed: {
