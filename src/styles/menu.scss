@@ -19,7 +19,8 @@
 
     &__cards{
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 2fr));
+        grid-template-columns: repeat(auto-fit, minmax(250px, .35fr));
+        justify-content: left;
         grid-gap: 2rem;
     }
 
@@ -48,12 +49,12 @@
     }
 
     &__image-container{
-        height: 150px;
+        height: 170px;
     }
 
     &__image{
-        min-height: 150px;
-        max-height: 150px;
+        min-height: 170px;
+        max-height: 170px;
         min-width: 100%;
         object-fit: cover;
     }
@@ -179,6 +180,12 @@
 @media screen and (max-width:1366px){
     .menu{
         padding: 2em 10vw;
+
+        &__cards{
+            grid-template-columns: repeat(auto-fit, minmax(250px, .5fr));
+
+        //     justify-content: center;
+        }
     }
 }
 
