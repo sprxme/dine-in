@@ -73,7 +73,7 @@ export default {
         checkToken: function(){
             if(this.orderList.some(tokenSearch => tokenSearch.token == this.token)){
                 this.alert = false
-                this.$router.push('/confirm/'+this.token)
+                this.$router.push('/track/'+this.token)
             } else {
                 this.alert = true
             }
