@@ -72,7 +72,7 @@ Vue.use(VueRouter)
   },
   {
     path: '/confirm/:token',
-    name: 'TrackingItem',
+    name: 'ConfirmItem',
     component: ConfirmPage,
     props: true
   },
