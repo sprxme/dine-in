@@ -1,5 +1,5 @@
 .menu{
-    padding: 5em 10vw;
+    padding: 5em 15vw;
 
     &__title-container{
         display: flex;
@@ -52,7 +52,7 @@
     }
 
     &__details{
-        padding: .8em 1.2em;
+        padding: .8em 1.2em 1em;
         display:flex;
         flex-direction: column;
     }
@@ -70,7 +70,7 @@
 
     &__price{
         font-weight: 600;
-        margin: .5em 0 .4em;
+        margin: .4em 0 0;
     }
 
     &__button_cart {
@@ -167,7 +167,14 @@
         }
     }   
 }
-@media only screen and (max-width: 780px) {
+
+@media screen and (max-width:1366px){
+    .menu{
+        padding: 5em 10vw;
+    }
+}
+
+@media only screen and (max-width: 700px) {
     .menu{
         padding: 5em 1em;
 
@@ -232,16 +239,17 @@
 
         &__desc {
             font-size: 12px;
-            padding-top: .3em;
+            padding-top: 0;
         }
 
         &__price {
             font-size: 14px;
-            margin-bottom: .1em;
+            margin-bottom: 0;
+            margin-top: .3rem;
         }
 
         &__details{
-            padding: .2em .5em .8em;
+            padding: .2em .5em .6em;
             display:flex;
             flex-direction: column;
         }
@@ -264,6 +272,7 @@
             padding: .5em 1.2em;
             margin: 0;
             border-radius: 0;
+            box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.09);
     
             &__icon{
                 font-size: 12px;

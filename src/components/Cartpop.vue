@@ -5,16 +5,28 @@
             <div class="cartpop__menu-list">
             <li v-for="order in allOrders" :key="order.id" class="cartpop__order-menu">
                 <div class="cartpop__image-container">
-                <img :src="require('../assets/food/'+order.image+'.jpg')" class="cartpop__image"/>
+                  <img :src="require('../assets/food/'+order.image+'.jpg')" class="cartpop__image"/>
                 </div>
                 <div class="cartpop__order-details">
                   <span class="cartpop__menu-name">{{order.name}}</span>
-                  <span class="cartpop__menu-quantity">x{{order.quantity}}</span>
+                  <div class="menu__quantity" v-show="order.quantity>0">
+                      <font-awesome-icon icon="minus" class="menu__quantity__icon left" v-on:click="updateQuantity(-1, order)"/>
+                      <label class="menu__quantity__number">{{ order.quantity }}</label>
+                      <font-awesome-icon icon="plus" class="menu__quantity__icon right" v-on:click="updateQuantity(1, order)"/>
+                  </div>
+                  <!-- <span class="cartpop__menu-quantity">x{{order.quantity}}</span> -->
+                </div>
+                <div class="cartpop__menu-price" v-bind:class="{ 'cartpop__menu-price-scroll': allOrders.length > 4 }">
+                    {{ order.price * order.quantity / 1000 }}k
                 </div>
             </li>
             </div>
-            <router-link class="cartpop__placeorder primary-button" to ="/order" @click.native="show = false; dim = false">
-            Place order
+            <div class="cartpop__price-container">
+              <span class="cartpop__price-title">Total</span> 
+              <span class="cartpop__price-total">Rp {{ totalPrice(allOrders) / 1000 }}k</span>
+            </div>
+            <router-link class="cartpop__placeorder primary-button" to ="/order" @click.native="show = false; dim = false; $emit('change-route')">
+              Place order
             </router-link>
         </ul>
         <div class="cartpop__empty" v-else>
@@ -49,7 +61,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
     data: function(){
@@ -61,10 +73,25 @@ export default {
         show: Boolean
     },
     methods: {
+      ...mapActions(['updateCart']),
       signOut() {
         this.$store.commit("setAuth", false);
         this.$router.replace('/');
         this.$router.go();
+      },
+      updateQuantity(value, order) {
+        let food = { ...order }
+        food.quantity = undefined
+
+        let qty = order.quantity
+        qty += value
+        this.updateCart({ food: food, quantity: qty })
+      },
+      totalPrice(orders) {
+        const total = orders.reduce((total, order) => {
+          return total + (order.price * order.quantity)
+        }, 0)
+        return total
       }
     },
     computed: {
@@ -74,6 +101,43 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.menu {
+  &__quantity{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    font-weight: 700;
+    cursor: default;
+    padding: .4em .9em;
+    margin: 0;
+    width: 80%;
+    max-width: 150px;
+    box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.09);
+
+    &__number{
+        margin: 0;
+        font-size: 13px;
+    }
+
+    &__icon{
+        font-size: 11px;
+        color: $btn-primary;
+        cursor: pointer;
+    }
+  }
+}
+
+.left{
+  float: left;
+  margin-right: auto;
+}
+
+.right{
+  float: right;
+  margin-left: auto;
+}
+
 .cartpop{
   display: block;
   position: fixed;
@@ -153,7 +217,7 @@ export default {
 
   &__menu-list {
     overflow-y: scroll;
-    max-height: 50vh;
+    max-height: 40vh;
 
     &::-webkit-scrollbar {
       width: 7px; 
@@ -192,8 +256,12 @@ export default {
 
   &__order-details{
     display:flex;
+    align-self: stretch;
+    width: 50%;
     flex-direction: column;
     margin-left: 1.2em;
+    margin-bottom: .5em;
+    margin-top: .1em;
   }
 
   &__empty{
@@ -231,14 +299,23 @@ export default {
   }
 
   &__menu-name{
+    flex-grow: 1;
     font-size: 18px;
     font-weight: 600;
     color: $text;
   }
 
-  &__menu-quantity{
-    font-size: 14px;
-    color: $secondary-text;
+  &__menu-price {
+    margin-top: auto;
+    margin-left: auto;
+    // margin-right: .6em;
+    margin-bottom: .8em;
+    font-size: 16px;
+    color: $text;
+  }
+
+  &__menu-price-scroll {
+    margin-right: .6em;
   }
 
   &__menu-more{
@@ -269,13 +346,33 @@ export default {
     display:flex;
     justify-content: center;
     padding: .5em 1.2em;
-    margin-top: 1.2em;
+    margin-top: 1em;
     border-radius: 5px;
   }
 
   &__placeorder:hover{
     text-decoration: none;
     background: $btn-primary-hover;
+  }
+
+  &__price-container {
+    border-top: 1px solid rgba(0,0,0,0.3);
+    margin-top: .5rem;
+    padding-top: .7rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__price-title {
+
+  }
+
+  &__price-total {
+    font-size: 18px;
+    font-weight: 600;
+    padding-right: .1rem;
   }
 }
 
@@ -292,6 +389,34 @@ export default {
 
     &::before{
       right: 2.05em;
+    }
+  }
+}
+
+@media screen and (max-width:400px) {
+  .cartpop {
+    &__menu-name{
+      // flex-grow: 1;
+      font-size: 16px;
+      // font-weight: 600;
+      // color: $text;
+    }
+  }
+
+  .menu {
+    &__quantity{
+
+      padding: .4em 1em;
+      width: 70%;
+      
+      &__number{
+          margin: 0;
+          font-size: 13px;
+      }
+
+      &__icon{
+          font-size: 11px;
+      }
     }
   }
 }
