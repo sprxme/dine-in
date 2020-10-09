@@ -34,7 +34,7 @@ The warnings along the way, the errors that jumpscares our development team, and
   <a href="https://github.com/sprxme/dine-in/commits" alt="GitHub last commit">
     <img src="https://img.shields.io/github/last-commit/sprxme/dine-in" /></a>
   <a href="https://github.com/sprxme/dine-in/pulse" alt="Activity">
-    <img src="https://img.shields.io/github/commit-activity/sprxme/dine-in" /></a>
+    <img src="https://img.shields.io/github/commit-activity/m/sprxme/dine-in" /></a>
 </p>
 
 <p align="center">
