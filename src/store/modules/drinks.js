@@ -1,27 +1,18 @@
 const state = {
     drinks: [
-        {id: 1, name: 'Coca-cola', price:'24000', image:'food1', category: 'Cold', desc:'minuman'},
-        {id: 2, name: 'Mineral Water', price:'12000', image:'food2', category: 'Cold', desc:'Pizza dengan topping olive oils, daging sapi, mozarella dan home sauce'},
-        {id: 3, name: 'Hot Ocha', price:'24000', image:'food3', category: 'Hot', desc:'minuman'},
-        {id: 4, name: 'Coca-cola', price:'24000', image:'food1', category: 'Cold', desc:'minuman'},
-        {id: 5, name: 'Coca-cola', price:'24000', image:'food4', category: 'Cold', desc:'minuman'},
-        {id: 6, name: 'Coca-cola', price:'24000', image:'food5', category: 'Cold', desc:'minuman'},
-        {id: 7, name: 'Coca-cola', price:'24000', image:'food3', category: 'Cold', desc:'minuman'},
-        {id: 8, name: 'Coca-cola', price:'24000', image:'food2', category: 'Hot', desc:'minuman'},
-        {id: 9, name: 'Coca-cola', price:'24000', image:'food4', category: 'Hot', desc:'minuman'},
-        {id: 10, name: 'Coca-cola', price:'24000', image:'food1', category: 'Hot', desc:'minuman'},
-        {id: 11, name: 'Coca-cola', price:'24000', image:'food1', category: 'Hot', desc:'minuman'},
-        {id: 12, name: 'Coca-cola', price:'24000', image:'food1', category: 'Hot', desc:'minuman'},
-        {id: 13, name: 'Coca-cola', price:'24000', image:'food1', category: 'Hot', desc:'minuman'},
-        {id: 14, name: 'Coca-cola', price:'24000', image:'food1', category: 'Hot', desc:'minuman'},
-        {id: 15, name: 'Coca-cola', price:'24000', image:'food1', category: 'Hot', desc:'minuman'},
-        {id: 16, name: 'Coca-cola', price:'24000', image:'food1', category: 'Hot', desc:'minuman'},
-        {id: 17, name: 'Segar Tea', price:'24000', image:'food1', category: 'Cold', desc:'minuman'},
-
+        {id: 1, name: 'Liquid Crack', price:'150000', image:'liquidcrack', category: 'Cocktails', desc:'Something shimmery, addictive and cheeky. Filled with all things magick to get your MOJO going again.'},
+        {id: 2, name: 'Garden Margarita', price:'150000', image:'gardenmargarita', category: 'Cocktails', desc:'Butter corn and undoubtly twisted with Tequile, Cointreau, palm sugar and olive bitters and corn!'},
+        {id: 3, name: 'The Secret Mermaid', price:'150000', image:'thesecretmermaid', category: 'Cocktails', desc:'A variation of Daiquiri, Spice & Everything Nice. Unconventionally uses Bon Cabe and creamy coconut, mango.'},
+        {id: 4, name: 'Coca Me Maybe', price:'140000', image:'colamemaybe', category: 'Cocktails', desc:'Lemongrass infused gin, lychee, earl grey tea, homemade lemon ginger honey.'},
+        {id: 5, name: 'Crazy Rich Sesame', price:'140000', image:'crazyrichsesame', category: 'Cocktails', desc:'Gin, whiskey cinnamon liqueur, ginger syrup, lemon, black sesame paste, egg white.'},
+        {id: 6, name: 'Special Christmas Cocktail', price:'150000', image:'specialchristmascocktail', category: 'Cocktails', desc:''},
+        {id: 7, name: 'Ni Hao Shimeji', price:'140000', image:'nihaoshimeji', category: 'Cocktails', desc:'Shimeji infused vodka, campari, vermouth, celery bitters, passion fruit syrup, lamb and rosemary gravy.'},
+        {id: 8, name: 'XXL Joy Punch!', price:'135000', image:'xxljoypunch', category: 'Cocktails', desc:'Rum, apple, strawberry, soursop juice, apple syrup, topped with a bottle of soju.'},
+        {id: 9, name: 'Adult Milo Dinosaur', price:'135000', image:'adultmilodinosaur', category: 'Cocktails', desc:'Vodka, milo, fresh milk, hershey’s syrup, pure cocoa.'}
     ],
     categories: [
-        {id: 1, name: 'Cold'},
-        {id: 2, name: 'Hot'}
+        {id: 1, name: 'Cocktails', desc: 'Our cocktail menu is seasonal. It changes periodically, depending on the best seasonal ingredients that are available on the market.'},
+        {id: 2, name: 'Mocktails', desc: '\'Mocktails\' is an abbreviation for \'mock cocktails\'. Mocktails come in many varieties: frozen, hot, fizzy, non-fizzy and cream-based recipes. It represents cocktails without the contain of alcohol.'}
     ]
 }
 

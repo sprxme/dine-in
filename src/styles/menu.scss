@@ -3,6 +3,7 @@
 
     &__title-container{
         display: flex;
+        flex-direction: column;
         align-items: center;
         border-bottom: 1px solid $light-grey;
         margin-bottom: 30px;
@@ -13,8 +14,37 @@
         font-weight: 600;
     }
 
+    &__subtitle {
+        text-align: center;
+        color: $secondary-text;
+        font-size: 14px;
+        max-width: 600px;
+        margin-top: .2rem;
+        margin-bottom: 1.2rem;
+    }
+
+    &__unavailable {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        font-weight: 600;
+        font-size: 16px;
+        
+        &__title {
+            display: inline;
+            margin-left: .3rem;
+        }
+
+        &__subtitle {
+            margin-top: .1rem;
+            font-size: 14px;
+            font-weight: normal;
+            color: $secondary-text;
+        }
+    }
+
     &__category{
-        margin-bottom: 30px;
+        margin-bottom: 60px;
     }
 
     &__cards{
@@ -49,18 +79,18 @@
     }
 
     &__image-container{
-        height: 170px;
+        height: 200px;
     }
 
     &__image{
-        min-height: 170px;
-        max-height: 170px;
+        min-height: 200px;
+        max-height: 200px;
         min-width: 100%;
         object-fit: cover;
     }
 
     &__details{
-        padding: .8em 1.2em 1em;
+        padding: .8em 1.2em 1.2em;
         display:flex;
         flex-direction: column;
     }
@@ -77,8 +107,9 @@
     }
 
     &__price{
-        font-weight: 600;
-        margin: .4em 0 0;
+        font-weight: 700;
+        font-size: 17px;
+        margin: .7em 0 0;
     }
 
     &__button_cart {
@@ -254,13 +285,13 @@
 
         &__desc {
             font-size: 12px;
-            padding-top: 0;
+            padding-top: .3em;
         }
 
         &__price {
             font-size: 14px;
             margin-bottom: 0;
-            margin-top: .3rem;
+            margin-top: .5rem;
         }
 
         &__details{
@@ -304,10 +335,24 @@
 
 @media only screen and (max-width: 480px) {
     .menu{
-        padding: 2em 1em 2em 1em;
+        padding: 1.2em 1em 2em 1em; 
 
         &__cards{
             grid-template-columns: 1fr 1fr;
+        }
+
+        &__subtitle {
+            text-align: center;
+            color: $secondary-text;
+            font-size: 12px;
+        }
+
+        &__unavailable {
+            font-size: 15px;
+    
+            &__subtitle {
+                font-size: 12px;
+            }
         }
     }
 }

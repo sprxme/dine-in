@@ -1,27 +1,21 @@
 const state = {
     foods: [
-        {id: 'f1', name: 'Coca-cola', price:'24000', image:'food1', category: 'Pizza', desc:'minuman'},
-        {id: 'f2', name: 'Sprxme\'s Special', price:'12000', image:'food2', category: 'Pizza', desc:'Pizza dengan topping olive oils, daging sapi, mozarella dan home sauce'},
-        {id: 'f3', name: 'Hot Ocha', price:'24000', image:'food3', category: 'Pizza', desc:'minuman'},
-        {id: 'f4', name: 'Coca-cola', price:'24000', image:'food1', category: 'Pasta', desc:'minuman'},
-        {id: 'f5', name: 'Coca-cola', price:'24000', image:'food4', category: 'Pizza', desc:'minuman'},
-        {id: 'f6', name: 'Coca-cola', price:'24000', image:'food5', category: 'Pizza', desc:'minuman'},
-        {id: 'f7', name: 'Coca-cola', price:'24000', image:'food3', category: 'Pizza', desc:'minuman'},
-        {id: 'f8', name: 'Coca-cola', price:'24000', image:'food2', category: 'Pasta', desc:'minuman'},
-        {id: 'f9', name: 'Coca-cola', price:'24000', image:'food4', category: 'Pizza', desc:'minuman'},
-        {id: 'f10', name: 'Coca-cola', price:'24000', image:'food2', category: 'Pasta', desc:'minuman'},
-        {id: 'f11', name: 'Coca-cola', price:'24000', image:'food4', category: 'Steak', desc:'minuman'},
-        {id: 'f12', name: 'Coca-cola', price:'24000', image:'food5', category: 'Pasta', desc:'minuman'},
-        {id: 'f13', name: 'Coca-cola', price:'24000', image:'food4', category: 'Steak', desc:'minuman'},
-        {id: 'f14', name: 'Coca-cola', price:'24000', image:'food6', category: 'Pasta', desc:'minuman'},
-        {id: 'f15', name: 'Coca-cola', price:'24000', image:'food5', category: 'Steak', desc:'minuman'},
-        {id: 'f16', name: 'Coca-cola', price:'24000', image:'food3', category: 'Pasta', desc:'minuman'},
-        {id: 'f17', name: 'Segar Tea', price:'24000', image:'food6', category: 'Pasta', desc:'minuman'},
+        {id: 'f1', name: 'Molten Salted Egg Bao', price:'34000', image:'moltensaltedeggbao', category: 'Steamed Dim Sum', desc:'Home-made bao with runny salted yolk center, infused with custard powder.'},
+        {id: 'f2', name: 'Xiao Long Bao', price:'32000', image:'xiaolongbao', category: 'Steamed Dim Sum', desc:'Delicate and delicous steamed dumplings filled with pork and savory soup.'},
+        {id: 'f3', name: 'Three Colored Chicken Wonton', price:'32000', image:'threecoloredchickenwonton', category: 'Steamed Dim Sum', desc:'Steamed wonton stuffed with 3 colored chicken with unique and flavorful taste.'},
+        {id: 'f4', name: 'Glutinous Rice in Lotus Leaf', price:'32000', image:'glutinousriceinlotusleaf', category: 'Steamed Dim Sum', desc:'The classic steamed lotus leaves stuffed with sticky rice and all sort of delicious goodies.'},
+
+        {id: 'f5', name: 'Deep Fried Spiced Chicken Roll', price:'32000', image:'deepfriedspicedchickenroll', category: 'Fried Dim Sum', desc:'Crunchy and cripsy chicken roll fried to perfection and filled in-house special with spices.'},
+        {id: 'f6', name: 'Butter Cajun Guo Tie', price:'35000', image:'buttercajunguotie', category: 'Fried Dim Sum', desc:'Chicken dumpling served with Butter Cajun and Spicy Sot Sauce.'},
+
+        {id: 'f7', name: 'HK Soursop', price:'24000', image:'hksoursop', category: 'Dessert', desc:'The bowl, the color, the taste. Introducing HK Soursop to replace your midnight chicken soup craving.'},
+        {id: 'f8', name: 'Mango Pudding with Popping Boba', price:'24000', image:'mangopuddingwithpoppingboba', category: 'Dessert', desc:'Fruity, soft, luscious mango pudding, topped with fresh cream and popping boba on top.'},
     ],
     categories: [
-        {id: 1, name: 'Pasta'},
-        {id: 2, name: 'Pizza'},
-        {id: 3, name: 'Steak'}
+        {id: 1, name: 'Steamed Dim Sum', desc: 'Dim sum (literally meaning: touch the heart) was originally not a main meal rather a snack. It is now a staple of Cantonese dining culture, especially in Hong Kong.'},
+        {id: 2, name: 'Fried Dim Sum', desc: 'Dim sum isn\'t perfect without it\'s fried counter-part. Enjoy the joy of the perfect Yum Cha experience with many variety to choose from!'},
+        {id: 3, name: 'Dessert', desc: 'A sweet course eaten at the end of a meal or known as the fourth meal of the day following breakfast, lunch and dinner.'},
+        {id: 4, name: 'Specials'}
     ]
 }
 
