@@ -5,13 +5,13 @@
             <div class="menu__title-container">
                 <span class="menu__title">{{category.name}}</span>
                 <span class="menu__add primary-button" v-b-modal.modal-beverage>
-                    <label class="menu__add__label">Add Menu</label>  
+                    <label class="menu__add__label">Add</label>  
                     <font-awesome-icon icon="plus" class="menu__tocart__icon"/> 
                 </span>
             </div>
             <div class="menu__unavailable" v-if="!checkAvailability(category.name)">
                 <span class="menu__unavailable__title">No items found.</span>
-                <span class="menu__unavailable__subtitle">Menu items you added from the 'Add Menu' button will appear here.</span>
+                <span class="menu__unavailable__subtitle">Menu items you added from the 'Add' button will appear here.</span>
             </div>
             <div class="menu__cards">
                 <MenuCardEdit v-for="drink in sortCategory(category.name)" :key="drink.id" :menu="drink" :type="'beverage'"/>
