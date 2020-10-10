@@ -264,10 +264,12 @@ export default {
   &__order-details{
     display:flex;
     align-self: stretch;
+    justify-content: space-between;
     width: 50%;
     flex-direction: column;
     margin-left: 1.2em;
     margin-top: .1em;
+    margin-bottom: .1em;
   }
 
   &__empty{
@@ -315,7 +317,7 @@ export default {
   }
 
   &__menu-name{
-    flex-grow: 1;
+    // flex-grow: 1;
     font-size: 16px;
     font-weight: 600;
     line-height: 1.3;
@@ -419,7 +421,7 @@ export default {
   .menu {
     &__quantity{
 
-      padding: .4em 1em;
+      padding: .3em 1em;
       width: 70%;
       
       &__number{
