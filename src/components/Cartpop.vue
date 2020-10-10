@@ -141,7 +141,7 @@ export default {
 .cartpop{
   display: block;
   position: fixed;
-  top: 4.0rem;
+  top: 3.35rem;
   flex-direction: column;
   background: #fff;
   width: 100vw;

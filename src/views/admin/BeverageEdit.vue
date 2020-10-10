@@ -57,8 +57,8 @@
                 </span>
             </div>
             <div class="menu__modal__buttongroup">
-                <span class="menu__modal__buttongroup__button destructive-secondary">Cancel</span>
-                <span class="menu__modal__buttongroup__button primary-button">Save</span>
+                <span class="menu__modal__buttongroup__button destructive-secondary" @click="$bvModal.hide('modal-beverage')">Cancel</span>
+                <span class="menu__modal__buttongroup__button primary-button" @click="$bvModal.hide('modal-beverage')">Save</span>
             </div>
         </b-modal>
     </div>
