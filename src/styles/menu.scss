@@ -296,6 +296,19 @@
         }
     }
 
+    &__add {
+        padding: .5rem 2rem;
+        outline: none;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        margin-bottom: 1rem;
+    }
+    
+    &__title-container {
+        position: relative;
+        padding-bottom: .5rem;
+    }
 }
 
 .custom__input-row input:focus + .placeholder,

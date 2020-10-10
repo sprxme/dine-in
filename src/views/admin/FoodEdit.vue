@@ -5,9 +5,13 @@
             <div class="menu__title-container">
                 <span class="menu__title">{{category.name}}</span>
                 <span class="menu__add primary-button" v-b-modal.modal-add-food>
-                    <label class="menu__add__label">Add</label>  
+                    <label class="menu__add__label">Add Menu</label>  
                     <font-awesome-icon icon="plus" class="menu__tocart__icon"/> 
                 </span>
+            </div>
+            <div class="menu__unavailable" v-if="!checkAvailability(category.name)">
+                <span class="menu__unavailable__title">No items found.</span>
+                <span class="menu__unavailable__subtitle">Menu items you added from the 'Add Menu' button will appear here.</span>
             </div>
             <div class="menu__cards">
                 <MenuCardEdit v-for="food in sortCategory(category.name)" :key="food.id" :menu="food" :type="'food'"/>
@@ -65,6 +69,11 @@ export default {
             return this.allFoods.filter(function(food){
                 return food.category == category;
             })
+        },
+        checkAvailability(categoryName) {
+            return this.allFoods.some(drink => {
+                return drink.category === categoryName
+            })
         }
     },
     components:{
@@ -76,10 +85,4 @@ export default {
 
 <style lang="scss" scoped>
 @import "@/styles/menu.scss";
-
-.menu__add {
-    padding: .5rem 2rem;
-    outline: none;
-}
-
 </style>
