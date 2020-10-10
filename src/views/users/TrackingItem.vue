@@ -2,7 +2,7 @@
 <div class="tracking">
     <label class="tracking__label">Order ID: {{token.toUpperCase()}}</label>
     <div class="tracking__table">
-        <div class="tracking__container" v-for="trackItem in allFoods" :key="trackItem.id">
+        <div class="tracking__container" v-for="trackItem in allFoods" :key="trackItem.id"> <!--change allFoods to allOrders-->
             <div class="tracking__container__status">
                 <div class="set-size">
                     <div class="circle-wrapper progress-number">
@@ -15,8 +15,8 @@
                         </div>
                     </div>
                 </div>
-                <span class="tracking__container__status__text">{{trackItem.name}}</span>
-                <span class="tracking__container__status__text">Preparing</span>
+                <span class="tracking__menu-name">{{trackItem.name}}</span>
+                <span class="tracking__progress-name">Preparing</span> <!-- order status-->
             </div>
         </div>
     </div>
@@ -37,6 +37,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+$size-divider: 20;
+
 .set-size {
     font-size: 10em;
 }
@@ -56,7 +59,7 @@ export default {
 
         .half-circle {
         @include size(100%, 100%);
-        border: ($default-size / 10) solid #3498db;
+        border: ($default-size / $size-divider) solid #3498db;
         border-radius: 50%;
         clip: rect(0, $default-size / 2, $default-size, 0);
         left: 0;
@@ -72,26 +75,23 @@ export default {
     .image-cropper {
         overflow: hidden;
         border-radius: 50%;
-        bottom: $custom-size-redo / 10;
-        //color: #ecf0f1;
+        bottom: $custom-size-redo / $size-divider;
+        left: $custom-size-redo / $size-divider;
+        right: $custom-size-redo / $size-divider;
+        top: $custom-size-redo / $size-divider;
         cursor: default;
         display: block;
         font-size: $custom-size;
-        left: $custom-size-redo / 10;
-        //line-height: $custom-size-redo * .70;
         position: absolute;
-        right: $custom-size-redo / 10;
-        //text-align: center;
-        top: $custom-size-redo / 10;
     }
 
     &.progress-number {
-        @include draw-progress(20, #55db34);
+        @include draw-progress(72, #55db34);
     }
 }
 
 .tracking{
-    padding-top: 6em;
+    padding-top: 3em;
     &__label {
         font-size: 40px;
         font-weight: 550;
@@ -101,7 +101,6 @@ export default {
 
     &__table {
         margin: 1em 2em 5em 2em;
-
         display: grid;
         grid-template-columns: repeat(2, 1fr);
     }
@@ -111,214 +110,67 @@ export default {
         margin: auto;
     
         &__status {
-            font-weight: 300;
-            color: red;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
     }
-}
-</style>
 
-<!--
-
-<template>
-<div class="tracking">
-    <label class="tracking__label">Order ID: {{token.toUpperCase()}}</label>
-    <div class="tracking__table">
-        <div class="tracking__container" v-for="trackItem in allFoods" :key="trackItem.id">
-            <div class="tracking__container__status">
-                <div class="tracking__container__status__image-cropper">
-                    <img class ="tracking__container__status__image-cropper__image" src="@/assets/about/aboutimage.jpg"/>
-                </div>
-                <span class="tracking__container__status__text">{{trackItem.name}}</span>
-                <span class="tracking__container__status__text">Preparing</span>
-            </div>
-        </div>
-    </div>
-</div>
-</template>
-<div class="tracking__container__progress-bar"></div>
-<script>
-import { mapGetters } from 'vuex';
-
-export default {
-    props: {
-        token: String
-    },
-    computed: {
-        ...mapGetters(['allOrders', 'allFoods'])
-    }
-}
-</script>
-
-<style lang="scss" scoped>
-.tracking{
-    padding-top: 6em;
-    &__label {
-        font-size: 40px;
-        font-weight: 550;
-        text-align: center;
-        width: 100%;
-        // &::after {
-        //     content: '';
-        //     display: flex;
-        //     margin: auto;
-        //     background: $light-grey;
-        //     width: 70%;
-        //     height: 2px;
-        // }
-    }
-
-    &__table {
-        margin: 1em 2em 5em 2em;
-
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    &__container {     
-        padding-top: 2em;
-        margin: auto;
-    
-        &__status {
-            font-weight: 300;
-            color: red;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-
-            &__image-cropper {
-                display: inline;
-                height: 100%;
-                width: auto;
-
-                &__image {
-                    width: 100px;
-                    height: 100px;
-                    position: relative;
-                    overflow: hidden;
-                    background: black;
-                    border-radius: 50%;
-                }
-            }
-
-        }
-
-        &__progress-bar {
-            background: #333;
-            border-radius: 12px;
-            overflow: hidden;
-            height: 5px;
-            width: 100%;
-            &::after {
-                content: 'ss';
-                display: block;
-                background:lightgreen;
-                width: 36%;
-                height: 100%;
-                &::after {
-                    content: '';
-                    display: block;
-                    width: 100%;
-                    height: 100%;
-                }
-            }
-        }
-    }
-
-}
-</style>
-
-<template>
-<div class="tracking">
-    <label class="tracking__label">Order ID: {{token.toUpperCase()}}</label>
-    <div class="tracking__table">
-        <div class="tracking__container" v-for="trackItem in allFoods" :key="trackItem.id">
-            <div class="tracking__container__menu-status">
-                <span>{{trackItem.name}}</span>
-                <span class="tracking__container__menu-status__status">Preparing</span>
-            </div>
-            <div class="tracking__container__progress-bar"></div>
-        </div>
-    </div>
-</div>
-</template>
-
-<script>
-import { mapGetters } from 'vuex';
-
-export default {
-    props: {
-        token: String
-    },
-    computed: {
-        ...mapGetters(['allOrders', 'allFoods'])
-    }
-}
-</script>
-
-<style lang="scss" scoped>
-.tracking{
-    padding-top: 6em;
-    &__label {
-        font-size: 40px;
-        font-weight: 550;
-        text-align: center;
-        width: 100%;
-        // &::after {
-        //     content: '';
-        //     display: flex;
-        //     margin: auto;
-        //     background: $light-grey;
-        //     width: 70%;
-        //     height: 2px;
-        // }
-    }
-
-    &__table {
-        margin: 1em 2em 5em 2em;
-    }
-
-    &__container {     
-        padding-top: 2em;
+    &__menu-name {
+        color: black;
+        font-weight: 600;
         display: flex;
         flex-direction: column;
-    
-        &__menu-status {
-            display: flex;
-
-            &__status {
-                float: right;
-                margin-left: auto;
-                font-weight: 300;
-                color: red;
-            }
-        }
-
-        &__progress-bar {
-            background: #333;
-            border-radius: 12px;
-            overflow: hidden;
-            height: 5px;
-            width: 100%;
-            &::after {
-                content: 'ss';
-                display: block;
-                background:lightgreen;
-                width: 36%;
-                height: 100%;
-                &::after {
-                    content: '';
-                    display: block;
-                    width: 100%;
-                    height: 100%;
-                }
-            }
-        }
+        text-align: center;
     }
 
+    &__progress-name {
+        color: gray;
+        font-weight: 300;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media screen and (min-width: 1000px){
+    .tracking{
+        &__table {
+            margin: 1em 10em 5em 10em;
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+}
+
+@media screen and (min-width: 1500px){
+    .tracking{
+        &__table {
+            margin: 1em 20em 5em 20em;
+        }
+    }
+}
+
+@media screen and (min-width: 2000px){
+    .tracking{
+        &__table {
+            margin: 1em 30em 5em 30em;
+        }
+    }
+}
+
+@media screen and (min-width: 2500px){
+    .tracking{
+        &__table {
+            margin: 1em 40em 5em 40em;
+        }
+    }
+}
+
+@media screen and (min-width: 3000px){
+    .tracking{
+        &__table {
+            margin: 1em 50em 5em 50em;
+        }
+    }
 }
 </style>
--->
