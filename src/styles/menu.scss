@@ -1,3 +1,6 @@
+@import '~bootstrap/scss/bootstrap.scss';
+@import '~bootstrap-vue/src/index.scss';
+
 .menu{
     padding: 2em 15vw;
 
@@ -128,6 +131,16 @@
         &__icon{
             font-size: 14px;
             margin-left: 10px;
+
+            &__float{
+                margin: 0;
+                padding: 0;
+                font-size: 24px;
+                display:flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            }
         }
     }
 
@@ -179,6 +192,17 @@
             margin: 0;
             pointer-events: none;
         }
+
+        &__float{
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            border-radius: 50%;
+            height: 65px;
+            width: 65px;
+            padding: 1em;
+            box-shadow: $box-card-shadow;
+        }
     }
 
     &__remove,
@@ -205,7 +229,91 @@
             color: $btn-destructive-click;
             border: 1px solid $btn-destructive-click;
         }
-    }   
+    } 
+
+    &__catselect{
+        margin: 15px 0;
+
+        &__select{
+            border-bottom: 1px solid $light-grey;
+            border-top:none;
+            border-left:none;
+            border-right:none;
+            border-radius: 0;
+            padding-left: 2px;
+
+            &__title{
+                color: $light-grey;
+            }
+        }
+
+        &:focus{
+            outline: none;
+        }
+    }
+
+    &__modal{
+        padding-top: 0;
+        margin-top: -1rem;
+
+        &__input{
+            background: transparent;
+            border-bottom: 1px solid $light-grey;
+            border-radius: 0;
+            font-size: 16px;
+            left: 0px;
+            
+
+            &:hover{
+                background: transparent;
+            }
+
+            &:focus{
+                outline: none;
+            }   
+        }
+
+        &__placeholder{
+            top: 28px;
+            left: 2px;
+            font-size: 16px;
+        }
+
+        &__buttongroup{
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 20px;
+
+            &__button{
+                padding: .3em 1.2em;
+                border-radius: 5px;
+                cursor: pointer;
+
+                &:first-child{
+                    margin-right: 15px;
+                }
+            }
+        }
+    }
+
+}
+
+.custom__input-row input:focus + .placeholder,
+.custom__input-row input:valid + .placeholder{
+    left: 2px;
+}
+
+.placeholder{
+    left: 2px;
+}
+
+.field{
+    padding-left: 2px;
+}
+
+.input__textarea{
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
 
 @media screen and (max-width:1366px){
