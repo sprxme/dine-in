@@ -335,9 +335,18 @@
         padding: 2em 10vw;
 
         &__cards{
-            grid-template-columns: repeat(auto-fit, minmax(250px, .5fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, .35fr));
 
         //     justify-content: center;
+        }
+    }
+}
+
+@media screen and (max-width:1020px){
+    .menu{
+        &__cards{
+            grid-template-columns: repeat(auto-fit, minmax(220px, .5fr));
+            gap: 1rem;
         }
     }
 }
