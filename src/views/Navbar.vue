@@ -99,7 +99,7 @@ export default {
   display: flex;
   padding: .8em 1em;
   backdrop-filter: blur(20px);
-  background: rgba($color: $primary-bg, $alpha: 0.92);
+  background: rgba($color: $primary-bg, $alpha: 0.9);
   color: $primary-color;
   height: 55px;
   align-items: center;
