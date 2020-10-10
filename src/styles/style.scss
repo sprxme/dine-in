@@ -160,7 +160,7 @@
 
 .custom__input-row textarea:focus + .placeholder__textarea,
 .custom__input-row textarea:valid + .placeholder__textarea{
-    top: 20px;
+    top: 22px;
     left: 2px;
     font-size: 14px;
     color: $text;
@@ -168,7 +168,7 @@
 
 .custom__input-row textarea:focus,
 .custom__input-row textarea:valid{
-    border: 2px solid $text;
+    border: 1px solid $text;
 }
 
 .password{

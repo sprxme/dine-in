@@ -17,7 +17,17 @@
                 <MenuCardEdit v-for="drink in sortCategory(category.name)" :key="drink.id" :menu="drink" :type="'beverage'"/>
             </div>
         </div>
-        <b-modal id="modal-beverage" centered hide-footer title="Add Beverage">
+        <b-modal id="modal-beverage" centered hide-footer title="Add Beverage" @show="resetData" @hide="resetData">
+            <label for="file-upload" class="menu__fileupload" :class="{border: !image}">
+                <div v-show="!image" class="menu__fileupload__container">
+                    <span for="file-upload" class="menu__fileupload__content">
+                        <font-awesome-icon icon="image"  class="menu__fileupload__icon"/>
+                        <span class="menu__fileupload__text">Add image</span>
+                    </span>
+                    <input type="file" id="file-upload" accept="image/x-png,image/gif,image/jpeg" @change="onFileChange"/>
+                </div>
+                <img v-show="image" :src="image" class="menu__fileupload__image"/>
+            </label>
             <div class="menu__modal">
                 <div class="custom__input">
                     <span class = "custom__input-row">
@@ -62,6 +72,7 @@ export default {
     data: function(){
         return{
             selected: null,
+            image: null,
         }
     },
     methods:{
@@ -74,6 +85,14 @@ export default {
             return this.allDrinks.some(drink => {
                 return drink.category === categoryName
             })
+        },
+        onFileChange(e){
+            const file = e.target.files[0];
+            this.image = URL.createObjectURL(file);
+        },
+        resetData(){
+            this.selected = null
+            this.image = null
         }
     },
     components:{
