@@ -4,7 +4,7 @@ import router from './router';
 import VueMaterial from 'vue-material';
 import 'vue-material/dist/vue-material.min.css';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faArrowLeft, faSearch, faListUl, faEdit, faChevronRight, faAngleDown ,faMinus, faPlus,faGlassMartiniAlt, faEye , faEyeSlash, faShoppingBag, faBars, faHome, faUtensils, faUserCircle, faInfoCircle, faTasks, faMugHot, faArrowAltCircleRight, faSignOutAlt, faTimesCircle} from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeft, faSearch, faListUl, faEdit, faChevronRight, faAngleDown ,faMinus, faPlus,faGlassMartiniAlt, faEye , faEyeSlash, faShoppingBag, faBars, faHome, faUtensils, faUserCircle, faInfoCircle, faTasks, faMugHot, faArrowAltCircleRight, faSignOutAlt, faTimesCircle, faCopy} from '@fortawesome/free-solid-svg-icons';
 import { faTwitter, faFacebook, faInstagram} from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import BootstrapVue from 'bootstrap-vue';
@@ -37,7 +37,8 @@ library.add(
               faInstagram,
               faChevronRight,
               faSignOutAlt,
-              faTimesCircle
+              faTimesCircle,
+              faCopy
             );
 Vue.use(VueMaterial);
 Vue.use(BootstrapVue);
