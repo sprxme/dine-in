@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="container-nav">
   <div class="sidebar">
     <font-awesome-icon icon="bars" class="sidebar__icon" v-b-toggle.sidebar-1/>
     <div class="sidebar__end">
@@ -98,9 +98,10 @@ export default {
 .sidebar{
   display: flex;
   padding: .8em 1em;
-  background: $primary-bg;
+  backdrop-filter: blur(10px);
+  background: rgba($color: $primary-bg, $alpha: 0.93);
   color: $primary-color;
-  height: 64px;
+  height: 55px;
   align-items: center;
   position: fixed;
   top: 0;
@@ -147,7 +148,7 @@ export default {
   &__titlebar{
     display: flex;
     padding: .8rem 2rem;
-    height: 64px;
+    height: 55px;
 
     border-bottom: 1px solid rgba(0,0,0,0.1);
     .sidebar__icon{
@@ -160,8 +161,8 @@ export default {
     padding: 0;
     margin: 0;
     padding-left: 0.295rem;
-    margin-block-start: 0.45em;
-    margin-block-end: 0.45em;
+    margin-block-start: 0.21em;
+    // margin-block-end: 0.45em;
     color: $sidebar-color-title;
   }
 

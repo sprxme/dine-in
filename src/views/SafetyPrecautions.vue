@@ -15,7 +15,7 @@ export default {
 
 <style lang="scss" scoped>
 .safety {
-    margin-top: 64px;
+    margin-top: 55px;
     background: #0371e3;
     cursor: pointer;
 

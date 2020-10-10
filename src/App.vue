@@ -75,5 +75,4 @@ li:focus{
   min-height: 100vh;
   min-width: 75vw;
 }
-
 </style>
