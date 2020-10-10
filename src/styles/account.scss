@@ -54,7 +54,9 @@
       max-height: 602.55px;
     //   min-height: 602.55px;
       width: 50vw;
-      background:#fff;
+      // background:#fff;
+      background: rgba($color: #fff, $alpha: 0.9);
+    backdrop-filter: blur(10px);
       z-index: 99;
       box-shadow: 0 5px 13px rgba(0,0,0,0.8);
 
