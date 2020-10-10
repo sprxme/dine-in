@@ -21,7 +21,7 @@ export default {
 
     &__container {
         text-align: center;
-        padding: .4rem 0 .5rem;
+        padding: .25rem 0 .5rem;
     }
 
     &__title {

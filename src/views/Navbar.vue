@@ -20,8 +20,8 @@
     v-slot:default="{ hide }"
   >
     <div class="sidebar__routes">
-      <div class="sidebar__titlebar">
-        <font-awesome-icon icon="bars" class="sidebar__icon icon-primary--dark" @click="hide"/>
+      <div class="sidebar__titlebar" @click="hide">
+        <font-awesome-icon icon="bars" class="sidebar__icon icon-primary--dark" />
         <h2 class="sidebar__title">Supreme</h2>
       </div>
       <ul class="sidebar__route-container">
@@ -98,8 +98,8 @@ export default {
 .sidebar{
   display: flex;
   padding: .8em 1em;
-  backdrop-filter: blur(10px);
-  background: rgba($color: $primary-bg, $alpha: 0.93);
+  backdrop-filter: blur(20px);
+  background: rgba($color: $primary-bg, $alpha: 0.92);
   color: $primary-color;
   height: 55px;
   align-items: center;
@@ -149,11 +149,19 @@ export default {
     display: flex;
     padding: .8rem 2rem;
     height: 55px;
-
     border-bottom: 1px solid rgba(0,0,0,0.1);
+    cursor: pointer;
+
     .sidebar__icon{
       height: auto;
     }
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
   }
 
   &__title{
