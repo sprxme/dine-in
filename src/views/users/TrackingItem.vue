@@ -37,37 +37,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-$default-size: 1em;
-$custom-size: $default-size / 4;
-$custom-size-redo: $default-size * 4;
-
-@mixin size($width, $height) {
-    height: $height;
-    width: $width;
-}
-
-@mixin draw-progress($progress, $color) {
-    .circle {
-        .half-circle {
-            border-color: $color;
-        }
-        .left-side {
-            transform: rotate($progress * 3.6deg);
-        }
-        @if $progress <= 50 {
-            .right-side {
-                display: none;
-            }
-        } @else {
-            clip: rect(auto, auto, auto, auto);
-            .right-side {
-                transform: rotate(180deg);
-            }
-        }
-    }
-}
-
 .set-size {
     font-size: 10em;
 }
