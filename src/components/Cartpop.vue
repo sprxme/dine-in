@@ -16,7 +16,7 @@
                   </div>
                   <!-- <span class="cartpop__menu-quantity">x{{order.quantity}}</span> -->
                 </div>
-                <div class="cartpop__menu-price" v-bind:class="{ 'cartpop__menu-price-scroll': allOrders.length > 4 }">
+                <div class="cartpop__menu-price" v-bind:class="{ 'cartpop__menu-price-scroll': allOrders.length >= 4 }">
                     {{ order.price * order.quantity / 1000 }}k
                 </div>
             </li>
@@ -267,7 +267,6 @@ export default {
     width: 50%;
     flex-direction: column;
     margin-left: 1.2em;
-    margin-bottom: .5em;
     margin-top: .1em;
   }
 
@@ -305,6 +304,9 @@ export default {
     max-width: 80px;
     max-height: 80px;
     min-height: 80px;
+    // width: 100%;
+    // height: auto;
+    object-fit: cover;
   }
 
   &__image-container{
@@ -314,8 +316,9 @@ export default {
 
   &__menu-name{
     flex-grow: 1;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
+    line-height: 1.3;
     color: $text;
   }
 
