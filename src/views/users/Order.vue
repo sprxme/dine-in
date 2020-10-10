@@ -1,5 +1,6 @@
 <template>
     <div class="orderlist">
+        <div class="orderlist__title">Orders</div>
         <OrderCard v-for="index in 5" :key="index"/>
         <span class="orderlist__button primary-button" v-on:click="generateToken()">
             Confirm
@@ -25,8 +26,12 @@ export default {
 
 <style lang="scss" scoped>
 .orderlist{
-    padding: 10em 10vw;
+    padding: 5em 10vw ;
 
+    &__title{
+        font-size: 36px;
+        font-weight: 600;
+    }
     &__button{
         padding: .8em 1.2em;
         border-radius: 8px;

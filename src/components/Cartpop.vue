@@ -45,7 +45,7 @@
             <font-awesome-icon icon="user-circle" class="cartpop__icon" />
             <span>Profile</span>
         </router-link>
-        <span v-if="checkAuth" class="cartpop__menu route-menu" v-b-modal.modal-sign-out  @click.native="dim = false; $emit('change-route')">
+        <span v-if="checkAuth" class="cartpop__menu route-menu" v-b-modal.modal-sign-out @click.native="dim = false; $emit('change-route')">
             <font-awesome-icon icon="sign-out-alt" class="cartpop__icon" />
             <span>Sign out</span>
         </span>
@@ -252,6 +252,13 @@ export default {
     align-items: center;
     list-style-type: none;
     margin-bottom: .8em;
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
   }
 
   &__order-details{
@@ -283,6 +290,13 @@ export default {
       color: $secondary-text;
       font-size: .9em;
     }
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
   }
 
   &__image{
@@ -363,10 +377,6 @@ export default {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-  }
-
-  &__price-title {
-
   }
 
   &__price-total {

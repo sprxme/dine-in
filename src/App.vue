@@ -1,7 +1,8 @@
 <template>
   <div class="app">
     <Navbar v-show="$route.path.includes('/account') ? false : true" v-on:tap-cart="disableScroll" v-on:change-route="enableScroll"/>
-    <router-view/>
+    <SafetyPrecautions v-show="$route.path.includes('/account') ? false : true" />
+    <router-view/>    
     <Footer v-show="$route.path.includes('/account') ? false : true"/>
   </div>
 </template>
@@ -9,6 +10,7 @@
 <script>
 import Navbar from './views/Navbar';
 import Footer from './views/Footer';
+import SafetyPrecautions from './views/SafetyPrecautions'
 
 export default {
   name: 'app',
@@ -35,7 +37,8 @@ export default {
   },
   components: {
     Navbar,
-    Footer
+    Footer,
+    SafetyPrecautions
   }
 }
 </script>
@@ -52,7 +55,7 @@ export default {
 }
 
 body {
-      min-width: $min-width;
+  min-width: $min-width;
 
 }
 
@@ -72,5 +75,4 @@ li:focus{
   min-height: 100vh;
   min-width: 75vw;
 }
-
 </style>
