@@ -2,7 +2,7 @@
 <div class="tracking">
     <label class="tracking__label">Order ID: {{token.toUpperCase()}}</label>
     <div class="tracking__table">
-        <div class="tracking__container" v-for="trackItem in allFoods" :key="trackItem.id"> <!--change allFoods to allOrders-->
+        <div class="tracking__container" v-for="trackItem in allOrders" :key="trackItem.id">
             <div class="tracking__container__status">
                 <div class="set-size">
                     <div class="circle-wrapper progress-number">
@@ -12,6 +12,12 @@
                         <div class="circle">
                             <div class="left-side half-circle"></div>
                             <div class="right-side half-circle"></div>
+                        </div>
+                    </div>
+                    <div class="circle-wrapper empty-progress-number">
+                        <div class="circle">
+                            <div class="left-side empty-half-circle"></div>
+                            <div class="right-side empty-half-circle"></div>
                         </div>
                     </div>
                 </div>
@@ -39,6 +45,8 @@ export default {
 <style lang="scss" scoped>
 
 $size-divider: 20;
+$progress-circle: #72DA41;
+$empty-progress-circle: #D3D3D3;
 
 .set-size {
     font-size: 10em;
@@ -58,13 +66,23 @@ $size-divider: 20;
         top: 0;
 
         .half-circle {
-        @include size(100%, 100%);
-        border: ($default-size / $size-divider) solid #3498db;
-        border-radius: 50%;
-        clip: rect(0, $default-size / 2, $default-size, 0);
-        left: 0;
-        position: absolute;
-        top: 0;
+            @include size(100%, 100%);
+            border: ($default-size / $size-divider) solid $progress-circle;
+            border-radius: 50%;
+            clip: rect(0, $default-size / 2, $default-size, 0);
+            left: 0;
+            position: absolute;
+            top: 0;
+        }
+
+        .empty-half-circle {
+            @include size(100%, 100%);
+            border: ($default-size / $size-divider) solid $empty-progress-circle;
+            border-radius: 50%;
+            clip: rect(0, $default-size / 2, $default-size, 0);
+            left: 0;
+            position: absolute;
+            top: 0;
         }
     }
 
@@ -86,7 +104,13 @@ $size-divider: 20;
     }
 
     &.progress-number {
-        @include draw-progress(72, #55db34);
+        @include draw-progress(72, $progress-circle);
+        z-index: 5;
+    }
+    &.empty-progress-number {
+        @include draw-progress(100, $empty-progress-circle);
+        position: absolute;
+        z-index: 1;
     }
 }
 
