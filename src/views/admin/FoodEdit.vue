@@ -79,6 +79,7 @@ export default {
 
 .menu__add {
     padding: .5rem 2rem;
+    outline: none;
 }
 
 </style>

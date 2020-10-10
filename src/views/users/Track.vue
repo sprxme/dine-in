@@ -103,7 +103,7 @@ export default {
     color: $route-color;
 }
 .track{
-    padding: 5em 2rem;
+    padding: 2em 2rem 10em;
 
     &__title{
         font-size: 50px;
