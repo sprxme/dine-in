@@ -8,7 +8,14 @@ const state = {
         {id: 6, name: 'Special Christmas Cocktail', price:'150000', image:'specialchristmascocktail', category: 'Cocktails', desc:''},
         {id: 7, name: 'Ni Hao Shimeji', price:'140000', image:'nihaoshimeji', category: 'Cocktails', desc:'Shimeji infused vodka, campari, vermouth, celery bitters, passion fruit syrup, lamb and rosemary gravy.'},
         {id: 8, name: 'XXL Joy Punch!', price:'135000', image:'xxljoypunch', category: 'Cocktails', desc:'Rum, apple, strawberry, soursop juice, apple syrup, topped with a bottle of soju.'},
-        {id: 9, name: 'Adult Milo Dinosaur', price:'135000', image:'adultmilodinosaur', category: 'Cocktails', desc:'Vodka, milo, fresh milk, hershey’s syrup, pure cocoa.'}
+        {id: 9, name: 'Adult Milo Dinosaur', price:'135000', image:'adultmilodinosaur', category: 'Cocktails', desc:'Vodka, milo, fresh milk, hershey’s syrup, pure cocoa.'},
+
+        {id: 10, name: 'Virgin Cucumber Gimlet', price:'60000', image:'virgincucumber', category: 'Mocktails', desc:'Fresh Soda infused with syrup, cucumber, and lime.'},
+        {id: 11, name: 'Mountain Mojito', price:'70000', image:'mojito', category: 'Mocktails', desc:'Soda water mixed with lime juice, agave, blood orange, and mint leaves.'},
+        {id: 12, name: 'Lavender Lemonade', price:'65000', image:'lavenderlemon', category: 'Mocktails', desc:'Fresh lemon juice infused with honey and dried lavender.'},
+        {id: 13, name: 'Blueberry Lavender Mojito', price:'60000', image:'blueberrylavender', category: 'Mocktails', desc:'Soda water infused with blueberry lavender syrup, and lime water.'},
+        {id: 14, name: 'Wildcat Cooler', price:'65000', image:'wildcatcooler', category: 'Mocktails', desc:'Blueberries, juiced lemon, and sugar mixed with fresh water.'},
+        {id: 15, name: 'Spicy Watermelon Mint Agua Fresca', price:'90000', image:'watermelonagua', category: 'Mocktails', desc:'Watermelon on top  of water infused with granulated sugar, lime juice, jalapeno, and mint leaves.'},
     ],
     categories: [
         {id: 1, name: 'Cocktails', desc: 'Our cocktail menu is seasonal. It changes periodically, depending on the best seasonal ingredients that are available on the market.'},
