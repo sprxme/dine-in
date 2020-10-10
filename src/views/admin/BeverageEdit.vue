@@ -4,10 +4,6 @@
         <div class="menu__category" v-for="category in allDrinkCategories" :key="category.id">
             <div class="menu__title-container">
                 <span class="menu__title">{{category.name}}</span>
-                <span class="menu__add primary-button" v-b-modal.modal-beverage>
-                    <label class="menu__add__label">Add</label>  
-                    <font-awesome-icon icon="plus" class="menu__tocart__icon"/> 
-                </span>
             </div>
             <div class="menu__cards">
                 <MenuCardEdit v-for="drink in sortCategory(category.name)" :key="drink.id" :menu="drink" :type="'beverage'"/>
@@ -47,6 +43,9 @@
                 </div>
             </b-modal>
         </div>
+         <span class="menu__add__float primary-button" v-b-modal.modal-beverage> 
+            <font-awesome-icon icon="plus" class="menu__tocart__icon__float" style="margin-right:0px"/> 
+        </span>
     </div>
 </template>
 

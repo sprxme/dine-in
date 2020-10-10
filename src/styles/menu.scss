@@ -100,6 +100,16 @@
         &__icon{
             font-size: 14px;
             margin-left: 10px;
+
+            &__float{
+                margin: 0;
+                padding: 0;
+                font-size: 24px;
+                display:flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            }
         }
     }
 
@@ -150,6 +160,17 @@
         &__label{
             margin: 0;
             pointer-events: none;
+        }
+
+        &__float{
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            border-radius: 50%;
+            height: 65px;
+            width: 65px;
+            padding: 1em;
+            box-shadow: $box-card-shadow;
         }
     }
 
