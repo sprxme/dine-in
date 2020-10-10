@@ -85,4 +85,24 @@ export default {
 
 <style lang="scss" scoped>
 @import "@/styles/menu.scss";
+
+@media screen and (max-width:1000px){
+    .menu {    
+        &__title-container {
+            position: relative;
+            padding-bottom: .5rem;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        &__add {
+            position: static;
+            margin-bottom: 0;
+            margin-left: 1rem;
+        }
+    }
+}
+
 </style>

@@ -342,25 +342,6 @@
     }
 }
 
-@media screen and (max-width:1000px){
-    .menu {    
-        &__title-container {
-            position: relative;
-            padding-bottom: .5rem;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: flex-end;
-        }
-
-        &__add {
-            position: static;
-            margin-bottom: 0;
-            margin-left: 1rem;
-        }
-    }
-}
-
 @media only screen and (max-width: 700px) {
     .menu{
         padding: 2em 1em;
