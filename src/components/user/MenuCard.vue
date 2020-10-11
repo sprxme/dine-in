@@ -14,9 +14,9 @@
             <font-awesome-icon icon="plus" class="menu__tocart__icon"/>
         </div>
         <div class="menu__quantity" v-show="quantity>0">
-            <font-awesome-icon icon="minus" class="menu__quantity__icon left" v-on:click="updateQuantity(-1, food)"/>
+            <font-awesome-icon icon="minus" class="menu__quantity__icon left" v-on:click="updateQuantity(-1, food)" @mousedown="startRemove(food)" @mouseleave="stop" @mouseup="stop" @touchstart="startRemove(food)" @touchend="stop" @touchcancel="stop"/>
             <label class="menu__quantity__number">{{ quantity }}</label>
-            <font-awesome-icon icon="plus" class="menu__quantity__icon right" v-on:click="updateQuantity(1, food)"/>
+            <font-awesome-icon icon="plus" class="menu__quantity__icon right" v-on:click="updateQuantity(1, food)" @mousedown="startAdd(food)" @mouseleave="stop" @mouseup="stop" @touchstart="startAdd(food)" @touchend="stop" @touchcancel="stop"/>
         </div>
     </div>
 </div>
@@ -27,15 +27,35 @@ import { mapGetters, mapActions } from 'vuex'
 
 export default {
     props:{
-        food: Object
+        food: Object,
+    },
+    data: function() {
+        return {
+            interval: false
+        }
     },
     methods: {
         ...mapActions(['updateCart']),
         updateQuantity(value, food) {
             let qty = this.quantity
             qty += value
+            if (qty < 0) { return this.stop() }
             this.updateCart({ food: food, quantity: qty })
         },
+        startAdd(food) {
+            if (!this.interval) {
+                this.interval = setInterval(() => this.updateQuantity(1, food), 200)	
+            }
+        },
+        startRemove(food) {
+            if (!this.interval) {
+                this.interval = setInterval(() => this.updateQuantity(-1, food), 200)	
+            }
+        },
+        stop() {
+            clearInterval(this.interval)
+            this.interval = false
+        }
     },
     computed: {
         ...mapGetters(['allOrders']),

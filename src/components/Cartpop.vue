@@ -10,9 +10,9 @@
                 <div class="cartpop__order-details">
                   <span class="cartpop__menu-name">{{order.name}}</span>
                   <div class="menu__quantity" v-show="order.quantity>0">
-                      <font-awesome-icon icon="minus" class="menu__quantity__icon left" v-on:click="updateQuantity(-1, order)"/>
+                      <font-awesome-icon icon="minus" class="menu__quantity__icon left" v-on:click="updateQuantity(-1, order)" @mousedown="startRemove(order)" @mouseleave="stop" @mouseup="stop" @touchstart="startRemove(order)" @touchend="stop" @touchcancel="stop"/>
                       <label class="menu__quantity__number">{{ order.quantity }}</label>
-                      <font-awesome-icon icon="plus" class="menu__quantity__icon right" v-on:click="updateQuantity(1, order)"/>
+                      <font-awesome-icon icon="plus" class="menu__quantity__icon right" v-on:click="updateQuantity(1, order)" @mousedown="startAdd(order)" @mouseleave="stop" @mouseup="stop" @touchstart="startAdd(order)" @touchend="stop" @touchcancel="stop"/>
                   </div>
                   <!-- <span class="cartpop__menu-quantity">x{{order.quantity}}</span> -->
                 </div>
@@ -67,6 +67,7 @@ export default {
     data: function(){
         return{
             dim: false,
+            interval: false
         }
     },
     props:{
@@ -83,8 +84,9 @@ export default {
         let food = { ...order }
         food.quantity = undefined
 
-        let qty = order.quantity
+        let qty = this.quantity(food.id)
         qty += value
+        if (qty < 0) { return this.stop() }
         this.updateCart({ food: food, quantity: qty })
       },
       totalPrice(orders) {
@@ -92,10 +94,33 @@ export default {
           return total + (order.price * order.quantity)
         }, 0)
         return total
+      },
+      startAdd(order) {
+        if (!this.interval) {
+            this.interval = setInterval(() => this.updateQuantity(1, order), 200)	
+        }
+      },
+      startRemove(order) {
+        if (!this.interval) {
+          this.interval = setInterval(() => this.updateQuantity(-1, order), 200)	
+        }
+      },
+      stop() {
+        clearInterval(this.interval)
+        this.interval = false
+      },
+      quantity(foodId) {
+        let qty = 0
+        this.allOrders.forEach(order => {
+          if (order.id == foodId) {
+            qty = order.quantity
+          }
+        })
+        return qty
       }
     },
     computed: {
-      ...mapGetters(['allOrders', 'checkAuth'])
+      ...mapGetters(['allOrders', 'checkAuth']),
     }
 }
 </script>
