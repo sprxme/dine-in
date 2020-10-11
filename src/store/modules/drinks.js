@@ -24,6 +24,10 @@ const state = {
         {id: 'm8', name: 'Fine China', price:'50000', image:'finechina', category: 'Mocktails', desc:'Kiwi, lemon, orang juice, ginger syrup, kiwi syrup.'},
 
         {id: 't1', name: 'Ice Lemon Tea', price:'35000', image:'lemontea', category: 'Tea', desc:'HK tea leaves infused with fresh lemon juice, served on chilled ice.'},
+        {id: 't2', name: 'Ice Tea', price:'15000', image:'esteh', category: 'Tea', desc:'Healthy and natural tea with chill ice.'},
+        {id: 't3', name: 'Hot Tea', price:'18000', image:'tehpanas', category: 'Tea', desc:'Hot tea made with natural and handpicked quality tea leaves.'},
+        {id: 't4', name: 'Hot Black Tea', price:'24000', image:'blacktea', category: 'Tea', desc:'Quality black tea leaves native to england made hot.'},
+        {id: 't5', name: 'Ice Milk Tea With Bubbles', price:'30000', image:'bobatea', category: 'Tea', desc:'Tea and milk combine with bubble topping made cold.'},
     ],
     categories: [
         {id: 1, name: 'Cocktails', desc: 'Our cocktail menu is seasonal. It changes periodically, depending on the best seasonal ingredients that are available on the market.'},

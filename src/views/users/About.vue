@@ -8,15 +8,15 @@
         indicators>
         <b-carousel-slide
           class="carousel-image"
-          img-src="@/assets/food/food1.jpg"
+          img-src="@/assets/about/aboutimage.jpg"
         ></b-carousel-slide>
         <b-carousel-slide
           class="carousel-image"
-          img-src="@/assets/food/food2.jpg"
+          img-src="@/assets/about/aboutimg2.jpg"
         ></b-carousel-slide>
         <b-carousel-slide
           class="carousel-image"
-          img-src="@/assets/food/food6.jpg"
+          img-src="@/assets/about/aboutimg1.jpg"
         ></b-carousel-slide>
       </b-carousel>
     </div>
