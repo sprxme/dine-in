@@ -170,7 +170,7 @@ export default {
   flex-direction: column;
   background: #fff;
   width: 100vw;
-  z-index: 98;
+  z-index: 99;
   padding: 0em 1em 0.6em 1em;
   min-width: $min-width;
 

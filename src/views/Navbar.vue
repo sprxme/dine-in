@@ -26,19 +26,23 @@
       </div>
       <ul class="sidebar__route-container">
         <li v-for="nav in sortNav" :key="nav.name" class="sidebar__router" v-bind:class="{'menu-dropdown': nav.child != null}">
-          <router-link class="sidebar__route-link" v-if="nav.child == null" :to="nav.routeLink" @click.native="show = false; dim = false; $emit('change-route')">
-            <font-awesome-icon :icon="nav.icon" class="sidebar__icon icon-secondary" v-bind:class="{'home-icon': nav.name == 'Home'}" />
-            <label class="sidebar__router__label">{{nav.name}}</label>
-          </router-link>
+          <div class="route-link-container" v-if="nav.child == null" @click="hide">
+            <router-link class="sidebar__route-link"  :to="nav.routeLink" @click.native="show = false; dim = false; $emit('change-route')">
+              <font-awesome-icon :icon="nav.icon" class="sidebar__icon icon-secondary" v-bind:class="{'home-icon': nav.name == 'Home'}" />
+              <label class="sidebar__router__label">{{nav.name}}</label>
+            </router-link>
+          </div>
           <span v-else>
-            <span class="sidebar__collapse" v-b-toggle.collapse-menu v-on:click="toggleArrow()"> 
+            <span class="sidebar__collapse" v-b-toggle.collapse-menu v-on:click="toggleArrow()">
               <font-awesome-icon icon="utensils" class="sidebar__collapse__icon icon-secondary" />
               <label class= "menu">{{nav.name}}</label>
               <font-awesome-icon id="arrow" icon="angle-down" class="sidebar__iconright" />
             </span>
             <b-collapse id="collapse-menu">
               <li v-for="subNav of nav.child" :key="subNav.name">
-                <router-link class="sidebar__router submenu" :to="subNav.routeLink" @click.native="show = false; dim = false; $emit('change-route')" v-bind:class="{'food-submenu': subNav.name == 'Food'}">{{subNav.name}}</router-link>
+                <div class="router-link-container" @click="hide">
+                  <router-link class="sidebar__router submenu" :to="subNav.routeLink" @click.native="show = false; dim = false; $emit('change-route')" v-bind:class="{'food-submenu': subNav.name == 'Food'}">{{subNav.name}}</router-link>
+                </div>
               </li>
             </b-collapse> 
           </span>
@@ -47,7 +51,7 @@
     </div>
   </b-sidebar>
   <transition name="fade">
-    <div class="screen--dim" v-if="dim" v-on:click="show =false; dim=false; $emit('tap-cart')"/>
+    <div class="screen--dim" v-if="dim" v-on:click="show=false; dim=false; $emit('tap-cart')"/>
   </transition>
 </div>
 </template>
@@ -267,13 +271,14 @@ export default {
 }
 
 .screen--dim{
-  display: flex;
+  // display: flex;
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.4);
+  width: 100vw;
+  height: 100vh;
+  background: #343a40;
+  opacity: 0.6;
   z-index: 97;
 }
 
