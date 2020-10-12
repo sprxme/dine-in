@@ -122,6 +122,8 @@
     }
     
     &__tocart{
+        transition: .3s;
+
         display: flex;
         justify-content: center;
         align-items: center;
@@ -148,6 +150,7 @@
     }
 
     &__quantity{
+        transition: .3s;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -190,7 +193,7 @@
         margin-left: auto;
         padding: .5em 1.2em;
         border-radius: 8px;
-        
+            
         &__label{
             margin: 0;
             pointer-events: none;

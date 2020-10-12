@@ -100,7 +100,7 @@ export default {
     font-size: 24px;
     cursor: pointer;
     visibility: visible;
-    color: $route-color;
+    color: $btn-primary;
 }
 .track{
     padding: 2em 2rem 10em;

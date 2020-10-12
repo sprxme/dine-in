@@ -416,6 +416,14 @@ export default {
   }
 }
 
+.route-menu {
+  color: $btn-primary;
+
+  &:hover {
+    color: $accent;
+  }
+}
+
 @media screen and (min-width:780px){
   .cartpop{
     // display: flex;
