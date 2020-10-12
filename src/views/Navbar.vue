@@ -267,7 +267,7 @@ export default {
 }
 
 .home-icon {
-  margin-right: 1.4rem;
+  margin-right: 1.41rem;
 }
 
 .screen--dim{
