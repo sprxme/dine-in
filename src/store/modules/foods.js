@@ -32,7 +32,7 @@ const state = {
         {id: 1, index: 1, name: 'STEAMED DIM SUM', desc: 'Dim sum (literally meaning: touch the heart) was originally not a main meal rather a snack. It is now a staple of Cantonese dining culture, especially in Hong Kong.'},
         {id: 2, index: 2, name: 'FRIED DIM SUM', desc: 'Dim sum isn\'t perfect without it\'s fried counter-part. Enjoy the joy of the perfect Yum Cha experience with many variety to choose from!'},
         {id: 3, index: 3, name: 'DESSERT', desc: 'A sweet course eaten at the end of a meal or known as the fourth meal of the day following breakfast, lunch and dinner.'},
-        {id: 4, index: 4, name: 'SPECIALS'}
+        {id: 4, index: 4, name: 'SPECIALS', desc: 'Our special items comes and go with the change of season and special events. They represent the uniqueness that comes within each season and will surely not be listed any other time or be repeated.'}
     ]
 }
 
