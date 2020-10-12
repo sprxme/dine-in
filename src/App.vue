@@ -16,23 +16,35 @@ export default {
   name: 'app',
   data: function(){
     return{
-      isCartOpen: false
+      isCartOpen: false,
+      // state: 'auto'
     }
   },
   methods: {
     disableScroll: function() {
       this.isCartOpen = !this.isCartOpen
-      document.documentElement.style.overflow = this.isCartOpen ? 'hidden' : 'auto'
+
+      if (this.isCartOpen) {
+        document.body.className += 'cartpop-open'
+      } else {
+        document.body.classList.remove('cartpop-open')
+      }
+      // this.state = this.isCartOpen ? 'hidden' : 'auto'
+      // document.body.style.overflow = this.isCartOpen ? 'hidden' : 'auto'
     },
     enableScroll: function () {
       this.isCartOpen = false
-      document.documentElement.style.overflow = 'auto'
+      // this.state = 'auto'
+      document.body.classList.remove('cartpop-open')
+      // document.body.style.overflow = 'auto'
     }
   },
   watch:{
     $route: function(){
       this.isCartOpen = false
-      document.documentElement.style.overflow = 'auto'
+      // this.state = 'auto'
+      document.body.classList.remove('cartpop-open')
+      // document.body.style.overflow = 'auto'
     }
   },
   components: {
@@ -77,6 +89,10 @@ li:focus{
 .img-fluid{
   min-height: 100vh;
   min-width: 75vw;
+}
+
+.cartpop-open {
+  overflow: hidden;
 }
 
 </style>

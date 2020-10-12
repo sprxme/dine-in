@@ -13,7 +13,7 @@
                     </span>
                 </div>
             </div>
-            <b-table sort-by="status" sort-desc="true" no-sort-reset fixed stacked="md" responsive show-empty :filter="search" hover class="allorders__table" :items="orderList" :fields="fields">  
+            <b-table sort-by="status" :sort-desc=true no-sort-reset fixed stacked="md" responsive show-empty :filter="search" hover class="allorders__table" :items="orderList" :fields="fields">  
                 <template v-slot:cell(actions)="row">
                     <router-link :to="'/all-orders/'+row.item.token">
                         <font-awesome-icon icon="eye"/>
@@ -90,19 +90,19 @@ export default {
 
 @media screen and (max-width:1000px){
     .allorders{
-        padding: 8rem 10vw 6rem;
+        padding: 4rem 10vw 6rem;
     }
 }
 
 @media screen and (max-width:500px){
     .allorders{
-        padding: 8rem 5vw 6rem;
+        padding: 3rem 5vw 6rem;
     }
 }
 
 @media screen and (max-width:400px){
     .allorders{
-        padding: 6rem 1rem 4rem;
+        padding: 3rem 1rem 4rem;
 
         &__title{
             font-size: 32px;
