@@ -46,9 +46,9 @@ const actions = {
         console.log('remove: '+id)
         commit('removeFood',id)
     },
-    updateCategories({ commit }, data) {
+    updateFoodCategories({ commit }, data) {
         console.log('Updating for id: ' +  data.id + ' with new index: ' + data.index);
-        commit('updateCategories', data)
+        commit('updateFoodCategories', data)
     }
 }
 
@@ -58,7 +58,7 @@ const mutations = {
         console.log('toberemoved: ' + id)
         state.foods.splice(state.foods.findIndex(food => food.id == id ),1);
     },
-    updateCategories: (state, data) => {
+    updateFoodCategories: (state, data) => {
         const modifiedIndex = state.categories.map(category => category.index)
         const allIndex = []
 

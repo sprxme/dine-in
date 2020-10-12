@@ -50,6 +50,10 @@ const actions = {
     removeBeverageItem({commit},{id}){
         console.log('remove: '+id)
         commit('removeBeverage',id)
+    },
+    updateDrinkCategories({ commit }, data) {
+        console.log('Updating for id: ' +  data.id + ' with new index: ' + data.index);
+        commit('updateDrinkCategories', data)
     }
 }
 
@@ -58,6 +62,34 @@ const mutations = {
     removeBeverage: (state,id) => {
         console.log('toberemoved: ' + id)
         state.drinks.splice(state.drinks.findIndex(drink => drink.id == id ),1);
+    },
+    updateDrinkCategories: (state, data) => {
+        const modifiedIndex = state.categories.map(category => category.index)
+        const allIndex = []
+
+        for (let i = 1; i <= state.categories.length; i++) {
+            allIndex.push(i)
+        }
+
+        let originalIndex = allIndex.filter(index => modifiedIndex.indexOf(index) === -1)[0]
+
+        const swapCategory = state.categories.find(category => {
+            if (category.id == data.id) { 
+                return false
+            }
+            return category.index == data.index
+        })
+
+        if (swapCategory === undefined || swapCategory === null) { return }
+
+        const updated = state.categories.map(category => {
+            if (category.id == swapCategory.id) {
+                category.index = originalIndex
+            }
+            return category
+        })
+
+        state.categories = updated
     }
 }
 
