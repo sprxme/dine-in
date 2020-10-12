@@ -1,13 +1,14 @@
 <template>
     <div class="menu">
         <!-- <label class="menu__title">Food</label> -->
-        <div class="menu__category" v-for="category in allFoodCategories" :key="category.id">
+        <div class="menu__category" v-for="category in sortedCategories()" :key="category.id">
             <div class="menu__title-container">
                 <span class="menu__title">{{category.name}}</span>
                 <span class="menu__add primary-button" v-b-modal.modal-add-food>
                     <label class="menu__add__label">ADD</label>  
                     <font-awesome-icon icon="plus" class="menu__tocart__icon"/> 
                 </span>
+                <b-form-select class="menu__sort-select" v-if="category != undefined" @input="updateCategories({id: category.id, index: category.index})" v-model="category.index" :options="getCategoriesIndex()"></b-form-select>
             </div>
             <div class="menu__unavailable" v-if="!checkAvailability(category.name)">
                 <span class="menu__unavailable__title">No items found.</span>
@@ -66,7 +67,7 @@
 
 <script>
 import MenuCardEdit from '@/components/admin/AdminMenuCard';
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
     data: function(){
@@ -76,6 +77,7 @@ export default {
         }
     },
     methods:{
+        ...mapActions(['updateCategories']),
         sortCategory: function(category){
             return this.allFoods.filter(function(food){
                 return food.category == category;
@@ -93,12 +95,32 @@ export default {
         resetData(){
             this.selected = null
             this.image = null
+        },
+        getCategoriesIndex() {
+            const len = this.allFoodCategories.length
+
+            let categoryIndexes = []
+            for (let i = 1; i <= len; i++) {
+                categoryIndexes.push({
+                    value: i, 
+                    text: 'Sort order: ' + i 
+                })
+            }
+
+            return categoryIndexes
+        },
+        sortedCategories() {
+            return [...this.allFoodCategories].sort((a, b) => {
+                return a.index - b.index
+            })
         }
     },
     components:{
         MenuCardEdit
     },
-    computed: mapGetters(['allFoods', 'allFoodCategories']),
+    computed: {
+        ...mapGetters(['allFoods', 'allFoodCategories'])
+    }
 }
 </script>
 
