@@ -13,7 +13,7 @@
                     </span>
                 </div>
             </div>
-            <b-table sort-by="status" fixed stacked="md" responsive show-empty :filter="search" hover class="allorders__table" :items="orderList" :fields="fields">  
+            <b-table sort-by="status" sort-desc="true" no-sort-reset fixed stacked="md" responsive show-empty :filter="search" hover class="allorders__table" :items="orderList" :fields="fields">  
                 <template v-slot:cell(actions)="row">
                     <router-link :to="'/all-orders/'+row.item.token">
                         <font-awesome-icon icon="eye"/>
