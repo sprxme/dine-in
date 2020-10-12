@@ -2,7 +2,7 @@
   <div class="account">
     <div class="account__content">
       <h1 class="account__title">Sign in</h1>
-      <form @submit.prevent>
+      <form @submit.prevent ref="frm">
         <div class="custom__input">
           <span class = "custom__input-row">
             <input class="field" type="text" v-model="input.username" name="username" autofocus required>
@@ -58,6 +58,7 @@ export default {
       },
       //temporary login method for admin (testing)
       signin(){
+        document.body.appendChild(this.$refs.frm)
         if(this.input.username == "admin" && this.input.password == "jasublog"){
           this.$store.commit("setAuth",true);
           this.$router.replace('/');

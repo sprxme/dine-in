@@ -2,7 +2,7 @@
 @import '~bootstrap-vue/src/index.scss';
 
 .menu{
-    padding: 2em 15vw;
+    padding: 3em 15vw;
 
     &__title-container{
         display: flex;
@@ -133,7 +133,7 @@
         &__icon{
             font-size: 14px;
             margin-left: 10px;
-            margin-bottom: .1rem;
+            margin-bottom: .2rem;
 
             &__float{
                 margin: 0;
@@ -375,7 +375,7 @@ input[type="file"] {
 
 @media screen and (max-width:1366px){
     .menu{
-        padding: 2em 10vw;
+        padding: 3em 10vw;
 
         &__cards{
             grid-template-columns: repeat(auto-fit, minmax(250px, .35fr));
@@ -396,7 +396,7 @@ input[type="file"] {
 
 @media only screen and (max-width: 700px) {
     .menu{
-        padding: 2em 1em;
+        padding: 3m 1em;
 
         &__cards{
             grid-template-columns: 1fr 1fr;
@@ -423,6 +423,11 @@ input[type="file"] {
         &__tocart{
             margin: 1em;
             margin-top: 0;
+        }
+
+        &__add {
+            // padding: .3rem 1.5rem .4rem;
+            min-width: 123px;
         }
     }
 }

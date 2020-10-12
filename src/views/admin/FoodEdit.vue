@@ -1,6 +1,6 @@
 <template>
     <div class="menu">
-        <label class="menu__title">Food</label>
+        <!-- <label class="menu__title">Food</label> -->
         <div class="menu__category" v-for="category in allFoodCategories" :key="category.id">
             <div class="menu__title-container">
                 <span class="menu__title">{{category.name}}</span>
