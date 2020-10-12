@@ -5,7 +5,7 @@
             <div class="menu__title-container">
                 <span class="menu__title">{{category.name}}</span>
                 <span class="menu__add primary-button" v-b-modal.modal-add-food>
-                    <label class="menu__add__label">Add</label>  
+                    <label class="menu__add__label">ADD</label>  
                     <font-awesome-icon icon="plus" class="menu__tocart__icon"/> 
                 </span>
             </div>
@@ -118,7 +118,7 @@ export default {
 
         &__add {
             position: static;
-            margin-bottom: 0;
+            margin-bottom: .5rem;
             margin-left: 1rem;
         }
     }

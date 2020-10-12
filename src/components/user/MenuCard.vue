@@ -10,7 +10,7 @@
     </div>
     <div class="menu__button_cart">
         <div class="menu__tocart primary-button" v-on:click="toggleQuantity=true; updateQuantity(1, food)" v-show="quantity<1">
-            <label class="menu__quantity__number">Add</label>
+            <label class="menu__quantity__number">ADD</label>
             <font-awesome-icon icon="plus" class="menu__tocart__icon"/>
         </div>
         <div class="menu__quantity" v-show="quantity>0">

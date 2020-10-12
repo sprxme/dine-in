@@ -45,6 +45,8 @@ export default {
 
 <style lang="scss">
 @import url("https://fonts.googleapis.com/css?family=Material+Icons");
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import '~bootstrap/scss/bootstrap.scss';
 @import '~bootstrap-vue/src/index.scss';
 
@@ -52,6 +54,7 @@ export default {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
 }
 
 body {

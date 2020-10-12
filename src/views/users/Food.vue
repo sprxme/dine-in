@@ -3,7 +3,7 @@
         <div class="menu__category" v-for="category in sortedCategories()" :key="category.id">
             <div class="menu__title-container">
                 <span class="menu__title">{{category.name}}</span>
-                <span class="menu__subtitle">{{ category.desc }}</span>
+                <span class="menu__subtitle" v-if="category.desc">{{ category.desc }}</span>
             </div>
             <div class="menu__cards">
                 <MenuCard v-for="food in sortCategory(category.name)" :key="food.id" :food="food"/>
