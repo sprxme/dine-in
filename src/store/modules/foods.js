@@ -32,7 +32,7 @@ const state = {
         {id: 1, index: 1, name: 'STEAMED DIM SUM', desc: 'Dim sum (literally meaning: touch the heart) was originally not a main meal rather a snack. It is now a staple of Cantonese dining culture, especially in Hong Kong.'},
         {id: 2, index: 2, name: 'FRIED DIM SUM', desc: 'Dim sum isn\'t perfect without it\'s fried counter-part. Enjoy the joy of the perfect Yum Cha experience with many variety to choose from!'},
         {id: 3, index: 3, name: 'DESSERT', desc: 'A sweet course eaten at the end of a meal or known as the fourth meal of the day following breakfast, lunch and dinner.'},
-        {id: 4, index: 4, name: 'SPECIALS'}
+        {id: 4, index: 4, name: 'SPECIALS', desc: 'Our special items comes and go with the change of season and special events. They represent the uniqueness that comes within each season and will surely not be listed any other time or be repeated.'}
     ]
 }
 
@@ -45,6 +45,10 @@ const actions = {
     removeFoodItem({commit},{id}){
         console.log('remove: '+id)
         commit('removeFood',id)
+    },
+    updateFoodCategories({ commit }, data) {
+        console.log('Updating for id: ' +  data.id + ' with new index: ' + data.index);
+        commit('updateFoodCategories', data)
     }
 }
 
@@ -53,6 +57,34 @@ const mutations = {
     removeFood: (state,id) => {
         console.log('toberemoved: ' + id)
         state.foods.splice(state.foods.findIndex(food => food.id == id ),1);
+    },
+    updateFoodCategories: (state, data) => {
+        const modifiedIndex = state.categories.map(category => category.index)
+        const allIndex = []
+
+        for (let i = 1; i <= state.categories.length; i++) {
+            allIndex.push(i)
+        }
+
+        let originalIndex = allIndex.filter(index => modifiedIndex.indexOf(index) === -1)[0]
+
+        const swapCategory = state.categories.find(category => {
+            if (category.id == data.id) { 
+                return false
+            }
+            return category.index == data.index
+        })
+
+        if (swapCategory === undefined || swapCategory === null) { return }
+
+        const updated = state.categories.map(category => {
+            if (category.id == swapCategory.id) {
+                category.index = originalIndex
+            }
+            return category
+        })
+
+        state.categories = updated
     }
 }
 

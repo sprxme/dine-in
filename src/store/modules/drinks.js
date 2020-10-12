@@ -4,15 +4,14 @@ const state = {
         {id: 'c2', name: 'White Russian', price:'120000', image:'whiterussian', category: 'COCKTAILS', desc:'Vodka, coffee liqueur, fresh milk, heavy cream.'},
         {id: 'c3', name: 'Paloma Milk Punch', price:'140000', image:'palomamilkpunch', category: 'COCKTAILS', desc:'Tequila, liqueur, lime, grapefruit juice, coconut milk, topped with soda.'},
         {id: 'c4', name: 'Ni Hao Shimeji', price:'140000', image:'nihaoshimeji', category: 'COCKTAILS', desc:'Shimeji infused vodka, campari, vermouth, celery bitters, passion fruit syrup, lamb and rosemary gravy.'},
-        {id: 'c5', name: 'Special Christmas Cocktail', price:'150000', image:'specialchristmascocktail', category: 'COCKTAILS', desc:''},
-        {id: 'c6', name: 'XXL Joy Punch!', price:'135000', image:'xxljoypunch', category: 'COCKTAILS', desc:'Rum, apple, strawberry, soursop juice, apple syrup, topped with a bottle of soju.'},
-        {id: 'c7', name: 'Adult Milo Dinosaur', price:'135000', image:'adultmilodinosaur', category: 'COCKTAILS', desc:'Vodka, milo, fresh milk, hershey’s syrup, pure cocoa.'},
-        {id: 'c8', name: 'Tequila Sunrise', price:'110000', image:'tequilasunrise', category: 'COCKTAILS', desc:'Tequila, orang juice, grenadine syrup.'},
-        {id: 'c9', name: 'Garden Margarita', price:'150000', image:'gardenmargarita', category: 'COCKTAILS', desc:'Butter corn and undoubtly twisted with Tequile, Cointreau, palm sugar and olive bitters and corn!'},
-        {id: 'c10', name: 'The Secret Mermaid', price:'150000', image:'thesecretmermaid', category: 'COCKTAILS', desc:'A variation of Daiquiri, Spice & Everything Nice. Unconventionally uses Bon Cabe and creamy coconut, mango.'},
-        {id: 'c11', name: 'Coca Me Maybe', price:'140000', image:'colamemaybe', category: 'COCKTAILS', desc:'Lemongrass infused gin, lychee, earl grey tea, homemade lemon ginger honey.'},
-        {id: 'c12', name: 'Crazy Rich Sesame', price:'140000', image:'crazyrichsesame', category: 'COCKTAILS', desc:'Gin, whiskey cinnamon liqueur, ginger syrup, lemon, black sesame paste, egg white.'},
-        {id: 'c13', name: 'Candy Corn Martini with Pop Rocks Rim', price:'120000', image:'candycornmartini', category: 'COCKTAILS', desc:'Vodka, martini, vermouth, candy, with pop rocks rim.'},
+        {id: 'c5', name: 'XXL Joy Punch!', price:'135000', image:'xxljoypunch', category: 'COCKTAILS', desc:'Rum, apple, strawberry, soursop juice, apple syrup, topped with a bottle of soju.'},
+        {id: 'c6', name: 'Adult Milo Dinosaur', price:'135000', image:'adultmilodinosaur', category: 'COCKTAILS', desc:'Vodka, milo, fresh milk, hershey’s syrup, pure cocoa.'},
+        {id: 'c7', name: 'Tequila Sunrise', price:'110000', image:'tequilasunrise', category: 'COCKTAILS', desc:'Tequila, orang juice, grenadine syrup.'},
+        {id: 'c8', name: 'Garden Margarita', price:'150000', image:'gardenmargarita', category: 'COCKTAILS', desc:'Butter corn and undoubtly twisted with Tequile, Cointreau, palm sugar and olive bitters and corn!'},
+        {id: 'c9', name: 'The Secret Mermaid', price:'150000', image:'thesecretmermaid', category: 'COCKTAILS', desc:'A variation of Daiquiri, Spice & Everything Nice. Unconventionally uses Bon Cabe and creamy coconut, mango.'},
+        {id: 'c10', name: 'Coca Me Maybe', price:'140000', image:'colamemaybe', category: 'COCKTAILS', desc:'Lemongrass infused gin, lychee, earl grey tea, homemade lemon ginger honey.'},
+        {id: 'c11', name: 'Crazy Rich Sesame', price:'140000', image:'crazyrichsesame', category: 'COCKTAILS', desc:'Gin, whiskey cinnamon liqueur, ginger syrup, lemon, black sesame paste, egg white.'},
+        {id: 'c12', name: 'Candy Corn Martini with Pop Rocks Rim', price:'120000', image:'candycornmartini', category: 'COCKTAILS', desc:'Vodka, martini, vermouth, candy, with pop rocks rim.'},
 
         {id: 'm1', name: 'Sum Ting Wong?', price:'90000', image:'sumtingwong', category: 'MOCKTAILS', desc:'Kyuri, lemon, blueberry syrup, topped with soda.'},
         {id: 'm2', name: 'Virgin Cucumber Gimlet', price:'60000', image:'virgincucumber', category: 'MOCKTAILS', desc:'Fresh Soda infused with syrup, cucumber, and lime.'},
@@ -28,12 +27,17 @@ const state = {
         {id: 't3', name: 'Hot Tea', price:'18000', image:'tehpanas', category: 'TEA', desc:'Hot tea made with natural and handpicked quality tea leaves.'},
         {id: 't4', name: 'Hot Black Tea', price:'24000', image:'blacktea', category: 'TEA', desc:'Quality black tea leaves native to england made hot.'},
         {id: 't5', name: 'Ice Milk Tea With Bubbles', price:'30000', image:'bobatea', category: 'TEA', desc:'Tea and milk combine with bubble topping made cold.'},
+
+        {id: 'sb1', name: 'Elixir of Youth', price:'150000', image:'elixirofyouth', category: 'SPECIALS', desc:'The classic gin and vermouth combination with syrup and granulated sugar. One of the well-known elixirs to date.'},
+        {id: 'sb2', name: 'Bella\'s Last Words', price:'150000', image:'lastwords', category: 'SPECIALS', desc:'A variation of Manhattan, infused with  grapefruit juice, maraschino cherry, surely will take your breath away.'},
+        {id: 'sb3', name: 'Alice\'s Ecstasy Shot', price:'150000', image:'ecstasyshot', category: 'SPECIALS', desc:'Vodka, grenadine, malibu rum. Filled with all things Alice needs to get her vibes going.'},
+        {id: 'sb4', name: 'Special Christmas Cocktail', price:'150000', image:'specialchristmascocktail', category: 'SPECIALS', desc:'Rum, strawberry, infused with in-house lemon ginger syrup. Something even santa would take on a cold winter night.'},
     ],
     categories: [
         {id: 1, index: 1, name: 'COCKTAILS', desc: 'Our cocktail menu is seasonal. It changes periodically, depending on the best seasonal ingredients that are available on the market.'},
         {id: 2, index: 2, name: 'MOCKTAILS', desc: '\'Mocktails\' is an abbreviation for \'mock cocktails\'. Mocktails come in many varieties: frozen, hot, fizzy, non-fizzy and cream-based recipes. It represents cocktails without the contain of alcohol.'},
         {id: 3, index: 3, name: 'TEA', desc: 'The tea-drinking habits of HK residents derive primarily the Cantonese traditions such as yum cha. This tradition is not only in terms of the tea itself, but also in terms of the underlying social and cultural values.'},
-        {id: 4, index: 4, name: 'SPECIALS', desc: ''}
+        {id: 4, index: 4, name: 'SPECIALS', desc: 'Our special items comes and go with the change of season and special events. They represent the uniqueness that comes within each season and will surely not be listed any other time or be repeated.'}
     ]
 }
 
@@ -46,6 +50,10 @@ const actions = {
     removeBeverageItem({commit},{id}){
         console.log('remove: '+id)
         commit('removeBeverage',id)
+    },
+    updateDrinkCategories({ commit }, data) {
+        console.log('Updating for id: ' +  data.id + ' with new index: ' + data.index);
+        commit('updateDrinkCategories', data)
     }
 }
 
@@ -54,6 +62,34 @@ const mutations = {
     removeBeverage: (state,id) => {
         console.log('toberemoved: ' + id)
         state.drinks.splice(state.drinks.findIndex(drink => drink.id == id ),1);
+    },
+    updateDrinkCategories: (state, data) => {
+        const modifiedIndex = state.categories.map(category => category.index)
+        const allIndex = []
+
+        for (let i = 1; i <= state.categories.length; i++) {
+            allIndex.push(i)
+        }
+
+        let originalIndex = allIndex.filter(index => modifiedIndex.indexOf(index) === -1)[0]
+
+        const swapCategory = state.categories.find(category => {
+            if (category.id == data.id) { 
+                return false
+            }
+            return category.index == data.index
+        })
+
+        if (swapCategory === undefined || swapCategory === null) { return }
+
+        const updated = state.categories.map(category => {
+            if (category.id == swapCategory.id) {
+                category.index = originalIndex
+            }
+            return category
+        })
+
+        state.categories = updated
     }
 }
 

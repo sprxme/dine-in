@@ -22,7 +22,7 @@
                     </div>
                 </div>
                 <span class="tracking__menu-name">{{trackItem.name}}</span>
-                <span class="tracking__progress-name">Preparing</span> <!-- order status-->
+                <span class="tracking__progress-name">Preparing</span> 
             </div>
         </div>
     </div>
@@ -104,7 +104,7 @@ $empty-progress-circle: #D3D3D3;
     }
 
     &.progress-number {
-        @include draw-progress(72, $progress-circle);
+        @include draw-progress(33, $progress-circle);
         z-index: 5;
     }
     &.empty-progress-number {
