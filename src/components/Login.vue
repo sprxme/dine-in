@@ -58,8 +58,8 @@ export default {
       },
       //temporary login method for admin (testing)
       signin(){
-        document.body.appendChild(this.$refs.frm)
         if(this.input.username == "admin" && this.input.password == "jasublog"){
+          document.body.appendChild(this.$refs.frm)
           this.$store.commit("setAuth",true);
           this.$router.replace('/');
         } else {
