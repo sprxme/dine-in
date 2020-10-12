@@ -30,10 +30,10 @@ const state = {
         {id: 't5', name: 'Ice Milk Tea With Bubbles', price:'30000', image:'bobatea', category: 'Tea', desc:'Tea and milk combine with bubble topping made cold.'},
     ],
     categories: [
-        {id: 1, index: 0, name: 'Cocktails', desc: 'Our cocktail menu is seasonal. It changes periodically, depending on the best seasonal ingredients that are available on the market.'},
-        {id: 2, index: 1, name: 'Mocktails', desc: '\'Mocktails\' is an abbreviation for \'mock cocktails\'. Mocktails come in many varieties: frozen, hot, fizzy, non-fizzy and cream-based recipes. It represents cocktails without the contain of alcohol.'},
-        {id: 3, index: 2, name: 'Tea', desc: 'The tea-drinking habits of HK residents derive primarily the Cantonese traditions such as yum cha. This tradition is not only in terms of the tea itself, but also in terms of the underlying social and cultural values.'},
-        {id: 4, index: 3, name: 'Specials', desc: ''}
+        {id: 1, index: 1, name: 'Cocktails', desc: 'Our cocktail menu is seasonal. It changes periodically, depending on the best seasonal ingredients that are available on the market.'},
+        {id: 2, index: 2, name: 'Mocktails', desc: '\'Mocktails\' is an abbreviation for \'mock cocktails\'. Mocktails come in many varieties: frozen, hot, fizzy, non-fizzy and cream-based recipes. It represents cocktails without the contain of alcohol.'},
+        {id: 3, index: 3, name: 'Tea', desc: 'The tea-drinking habits of HK residents derive primarily the Cantonese traditions such as yum cha. This tradition is not only in terms of the tea itself, but also in terms of the underlying social and cultural values.'},
+        {id: 4, index: 4, name: 'Specials', desc: ''}
     ]
 }
 
