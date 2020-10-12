@@ -29,10 +29,10 @@ const state = {
         {id: 'd6', name: 'Mango Ice Cream', price:'20000', image:'mangoicecream', category: 'Dessert', desc:'Soft and cold ice cream filled with mango sweetness flavor.'}
     ],
     categories: [
-        {id: 1, name: 'Steamed Dim Sum', desc: 'Dim sum (literally meaning: touch the heart) was originally not a main meal rather a snack. It is now a staple of Cantonese dining culture, especially in Hong Kong.'},
-        {id: 2, name: 'Fried Dim Sum', desc: 'Dim sum isn\'t perfect without it\'s fried counter-part. Enjoy the joy of the perfect Yum Cha experience with many variety to choose from!'},
-        {id: 3, name: 'Dessert', desc: 'A sweet course eaten at the end of a meal or known as the fourth meal of the day following breakfast, lunch and dinner.'},
-        {id: 4, name: 'Specials'}
+        {id: 1, index: 0, name: 'Steamed Dim Sum', desc: 'Dim sum (literally meaning: touch the heart) was originally not a main meal rather a snack. It is now a staple of Cantonese dining culture, especially in Hong Kong.'},
+        {id: 2, index: 1, name: 'Fried Dim Sum', desc: 'Dim sum isn\'t perfect without it\'s fried counter-part. Enjoy the joy of the perfect Yum Cha experience with many variety to choose from!'},
+        {id: 3, index: 2, name: 'Dessert', desc: 'A sweet course eaten at the end of a meal or known as the fourth meal of the day following breakfast, lunch and dinner.'},
+        {id: 4, index: 3, name: 'Specials'}
     ]
 }
 

@@ -1,6 +1,6 @@
 <template>
 <div class="menu">
-        <div class="menu__category" v-for="category in allDrinkCategories" :key="category.id">
+        <div class="menu__category" v-for="category in sortedCategories()" :key="category.id">
             <div class="menu__title-container">
                 <span class="menu__title">{{category.name}}</span>
                 <span class="menu__subtitle">{{ category.desc }}</span>
@@ -30,6 +30,11 @@ export default {
         checkAvailability(categoryName) {
             return this.allDrinks.some(drink => {
                 return drink.category === categoryName
+            })
+        },
+        sortedCategories() {
+            return [...this.allDrinkCategories].sort((a, b) => {
+                return a.index - b.index
             })
         }
     },

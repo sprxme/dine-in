@@ -1,6 +1,6 @@
 <template>
     <div class="menu">
-        <div class="menu__category" v-for="category in allFoodCategories" :key="category.id">
+        <div class="menu__category" v-for="category in sortedCategories()" :key="category.id">
             <div class="menu__title-container">
                 <span class="menu__title">{{category.name}}</span>
                 <span class="menu__subtitle">{{ category.desc }}</span>
@@ -31,12 +31,19 @@ export default {
             return this.allFoods.some(drink => {
                 return drink.category === categoryName
             })
+        },
+        sortedCategories() {
+            return [...this.allFoodCategories].sort((a, b) => {
+                return a.index - b.index
+            })
         }
     },
     components:{
         MenuCard
     },
-    computed: mapGetters(['allFoods', 'allFoodCategories'])
+    computed: {
+        ...mapGetters(['allFoods', 'allFoodCategories'])
+    }
 }
 </script>
 
