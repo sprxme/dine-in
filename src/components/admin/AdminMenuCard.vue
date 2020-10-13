@@ -100,7 +100,6 @@ export default {
     },
     mounted(){
         this.categoryOption = this.$props.type == 'food' ? this.allFoodCategories : this.allDrinkCategories
-        console.log(this.categoryOption)
     },
     computed:{
         ...mapGetters(['allFoodCategories', 'allDrinkCategories'])
