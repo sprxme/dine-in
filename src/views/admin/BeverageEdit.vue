@@ -1,22 +1,27 @@
 <template>
     <div class="menu">
-        <label class="menu__title">Beverage</label>
-        <div class="menu__category" v-for="category in allDrinkCategories" :key="category.id">
-            <div class="menu__title-container">
-                <span class="menu__title">{{category.name}}</span>
-                <span class="menu__add primary-button" v-b-modal.modal-beverage>
-                    <label class="menu__add__label">Add</label>  
-                    <font-awesome-icon icon="plus" class="menu__tocart__icon"/> 
-                </span>
+        <!-- <label class="menu__title">Beverage</label> -->
+        <transition-group name="menu-list" tag="div">
+            <div class="menu__category" v-for="category in sortedCategories()" :key="category.id">
+                <div class="menu__title-container">
+                    <span class="menu__title">{{category.name}}</span>
+                    <div class="menu__controls">
+                        <b-form-select class="menu__sort-select" v-if="category != undefined" @input="updateDrinkCategories({id: category.id, index: category.index})" v-model="category.index" :options="getCategoriesIndex()"></b-form-select>
+                        <span class="menu__add primary-button" v-b-modal.modal-add-food>
+                            <label class="menu__add__label">ADD</label>  
+                            <font-awesome-icon icon="plus" class="menu__tocart__icon"/> 
+                        </span>
+                    </div>
+                </div>
+                <div class="menu__unavailable" v-if="!checkAvailability(category.name)">
+                    <span class="menu__unavailable__title">No items found.</span>
+                    <span class="menu__unavailable__subtitle">Menu items you added from the 'Add' button will appear here.</span>
+                </div>
+                <div class="menu__cards">
+                    <MenuCardEdit v-for="drink in sortCategory(category.name)" :key="drink.id" :menu="drink" :type="'beverage'"/>
+                </div>
             </div>
-            <div class="menu__unavailable" v-if="!checkAvailability(category.name)">
-                <span class="menu__unavailable__title">No items found.</span>
-                <span class="menu__unavailable__subtitle">Menu items you added from the 'Add' button will appear here.</span>
-            </div>
-            <div class="menu__cards">
-                <MenuCardEdit v-for="drink in sortCategory(category.name)" :key="drink.id" :menu="drink" :type="'beverage'"/>
-            </div>
-        </div>
+        </transition-group>
         <b-modal id="modal-beverage" centered hide-footer title="Add Beverage" @show="resetData" @hide="resetData">
             <label for="file-upload" class="menu__fileupload" :class="{border: !image}">
                 <div v-show="!image" class="menu__fileupload__container">
@@ -66,7 +71,7 @@
 
 <script>
 import MenuCardEdit from '@/components/admin/AdminMenuCard';
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
     data: function(){
@@ -76,6 +81,7 @@ export default {
         }
     },
     methods:{
+        ...mapActions(['updateDrinkCategories']),
         sortCategory: function(category){
             return this.allDrinks.filter(function(drink){
                 return drink.category == category;
@@ -93,6 +99,24 @@ export default {
         resetData(){
             this.selected = null
             this.image = null
+        },
+        getCategoriesIndex() {
+            const len = this.allDrinkCategories.length
+
+            let categoryIndexes = []
+            for (let i = 1; i <= len; i++) {
+                categoryIndexes.push({
+                    value: i, 
+                    text: 'Sort order: ' + i 
+                })
+            }
+
+            return categoryIndexes
+        },
+        sortedCategories() {
+            return [...this.allDrinkCategories].sort((a, b) => {
+                return a.index - b.index
+            })
         }
     },
     components:{
@@ -106,21 +130,8 @@ export default {
 @import "@/styles/menu.scss";
 
 @media screen and (max-width:1000px){
-    .menu {    
-        &__title-container {
-            position: relative;
-            padding-bottom: .5rem;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: flex-end;
-        }
-
-        &__add {
-            position: static;
-            margin-bottom: 0;
-            margin-left: 1rem;
-        }
+    .menu__title {
+        text-align: left;
     }
 }
 

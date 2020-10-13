@@ -3,36 +3,40 @@
         <div class="cartpop__content">
         <ul class="cartpop__orders" v-if="allOrders.length">
             <div class="cartpop__menu-list">
-            <li v-for="order in allOrders" :key="order.id" class="cartpop__order-menu">
-                <div class="cartpop__image-container">
-                  <img :src="require('../assets/food/'+order.image+'.jpg')" class="cartpop__image"/>
-                </div>
-                <div class="cartpop__order-details">
-                  <span class="cartpop__menu-name">{{order.name}}</span>
-                  <div class="menu__quantity" v-show="order.quantity>0">
-                      <font-awesome-icon icon="minus" class="menu__quantity__icon left" v-on:click="updateQuantity(-1, order)" @mousedown="startRemove(order)" @mouseleave="stop" @mouseup="stop" @touchstart="startRemove(order)" @touchend="stop" @touchcancel="stop"/>
-                      <label class="menu__quantity__number">{{ order.quantity }}</label>
-                      <font-awesome-icon icon="plus" class="menu__quantity__icon right" v-on:click="updateQuantity(1, order)" @mousedown="startAdd(order)" @mouseleave="stop" @mouseup="stop" @touchstart="startAdd(order)" @touchend="stop" @touchcancel="stop"/>
-                  </div>
-                  <!-- <span class="cartpop__menu-quantity">x{{order.quantity}}</span> -->
-                </div>
-                <div class="cartpop__menu-price" v-bind:class="{ 'cartpop__menu-price-scroll': allOrders.length >= 4 }">
-                    {{ order.price * order.quantity / 1000 }}k
-                </div>
-            </li>
+              <!-- <transition-group name="order-list" tag="li"> -->
+                <li v-for="order in allOrders" :key="order.id" class="cartpop__order-menu">
+                    <div class="cartpop__image-container">
+                      <img :src="require('../assets/food/'+order.image+'.jpg')" class="cartpop__image"/>
+                    </div>
+                    <div class="cartpop__order-details">
+                      <span class="cartpop__menu-name">{{order.name}}</span>
+                      <div class="menu__quantity" v-show="order.quantity>0">
+                          <font-awesome-icon icon="minus" class="menu__quantity__icon left" v-on:click="updateQuantity(-1, order)" @mousedown="startRemove(order)" @mouseleave="stop" @mouseup="stop" @touchstart="startRemove(order)" @touchend="stop" @touchcancel="stop"/>
+                          <label class="menu__quantity__number">{{ order.quantity }}</label>
+                          <font-awesome-icon icon="plus" class="menu__quantity__icon right" v-on:click="updateQuantity(1, order)" @mousedown="startAdd(order)" @mouseleave="stop" @mouseup="stop" @touchstart="startAdd(order)" @touchend="stop" @touchcancel="stop"/>
+                      </div>
+                      <!-- <span class="cartpop__menu-quantity">x{{order.quantity}}</span> -->
+                    </div>
+                    <div class="cartpop__menu-price" v-bind:class="{ 'cartpop__menu-price-scroll': allOrders.length >= 4 }">
+                        {{ order.price * order.quantity / 1000 }}k
+                    </div>
+                </li>
+              <!-- </transition-group> -->
             </div>
             <div class="cartpop__price-container">
               <span class="cartpop__price-title">Total</span> 
               <span class="cartpop__price-total">Rp {{ totalPrice(allOrders) / 1000 }}k</span>
             </div>
-            <router-link class="cartpop__placeorder primary-button" to ="/order" @click.native="show = false; dim = false; $emit('change-route')">
+            <router-link class="cartpop__placeorder primary-button" to ="/order" @click.native="dim = false; $emit('change-route')">
               Place order
             </router-link>
         </ul>
+
         <div class="cartpop__empty" v-else>
-            <p class="cartpop__empty__title">Looking for your order?</p> 
-            <p class="cartpop__empty__subtitle">Food and beverages you select from the menu will appear here.</p> 
+          <p class="cartpop__empty__title">Looking for your order?</p> 
+          <p class="cartpop__empty__subtitle">Food and beverages you select from the menu will appear here.</p> 
         </div>
+
         <router-link v-if="!checkAuth" class="cartpop__menu route-menu" to="/track" @click.native="dim = false; $emit('change-route')">
             <font-awesome-icon icon="tasks" class="cartpop__icon" />
             <span>Track</span>
@@ -45,7 +49,7 @@
             <font-awesome-icon icon="user-circle" class="cartpop__icon" />
             <span>Profile</span>
         </router-link>
-        <span v-if="checkAuth" class="cartpop__menu route-menu" v-b-modal.modal-sign-out @click.native="dim = false; $emit('change-route')">
+        <span v-if="checkAuth" class="cartpop__menu route-menu" v-b-modal.modal-sign-out @click="dim = false; ">
             <font-awesome-icon icon="sign-out-alt" class="cartpop__icon" />
             <span>Sign out</span>
         </span>
@@ -415,6 +419,24 @@ export default {
     padding-right: .1rem;
   }
 }
+
+.route-menu {
+  color: $btn-primary;
+
+  &:hover {
+    color: $accent;
+  }
+}
+
+// FADE ANIMATIONS
+// .order-list-enter-active, .order-list-leave-active {
+//   transition: all .3s ease;
+// }
+
+// .order-list-enter, .order-list-leave-to /* .list-leave-active below version 2.1.8 */ {
+//   opacity: 0;
+//   transform: translateX(90%);
+// }
 
 @media screen and (min-width:780px){
   .cartpop{

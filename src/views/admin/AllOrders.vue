@@ -13,7 +13,7 @@
                     </span>
                 </div>
             </div>
-            <b-table sort-by="status" :sort-desc=true no-sort-reset fixed stacked="md" responsive show-empty :filter="search" hover class="allorders__table" :items="orderList" :fields="fields">  
+            <b-table sort-by="status" :sort-desc=true no-sort-reset fixed stacked="md" responsive show-empty :filter="search" hover class="allorders__table" :items="orderList" :fields="fields">                    
                 <template v-slot:cell(actions)="row">
                     <router-link :to="'/all-orders/'+row.item.token">
                         <font-awesome-icon icon="eye"/>
@@ -87,6 +87,16 @@ export default {
     top: 26px;
     right: 1em;
 }
+
+// .list {
+//     transition: all 1s;
+// }
+.list-enter-active, .list-leave-active {
+        transition: opacity 2s
+      }
+      .list-enter, .list-leave-to  {
+        opacity: 0
+      }
 
 @media screen and (max-width:1000px){
     .allorders{

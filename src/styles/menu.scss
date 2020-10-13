@@ -2,7 +2,7 @@
 @import '~bootstrap-vue/src/index.scss';
 
 .menu{
-    padding: 2em 15vw;
+    padding: 3em 15vw;
 
     &__title-container{
         display: flex;
@@ -17,6 +17,8 @@
         font-family: 'Montserrat', sans-serif;
         font-weight: 400;
         margin-bottom: .3rem;
+        width: 100%;
+        text-align: center;
     }
 
     &__subtitle {
@@ -34,6 +36,7 @@
         text-align: center;
         font-weight: 600;
         font-size: 16px;
+        margin-bottom: 2rem;
         
         &__title {
             display: inline;
@@ -122,6 +125,8 @@
     }
     
     &__tocart{
+        transition: .3s;
+
         display: flex;
         justify-content: center;
         align-items: center;
@@ -133,7 +138,7 @@
         &__icon{
             font-size: 14px;
             margin-left: 10px;
-            margin-bottom: .1rem;
+            margin-bottom: .2rem;
 
             &__float{
                 margin: 0;
@@ -148,6 +153,7 @@
     }
 
     &__quantity{
+        transition: .3s;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -190,7 +196,8 @@
         margin-left: auto;
         padding: .5em 1.2em;
         border-radius: 8px;
-        
+        min-width: 120px;
+            
         &__label{
             margin: 0;
             pointer-events: none;
@@ -218,18 +225,21 @@
     }
 
     &__remove{
+        transition: .2s ease;
         border: 1px solid $btn-destructive;
         color: $btn-destructive;
         font-weight: 600;
         cursor: pointer;
 
         &:hover{
-            color: $btn-destructive-hover;
+            color: white;
+            background: $btn-destructive-hover;
             border: 1px solid $btn-destructive-hover;
         }
 
         &:active{
-            color: $btn-destructive-click;
+            color: white;
+            background: $btn-destructive-click;
             border: 1px solid $btn-destructive-click;
         }
     } 
@@ -344,6 +354,14 @@
             margin: 5em 0;
         }
     }
+
+    &__sort-select {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        max-width: 150px;
+        margin-bottom: 1rem;
+    }
 }
 
 .border{
@@ -373,9 +391,21 @@ input[type="file"] {
     display: none;
 }
 
+.menu-list-move {
+    transition: all 1s ease;
+}
+
+.card-fade-enter-active, .card-fade-leave-active {
+    transition: opacity .5s ease;
+}
+
+.card-fade-enter, .card-fade-leave-to {
+    opacity: .1;
+}
+
 @media screen and (max-width:1366px){
     .menu{
-        padding: 2em 10vw;
+        padding: 3em 10vw;
 
         &__cards{
             grid-template-columns: repeat(auto-fit, minmax(250px, .35fr));
@@ -394,9 +424,45 @@ input[type="file"] {
     }
 }
 
+@media screen and (max-width:1000px){
+    .menu {    
+        &__title-container {
+            position: relative;
+            padding-bottom: .5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        &__add {
+            position: static;
+            margin-bottom: 0rem;
+            margin-left: 1rem;
+            font-size: 14px;
+            // padding: .5em 1.2em;
+        }
+
+        &__sort-select {
+            position: static;
+            margin-bottom: 0rem;
+        }
+
+        &__controls {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-bottom: .5rem;
+            margin-top: .5rem;
+        }
+    }
+}
+
 @media only screen and (max-width: 700px) {
     .menu{
-        padding: 2em 1em;
+        padding: 3m 1em;
 
         &__cards{
             grid-template-columns: 1fr 1fr;
@@ -423,6 +489,11 @@ input[type="file"] {
         &__tocart{
             margin: 1em;
             margin-top: 0;
+        }
+
+        &__add {
+            // padding: .3rem 1.5rem .4rem;
+            min-width: 123px;
         }
     }
 }
@@ -534,7 +605,7 @@ input[type="file"] {
         }
 
         &__add {
-            padding: .3rem 1.5rem .4rem;
+            padding: .4rem 1.5rem .5rem;
             min-width: 100px;
             font-size: 14px;
             outline: none;

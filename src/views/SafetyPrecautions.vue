@@ -16,8 +16,8 @@ export default {
 <style lang="scss" scoped>
 .safety {
     margin-top: 55px;
-    background: #0371e3;
-    cursor: pointer;
+    background: $banner;
+    transition: .1s;
 
     &__container {
         text-align: center;
@@ -29,6 +29,12 @@ export default {
         color: white;
         padding: 0 0.3rem;
         text-align: center;
+        cursor: pointer;
+
+        &:hover {
+            text-decoration: underline;
+            text-decoration-color: white;
+        }
     }
 
     &__chevron {
@@ -38,10 +44,6 @@ export default {
         padding-bottom: 1px;
     }
 
-    &:hover {
-        background: #1c7fe5;
-        text-decoration: underline;
-        text-decoration-color: white;
-    }
+    
 }
 </style>

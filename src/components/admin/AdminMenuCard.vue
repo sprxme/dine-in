@@ -1,16 +1,18 @@
 <template>
-<div class="menu__card">
-    <div class="menu__image-container">
-        <img :src="require('@/assets/food/'+menu.image+'.jpg')" class="menu__image"> 
-    </div>
-    <div class="menu__details">
-        <span class="menu__name">{{menu.name}}</span>
-        <span class="menu__desc">{{menu.desc}}</span>
-        <span class="menu__price">{{menu.price/1000}}k</span>
-    </div>
-     <div class="menu__button_cart">
-         <label class="menu__edit primary-button">Edit</label>
-        <label class="menu__remove" v-on:click="removeFood(menu.id,type)">Remove</label>
+<transition name="card-fade" tag="div">
+    <div class="menu__card">
+        <div class="menu__image-container">
+            <img :src="require('@/assets/food/'+menu.image+'.jpg')" class="menu__image"> 
+        </div>
+        <div class="menu__details">
+            <span class="menu__name">{{menu.name}}</span>
+            <span class="menu__desc">{{menu.desc}}</span>
+            <span class="menu__price">{{menu.price/1000}}k</span>
+        </div>
+        <div class="menu__button_cart">
+            <label class="menu__edit primary-button">Edit</label>
+            <label class="menu__remove" v-on:click="removeFood(menu.id,type)">Remove</label>
+        </div>
     </div>
     <b-modal id="modal-edit" centered hide-footer title="Edit Food">
         <label for="file-upload" class="menu__fileupload" :class="{border: !image}">
@@ -56,7 +58,7 @@
             <span class="menu__modal__buttongroup__button primary-button" @click="$bvModal.hide('modal-add-food')">Save</span>
         </div>
     </b-modal>
-</div>
+</transition>
 </template>
 
 <script>
@@ -72,7 +74,6 @@ export default {
         removeFood(id,type){
             type=="food" ? this.removeFoodItem({id: id}) : this.removeBeverageItem({id:id})
         }
-
     }
 }
 </script>
