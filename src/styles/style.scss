@@ -158,12 +158,13 @@
 .custom__textarea{
     width: 100%;
     border:1px solid $light-grey;
-    padding: 1.3em .8em 0.5em;
+    padding: .35em .5rem .35rem;
+    line-height: 1.4;
 }
 
 .custom__input-row textarea:focus + .placeholder__textarea,
 .custom__input-row textarea:valid + .placeholder__textarea{
-    top: 22px;
+    top: 24px;
     left: 2px;
     font-size: 14px;
     color: $secondary-text;

@@ -46,10 +46,11 @@
                         </b-form-select-option>
                     </b-form-select>
                 </div>
+                <span class="menu__desc-title">Description</span>
                 <div class="custom__input input__textarea">
                     <span class = "custom__input-row">
                         <textarea class="menu__modal__input custom__textarea" type="text" required :value="menu.desc"/>
-                        <span class="placeholder__textarea menu__modal__placeholder">Description</span>
+                        <!-- <span class="placeholder__textarea menu__modal__placeholder">Description</span> -->
                     </span>
                 </div>
                 <div class="menu__modal__buttongroup">
@@ -109,6 +110,14 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/styles/menu.scss';
+
+.custom__input-row input:focus + .placeholder,
+.custom__input-row input:valid + .placeholder{
+    top: 7px;
+    left: 2px;
+    font-size: 14px;
+    color: $text;
+}
 
 .menu {
     &__edit {

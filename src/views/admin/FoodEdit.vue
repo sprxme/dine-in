@@ -55,10 +55,11 @@
                     </b-form-select-option>
                 </b-form-select>
             </div>
+            <span class="menu__desc-title">Description</span>
             <div class="custom__input input__textarea">
                 <span class = "custom__input-row">
                     <textarea class="menu__modal__input custom__textarea" type="text" required />
-                    <span class="placeholder__textarea menu__modal__placeholder">Description</span>
+                    <!-- <span class="placeholder__textarea menu__modal__placeholder">Description</span> -->
                 </span>
             </div>
             <div class="menu__modal__buttongroup">

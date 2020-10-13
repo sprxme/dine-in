@@ -7,7 +7,7 @@
                     <span class="menu__title">{{category.name}}</span>
                     <div class="menu__controls">
                         <b-form-select class="menu__sort-select" v-if="category != undefined" @input="updateDrinkCategories({id: category.id, index: category.index})" v-model="category.index" :options="getCategoriesIndex()"></b-form-select>
-                        <span class="menu__add primary-button" v-b-modal.modal-add-food>
+                        <span class="menu__add primary-button" v-b-modal.modal-add-beverage>
                             <label class="menu__add__label">ADD</label>  
                             <font-awesome-icon icon="plus" class="menu__tocart__icon"/> 
                         </span>
@@ -22,7 +22,7 @@
                 </div>
             </div>
         </transition-group>
-        <b-modal id="modal-beverage" centered hide-footer title="Add Beverage" @show="resetData" @hide="resetData">
+        <b-modal id="modal-add-beverage" centered hide-footer title="Add Beverage" @show="resetData" @hide="resetData">
             <label for="file-upload" class="menu__fileupload border">
                 <div v-show="!image" class="menu__fileupload__container">
                     <span for="file-upload" class="menu__fileupload__content">
@@ -55,10 +55,11 @@
                     </b-form-select-option>
                 </b-form-select>
             </div>
+            <span class="menu__desc-title">Description</span>
             <div class="custom__input input__textarea">
                 <span class = "custom__input-row">
                     <textarea class="menu__modal__input custom__textarea" type="text" required />
-                    <span class="placeholder__textarea menu__modal__placeholder">Description</span>
+                    <!-- <span class="placeholder__textarea menu__modal__placeholder">Description</span> -->
                 </span>
             </div>
             <div class="menu__modal__buttongroup">

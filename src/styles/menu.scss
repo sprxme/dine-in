@@ -275,6 +275,7 @@
             border-radius: 0;
             font-size: 16px;
             left: 0px;
+            padding-bottom: 0.35rem;
             
 
             &:hover{
@@ -329,7 +330,7 @@
         flex-direction: column;
         align-items: center;
         cursor: pointer;
-        margin-bottom: 20px;
+        margin-bottom: 25px;
         overflow: hidden;
         border-radius: 7px;
         box-shadow:  0px 5px 10px 2px rgba(0,0,0,0.15);
@@ -362,6 +363,12 @@
         max-width: 150px;
         margin-bottom: 1rem;
     }
+
+    &__desc-title {
+        padding-left: 2px;
+        font-size: 14px;
+        color: $text;
+    }
 }
 
 .border{
@@ -383,7 +390,7 @@
 }
 
 .input__textarea{
-    margin-top: 20px;
+    margin-top: 6px;
     margin-bottom: 10px;
 }
 
