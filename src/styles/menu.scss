@@ -223,6 +223,7 @@
     }
 
     &__remove{
+        transition: .2s ease;
         border: 1px solid $btn-destructive;
         color: $btn-destructive;
         font-weight: 600;

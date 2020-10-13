@@ -5,6 +5,7 @@
     color: $btn-primary-text;
     text-transform: capitalize;
     font-weight: 550;
+    transition: .2s ease;
 
     &:hover{
         background: $btn-primary-hover;
@@ -22,6 +23,7 @@
     color: $btn-destructive-text;
     // text-transform: capitalize;
     font-weight: 550;
+    transition: .2s ease;
 
     &:hover{
         background: $btn-destructive-hover;
@@ -39,6 +41,7 @@
     color: $notif;
     // text-transform: capitalize;
     font-weight: 550;
+    transition: .2s ease;
 
     &:hover{
         border: 1px solid $btn-destructive-hover;
