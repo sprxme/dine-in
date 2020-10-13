@@ -229,12 +229,14 @@
         cursor: pointer;
 
         &:hover{
-            color: $btn-destructive-hover;
+            color: white;
+            background: $btn-destructive-hover;
             border: 1px solid $btn-destructive-hover;
         }
 
         &:active{
-            color: $btn-destructive-click;
+            color: white;
+            background: $btn-destructive-click;
             border: 1px solid $btn-destructive-click;
         }
     } 
