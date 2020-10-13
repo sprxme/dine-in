@@ -49,7 +49,7 @@ export default {
 
     &__table{
         display: flex;
-        M
+        margin: 0 auto;
         border-top: 1px solid $light-grey;
 
         &__name{
