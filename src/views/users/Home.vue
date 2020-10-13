@@ -1,133 +1,73 @@
 <template>
   <div class="home">
-    <div class="blank" />
-    <div class="wrapper">
-      <div class="img1" />
-      <h2 class="title1">Lorem ipsum<br><span>Dolor sit amet.</span></h2>
-      <div class="img2" />
-      <h2 class="title2">Lorem ipsum<br>Dolor sit amet.</h2>
-    </div>
-    <div class="blank" />
-
+    <section class="comparisonSection">
+      <div class="comparisonImage beforeImage">
+        <img src="@/assets/about/aboutimg1.jpg" alt="before">
+      </div>
+      <div class="comparisonImage afterImage">
+        <img src="@/assets/about/aboutimg2.jpg" alt="after">        
+      </div>
+    </section>
   </div>
 </template>
 
 <script>
-import { gsap, TweenMax } from 'gsap'
+//import { gsap } from 'gsap'
 export default {
   name: 'Home',
-  mounted: function() {
-    this.startAnimations()
-  },
   methods: {
-    startAnimations: function() {
-      var tl = gsap.timeline({onUpdate:updatePercentage})
-      
-      tl.to(".img2", 1, {width: "100%", height: "100%"}, 0)
-      tl.to(".title1", 0.5, {opacity: 1}, 1)
-      var tween1 = TweenMax.to(".img2", 1, {width: "100%", height: "100%"}, 0)
-      const scene = this.$scrollmagic.scene({
-        triggerElement: '.wrapper',
-        triggerHook: 0,
-        duration: "300%"
-      })
-      .setPin(".wrapper")
-      //.setTween(".img2", 1, {width: "100%", height: "100%"}, 0)
-      .setTween(tween1)
-      this.$scrollmagic.addScene(scene)
-
-      function updatePercentage() {
-        tl.progress()
-      }
-    }
+    // gsap.utils.toArray(".comparisonSection").forEach(section => {
+    //   let tl = gsap.timeline({
+    //     scrollTrigger: {
+    //       trigger: section,
+    //       start: "center center"
+    //       end: () => "+=" + section.offsetWidth,
+    //       scrub: true,
+    //       pin: true,
+    //       anticipatePin: 1
+    //     },
+    //   })
+    // })
   }
 }
 </script>
 
 <style scoped>
 
-html {
-  box-sizing: border-box;
-  font-size: 100%;
-}
-
-*, *::before, *::after {
-  box-sizing: inherit;
-  margin: 0;
-  padding: 0;
-}
-
 body {
-  width: 100%;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Open Sans', sans-serif;
+  height: 300vh;
+  background-color: #111;
+  color: white;
   overflow-x: hidden;
-  color: black;
-  font-size: 16px;
 }
 
-.blank {
-  width: 100%;
-  height: 100vh;
-}
-
-.wrapper {
-  width: 100%;
-  height: 100vh;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  overflow: hidden;
-}
-
-.img1 {
-  background-image: url('logo.png');
-  width: 60%;
-  height: 60%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-
-.title1 {
-  position: absolute;
-  top: 50%;
-  left: 20%;
-  font-size: 32px;
-  transform: translate(-50%, -50%);
-  opacity: 0;
-}
-
-.title1 span {
-  font-size: 24px;
+h1, h2 {
   font-weight: 400;
-  display: block;
+  max-width: none;
 }
 
-.img2 {
-  z-index: 100;
-  background-image: url('logo.png');
+.comparisonSection {
+  position: relative;
+  padding-bottom: 56.25%; /* to maintain aspect ratio (responsive!) */
+}
+.comparisonImage {
   width: 100%;
-  height: 0;
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translate(-50%, 0);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center bottom;
+  height: 100%;
 }
-
-.title2 {
+.afterImage {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  font-size: 60px;
-  transform: translate(-50%, -50%);
-  transform-origin: center center;
-  text-align: center;
-  line-height: 60px;
+  overflow: hidden;
+  top: 0;
+  transform: translate(100%, 0px);
+}
+.afterImage img {
+  transform: translate(-100%, 0px);
+}
+.comparisonImage img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
 }
 
 </style>
