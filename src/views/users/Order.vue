@@ -3,7 +3,7 @@
         <div class="orderlist__title">Orders</div>
         <div class="orderlist__table">
             <div class="orderlist__table__name">
-                <div class="div">Name</div>
+                <div class="tabele__name_box">Name</div>
                 <input type="text" id="name">
             </div>
             <div class="orderlist__table__number">
@@ -13,7 +13,7 @@
         </div>
         <OrderCard v-for="index in 5" :key="index"/>
         <span class="orderlist__button primary-button" v-on:click="generateToken()">
-            Confirm
+            Confirm 
         </span>
     </div>
 </template>
@@ -49,11 +49,14 @@ export default {
 
     &__table{
         display: flex;
-        padding: 1em 1em 1em;
+        M
         border-top: 1px solid $light-grey;
 
         &__name{
-
+            padding: 1em 1em 1em 1em;
+        }
+        &__number{
+            padding: 1em 1em 1em 1em;
         }
     }
 
