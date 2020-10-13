@@ -3,12 +3,12 @@
         <div class="orderlist__title">Orders</div>
         <div class="orderlist__table">
             <div class="orderlist__table__name">
-                <div class="tabele__name_box">Name</div>
-                <input type="text" id="name">
+                <div class="table__name_box">Name :</div>
+                <input type="text" id="name" placeholder="your name">
             </div>
             <div class="orderlist__table__number">
-                <div class="orderlist__table__no">Table No.</div>
-                <input type="text" id="number">
+                <div class="orderlist__table__no">Table No :</div>
+                <input type="text" id="number" placeholder="your table number">
             </div>
         </div>
         <OrderCard v-for="index in 5" :key="index"/>
@@ -36,10 +36,10 @@ export default {
 
 <style lang="scss" scoped>
 .orderlist{
-    padding: 5em 10vw ;
+    padding: 5em 15vw ;
 
     &__title{
-        font-size: 36px;
+        font-size: 48px;
         font-weight: 600;
     }
     &__button{
@@ -49,15 +49,30 @@ export default {
 
     &__table{
         display: flex;
-        margin: 0 auto;
+        align-items: center; //bikin tengah atas bwhnya
         border-top: 1px solid $light-grey;
 
-        &__name{
-            padding: 1em 1em 1em 1em;
+        &__name ,
+        &__number {
+            //border: none;
+            //outline: none;
+            margin-right: 8rem;
         }
-        &__number{
-            padding: 1em 1em 1em 1em;
+        
+        // &__date{
+        //     padding: 1em;
+        // }
+
+        &__no input{
+            border: none;
+            border-bottom: 1px solid #ddd;
+            color: #333;
+            font-size: 14px;
+            margin-bottom: 15px;
+            padding: 0.5em 1em 0.5em 0;
+            width: 200px;
         }
+        
     }
 
     &__image{
@@ -67,5 +82,9 @@ export default {
         border-radius: 10px;
         box-shadow: 0px 2px 8px 4px rgba(0,0,0,0.09);
     }
+}
+input{
+    min-width: 0;
+    width: 90%;
 }
 </style>
