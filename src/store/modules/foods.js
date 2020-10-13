@@ -21,6 +21,9 @@ const state = {
         {id: 'f8', name: 'Chicken Dumpling', price:'35000', image:'chickendumpling', category: 'FRIED DIM SUM', desc:''},
         {id: 'f9', name: 'Prawn Wrapped in Bean Curd Skin', price:'35000', image:'prawnwrappedinbeancurdskin', category: 'FRIED DIM SUM', desc:''},
 
+        {id: 't1', name: 'Beef Noodle Soup', price:'65000', image:'beefnoodle', category: 'NOODLES', desc:'Red braised beef, beef broth, vegetables and Chinese noodles cooked to perfection'},
+        {id: 't2', name: 'Spicy Sichuan Noodles', price:'60000', image:'sichuan', category: 'NOODLES', desc:'Red braised beef, beef broth, vegetables and Chinese noodles cooked to perfection'},
+
         {id: 'd1', name: 'Fried Sesame Balls', price:'20000', image:'sesameballs', category: 'DESSERT', desc:'Fried sesame balls with glutinous rice flour and red bean paste.'},
         {id: 'd2', name: 'HK Soursop', price:'24000', image:'hksoursop', category: 'DESSERT', desc:'The bowl, the color, the taste. Introducing HK Soursop to replace your midnight chicken soup craving.'},
         {id: 'd3', name: 'Mango Pudding with Popping Boba', price:'24000', image:'mangopuddingwithpoppingboba', category: 'DESSERT', desc:'Fruity, soft, luscious mango pudding, topped with fresh cream and popping boba on top.'},
@@ -31,8 +34,9 @@ const state = {
     categories: [
         {id: 1, index: 1, name: 'STEAMED DIM SUM', desc: 'Dim sum (literally meaning: touch the heart) was originally not a main meal rather a snack. It is now a staple of Cantonese dining culture, especially in Hong Kong.'},
         {id: 2, index: 2, name: 'FRIED DIM SUM', desc: 'Dim sum isn\'t perfect without it\'s fried counter-part. Enjoy the joy of the perfect Yum Cha experience with many variety to choose from!'},
-        {id: 3, index: 3, name: 'DESSERT', desc: 'A sweet course eaten at the end of a meal or known as the fourth meal of the day following breakfast, lunch and dinner.'},
-        {id: 4, index: 4, name: 'SPECIALS', desc: 'Our special items comes and go with the change of season and special events. They represent the uniqueness that comes within each season and will surely not be listed any other time or be repeated.'}
+        {id: 3, index: 3, name: 'NOODLES', desc: 'Soft and high quality dough cooked and made by professionals noodle chef.'},
+        {id: 4, index: 4, name: 'DESSERT', desc: 'A sweet course eaten at the end of a meal or known as the fourth meal of the day following breakfast, lunch and dinner.'},
+        {id: 5, index: 5, name: 'SPECIALS', desc: 'Our special items comes and go with the change of season and special events. They represent the uniqueness that comes within each season and will surely not be listed any other time or be repeated.'}
     ]
 }
 
