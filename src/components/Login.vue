@@ -16,7 +16,7 @@
             <font-awesome-icon :icon="myIcon" class="icon" v-on:click="togglePassword()"/>
           </span>
         </div>
-        <input id="submit-btn" type="submit" class="primary-button" value="Sign In" v-on:click="signin()"/>
+        <input id="submit-btn" type="submit" class="primary-button" value="Sign In" v-on:click="signin($event)"/>
       </form>
       <a class="account__route">Forgot your username or password?</a>
       <router-link :to="{path: 'signup'}" append class="account__route">Don't have an account? Create one now</router-link>
@@ -57,8 +57,9 @@ export default {
         this.myIcon = 'eye'
       },
       //temporary login method for admin (testing)
-      signin(){
+      signin(e){
         if(this.input.username == "admin" && this.input.password == "jasublog"){
+          e.preventDefault()
           this.$store.commit("setAuth",true);
           this.$router.replace('/');
         } else {
