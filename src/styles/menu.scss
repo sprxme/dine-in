@@ -385,6 +385,10 @@ input[type="file"] {
     display: none;
 }
 
+.menu-list-move {
+    transition: all 1s ease;
+}
+
 @media screen and (max-width:1366px){
     .menu{
         padding: 3em 10vw;

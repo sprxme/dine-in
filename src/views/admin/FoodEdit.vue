@@ -1,25 +1,27 @@
 <template>
     <div class="menu">
         <!-- <label class="menu__title">Food</label> -->
-        <div class="menu__category" v-for="category in sortedCategories()" :key="category.id">
-            <div class="menu__title-container">
-                <span class="menu__title">{{category.name}}</span>
-                <div class="menu__controls">
-                    <b-form-select class="menu__sort-select" v-if="category != undefined" @input="updateFoodCategories({id: category.id, index: category.index})" v-model="category.index" :options="getCategoriesIndex()"></b-form-select>
-                    <span class="menu__add primary-button" v-b-modal.modal-add-food>
-                        <label class="menu__add__label">ADD</label>  
-                        <font-awesome-icon icon="plus" class="menu__tocart__icon"/> 
-                    </span>
+        <transition-group name="menu-list" tag="div">
+            <div class="menu__category" v-for="category in sortedCategories()" :key="category.id">
+                <div class="menu__title-container">
+                    <span class="menu__title">{{category.name}}</span>
+                    <div class="menu__controls">
+                        <b-form-select class="menu__sort-select" v-if="category != undefined" @input="updateFoodCategories({id: category.id, index: category.index})" v-model="category.index" :options="getCategoriesIndex()"></b-form-select>
+                        <span class="menu__add primary-button" v-b-modal.modal-add-food>
+                            <label class="menu__add__label">ADD</label>  
+                            <font-awesome-icon icon="plus" class="menu__tocart__icon"/> 
+                        </span>
+                    </div>
+                </div>
+                <div class="menu__unavailable" v-if="!checkAvailability(category.name)">
+                    <span class="menu__unavailable__title">No items found.</span>
+                    <span class="menu__unavailable__subtitle">Menu items you added from the 'Add' button will appear here.</span>
+                </div>
+                <div class="menu__cards">
+                    <MenuCardEdit v-for="food in sortCategory(category.name)" :key="food.id" :menu="food" :type="'food'"/>
                 </div>
             </div>
-            <div class="menu__unavailable" v-if="!checkAvailability(category.name)">
-                <span class="menu__unavailable__title">No items found.</span>
-                <span class="menu__unavailable__subtitle">Menu items you added from the 'Add' button will appear here.</span>
-            </div>
-            <div class="menu__cards">
-                <MenuCardEdit v-for="food in sortCategory(category.name)" :key="food.id" :menu="food" :type="'food'"/>
-            </div>
-        </div>
+        </transition-group>
         <b-modal id="modal-add-food" centered hide-footer title="Add Food" @show="resetData" @hide="resetData">
             <label for="file-upload" class="menu__fileupload" :class="{border: !image}">
                 <div v-show="!image" class="menu__fileupload__container">
