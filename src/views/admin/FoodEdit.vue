@@ -17,9 +17,10 @@
                     <span class="menu__unavailable__title">No items found.</span>
                     <span class="menu__unavailable__subtitle">Menu items you added from the 'Add' button will appear here.</span>
                 </div>
-                <div class="menu__cards">
-                    <MenuCardEdit v-for="food in sortCategory(category.name)" :key="food.id" :menu="food" :type="'food'"/>
-                </div>
+                
+                    <div class="menu__cards">
+                        <MenuCardEdit v-for="food in sortCategory(category.name)" :key="food.id" :menu="food" :type="'food'"/>
+                    </div>
             </div>
         </transition-group>
         <b-modal id="modal-add-food" centered hide-footer title="Add Food" @show="resetData" @hide="resetData">

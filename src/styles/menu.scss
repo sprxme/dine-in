@@ -34,6 +34,7 @@
         text-align: center;
         font-weight: 600;
         font-size: 16px;
+        margin-bottom: 2rem;
         
         &__title {
             display: inline;
@@ -387,6 +388,14 @@ input[type="file"] {
 
 .menu-list-move {
     transition: all 1s ease;
+}
+
+.card-fade-enter-active, .card-fade-leave-active {
+    transition: opacity .5s ease;
+}
+
+.card-fade-enter, .card-fade-leave-to {
+    opacity: .1;
 }
 
 @media screen and (max-width:1366px){
