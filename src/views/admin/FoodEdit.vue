@@ -131,4 +131,10 @@ export default {
 
 <style lang="scss" scoped>
 @import "@/styles/menu.scss";
+
+@media screen and (max-width:1000px){
+    .menu__title {
+        text-align: left;
+    }
+}
 </style>
