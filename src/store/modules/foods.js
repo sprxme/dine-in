@@ -24,7 +24,7 @@ const state = {
         {id: 'f9', name: 'Prawn Wrapped in Bean Curd Skin', price:'35000', image:'prawnwrappedinbeancurdskin', category: 'FRIED DIM SUM', desc:'Prawn wrapped with bean curd and fried with special sauce'},
         {id: 'f10', name: 'Friend Mantou', price:'35000', image:'friendmantou', category: 'FRIED DIM SUM', desc:'Fried buns made of dough and milky flavor.'},
         {id: 'f11', name: 'Fried Crab Balls', price:'55000', image:'crabballs', category: 'FRIED DIM SUM', desc:'Fried meaty crab leg combined with chicken meat, and chive.'},
-        {id: 'f12', name: 'Fried Mashed Potato Cake', price:'55000', image:'perkedel', category: 'FRIED DIM SUM', desc:'Mashed potato mixed with beef meat and fried until golden brown.'},
+        {id: 'f12', name: 'Fried Mashed Potato Cake', price:'35000', image:'perkedel', category: 'FRIED DIM SUM', desc:'Mashed potato mixed with beef meat and fried until golden brown.'},
 
         {id: 'n1', name: 'Beef Noodle Soup', price:'65000', image:'beefnoodle', category: 'NOODLES', desc:'Red braised beef, beef broth, vegetables and Chinese noodles cooked to perfection'},
         {id: 'n2', name: 'Sichuan Dan Dan Mian', price:'65000', image:'sichuan', category: 'NOODLES', desc:'Freshly boiled thin noodles are served in a savory, spicy sichuan sauce topped with crispy pork and peanut flakes.'},
