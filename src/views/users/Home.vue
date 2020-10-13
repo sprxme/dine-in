@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <h1 class="header-section">zzzzzzz</h1>
     <section class="comparisonSection">
       <div class="comparisonImage beforeImage">
         <img src="@/assets/about/aboutimg1.jpg" alt="before">
@@ -12,29 +13,38 @@
 </template>
 
 <script>
-//import { gsap } from 'gsap'
+import { gsap } from 'gsap'
 export default {
   name: 'Home',
+  mounted: function() {
+    this.startAnimation();
+  },
   methods: {
-    // gsap.utils.toArray(".comparisonSection").forEach(section => {
-    //   let tl = gsap.timeline({
-    //     scrollTrigger: {
-    //       trigger: section,
-    //       start: "center center"
-    //       end: () => "+=" + section.offsetWidth,
-    //       scrub: true,
-    //       pin: true,
-    //       anticipatePin: 1
-    //     },
-    //   })
-    // })
+    startAnimation: function() {
+      //gsap.registerPlugin(); missing
+      gsap.utils.toArray(".comparisonSection").forEach(section => {
+        let tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: section,
+            start: "center center",
+            end: () => "+=" + section.offsetWidth,
+            scrub: true,
+            pin: true,
+            anticipatePin: 1
+          },
+          defaults: {ease: "none"}
+        });
+        tl.fromTo(section.querySelector(".afterImage"), {xPercent: 100, x: 0}, {xPercent: 0})
+          .fromTo(section.querySelector(".afterImage img"), {xPercent: -100, x: 0}, {xPercent: 0}, 0);
+      });
+    }
   }
 }
 </script>
 
 <style scoped>
 
-body {
+.home {
   height: 300vh;
   background-color: #111;
   color: white;
