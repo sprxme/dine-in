@@ -27,8 +27,7 @@ export default {
         ...mapActions(['removeFoodItem','removeBeverageItem']),
         removeFood(id,type){
             type=="food" ? this.removeFoodItem({id: id}) : this.removeBeverageItem({id:id})
-        }
-
+        },
     }
 }
 </script>
