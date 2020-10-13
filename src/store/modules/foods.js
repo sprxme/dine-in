@@ -21,16 +21,19 @@ const state = {
         {id: 'f8', name: 'Chicken Dumpling', price:'39000', image:'chickendumpling', category: 'FRIED DIM SUM', desc:''},
         {id: 'f9', name: 'Prawn Wrapped in Bean Curd Skin', price:'35000', image:'prawnwrappedinbeancurdskin', category: 'FRIED DIM SUM', desc:''},
 
-        {id: 'n1', name: 'Beef Noodle Soup', price:'65000', image:'beefnoodle', category: 'NOODLES', desc:'Red braised beef, beef broth, vegetables and Chinese noodles cooked to perfection'},
-        {id: 'n2', name: 'Sichuan Dan Dan Mian', price:'60000', image:'sichuan', category: 'NOODLES', desc:'Red braised beef, beef broth, vegetables and Chinese noodles cooked to perfection'},
-        {id: 'n3', name: 'Zhang Jiang Mian', price:'60000', image:'zhangjiang', category: 'NOODLES', desc:'Red braised beef, beef broth, vegetables and Chinese noodles cooked to perfection'},
+        {id: 'n1', name: 'Char Siew Wanton Noodle', price:'65000', image:'charsiewwantonnoodle', category: 'NOODLES', desc:''},
+        {id: 'n2', name: 'Beef Noodle Soup', price:'65000', image:'beefnoodle', category: 'NOODLES', desc:'Red braised beef, beef broth, vegetables and Chinese noodles cooked to perfection'},
+        {id: 'n3', name: 'Sichuan Dan Dan Mian', price:'60000', image:'sichuan', category: 'NOODLES', desc:'Red braised beef, beef broth, vegetables and Chinese noodles cooked to perfection'},
+        {id: 'n4', name: 'Zhang Jiang Mian', price:'60000', image:'zhangjiang', category: 'NOODLES', desc:'Red braised beef, beef broth, vegetables and Chinese noodles cooked to perfection'},
 
         {id: 'd1', name: 'Fried Sesame Balls', price:'32000', image:'sesameballs', category: 'DESSERT', desc:'Fried sesame balls with glutinous rice flour and red bean paste.'},
         {id: 'd2', name: 'HK Soursop', price:'35000', image:'hksoursop', category: 'DESSERT', desc:'The bowl, the color, the taste. Introducing HK Soursop to replace your midnight chicken soup craving.'},
         {id: 'd3', name: 'Mango Pudding with Popping Boba', price:'40000', image:'mangopuddingwithpoppingboba', category: 'DESSERT', desc:'Fruity, soft, luscious mango pudding, topped with fresh cream and popping boba on top.'},
         {id: 'd4', name: 'Eight Treasures Rice Pudding', price:'45000', image:'ricepudding', category: 'DESSERT', desc:'Sweet sticky rice with a red bean paste filling, decorated with eight different candied fruits.'},
         {id: 'd5', name: 'Fortune Cookies', price:'30000', image:'fortunecookies', category: 'DESSERT', desc:'Chocolate filled crunchy cookies that tells fortune.'},
-        {id: 'd6', name: 'Mango Ice Cream', price:'39000', image:'mangoicecream', category: 'DESSERT', desc:'Soft and cold ice cream filled with mango sweetness flavor.'}
+        {id: 'd6', name: 'Mango Ice Cream', price:'39000', image:'mangoicecream', category: 'DESSERT', desc:'Soft and cold ice cream filled with mango sweetness flavor.'},
+        {id: 'd7', name: 'Cheese Balls', price:'30000', image:'cheeseballs', category: 'DESSERT', desc:''}
+
     ],
     categories: [
         {id: 1, index: 1, name: 'STEAMED DIM SUM', desc: 'Dim sum (literally meaning: touch the heart) was originally not a main meal rather a snack. It is now a staple of Cantonese dining culture, especially in Hong Kong.'},

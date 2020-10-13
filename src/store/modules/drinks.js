@@ -12,6 +12,8 @@ const state = {
         {id: 'c10', name: 'Coca Me Maybe', price:'140000', image:'colamemaybe', category: 'COCKTAILS', desc:'Lemongrass infused gin, lychee, earl grey tea, homemade lemon ginger honey.'},
         {id: 'c11', name: 'Crazy Rich Sesame', price:'140000', image:'crazyrichsesame', category: 'COCKTAILS', desc:'Gin, whiskey cinnamon liqueur, ginger syrup, lemon, black sesame paste, egg white.'},
         {id: 'c12', name: 'Candy Corn Martini with Pop Rocks Rim', price:'120000', image:'candycornmartini', category: 'COCKTAILS', desc:'Vodka, martini, vermouth, candy, with pop rocks rim.'},
+        {id: 'c13', name: 'Ocha Negroni', price:'135000', image:'ochanegroni', category: 'COCKTAILS', desc:''},
+        {id: 'c14', name: 'I Love You Beary Much', price:'135000', image:'iloveyoubearymuch', category: 'COCKTAILS', desc:''},
 
         {id: 'm1', name: 'Sum Ting Wong?', price:'90000', image:'sumtingwong', category: 'MOCKTAILS', desc:'Kyuri, lemon, blueberry syrup, topped with soda.'},
         {id: 'm2', name: 'Virgin Cucumber Gimlet', price:'60000', image:'virgincucumber', category: 'MOCKTAILS', desc:'Fresh Soda infused with syrup, cucumber, and lime.'},
@@ -21,6 +23,9 @@ const state = {
         {id: 'm6', name: 'Wildcat Cooler', price:'65000', image:'wildcatcooler', category: 'MOCKTAILS', desc:'Blueberries, juiced lemon, and sugar mixed with fresh water.'},
         {id: 'm7', name: 'Spicy Watermelon Mint Agua Fresca', price:'90000', image:'watermelonagua', category: 'MOCKTAILS', desc:'Watermelon on top  of water infused with granulated sugar, lime juice, jalapeno, and mint leaves.'},
         {id: 'm8', name: 'Fine China', price:'50000', image:'finechina', category: 'MOCKTAILS', desc:'Kiwi, lemon, orang juice, ginger syrup, kiwi syrup.'},
+        {id: 'm9', name: 'Rose Lemon Spritzer', price:'50000', image:'roselemon', category: 'MOCKTAILS', desc:'Rose water, fresh lemon juice, honey, and a few drops of blood orange and pomegranate juice.'},
+        {id: 'm10', name: 'Crushing Pineapple', price:'90000', image:'crushingpineapple', category: 'MOCKTAILS', desc:''},
+        {id: 'm11', name: 'Flower Power', price:'50000', image:'flowerpower', category: 'MOCKTAILS', desc:''},
 
         {id: 't1', name: 'Ice Lemon Tea', price:'35000', image:'lemontea', category: 'TEA', desc:'HK tea leaves infused with fresh lemon juice, served on chilled ice.'},
         {id: 't2', name: 'Ice Tea', price:'15000', image:'esteh', category: 'TEA', desc:'Healthy and natural tea with chill ice.'},
