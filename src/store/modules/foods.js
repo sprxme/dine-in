@@ -59,7 +59,7 @@ const getters = {
 
 const actions = {
     removeFoodItem({commit},{id}){
-        console.log('remove: '+id)
+        console.log('Removing id: ' + id)
         commit('removeFood',id)
     },
     updateFoodCategories({ commit }, data) {
@@ -71,7 +71,6 @@ const actions = {
 const mutations = {
     //remove food item (front-end only not atcual data) because no database yet :(
     removeFood: (state,id) => {
-        console.log('toberemoved: ' + id)
         state.foods.splice(state.foods.findIndex(food => food.id == id ),1);
     },
     updateFoodCategories: (state, data) => {
