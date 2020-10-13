@@ -9,7 +9,9 @@ const state = {
         {id: 's7', name: 'Steamed BBQ Pork Buns', price:'42000', image:'porkbuns', category: 'STEAMED DIM SUM', desc:'Juicy and sweet Chinese bbq pork wrapped in soft and pillowy steamed buns.'},
         {id: 's8', name: 'Edamame Truffle Dumpling', price:'85000', image:'edamametruffle', category: 'STEAMED DIM SUM', desc:'Steamed dumplings filled with rich flavor of edamame and truffle mushroom.'},
         {id: 's9', name: 'Lobster Dumpling', price:'90000', image:'lobsterdumpling', category: 'STEAMED DIM SUM', desc:'Richness and luxury of lobster flavor fused with soft dumpling skins.'},
-        {id: 's10', name: 'Bean Curd Spring Roll with Chicken', price:'45000', image:'beancurdspringrollwithchicken', category: 'STEAMED DIM SUM', desc:''},
+        {id: 's10', name: 'Bean Curd Spring Roll with Chicken', price:'45000', image:'beancurdspringrollwithchicken', category: 'STEAMED DIM SUM', desc:'Steamed double wrapped chicken with spring rolls and bean curd. '},
+        {id: 's11', name: 'Steamed Mantou', price:'30000', image:'steammantou', category: 'STEAMED DIM SUM', desc:'Steamed buns made of dough and chocolate.'},
+        {id: 's12', name: 'Shui Jiao', price:'45000', image:'shuijiao', category: 'STEAMED DIM SUM', desc:'Pork and chives steamed and wrapped with soft dough.'},
 
         {id: 'f1', name: 'Deep Fried Spiced Chicken Roll', price:'37000', image:'deepfriedspicedchickenroll', category: 'FRIED DIM SUM', desc:'Crunchy and cripsy chicken roll fried to perfection and filled in-house special with spices.'},
         {id: 'f2', name: 'Butter Cajun Guo Tie', price:'42000', image:'buttercajunguotie', category: 'FRIED DIM SUM', desc:'Chicken dumpling served with Butter Cajun and Spicy Sot Sauce.'},
@@ -17,13 +19,22 @@ const state = {
         {id: 'f4', name: 'Spring Rolls', price:'34000', image:'springrolls', category: 'FRIED DIM SUM', desc:'Deep fried thin rolled flour dough filled with vegetables.'},
         {id: 'f5', name: 'Lo Bak Go', price:'36000', image:'lobakgo', category: 'FRIED DIM SUM', desc:'Pan Fried grated turnips combined with dried shrimp, mushrooms and chinese sausage.'},
         {id: 'f6', name: 'Fried Chicken Wonton', price:'38000', image:'friedwonton', category: 'FRIED DIM SUM', desc:'Tender wrappers stuffed with ground pork, mushrooms and seasonings, then deep fried to crispy golden brown perfection.'},
-        {id: 'f7', name: 'Chicken Ekkado', price:'35000', image:'chickenekkado', category: 'FRIED DIM SUM', desc:''},
-        {id: 'f8', name: 'Chicken Dumpling', price:'39000', image:'chickendumpling', category: 'FRIED DIM SUM', desc:''},
-        {id: 'f9', name: 'Prawn Wrapped in Bean Curd Skin', price:'35000', image:'prawnwrappedinbeancurdskin', category: 'FRIED DIM SUM', desc:''},
+        {id: 'f7', name: 'Chicken Ekkado', price:'35000', image:'chickenekkado', category: 'FRIED DIM SUM', desc:'Tender chicken meat and shrimp, wrapped with tofu skins and deep fried until golden brown.'},
+        {id: 'f8', name: 'Chicken Dumpling', price:'39000', image:'chickendumpling', category: 'FRIED DIM SUM', desc:'Boneless chicken meat wrapped and fried.'},
+        {id: 'f9', name: 'Prawn Wrapped in Bean Curd Skin', price:'35000', image:'prawnwrappedinbeancurdskin', category: 'FRIED DIM SUM', desc:'Prawn wrapped with bean curd and fried with special sauce'},
+        {id: 'f10', name: 'Friend Mantou', price:'35000', image:'friendmantou', category: 'FRIED DIM SUM', desc:'Fried buns made of dough and milky flavor.'},
+        {id: 'f11', name: 'Fried Crab Balls', price:'55000', image:'crabballs', category: 'FRIED DIM SUM', desc:'Fried meaty crab leg combined with chicken meat, and chive.'},
+        {id: 'f12', name: 'Fried Mashed Potato Cake', price:'55000', image:'perkedel', category: 'FRIED DIM SUM', desc:'Mashed potato mixed with beef meat and fried until golden brown.'},
 
         {id: 'n1', name: 'Beef Noodle Soup', price:'65000', image:'beefnoodle', category: 'NOODLES', desc:'Red braised beef, beef broth, vegetables and Chinese noodles cooked to perfection'},
-        {id: 'n2', name: 'Sichuan Dan Dan Mian', price:'60000', image:'sichuan', category: 'NOODLES', desc:'Red braised beef, beef broth, vegetables and Chinese noodles cooked to perfection'},
-        {id: 'n3', name: 'Zhang Jiang Mian', price:'60000', image:'zhangjiang', category: 'NOODLES', desc:'Red braised beef, beef broth, vegetables and Chinese noodles cooked to perfection'},
+        {id: 'n2', name: 'Sichuan Dan Dan Mian', price:'65000', image:'sichuan', category: 'NOODLES', desc:'Freshly boiled thin noodles are served in a savory, spicy sichuan sauce topped with crispy pork and peanut flakes.'},
+        {id: 'n3', name: 'Zhang Jiang Mian', price:'60000', image:'zhangjiang', category: 'NOODLES', desc:'Noodle with minced pork, extra firm tofu, chili bean sauce, and sweet bean sauce.'},
+        {id: 'n4', name: 'La Mian', price:'70000', image:'lamian', category: 'NOODLES', desc:'Hand pulled noodles combined with braised beef and flavorful chicken broth.'},
+        {id: 'n5', name: 'Beef Lo Mein', price:'70000', image:'lomein', category: 'NOODLES', desc:'Stir fried noodle with soft braised beef meat and special sauce.'},
+        {id: 'n6', name: 'Chicken Chow Mein', price:'55000', image:'chowmein', category: 'NOODLES', desc:'Noodles paired with chicken and a colorful assortment of vegetables.'},
+        {id: 'n7', name: 'Classic Noodle Salad', price:'50000', image:'noodlesalad', category: 'NOODLES', desc:'Cold noodle salad with a delicious sauce and refreshing ingredients.'},
+        {id: 'n8', name: 'Dao Xiao Mian', price:'75000', image:'daoxiao', category: 'NOODLES', desc:'Knife cut noodles stir fried with braised meat and chicken stocks.'},
+        {id: 'n9', name: 'Misua Patola', price:'65000', image:'misua', category: 'NOODLES', desc:'Salted wheat noodles cooked with patola and ground chicken.'},
 
         {id: 'd1', name: 'Fried Sesame Balls', price:'32000', image:'sesameballs', category: 'DESSERT', desc:'Fried sesame balls with glutinous rice flour and red bean paste.'},
         {id: 'd2', name: 'HK Soursop', price:'35000', image:'hksoursop', category: 'DESSERT', desc:'The bowl, the color, the taste. Introducing HK Soursop to replace your midnight chicken soup craving.'},
@@ -48,7 +59,7 @@ const getters = {
 
 const actions = {
     removeFoodItem({commit},{id}){
-        console.log('remove: '+id)
+        console.log('Removing id: ' + id)
         commit('removeFood',id)
     },
     updateFoodCategories({ commit }, data) {
@@ -60,7 +71,6 @@ const actions = {
 const mutations = {
     //remove food item (front-end only not atcual data) because no database yet :(
     removeFood: (state,id) => {
-        console.log('toberemoved: ' + id)
         state.foods.splice(state.foods.findIndex(food => food.id == id ),1);
     },
     updateFoodCategories: (state, data) => {

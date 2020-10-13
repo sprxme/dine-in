@@ -23,7 +23,7 @@
             </div>
         </transition-group>
         <b-modal id="modal-beverage" centered hide-footer title="Add Beverage" @show="resetData" @hide="resetData">
-            <label for="file-upload" class="menu__fileupload" :class="{border: !image}">
+            <label for="file-upload" class="menu__fileupload border">
                 <div v-show="!image" class="menu__fileupload__container">
                     <span for="file-upload" class="menu__fileupload__content">
                         <font-awesome-icon icon="image"  class="menu__fileupload__icon"/>
