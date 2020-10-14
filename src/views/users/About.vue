@@ -91,7 +91,7 @@ export default {
         scrollTrigger: {
           trigger: ".banner",
           scrub: true,
-          pin: true,
+          //pin: true,
           start: "center center",
           end: "bottom -100%",
           toggleClass: "active",
