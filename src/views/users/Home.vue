@@ -90,14 +90,15 @@ export default {
 
   &__comparisonSection {
     position: relative;
-    padding-bottom: 105vh; /*56.25%; /* to maintain aspect ratio (responsive!) */
+    height: 105vh;
+    // padding-bottom: 105vh; /*56.25%; /* to maintain aspect ratio (responsive!) */
   }
 
   &__comparisonImage {
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-    }
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
 
   &__comparisonImage img {
     width: 100%;
