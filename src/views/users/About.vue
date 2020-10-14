@@ -34,15 +34,15 @@
       </div>
     </div> 
 
-    <section class="container banner">
+    <section class="container-paralax banner">
       <div class="banner__inner">
         <div class="banner__images">
           <img class="banner__image" src="@/assets/about/bar2.jpg"/>
         </div>
-        <div class="banner__content">
-          <div class="banner__caption"> 
-            <span>Where are We?</span>
-          </div>
+      </div>
+      <div class="banner__content">
+        <div class="banner__caption"> 
+          <span class="caption">WHERE ARE WE?</span>
         </div>
       </div>
     </section>
@@ -91,8 +91,9 @@ export default {
         scrollTrigger: {
           trigger: ".banner",
           scrub: true,
+          // markers: true,
           //pin: true,
-          start: "center center",
+          start: "50% 80%",
           end: "bottom -100%",
           toggleClass: "active",
           ease: "power2"
@@ -102,6 +103,7 @@ export default {
         scrollTrigger: {
           trigger: ".banner",
           scrub: 0.5,
+          // markers:true,
           start: "top bottom",
           end: "bottom -300%",
           ease: "power2"
@@ -115,38 +117,43 @@ export default {
 
 <style lang="scss" scoped>
 
-.container {
+.container-paralax {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 100vh;
-  height: -webkit-fill-available;
+  height: 400px;
+  // height: 100vh;
+  // height: -webkit-fill-available;
   color: white;
   text-align: center;
+  overflow: hidden;
+  position: relative;
 }
 
 .banner__inner {
   display: flex;
   position: relative;
   width: 100vw;
-  max-height: 100vh;
+  height: 200%;
+  // max-height: 100vh;
   overflow: hidden;
 
   &::before {
     content: "";
     display: block;
-    padding-bottom: calc(100% / (16 / 9));
+    // padding-bottom: calc(100% / (16 / 9));
   }
 }
 
 .banner__image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 160%;
+  // position: absolute;
+  // top: 0;
+  // left: 0;
+  width: 100vw;
+  height: 100%;
   object-fit: cover;
+  filter: brightness(95%);
 }
 
 .banner__content {
@@ -160,17 +167,27 @@ export default {
   height: 100%;
 }
 
+.caption {
+  font-size: 32px;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 10px;
+  font-weight: 600;
+  max-width: 80vw;
+  // margin-bottom: .5rem;
+}
+
 .banner__caption {
   --padding: 1.5vmin;
   --duration: 400ms;
   --delay: calc(var(--duration) / 2);
   --ease: cubic-bezier(0.25, 1, 0.5, 1);
 
-  position: relative;
+  position: absolute;
   display: inline-block;
-  font-size: 10vmin;
   overflow: hidden;
-  margin-top: calc(var(--padding) * -1);
+  // margin-top: calc(var(--padding) * -1);
+  top: 50%;
+  transform: translateY(-50%);
   padding: var(--padding);
 
   &::after {
@@ -180,7 +197,7 @@ export default {
     left: 0;
     background-color: white;
     width: 100%;
-    height: 1.5vmin;
+    height: 3px;
     transform: scaleX(0);
     transition: transform var(--duration) var(--delay) var(--ease);
   }
@@ -262,7 +279,10 @@ export default {
     justify-content: center;
     flex-direction: column;
     border-top: 1px solid $light-grey;
-    margin:0vw 25vw;
+    max-width: 700px;
+    margin: 0rem 2rem 10rem;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   &__baris{
@@ -295,7 +315,7 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin:0vw 10vw 2vw 10vw;
+    margin:0 1rem 1rem 2rem;
   }
 
 }
@@ -303,14 +323,20 @@ export default {
 .carousel-image{
   background-size: contain;
   min-width:100vw;
-  max-width:100vw;
-  max-height:350px;
+  max-width:none;
+  width: 100%;
+  height: auto;
+  max-height:500px;
+  object-fit: cover;
 }
+
 
 .countainer-carousel{
   display:flex;
-  min-height:60vh;
+  // min-height:200px;
   overflow: hidden;
+  width: 100%;
+  // height: auto;
 }
 
 .container-container{
