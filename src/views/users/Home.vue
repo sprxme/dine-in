@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    <h1 class="header-section">zzzzzzz</h1>
     <section class="comparisonSection">
       <div class="comparisonImage beforeImage">
         <img src="@/assets/about/aboutimg1.jpg" alt="before">
@@ -14,6 +13,7 @@
 
 <script>
 import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 export default {
   name: 'Home',
   mounted: function() {
@@ -21,16 +21,17 @@ export default {
   },
   methods: {
     startAnimation: function() {
-      //gsap.registerPlugin(); missing
+      gsap.registerPlugin(ScrollTrigger); //missing
       gsap.utils.toArray(".comparisonSection").forEach(section => {
         let tl = gsap.timeline({
           scrollTrigger: {
             trigger: section,
-            start: "center center",
-            end: () => "+=" + section.offsetWidth,
+            start: '-50px',
+            // end: () => "+=" + section.offsetWidth,
+            // markers: true,
             scrub: true,
             pin: true,
-            anticipatePin: 1
+            // anticipatePin: 1
           },
           defaults: {ease: "none"}
         });
