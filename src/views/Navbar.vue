@@ -14,6 +14,7 @@
   <Cartpop :show="show" v-on:change-route="enableScrollToParent"/>
   <b-sidebar 
     id="sidebar-1" 
+    @change="toggleBodyScroll"
     shadow
     backdrop
     no-header
@@ -76,6 +77,14 @@ export default {
       this.show = false;
       this.dim = false;
       this.$emit('change-route');
+    },
+    toggleBodyScroll(visible) {
+      console.log(visible);
+      if (visible) {
+        document.body.classList.add('overflow-hidden')
+      } else {
+        document.body.classList.remove('overflow-hidden')
+      }
     }
   },
   components:{

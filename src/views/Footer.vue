@@ -83,7 +83,7 @@ export default {
 
     &__columns{
         display: grid;
-        grid-template-columns: 1.2fr 1.2fr 1fr;
+        grid-template-columns: 1.7fr 1.7fr 1fr;
         margin-top: .8rem;
     }
 
@@ -204,7 +204,7 @@ export default {
 @media screen and (max-width:900px){
     .footer {
         &__columns{
-            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-columns: 1.2fr 1.2fr 1fr;
         }
 
         &__copyright{
@@ -233,7 +233,7 @@ export default {
         }
 
         &__with-icons {
-            margin-right: 0em;
+            margin-right: 1em;
             margin-left: 1em;
         }
     }
@@ -243,7 +243,7 @@ export default {
     .footer{
         &__columns{
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1.2fr 1fr;
             margin-top: .8rem;
         }
 
@@ -261,6 +261,11 @@ export default {
 
         &__about {
             margin: 0 0 1.8em 0;
+        }
+
+        &__with-icons {
+            margin-right: 0em;
+            margin-left: 1em;
         }
     }
 }

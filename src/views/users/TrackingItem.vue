@@ -7,7 +7,8 @@
                 <div class="set-size">
                     <div class="circle-wrapper progress-number">
                         <div class="image-cropper">
-                            <img class="menu-image" src="@/assets/about/aboutimage.jpg"/>
+                            <!-- <img class="menu-image" src="@/assets/about/aboutimage.jpg"/> -->
+                            <img :src="require('@/assets/food/'+trackItem.image+'.jpg')" class="menu-image" >
                         </div>
                         <div class="circle">
                             <div class="left-side half-circle"></div>
@@ -21,7 +22,7 @@
                         </div>
                     </div>
                 </div>
-                <span class="tracking__menu-name">{{trackItem.name}}</span>
+                <span class="tracking__menu-name">{{trackItem.name}} ({{trackItem.quantity}}x)</span>
                 <span class="tracking__progress-name">Preparing</span> 
             </div>
         </div>
@@ -33,7 +34,8 @@ import { mapGetters } from 'vuex';
 
 export default {
     props: {
-        token: String
+        token: String,
+        food: Object
     },
     computed: {
         ...mapGetters(['allOrders', 'allFoods'])
