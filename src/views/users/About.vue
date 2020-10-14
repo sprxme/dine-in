@@ -21,7 +21,6 @@
       </b-carousel>
     </div>
 
-    
     <div>
       <img class="about__logo" src="@/assets/about/logo2rev.png" />
     </div>
@@ -46,6 +45,26 @@
         </p>
       </div>
     </div> 
+
+
+
+
+    <section class="container banner">
+      <div class="banner__inner">
+        <div class="banner__images">
+          <img class="banner__image" src="@/assets/about/bar2.jpg"/>
+        </div>
+        <div class="banner__content">
+          <div class="banner__caption">
+            <span>Where are We?</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
   
     <div class="about__column">
 
@@ -73,8 +92,137 @@
   </div>
 </template> 
 
+<script>
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+export default {
+  name: 'Home',
+  mounted: function() {
+    this.startAnimation();
+  },
+  methods: {
+    startAnimation: function() {
+      gsap.registerPlugin(ScrollTrigger); //missing
+
+      gsap.to(".banner", {
+        scrollTrigger: {
+          trigger: ".banner",
+          scrub: true,
+          pin: true,
+          start: "center center",
+          end: "bottom -100%",
+          toggleClass: "active",
+          ease: "power2"
+        }
+      });
+      gsap.to(".banner__image", {
+        scrollTrigger: {
+          trigger: ".banner",
+          scrub: 0.5,
+          start: "top bottom",
+          end: "bottom -300%",
+          ease: "power2"
+        },
+        y: "-30%"
+      });
+    }
+  }
+}
+</script>
 
 <style lang="scss" scoped>
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  height: -webkit-fill-available;
+  color: white;
+  text-align: center;
+}
+
+.banner__inner {
+  display: flex;
+  position: relative;
+  width: 100vw;
+  max-height: 100vh;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    display: block;
+    padding-bottom: calc(100% / (16 / 9));
+  }
+}
+
+.banner__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 160%;
+  object-fit: cover;
+}
+
+.banner__content {
+  display: none;
+  position: absolute;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.banner__caption {
+  --padding: 1.5vmin;
+  --duration: 400ms;
+  --delay: calc(var(--duration) / 2);
+  --ease: cubic-bezier(0.25, 1, 0.5, 1);
+
+  position: relative;
+  display: inline-block;
+  font-size: 10vmin;
+  overflow: hidden;
+  margin-top: calc(var(--padding) * -1);
+  padding: var(--padding);
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: calc(100% - var(--padding));
+    left: 0;
+    background-color: white;
+    width: 100%;
+    height: 1.5vmin;
+    transform: scaleX(0);
+    transition: transform var(--duration) var(--delay) var(--ease);
+  }
+
+  span {
+    display: block;
+    transform: translateY(110%);
+    transition: transform var(--duration) var(--ease);
+  }
+
+  .active & {
+    &::after {
+      transform: scaleX(1);
+      transition-delay: 0s;
+    }
+    span {
+      transform: translateY(0);
+      transition-delay: var(--delay);
+    }
+  }
+}
+
+
+
 .about {
   padding:0rem 0em ;
 

@@ -55,15 +55,16 @@
                     </b-form-select-option>
                 </b-form-select>
             </div>
+            <span class="menu__desc-title">Description</span>
             <div class="custom__input input__textarea">
                 <span class = "custom__input-row">
                     <textarea class="menu__modal__input custom__textarea" type="text" required />
-                    <span class="placeholder__textarea menu__modal__placeholder">Description</span>
+                    <!-- <span class="placeholder__textarea menu__modal__placeholder">Description</span> -->
                 </span>
             </div>
             <div class="menu__modal__buttongroup">
                 <span class="menu__modal__buttongroup__button destructive-secondary" @click="$bvModal.hide('modal-add-food')">Cancel</span>
-                <span class="menu__modal__buttongroup__button primary-button" @click="$bvModal.hide('modal-add-food')">Save</span>
+                <span class="menu__modal__buttongroup__button primary-button" @click="addFood">Add</span>
             </div>
         </b-modal>
     </div>
@@ -117,6 +118,11 @@ export default {
             return [...this.allFoodCategories].sort((a, b) => {
                 return a.index - b.index
             })
+        },
+        addFood() {
+            this.$bvModal.hide('modal-add-food')
+
+            // handle add food
         }
     },
     components:{
@@ -131,9 +137,17 @@ export default {
 <style lang="scss" scoped>
 @import "@/styles/menu.scss";
 
+.menu__tocart__icon {
+    margin-bottom: .2rem;
+}
+
 @media screen and (max-width:1000px){
     .menu__title {
         text-align: left;
+    }
+
+    .menu__tocart__icon {
+        margin-bottom: .25rem;
     }
 }
 </style>

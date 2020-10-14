@@ -27,13 +27,13 @@
                 <div class="menu__modal">
                     <div class="custom__input">
                         <span class = "custom__input-row">
-                            <input class="field menu__modal__input" type="text" required :value="menu.name">
+                            <input class="field menu__modal__input" type="text" required v-model="name">
                             <span class="placeholder menu__modal__placeholder">Name</span>
                         </span>
                     </div>
                     <div class="custom__input">
                         <span class = "custom__input-row">
-                            <input class="field menu__modal__input" type="text" required :value="menu.price">
+                            <input class="field menu__modal__input" type="text" required v-model="price">
                             <span class="placeholder menu__modal__placeholder">Price</span>
                         </span>
                     </div>
@@ -46,15 +46,16 @@
                         </b-form-select-option>
                     </b-form-select>
                 </div>
+                <span class="menu__desc-title">Description</span>
                 <div class="custom__input input__textarea">
                     <span class = "custom__input-row">
-                        <textarea class="menu__modal__input custom__textarea" type="text" required :value="menu.desc"/>
-                        <span class="placeholder__textarea menu__modal__placeholder">Description</span>
+                        <textarea class="menu__modal__input custom__textarea" type="text" required v-model="desc"/>
+                        <!-- <span class="placeholder__textarea menu__modal__placeholder">Description</span> -->
                     </span>
                 </div>
                 <div class="menu__modal__buttongroup">
                     <span class="menu__modal__buttongroup__button destructive-secondary" @click="$bvModal.hide('modal-edit-'+menu.id)">Cancel</span>
-                    <span class="menu__modal__buttongroup__button primary-button" @click="$bvModal.hide('modal-edit-'+menu.id)">Save</span>
+                    <span class="menu__modal__buttongroup__button primary-button" @click="save">Save</span>
                 </div>
             </b-modal>
         </div>
@@ -71,6 +72,9 @@ export default {
             selected: null,
             image: null,
             imageURL: null,
+            name: null,
+            price: null,
+            desc: null,
             categoryOption: null,
         }
     },
@@ -79,7 +83,7 @@ export default {
         type: String,
     },
     methods:{
-        ...mapActions(['removeFoodItem','removeBeverageItem']),
+        ...mapActions(['removeFoodItem','removeBeverageItem', 'editFood', 'editDrink']),
         removeFood(id,type){
             type=="food" ? this.removeFoodItem({id: id}) : this.removeBeverageItem({id:id})
         },
@@ -88,15 +92,40 @@ export default {
             this.imageURL = URL.createObjectURL(file);
         },
         showModal(id){
+            this.populateData()
             this.$bvModal.show('modal-edit-' + id)
+        },
+        populateData() {
+            this.selected = this.$props.menu.category
+            this.image = this.$props.menu.image
+            this.name = this.$props.menu.name
+            this.price = this.$props.menu.price
+            this.desc = this.$props.menu.desc
         },
         resetData(){
             this.imageURL = null
         },
+        save() {
+            this.$bvModal.hide('modal-edit-' + this.menu.id)
+
+            const editedMenu = { ...this.menu }
+            editedMenu.name = this.name
+            editedMenu.price = this.price
+            editedMenu.category = this.selected
+            editedMenu.desc = this.desc
+
+            // if there is no edits, do exits this function and do nothing
+            if (JSON.stringify(editedMenu) === JSON.stringify(this.menu)) { return }
+
+            if (this.$props.type == 'food') {
+                this.editFood({ menu: this.menu, editedMenu: editedMenu })
+            } else {
+                this.editDrink({ menu: this.menu, editedMenu: editedMenu })
+            }
+        }
     },
     created(){
-        this.selected = this.$props.menu.category;
-        this.image = this.$props.menu.image;
+        this.populateData()
     },
     mounted(){
         this.categoryOption = this.$props.type == 'food' ? this.allFoodCategories : this.allDrinkCategories
@@ -109,6 +138,14 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/styles/menu.scss';
+
+.custom__input-row input:focus + .placeholder,
+.custom__input-row input:valid + .placeholder{
+    top: 7px;
+    left: 2px;
+    font-size: 14px;
+    color: $text;
+}
 
 .menu {
     &__edit {

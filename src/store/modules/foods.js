@@ -26,22 +26,25 @@ const state = {
         {id: 'f11', name: 'Fried Crab Balls', price:'55000', image:'crabballs', category: 'FRIED DIM SUM', desc:'Fried meaty crab leg combined with chicken meat, and chive.'},
         {id: 'f12', name: 'Fried Mashed Potato Cake', price:'35000', image:'perkedel', category: 'FRIED DIM SUM', desc:'Mashed potato mixed with beef meat and fried until golden brown.'},
 
-        {id: 'n1', name: 'Beef Noodle Soup', price:'65000', image:'beefnoodle', category: 'NOODLES', desc:'Red braised beef, beef broth, vegetables and Chinese noodles cooked to perfection'},
-        {id: 'n2', name: 'Sichuan Dan Dan Mian', price:'65000', image:'sichuan', category: 'NOODLES', desc:'Freshly boiled thin noodles are served in a savory, spicy sichuan sauce topped with crispy pork and peanut flakes.'},
-        {id: 'n3', name: 'Zhang Jiang Mian', price:'60000', image:'zhangjiang', category: 'NOODLES', desc:'Noodle with minced pork, extra firm tofu, chili bean sauce, and sweet bean sauce.'},
-        {id: 'n4', name: 'La Mian', price:'70000', image:'lamian', category: 'NOODLES', desc:'Hand pulled noodles combined with braised beef and flavorful chicken broth.'},
-        {id: 'n5', name: 'Beef Lo Mein', price:'70000', image:'lomein', category: 'NOODLES', desc:'Stir fried noodle with soft braised beef meat and special sauce.'},
-        {id: 'n6', name: 'Chicken Chow Mein', price:'55000', image:'chowmein', category: 'NOODLES', desc:'Noodles paired with chicken and a colorful assortment of vegetables.'},
-        {id: 'n7', name: 'Classic Noodle Salad', price:'50000', image:'noodlesalad', category: 'NOODLES', desc:'Cold noodle salad with a delicious sauce and refreshing ingredients.'},
-        {id: 'n8', name: 'Dao Xiao Mian', price:'75000', image:'daoxiao', category: 'NOODLES', desc:'Knife cut noodles stir fried with braised meat and chicken stocks.'},
-        {id: 'n9', name: 'Misua Patola', price:'65000', image:'misua', category: 'NOODLES', desc:'Salted wheat noodles cooked with patola and ground chicken.'},
+        {id: 'n1', name: 'Char Siew Wanton Noodle', price:'65000', image:'charsiewwantonnoodle', category: 'NOODLES', desc:''},
+        {id: 'n2', name: 'Beef Noodle Soup', price:'65000', image:'beefnoodle', category: 'NOODLES', desc:'Red braised beef, beef broth, vegetables and Chinese noodles cooked to perfection'},
+        {id: 'n3', name: 'Sichuan Dan Dan Mian', price:'65000', image:'sichuan', category: 'NOODLES', desc:'Freshly boiled thin noodles are served in a savory, spicy sichuan sauce topped with crispy pork and peanut flakes.'},
+        {id: 'n4', name: 'Zhang Jiang Mian', price:'60000', image:'zhangjiang', category: 'NOODLES', desc:'Noodle with minced pork, extra firm tofu, chili bean sauce, and sweet bean sauce.'},
+        {id: 'n5', name: 'La Mian', price:'70000', image:'lamian', category: 'NOODLES', desc:'Hand pulled noodles combined with braised beef and flavorful chicken broth.'},
+        {id: 'n6', name: 'Beef Lo Mein', price:'70000', image:'lomein', category: 'NOODLES', desc:'Stir fried noodle with soft braised beef meat and special sauce.'},
+        {id: 'n7', name: 'Chicken Chow Mein', price:'55000', image:'chowmein', category: 'NOODLES', desc:'Noodles paired with chicken and a colorful assortment of vegetables.'},
+        {id: 'n8', name: 'Classic Noodle Salad', price:'50000', image:'noodlesalad', category: 'NOODLES', desc:'Cold noodle salad with a delicious sauce and refreshing ingredients.'},
+        {id: 'n9', name: 'Dao Xiao Mian', price:'75000', image:'daoxiao', category: 'NOODLES', desc:'Knife cut noodles stir fried with braised meat and chicken stocks.'},
+        {id: 'n10', name: 'Misua Patola', price:'65000', image:'misua', category: 'NOODLES', desc:'Salted wheat noodles cooked with patola and ground chicken.'},
 
         {id: 'd1', name: 'Fried Sesame Balls', price:'32000', image:'sesameballs', category: 'DESSERT', desc:'Fried sesame balls with glutinous rice flour and red bean paste.'},
         {id: 'd2', name: 'HK Soursop', price:'35000', image:'hksoursop', category: 'DESSERT', desc:'The bowl, the color, the taste. Introducing HK Soursop to replace your midnight chicken soup craving.'},
         {id: 'd3', name: 'Mango Pudding with Popping Boba', price:'40000', image:'mangopuddingwithpoppingboba', category: 'DESSERT', desc:'Fruity, soft, luscious mango pudding, topped with fresh cream and popping boba on top.'},
         {id: 'd4', name: 'Eight Treasures Rice Pudding', price:'45000', image:'ricepudding', category: 'DESSERT', desc:'Sweet sticky rice with a red bean paste filling, decorated with eight different candied fruits.'},
         {id: 'd5', name: 'Fortune Cookies', price:'30000', image:'fortunecookies', category: 'DESSERT', desc:'Chocolate filled crunchy cookies that tells fortune.'},
-        {id: 'd6', name: 'Mango Ice Cream', price:'39000', image:'mangoicecream', category: 'DESSERT', desc:'Soft and cold ice cream filled with mango sweetness flavor.'}
+        {id: 'd6', name: 'Mango Ice Cream', price:'39000', image:'mangoicecream', category: 'DESSERT', desc:'Soft and cold ice cream filled with mango sweetness flavor.'},
+        {id: 'd7', name: 'Cheese Balls', price:'30000', image:'cheeseballs', category: 'DESSERT', desc:''}
+
     ],
     categories: [
         {id: 1, index: 1, name: 'STEAMED DIM SUM', desc: 'Dim sum (literally meaning: touch the heart) was originally not a main meal rather a snack. It is now a staple of Cantonese dining culture, especially in Hong Kong.'},
@@ -62,16 +65,28 @@ const actions = {
         console.log('Removing id: ' + id)
         commit('removeFood',id)
     },
+    removeFoodCategory({commit},{id}){
+        console.log('Removing id: ' + id)
+        commit('removeCategoryFood',id)
+    },
     updateFoodCategories({ commit }, data) {
-        console.log('Updating for id: ' +  data.id + ' with new index: ' + data.index);
+        console.log('Updating for id: ' +  data.id + ' with new index: ' + data.index)
         commit('updateFoodCategories', data)
+    },
+    editFood({ commit }, data) {
+        console.log('Edited for id: ' + data.menu.id)
+        console.log('Edited fields: ' + data.editedMenu.name + ' price: ' + data.editedMenu.price + ' category: ' + data.editedMenu.category + ' desc: ' + data.editedMenu.desc);
+        commit('editFood', data.editedMenu)
     }
 }
 
 const mutations = {
     //remove food item (front-end only not atcual data) because no database yet :(
     removeFood: (state,id) => {
-        state.foods.splice(state.foods.findIndex(food => food.id == id ),1);
+        state.foods.splice(state.foods.findIndex(food => food.id == id ),1)
+    },
+    removeCategoryFood: (state,id) => {
+        state.categories.splice(state.categories.findIndex(category => category.id == id ),1)
     },
     updateFoodCategories: (state, data) => {
         const modifiedIndex = state.categories.map(category => category.index)
@@ -100,6 +115,15 @@ const mutations = {
         })
 
         state.categories = updated
+    },
+    editFood: (state, data) => {
+        state.foods = state.foods.map(food => {
+            if (food.id == data.id) {
+                return data
+            } else {
+                return food
+            }
+        })
     }
 }
 

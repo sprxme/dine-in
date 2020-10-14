@@ -1,19 +1,17 @@
 <template>
     <div class="order">
-        <div>
-            <div class="order__block">
-                <div class="order__details">
-                    <div class="order__image"><!--  Gambar-->
-                        <img src="@/assets/food/food1.jpg" class="order__image" />
-                    </div>
-                    <div class="order__details__name">Harga Diri Jacob Andrean</div>
-                    <div class="order__details__price">Rp 1.000.000</div>
-                </div>
+        <div class="order__image"><!--  Gambar-->
+            <img src="@/assets/food/food1.jpg" class="order__image" />
+        </div>
+        <div class="order__block">
+            <div class="order__details">
+                <div class="order__details__name">Harga Diri Jacob Andrean</div>
+                <div class="order__details__price">Rp 1.000.000</div>
+            </div>
+            <div class="order__note">
+                <input type="text">
             </div>
             <div class="order__iconbar">
-                <div class="order__note">
-                    <font-awesome-icon icon="edit" class="order__note__icon" />
-                </div>
                 <div class="order__quantity">
                     <font-awesome-icon icon="minus" class="order__quantitiy__icon minus" v-on:click="quantity=quantity-1"/>
                     <label class="order__quantity__number">{{quantity}}</label>
@@ -21,6 +19,9 @@
                 </div>
             </div>
         </div>
+            
+        
+
     </div>
 </template>
 
@@ -37,14 +38,18 @@ export default {
 <style lang="scss" scoped>
 .order{
     display: flex;
+    flex: warp;
     margin-bottom: 30px;
     padding-top: 20px;
     border-top: 1px solid $light-grey;
 
     &__block{
-        display: flex;
+        flex-basis: 100%;
     }
+
     &__image{
+        max-width: 100%;
+        max-height: 100%;
         height: 150px;
         width: 150px;
         object-fit: cover;
@@ -53,19 +58,27 @@ export default {
     }
 
     &__details{
-        display: grid;
-        grid-template-columns: 1fr 2fr 1fr;
-        flex-wrap: wrap;
-        font-size: 18px;
-        font-weight: 500;
-        padding: .3em 1em;
-        flex-direction: row;
-
+        display: flex;
+        flex-basis: 100%;
+        max-width: 100%;
+        &__name{
+            padding: 0em 0em 0em 1em;
+            font-size: 24px;
+            font-weight: 600;
+        }
         &__price{
-            display: block;
+            font-size: 24px;
+            font-weight: 600;
+            display: flex;
             float: right;
             margin-left: auto;
+            text-align: right;
         }
+    }
+    
+    &__note{
+        padding: 1em;
+        align-items: center;
     }
 
     &__iconbar{

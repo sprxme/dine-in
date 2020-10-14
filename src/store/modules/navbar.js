@@ -42,6 +42,10 @@ const state = {
                 {
                     name:'Beverage',
                     routeLink: '/beverage-edit'
+                },
+                {
+                    name:'Category',
+                    routeLink: '/category-edit'
                 }
             ],
             permission: ['admin']
