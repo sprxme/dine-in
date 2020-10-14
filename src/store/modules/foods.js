@@ -26,7 +26,7 @@ const state = {
         {id: 'f11', name: 'Fried Crab Balls', price:'55000', image:'crabballs', category: 'FRIED DIM SUM', desc:'Fried meaty crab leg combined with chicken meat, and chive.'},
         {id: 'f12', name: 'Fried Mashed Potato Cake', price:'35000', image:'perkedel', category: 'FRIED DIM SUM', desc:'Mashed potato mixed with beef meat and fried until golden brown.'},
 
-        {id: 'n1', name: 'Char Siew Wanton Noodle', price:'65000', image:'charsiewwantonnoodle', category: 'NOODLES', desc:''},
+        {id: 'n1', name: 'Char Siew Wanton Noodle', price:'65000', image:'charsiewwantonnoodle', category: 'NOODLES', desc:'Soft Charsiew combined with flavorful wonton served with extra light noodles.'},
         {id: 'n2', name: 'Beef Noodle Soup', price:'65000', image:'beefnoodle', category: 'NOODLES', desc:'Red braised beef, beef broth, vegetables and Chinese noodles cooked to perfection'},
         {id: 'n3', name: 'Sichuan Dan Dan Mian', price:'65000', image:'sichuan', category: 'NOODLES', desc:'Freshly boiled thin noodles are served in a savory, spicy sichuan sauce topped with crispy pork and peanut flakes.'},
         {id: 'n4', name: 'Zhang Jiang Mian', price:'60000', image:'zhangjiang', category: 'NOODLES', desc:'Noodle with minced pork, extra firm tofu, chili bean sauce, and sweet bean sauce.'},
@@ -43,7 +43,7 @@ const state = {
         {id: 'd4', name: 'Eight Treasures Rice Pudding', price:'45000', image:'ricepudding', category: 'DESSERT', desc:'Sweet sticky rice with a red bean paste filling, decorated with eight different candied fruits.'},
         {id: 'd5', name: 'Fortune Cookies', price:'30000', image:'fortunecookies', category: 'DESSERT', desc:'Chocolate filled crunchy cookies that tells fortune.'},
         {id: 'd6', name: 'Mango Ice Cream', price:'39000', image:'mangoicecream', category: 'DESSERT', desc:'Soft and cold ice cream filled with mango sweetness flavor.'},
-        {id: 'd7', name: 'Cheese Balls', price:'30000', image:'cheeseballs', category: 'DESSERT', desc:''}
+        {id: 'd7', name: 'Cheese Balls', price:'30000', image:'cheeseballs', category: 'DESSERT', desc:'Mixed of sweetness of the cheese and crunchiness.'}
 
     ],
     categories: [

@@ -1,23 +1,11 @@
 <template>
   <div class="about">
-        <div class="container-container">
-      <b-carousel
-        class="container-carousel"
-        id="carousel"
-        :interval="4000"
-        indicators>
-        <b-carousel-slide
-          class="carousel-image"
-          img-src="@/assets/about/aboutimage3.jpg"
-        ></b-carousel-slide>
-        <b-carousel-slide
-          class="carousel-image"
-          img-src="@/assets/about/aboutimg2.jpg"
-        ></b-carousel-slide>
-        <b-carousel-slide
-          class="carousel-image"
-          img-src="@/assets/about/aboutimg1.jpg"
-        ></b-carousel-slide>
+    
+    <div class="container-container">
+      <b-carousel class="container-carousel" id="carousel" :interval="4000" indicators>
+        <b-carousel-slide class="carousel-image" img-src="@/assets/about/aboutimage3.jpg"></b-carousel-slide>
+        <b-carousel-slide class="carousel-image" img-src="@/assets/about/aboutimg2.jpg"></b-carousel-slide>
+        <b-carousel-slide class="carousel-image" img-src="@/assets/about/aboutimg1.jpg"></b-carousel-slide>
       </b-carousel>
     </div>
 
@@ -46,24 +34,18 @@
       </div>
     </div> 
 
-
-
-
     <section class="container banner">
       <div class="banner__inner">
         <div class="banner__images">
           <img class="banner__image" src="@/assets/about/bar2.jpg"/>
         </div>
         <div class="banner__content">
-          <div class="banner__caption">
+          <div class="banner__caption"> 
             <span>Where are We?</span>
           </div>
         </div>
       </div>
     </section>
-
-
-
 
   
     <div class="about__column">
