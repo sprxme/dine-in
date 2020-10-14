@@ -8,7 +8,7 @@
         indicators>
         <b-carousel-slide
           class="carousel-image"
-          img-src="@/assets/about/aboutimage.jpg"
+          img-src="@/assets/about/aboutimage3.jpg"
         ></b-carousel-slide>
         <b-carousel-slide
           class="carousel-image"
@@ -171,10 +171,10 @@
 }
 
 .carousel-image{
-  background-size: cover;
-  position: relative;
-  align-self: stretch;
-  height:450px;
+  background-size: contain;
+  min-width:100vw;
+  max-width:100vw;
+  max-height:350px;
 }
 
 .countainer-carousel{
