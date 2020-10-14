@@ -28,6 +28,9 @@ export default {
   },
   methods: {
     startAnimation: function() {
+      gsap.from(".home__title-container", {duration: 1.5, opacity: 0, ease:"power2.in"})
+      gsap.from(".home__title-container", {duration: 2, y: -70, ease:"power2.out"})
+
       gsap.registerPlugin(ScrollTrigger); //missing
       gsap.utils.toArray(".home__comparisonSection").forEach(section => {
         let tl = gsap.timeline({
