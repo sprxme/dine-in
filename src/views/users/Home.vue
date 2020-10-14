@@ -31,7 +31,7 @@ export default {
             // markers: true,
             scrub: true,
             pin: true,
-            // anticipatePin: 1
+            anticipatePin: 1
           },
           defaults: {ease: "none"}
         });

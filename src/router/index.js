@@ -132,8 +132,8 @@ router.beforeEach((to,from,next) =>{
       next();
     }
     else{
-      // next('/account');
-      next()
+      next('/account');
+      // next()
     }
   }
   else {

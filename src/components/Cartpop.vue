@@ -430,7 +430,7 @@ export default {
 
 // FADE ANIMATIONS
 // .order-list-enter-active, .order-list-leave-active {
-//   transition: all .3s ease;
+//   transition: all .5s cubic-bezier(.27,.25,.04,.98);
 // }
 
 // .order-list-enter, .order-list-leave-to /* .list-leave-active below version 2.1.8 */ {
