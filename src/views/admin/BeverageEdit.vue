@@ -63,8 +63,8 @@
                 </span>
             </div>
             <div class="menu__modal__buttongroup">
-                <span class="menu__modal__buttongroup__button destructive-secondary" @click="$bvModal.hide('modal-beverage')">Cancel</span>
-                <span class="menu__modal__buttongroup__button primary-button" @click="$bvModal.hide('modal-beverage')">Save</span>
+                <span class="menu__modal__buttongroup__button destructive-secondary" @click="$bvModal.hide('modal-add-beverage')">Cancel</span>
+                <span class="menu__modal__buttongroup__button primary-button" @click="addBeverage">Add</span>
             </div>
         </b-modal>
     </div>
@@ -118,6 +118,11 @@ export default {
             return [...this.allDrinkCategories].sort((a, b) => {
                 return a.index - b.index
             })
+        },
+        addBeverage() {
+            this.$bvModal.hide('modal-add-beverage')
+
+            // handle add beverage
         }
     },
     components:{

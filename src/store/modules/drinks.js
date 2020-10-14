@@ -57,15 +57,20 @@ const actions = {
         commit('removeBeverage',id)
     },
     updateDrinkCategories({ commit }, data) {
-        console.log('Updating for id: ' +  data.id + ' with new index: ' + data.index);
+        console.log('Updating for id: ' +  data.id + ' with new index: ' + data.index)
         commit('updateDrinkCategories', data)
+    },
+    editDrink({ commit }, data) {
+        console.log('Edited for id: ' + data.menu.id)
+        console.log('Edited fields: ' + data.editedMenu.name + ' price: ' + data.editedMenu.price + ' category: ' + data.editedMenu.category + ' desc: ' + data.editedMenu.desc);
+        commit('editDrink', data.editedMenu)
     }
 }
 
 const mutations = {
     //remove drink beverage (front-end only not atcual data) because no database yet :(
     removeBeverage: (state,id) => {
-        state.drinks.splice(state.drinks.findIndex(drink => drink.id == id ),1);
+        state.drinks.splice(state.drinks.findIndex(drink => drink.id == id ),1)
     },
     updateDrinkCategories: (state, data) => {
         const modifiedIndex = state.categories.map(category => category.index)
@@ -94,6 +99,15 @@ const mutations = {
         })
 
         state.categories = updated
+    },
+    editDrink: (state, data) => {
+        state.drinks = state.drinks.map(drink => {
+            if (drink.id == data.id) {
+                return data
+            } else {
+                return drink
+            }
+        })
     }
 }
 

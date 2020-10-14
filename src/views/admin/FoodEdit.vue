@@ -64,7 +64,7 @@
             </div>
             <div class="menu__modal__buttongroup">
                 <span class="menu__modal__buttongroup__button destructive-secondary" @click="$bvModal.hide('modal-add-food')">Cancel</span>
-                <span class="menu__modal__buttongroup__button primary-button" @click="$bvModal.hide('modal-add-food')">Save</span>
+                <span class="menu__modal__buttongroup__button primary-button" @click="addFood">Add</span>
             </div>
         </b-modal>
     </div>
@@ -118,6 +118,11 @@ export default {
             return [...this.allFoodCategories].sort((a, b) => {
                 return a.index - b.index
             })
+        },
+        addFood() {
+            this.$bvModal.hide('modal-add-food')
+
+            // handle add food
         }
     },
     components:{

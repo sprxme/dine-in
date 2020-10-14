@@ -403,7 +403,7 @@ input[type="file"] {
 }
 
 .card-fade-enter-active, .card-fade-leave-active {
-    transition: opacity .5s ease;
+    transition: opacity .5s ease-out;
 }
 
 .card-fade-enter, .card-fade-leave-to {
