@@ -30,12 +30,11 @@ export default {
     startAnimation: function() {
       gsap.registerPlugin(ScrollTrigger); //missing
       gsap.utils.toArray(".home__comparisonSection").forEach(section => {
-        console.log(section.offsetWidth);
         let tl = gsap.timeline({
           scrollTrigger: {
             trigger: section,
-            start: 'center center',
-            end: () => "+=" + section.offsetWidth,
+            start: 'top',
+            end: () => "+=" + section.offsetHeight,
             // markers: true,
             scrub: true,
             pin: true,
@@ -86,21 +85,17 @@ export default {
   }
 
   &__comparison-container {
-    height: 230vh;
-    width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
+    height: 250vh;
   }
 
   &__comparisonSection {
     position: relative;
-    padding-bottom: 56.25%; /* to maintain aspect ratio (responsive!) */
+    padding-bottom: 105vh; /*56.25%; /* to maintain aspect ratio (responsive!) */
   }
 
   &__comparisonImage {
       width: 100%;
       height: 100%;
-      object-fit: cover;
       overflow: hidden;
     }
 
@@ -109,6 +104,7 @@ export default {
     height: 95%;
     position: absolute;
     top: 0;
+    object-fit: cover;
   }
 }
 
