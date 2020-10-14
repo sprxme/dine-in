@@ -65,6 +65,10 @@ const actions = {
         console.log('Removing id: ' + id)
         commit('removeFood',id)
     },
+    removeFoodCategory({commit},{id}){
+        console.log('Removing id: ' + id)
+        commit('removeCategoryFood',id)
+    },
     updateFoodCategories({ commit }, data) {
         console.log('Updating for id: ' +  data.id + ' with new index: ' + data.index)
         commit('updateFoodCategories', data)
@@ -80,6 +84,9 @@ const mutations = {
     //remove food item (front-end only not atcual data) because no database yet :(
     removeFood: (state,id) => {
         state.foods.splice(state.foods.findIndex(food => food.id == id ),1)
+    },
+    removeCategoryFood: (state,id) => {
+        state.categories.splice(state.categories.findIndex(category => category.id == id ),1)
     },
     updateFoodCategories: (state, data) => {
         const modifiedIndex = state.categories.map(category => category.index)

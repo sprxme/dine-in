@@ -16,6 +16,7 @@ import BeverageEdit from '@/views/admin/BeverageEdit';
 import FoodEdit from '@/views/admin/FoodEdit';
 import OrderDetail from '@/views/admin/OrderDetail';
 import ConfirmPage from '@/views/users/ConfirmationPage';
+import CategoryEdit from '@/views/admin/CategoryEdit';
 
 //const { isNavigationFailure, NavigationFailureType} = VueRouter;
 
@@ -109,7 +110,12 @@ Vue.use(VueRouter)
     component: FoodEdit,
     meta: { requiresAuth: true } //requires admin auth
   },
-
+  {
+    path:'/category-edit',
+    name: 'CategoryEdit',
+    component: CategoryEdit,
+    meta: { requiresAuth: true } //requires admin auth
+  },
   //always put after all the other routes
   {
     path: '*',
