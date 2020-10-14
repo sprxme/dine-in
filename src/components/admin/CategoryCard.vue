@@ -73,4 +73,12 @@ export default {
 
 <style lang="scss" scoped>
 @import "@/styles/menu.scss";
+
+@media only screen and (max-width: 480px) {
+    .menu__details {
+        padding-top: .5rem;
+        display:flex;
+        flex-direction: column;
+    }
+}
 </style>

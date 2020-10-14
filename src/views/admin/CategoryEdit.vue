@@ -2,7 +2,7 @@
     <div class="menu">
         <div class="menu__category-content">
             <span class="menu__category-controls">
-                <span class="menu__category-title"> Food Category </span>
+                <span class="menu__category-title">FOOD</span>
                 <span class="menu__category-add primary-button" v-b-modal.modal-add v-on:click="changeType('food')">
                     <label class="menu__add__label">ADD</label>  
                     <font-awesome-icon icon="plus" class="menu__category-icon"/> 
@@ -14,7 +14,7 @@
         </div>
          <div class="menu__category-content">
              <span class="menu__category-controls">
-                <span class="menu__category-title"> Beverage Category </span>
+                <span class="menu__category-title">BEVERAGE</span>
                 <span class="menu__category-add primary-button" v-b-modal.modal-add v-on:click="changeType('beverage')">
                     <label class="menu__add__label">ADD</label>  
                     <font-awesome-icon icon="plus" class="menu__category-icon"/> 
