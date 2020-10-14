@@ -135,9 +135,17 @@ export default {
 <style lang="scss" scoped>
 @import "@/styles/menu.scss";
 
+.menu__tocart__icon {
+    margin-bottom: .2rem;
+}
+
 @media screen and (max-width:1000px){
     .menu__title {
         text-align: left;
+    }
+
+    .menu__tocart__icon {
+        margin-bottom: .25rem;
     }
 }
 
