@@ -146,40 +146,4 @@ export default {
     font-size: 14px;
     color: $text;
 }
-
-.menu {
-    &__edit {
-        margin-bottom: 0;
-        padding: .4em 1.2em;
-    }
-
-    &__remove {
-        margin-top: .7rem;
-        padding: .4em 1.2em;
-    }
-}
-
-@media screen and (max-width: 480px){
-    .menu {
-        &__edit {
-            font-size: 14px;
-            padding: .4em 1.2em;
-            margin: 1rem .5rem 0;
-        }
-
-        &__remove {
-            font-size: 14px;
-            padding: .4em 1.2em;
-            margin: .5rem .5rem .5rem;
-        }
-    }
-}
-
-@media screen and (max-width: 350px){
-    .menu {
-        &__edit {
-            margin-top: .3rem;
-        }
-    }
-}
 </style>

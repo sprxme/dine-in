@@ -28,6 +28,9 @@ export default {
   },
   methods: {
     startAnimation: function() {
+      gsap.from(".home__title-container", {duration: 1.5, opacity: 0, ease:"power2.in"})
+      gsap.from(".home__title-container", {duration: 2, y: -70, ease:"power2.out"})
+
       gsap.registerPlugin(ScrollTrigger); //missing
       gsap.utils.toArray(".home__comparisonSection").forEach(section => {
         let tl = gsap.timeline({
@@ -90,14 +93,15 @@ export default {
 
   &__comparisonSection {
     position: relative;
-    padding-bottom: 105vh; /*56.25%; /* to maintain aspect ratio (responsive!) */
+    height: 105vh;
+    // padding-bottom: 105vh; /*56.25%; /* to maintain aspect ratio (responsive!) */
   }
 
   &__comparisonImage {
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-    }
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
 
   &__comparisonImage img {
     width: 100%;
