@@ -318,4 +318,16 @@ export default {
   width:100vw;
 }
 
+@media screen and (max-width: 1000px){
+    .about{
+        &__column { 
+            grid-template-columns: repeat(1,1fr);
+        }
+
+        &__right{
+          border-left: 0px;
+          //height: 50em;
+        }
+    }
+}
 </style>
