@@ -75,7 +75,7 @@ export default {
     font-family: 'Montserrat', sans-serif;
     width: 100vw;
     text-align: center;
-    letter-spacing: 10px;
+    letter-spacing: 25px;
     line-height: 1.5;
     position: absolute;
     top: 45%;
