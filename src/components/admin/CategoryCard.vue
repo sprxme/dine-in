@@ -1,4 +1,5 @@
 <template>
+<transition name="card-fade" tag="div">
     <div class="menu__card">
         <div class="menu__details">
             <div class="menu__category-header">
@@ -32,6 +33,7 @@
             </div>
         </b-modal> 
     </div>
+</transition>
 </template>
 
 <script>
@@ -45,13 +47,13 @@ export default {
         }
     },
     methods:{
-        ...mapActions(['removeFoodCategory']),
+        ...mapActions(['removeFoodCategory', 'removeBeverageCategory']),
         showModal(id,type){
             this.initData()
             this.$bvModal.show('modal-edit-' + type + id)
         },
         removeCategory(id,type){
-            type=="food" ? this.removeFoodCategory({id: id}) : this.removeBeverageItem({id:id})
+            type=="food" ? this.removeFoodCategory({id: id}) : this.removeBeverageCategory({id:id})
         },
         initData(){
             this.name = this.$props.category.name

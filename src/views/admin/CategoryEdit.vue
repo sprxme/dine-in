@@ -8,6 +8,10 @@
                     <font-awesome-icon icon="plus" class="menu__category-icon"/> 
                 </span>
             </span>
+            <div class="menu__unavailable" v-if="!checkAvailability(allFoodCategories)">
+                <span class="menu__unavailable__title">No categories found.</span>
+                <span class="menu__unavailable__subtitle">Menu categories you added from the 'Add' button will appear here.</span>
+            </div>
             <ul class="menu__cards">
                 <CategoryCard v-for="category in allFoodCategories" :key="category.id" :category="category" :type="'food'"/>
             </ul>
@@ -20,11 +24,15 @@
                     <font-awesome-icon icon="plus" class="menu__category-icon"/> 
                 </span>
              </span>
+             <div class="menu__unavailable" v-if="!checkAvailability(allDrinkCategories)">
+                <span class="menu__unavailable__title">No categories found.</span>
+                <span class="menu__unavailable__subtitle">Menu categories you added from the 'Add' button will appear here.</span>
+            </div>
             <ul class="menu__cards">
                 <CategoryCard v-for="category in allDrinkCategories" :key="category.id" :category="category" :type="'drink'"/>
             </ul>
         </div>
-         <b-modal id="modal-add" centered hide-footer :title="this.type == 'food' ? 'Edit Category Food' : 'Edit Category Beverage'">
+         <b-modal id="modal-add" centered hide-footer :title="this.type == 'food' ? 'Add Food Category' : 'Add Beverage Category'">
             <div class="menu__modal">
                 <div class="custom__input">
                     <span class = "custom__input-row">
@@ -40,7 +48,7 @@
                 </div>
             </div>
             <div class="menu__modal__buttongroup">
-                <span class="menu__modal__buttongroup__button destructive-secondary" @click="$bvModal.hide('modal-edit-'+type+category.id)">Cancel</span>
+                <span class="menu__modal__buttongroup__button destructive-secondary" @click="$bvModal.hide('modal-add')">Cancel</span>
                 <span class="menu__modal__buttongroup__button primary-button">Save</span>
             </div>
         </b-modal> 
@@ -65,7 +73,10 @@ export default {
         },
         changeType(type){
             this.type = type
-        }
+        },
+        checkAvailability(categories) {
+            return categories.length
+        },
     },
     components:{
         CategoryCard

@@ -79,7 +79,6 @@ export default {
       this.$emit('change-route');
     },
     toggleBodyScroll(visible) {
-      console.log(visible);
       if (visible) {
         document.body.classList.add('overflow-hidden')
       } else {
