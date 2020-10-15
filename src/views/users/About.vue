@@ -132,6 +132,7 @@ export default {
 }
 
 .banner__inner {
+  min-width: 300px;
   display: flex;
   position: relative;
   width: 100vw;
@@ -185,6 +186,7 @@ export default {
   position: absolute;
   display: inline-block;
   overflow: hidden;
+  // min-width: 300px;
   // margin-top: calc(var(--padding) * -1);
   top: 50%;
   transform: translateY(-50%);
@@ -322,25 +324,18 @@ export default {
 
 .carousel-image{
   background-size: contain;
-  min-width:100vw;
-  max-width:none;
-  width: 100%;
-  height: auto;
+  // width: auto;
+  // height: 500px !important;
   max-height:500px;
   object-fit: cover;
 }
 
 
-.countainer-carousel{
-  display:flex;
-  // min-height:200px;
-  overflow: hidden;
-  width: 100%;
-  // height: auto;
-}
+// .countainer-carousel{
+// //   height: 100px !important;
+// }
 
 .container-container{
-  display:flex;
   width:100vw;
 }
 
