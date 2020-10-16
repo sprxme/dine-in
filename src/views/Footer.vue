@@ -56,9 +56,9 @@
             <div class="footer__copyright">
                 <span class="footer__copyright__left">Copyright © 2020 Sprxme. All rights reserved</span>
                 <div class="footer__copyright__middle">
-                    <span class="footer__label">Privacy Policy</span>
-                    <span class="footer__label">Terms of Use</span>
-                    <span class="footer__label">Site Map</span>
+                    <span class="footer__label__middle">Privacy Policy</span>
+                    <span class="footer__label__middle">Terms of Use</span>
+                    <span class="footer__label__middle">Site Map</span>
                 </div>
                 <span class="footer__copyright__right">Indonesia</span>
             </div>
@@ -151,10 +151,17 @@ export default {
         justify-content: center;
         color: $secondary-text;
 
-        &__middle .footer__label:not(:first-child){
+        &__middle .footer__label__middle:not(:first-child){
             padding-left: 1.2em;
             margin-left: 1.2em;
             border-left: 1px solid $extra-light-grey;
+        }
+        
+        &__middle .footer__label__middle {
+            &:hover{
+                color: $text;
+                cursor: pointer;
+            }
         }
 
         &__left{
