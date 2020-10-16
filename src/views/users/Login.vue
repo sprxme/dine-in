@@ -6,20 +6,38 @@
         id="carousel"
         :interval="4000"
         indicators>
-        <b-carousel-slide
-          class="image-carousel"
-          img-src="@/assets/food/food1.jpg"
-        ></b-carousel-slide>
-        <b-carousel-slide
-          class="image-carousel"
-          img-src="@/assets/food/food2.jpg"
-        ></b-carousel-slide>
-        <b-carousel-slide
-          class="image-carousel"
-          img-src="@/assets/food/food6.jpg"
-        ></b-carousel-slide>
+        
+        <b-carousel-slide class="container-image">
+          <template v-slot:img>
+            <img
+              class="img-fluid w-100 carousel-image"
+              src="@/assets/about/bar.jpg"
+              alt="image slot"
+            >
+          </template>
+        </b-carousel-slide>
+
+        <b-carousel-slide class="container-image">
+          <template v-slot:img>
+            <img
+              class="img-fluid w-100 carousel-image"
+              src="@/assets/about/conversation.jpg"
+              alt="image slot"
+            >
+          </template>
+        </b-carousel-slide>
+
+        <b-carousel-slide class="container-image">
+          <template v-slot:img>
+            <img
+              class="img-fluid w-100 carousel-image"
+              src="@/assets/about/dining.jpeg"
+              alt="image slot"
+            >
+          </template>
+        </b-carousel-slide>
       </b-carousel>
-      <img src="@/assets/food/food1.jpg" class="image media-screen">
+      <img src="@/assets/food/xiaolongbao.jpg" class="image media-screen">
       <span class="screen-dim"></span>
     </div>
 </template>
@@ -61,6 +79,16 @@ export default {
 
 .screen-dim{
   display:none;
+}
+
+.carousel-image{
+  background-size: contain;
+  object-fit: cover;
+}
+
+.container-image {
+  max-height: 100vh;
+  height: 100%;
 }
 
 @media only screen 

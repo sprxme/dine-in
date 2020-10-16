@@ -23,7 +23,7 @@
     <div class="sidebar__routes">
       <div class="sidebar__titlebar" @click="hide">
         <font-awesome-icon icon="bars" class="sidebar__icon icon-primary--dark" />
-        <h2 class="sidebar__title">Supreme</h2>
+        <h2 class="sidebar__title">SPRXME</h2>
       </div>
       <ul class="sidebar__route-container">
         <li v-for="nav in sortNav" :key="nav.name" class="sidebar__router" v-bind:class="{'menu-dropdown': nav.child != null}">
@@ -182,6 +182,9 @@ export default {
     margin: 0;
     padding-left: 0.295rem;
     margin-block-start: 0.21em;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 5px;
     // margin-block-end: 0.45em;
     color: $sidebar-color-title;
   }

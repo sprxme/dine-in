@@ -28,18 +28,18 @@
                 <div class="orderlist__title">Order item(s) </div>
                 <div class="orderlist__additems">Add Items</div>
             </div>
-           <OrderCard v-for="index in 5" :key="index"/>
+           <OrderCard v-for="trackItem in allOrders" :key="trackItem.index" :food="trackItem"/>
             <span class="orderlist__button primary-button" v-on:click="generateToken()">
                 Confirm 
             </span>
         </div>
-        
-         
     </div>
 </template>
 
 <script>
 import OrderCard from '@/components/user/OrderCard.vue';
+import { mapGetters } from 'vuex';
+
 export default {
     components:{
         OrderCard
@@ -49,8 +49,10 @@ export default {
             var token = Math.random().toString(36).slice(-8).toUpperCase()
             this.$router.push('/confirm/'+token)
         }
+    },
+    computed: {
+        ...mapGetters(['allOrders', 'allFoods'])
     }
-
 }
 
 </script>

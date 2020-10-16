@@ -10,7 +10,7 @@
                     <li class="footer__label">How to Order</li>
                 </ul>
                 <ul class="footer__column-list">
-                    <label class="footer__title">Supreme Restaurant</label>
+                    <label class="footer__title">Sprxme Restaurant</label>
                     <li class="footer__label">Find a Restaurant</li>
                     <li class="footer__label">Order Status</li>
                     <li class="footer__label">Shopping Help</li>
@@ -18,16 +18,24 @@
                 </ul>
             </div>
             <div class="footer__column">
-                <ul class="footer__column-list footer__with-icons">
+                <ul class="footer__column-list footer__right">
                     <label class="footer__title">Account</label>
                     <li class="footer__label">Create New Account</li>
                     <li class="footer__label">Manage Your Account</li>
                     <li class="footer__label">Forgot Password</li>
                 </ul>
-                <ul class="footer__column-list footer__with-icons">
+                <ul class="footer__column-list footer__right">
                     <label class="footer__title">For Business</label>
-                    <li class="footer__label">Supreme and Business</li>
+                    <li class="footer__label">Sprxme and Business</li>
                     <li class="footer__label">Partnership</li>
+                </ul>
+            </div>
+            <div class="footer__column">
+                <ul class="footer__column-list footer__about">
+                    <label class="footer__title">About Sprxme</label>
+                    <li class="footer__label">Job Opportunities</li>
+                    <li class="footer__label">Investors</li>
+                    <li class="footer__label">Events</li>
                 </ul>
                 <ul class="footer__column-list footer__with-icons">
                     <label class="footer__title">Follow Us</label>
@@ -38,14 +46,6 @@
                     </div>
                 </ul>
             </div>
-            <div class="footer__column">
-                <ul class="footer__column-list footer__about">
-                    <label class="footer__title">About Supreme</label>
-                    <li class="footer__label">Job Opportunities</li>
-                    <li class="footer__label">Investors</li>
-                    <li class="footer__label">Events</li>
-                </ul>
-            </div>
         </div>
         <div class="footer__footer">
             <span class = "footer__shop">
@@ -54,11 +54,11 @@
                  near you. Or call 021-8182 919398.
             </span>
             <div class="footer__copyright">
-                <span class="footer__copyright__left">Copyright © 2020 Supreme. All rights reserved</span>
+                <span class="footer__copyright__left">Copyright © 2020 Sprxme. All rights reserved</span>
                 <div class="footer__copyright__middle">
-                    <span class="footer__label">Privacy Policy</span>
-                    <span class="footer__label">Terms of Use</span>
-                    <span class="footer__label">Site Map</span>
+                    <span class="footer__label__middle">Privacy Policy</span>
+                    <span class="footer__label__middle">Terms of Use</span>
+                    <span class="footer__label__middle">Site Map</span>
                 </div>
                 <span class="footer__copyright__right">Indonesia</span>
             </div>
@@ -78,6 +78,7 @@ export default {
 
 <style lang="scss" scoped>
 .footer{
+    font-size: 16px;
     padding: .8em 15vw;
     border-top: 1px solid $extra-light-grey;
 
@@ -100,6 +101,7 @@ export default {
         color: $secondary-text;
         list-style: none;
         margin-bottom: .6em;
+        font-size: 15px;
 
         &:hover{
             color: $text;
@@ -149,10 +151,17 @@ export default {
         justify-content: center;
         color: $secondary-text;
 
-        &__middle .footer__label:not(:first-child){
+        &__middle .footer__label__middle:not(:first-child){
             padding-left: 1.2em;
             margin-left: 1.2em;
             border-left: 1px solid $extra-light-grey;
+        }
+        
+        &__middle .footer__label__middle {
+            &:hover{
+                color: $text;
+                cursor: pointer;
+            }
         }
 
         &__left{
@@ -216,9 +225,13 @@ export default {
             }
         }
 
-        &__with-icons,
+        &__right,
         &__about {
             margin-right: 0em;
+            margin-left: 1em;
+        }
+
+        &__with-icons {
             margin-left: 1em;
         }
     }
@@ -232,7 +245,7 @@ export default {
             margin-right: 1em;
         }
 
-        &__with-icons {
+        &__right {
             margin-right: 1em;
             margin-left: 1em;
         }
@@ -263,9 +276,13 @@ export default {
             margin: 0 0 1.8em 0;
         }
 
-        &__with-icons {
+        &__right {
             margin-right: 0em;
             margin-left: 1em;
+        }
+
+        &__with-icons {
+            margin-left: 0em;
         }
     }
 }

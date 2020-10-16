@@ -37,7 +37,7 @@ export default {
       // this.state = 'auto'
       document.body.classList.remove('cartpop-open')
       // document.body.style.overflow = 'auto'
-    }
+    },
   },
   watch:{
     $route: function(){
@@ -94,5 +94,4 @@ li:focus{
 .cartpop-open {
   overflow: hidden;
 }
-
 </style>

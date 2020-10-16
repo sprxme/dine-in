@@ -1,7 +1,7 @@
 <template>
   <div class="account">
     <div class="account__content">
-      <h1 class="account__title">Sign in</h1>
+      <h1 class="account__title">SIGN IN</h1>
       <form @submit.prevent ref="frm">
         <div class="custom__input">
           <span class = "custom__input-row">
@@ -80,5 +80,11 @@ export default {
 }
 @import '../styles/account.scss';
 
+.field {
+  &:hover{
+    background: rgba(126,126,126,0.1);
+;
+  }
+}
 
 </style>
