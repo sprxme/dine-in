@@ -113,7 +113,7 @@
 .field {
     width: 100%;
     font-size: 18px;
-    padding: 1.3em 1.2em 0.5em 0.7em;
+    padding: 1.3em .7em 0.5em 0.7em;
     margin: 10px auto;
     display: inline-block;
     background: rgba(126,126,126,0.1);
@@ -123,14 +123,17 @@
     box-sizing: border-box;
     transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
     color: #525252;
+    outline: none;
+    // outline-color: rgba(126,126,126,0.1);
+    outline-width: 1;
 
     &:hover{
         background: #e7e7e7;
       }
       
-    &:focus{
-        background: transparent;
-    }
+    // &:focus{
+    //     // background: transparent;
+    // }
 }
 
 .placeholder{
@@ -176,14 +179,14 @@
 }
 
 .password{
-    padding-right: 42px;
+    padding-right: 45px;
 }
 
 .icon{
-    top: 28px;
-    right: 10px;
+    top: 30px;
+    right: 12px;
     position: absolute;
-    font-size: 24px;
+    font-size: 23px;
     cursor: pointer;
     visibility: hidden;
 

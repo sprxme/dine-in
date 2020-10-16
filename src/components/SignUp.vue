@@ -1,7 +1,7 @@
 <template>
   <div class="account">
     <div class="account__content">
-      <h1 class="account__title">Sign Up</h1>
+      <h1 class="account__title">SIGN UP</h1>
       <form>
         <div class="custom__input">
           <span class = "custom__input-row">

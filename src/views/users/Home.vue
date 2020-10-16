@@ -7,10 +7,10 @@
     <div class="home__comparison-container">
       <section class="home__comparisonSection">
         <div class="home__comparisonImage beforeImage">
-          <img src="@/assets/about/bar.jpeg" alt="before">
+          <img src="@/assets/about/bar.jpg" alt="before">
         </div>
         <div class="home__comparisonImage afterImage">
-          <img src="@/assets/about/conversation.jpeg" alt="after">        
+          <img src="@/assets/about/conversation.jpg" alt="after">        
         </div>
       </section>
     </div>
@@ -67,6 +67,7 @@ export default {
   background-color: #111;
   color: white;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 
   &__title-container {
     height: 90vh;
@@ -84,11 +85,11 @@ export default {
     top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 0 1rem;
+    padding: 0 1rem 0 3rem;
   }
 
   &__comparison-container {
-    height: 250vh;
+    height: 260vh;
   }
 
   &__comparisonSection {

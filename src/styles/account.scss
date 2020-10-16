@@ -1,35 +1,37 @@
 .account{
+  display: flex;
+  background: #fff;
+  padding: .8em 1.2em;
+  border: 0px solid #fff;
+  min-width: 500px;
+  align-items: center;
+  height: 100vh;
+  border-radius: 0px;
+
+  &__content{
     display: flex;
-    background: #fff;
-    padding: .8em 1.2em;
-    border: 0px solid #fff;
-    min-width: 500px;
-    align-items: center;
-    height: 100vh;
-    border-radius: 15px;
+    flex-direction: column;
+    padding: 0em 1.2em;
+    width: 350px;
+    margin:auto;
+    position: relative;
+  }
 
-    &__content{
-        display: flex;
-        flex-direction: column;
-        padding: 0em 1.2em;
-        width: 350px;
-        margin:auto;
-        position: relative;
-    }
+  &__title{
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 5px;
+    font-size: 50px;
+    margin: 0px 0px 50px 0;
+    display: inline;
+    margin-inline-start: 0px;
+    margin-block-start: 0px;
+  }
 
-    &__title{
-        font-size: 50px;
-        margin: 0px 0px 50px 0;
-        display: inline;
-        margin-inline-start: 0px;
-        margin-block-start: 0px;
-    }
-
-    &__route{
-        margin-top: 14px;
-        margin-bottom: -8px;
-        cursor: pointer;
-    }
+  &__route{
+    margin-top: 14px;
+    margin-bottom: -8px;
+    cursor: pointer;
+  }
 }
 
 
@@ -55,10 +57,12 @@
     //   min-height: 602.55px;
       width: 50vw;
       // background:#fff;
-      background: rgba($color: #fff, $alpha: 0.9);
-    backdrop-filter: blur(10px);
+      background: $white-opaque;
+      backdrop-filter: saturate(180%) blur(20px);
       z-index: 99;
       box-shadow: 0 5px 13px rgba(0,0,0,0.8);
+      border-radius: 15px;
+
 
       &__route{
         font-size: 13px;

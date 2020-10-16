@@ -2,10 +2,34 @@
   <div class="about">
     
     <div class="container-container">
-      <b-carousel class="container-carousel" id="carousel" :interval="4000" indicators>
-        <b-carousel-slide class="carousel-image" img-src="@/assets/about/aboutimage3.jpg"></b-carousel-slide>
-        <b-carousel-slide class="carousel-image" img-src="@/assets/about/aboutimg2.jpg"></b-carousel-slide>
-        <b-carousel-slide class="carousel-image" img-src="@/assets/about/aboutimg1.jpg"></b-carousel-slide>
+      <b-carousel class="container-carousel" id="carousel"  v-model="slide" :interval="4000" controls indicators @sliding-start="onSlideStart" @sliding-end="onSlideEnd">
+        <b-carousel-slide class="container-image">
+          <template v-slot:img>
+            <img
+              class="img-fluid w-100 carousel-image"
+              src="@/assets/about/openinghours.jpeg"
+              alt="image slot"
+            >
+          </template>
+        </b-carousel-slide>
+        <b-carousel-slide class="container-image">
+          <template v-slot:img>
+            <img
+              class="img-fluid w-100 carousel-image"
+              src="@/assets/about/queue.jpeg"
+              alt="image slot"
+            >
+          </template>
+        </b-carousel-slide>
+        <b-carousel-slide class="container-image">
+          <template v-slot:img>
+            <img
+              class="img-fluid w-100 carousel-image"
+              src="@/assets/about/dining.jpeg"
+              alt="image slot"
+            >
+          </template>
+        </b-carousel-slide>
       </b-carousel>
     </div>
 
@@ -80,6 +104,12 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 export default {
   name: 'Home',
+  data: function() {
+    return {
+      slide: 0,
+      sliding: null
+    }
+  },
   mounted: function() {
     this.startAnimation();
   },
@@ -101,7 +131,7 @@ export default {
       });
       gsap.to(".banner__image", {
         scrollTrigger: {
-          trigger: ".banner",
+          trigger: ".container-container",
           scrub: 0.5,
           // markers:true,
           start: "top bottom",
@@ -110,7 +140,14 @@ export default {
         },
         y: "-30%"
       });
-    }
+    },
+
+    onSlideStart() {
+        this.sliding = true
+      },
+      onSlideEnd() {
+        this.sliding = false
+      }
   }
 }
 </script>
@@ -222,8 +259,6 @@ export default {
   }
 }
 
-
-
 .about {
   padding:0rem 0em ;
 
@@ -324,19 +359,17 @@ export default {
 
 .carousel-image{
   background-size: contain;
-  // width: auto;
-  // height: 500px !important;
-  max-height:500px;
   object-fit: cover;
+  transform: translateY(-100px);
 }
 
+.container-image {
+  max-height: 550px;
+  height: 100%;
+}
 
-// .countainer-carousel{
-// //   height: 100px !important;
-// }
-
-.container-container{
-  width:100vw;
+.countainer-carousel{
+  height: 100px;
 }
 
 @media screen and (max-width: 1000px){

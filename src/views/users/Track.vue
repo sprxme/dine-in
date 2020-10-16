@@ -12,7 +12,7 @@
                 <form v-on:submit.prevent="checkToken()">
                     <div class="custom__input">
                         <span class = "custom__input-row">
-                            <input class="field" type="text" v-model="token" required>
+                            <input class="field password" type="text" v-model="token" required>
                             <span class="placeholder">Token</span>
                             <font-awesome-icon icon="arrow-alt-circle-right" class="arrow-right" v-on:click="checkToken()"/>
                         </span>
@@ -33,7 +33,7 @@
                         </div>
                         <div class="custom__input">
                             <span class = "custom__input-row">
-                                <input class="field" type="password" id="password" required>
+                                <input class="field password" type="password" id="password" required>
                                 <span class="placeholder">Password</span>
                                 <font-awesome-icon :icon="myIcon" class="icon" v-on:click="togglePassword()"/>
                             </span>

@@ -1,7 +1,7 @@
 <template>
     <div class="order">
         <div class="order__image"><!--  Gambar-->
-            <img src="@/assets/food/food1.jpg" class="order__image" />
+            <img src="@/assets/food/shumai.jpg" class="order__image" />
         </div>
         <div class="order__block">
             <div class="order__details">
