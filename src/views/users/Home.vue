@@ -37,7 +37,7 @@ export default {
           scrollTrigger: {
             trigger: section,
             start: 'top',
-            end: () => "+=" + section.offsetHeight,
+            end: () => "+=" + (section.offsetHeight + 500),
             // markers: true,
             scrub: true,
             pin: true,
@@ -89,7 +89,8 @@ export default {
   }
 
   &__comparison-container {
-    height: 260vh;
+    height: 300vh;
+    overflow: hidden;
   }
 
   &__comparisonSection {
