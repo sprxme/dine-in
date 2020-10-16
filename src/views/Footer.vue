@@ -10,7 +10,7 @@
                     <li class="footer__label">How to Order</li>
                 </ul>
                 <ul class="footer__column-list">
-                    <label class="footer__title">Supreme Restaurant</label>
+                    <label class="footer__title">Sprxme Restaurant</label>
                     <li class="footer__label">Find a Restaurant</li>
                     <li class="footer__label">Order Status</li>
                     <li class="footer__label">Shopping Help</li>
@@ -26,13 +26,13 @@
                 </ul>
                 <ul class="footer__column-list footer__right">
                     <label class="footer__title">For Business</label>
-                    <li class="footer__label">Supreme and Business</li>
+                    <li class="footer__label">Sprxme and Business</li>
                     <li class="footer__label">Partnership</li>
                 </ul>
             </div>
             <div class="footer__column">
                 <ul class="footer__column-list footer__about">
-                    <label class="footer__title">About Supreme</label>
+                    <label class="footer__title">About Sprxme</label>
                     <li class="footer__label">Job Opportunities</li>
                     <li class="footer__label">Investors</li>
                     <li class="footer__label">Events</li>
@@ -54,7 +54,7 @@
                  near you. Or call 021-8182 919398.
             </span>
             <div class="footer__copyright">
-                <span class="footer__copyright__left">Copyright © 2020 Supreme. All rights reserved</span>
+                <span class="footer__copyright__left">Copyright © 2020 Sprxme. All rights reserved</span>
                 <div class="footer__copyright__middle">
                     <span class="footer__label">Privacy Policy</span>
                     <span class="footer__label">Terms of Use</span>
