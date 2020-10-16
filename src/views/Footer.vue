@@ -18,24 +18,16 @@
                 </ul>
             </div>
             <div class="footer__column">
-                <ul class="footer__column-list footer__with-icons">
+                <ul class="footer__column-list footer__right">
                     <label class="footer__title">Account</label>
                     <li class="footer__label">Create New Account</li>
                     <li class="footer__label">Manage Your Account</li>
                     <li class="footer__label">Forgot Password</li>
                 </ul>
-                <ul class="footer__column-list footer__with-icons">
+                <ul class="footer__column-list footer__right">
                     <label class="footer__title">For Business</label>
                     <li class="footer__label">Supreme and Business</li>
                     <li class="footer__label">Partnership</li>
-                </ul>
-                <ul class="footer__column-list footer__with-icons">
-                    <label class="footer__title">Follow Us</label>
-                    <div class="footer__social-media">
-                        <font-awesome-icon :icon="['fab','facebook']" class="footer__icon facebook" />
-                        <font-awesome-icon :icon="['fab','instagram']" class="footer__icon instagram" v-on:click="openIg()"/>
-                        <font-awesome-icon :icon="['fab','twitter']" class="footer__icon twitter" />
-                    </div>
                 </ul>
             </div>
             <div class="footer__column">
@@ -44,6 +36,14 @@
                     <li class="footer__label">Job Opportunities</li>
                     <li class="footer__label">Investors</li>
                     <li class="footer__label">Events</li>
+                </ul>
+                <ul class="footer__column-list footer__with-icons">
+                    <label class="footer__title">Follow Us</label>
+                    <div class="footer__social-media">
+                        <font-awesome-icon :icon="['fab','facebook']" class="footer__icon facebook" />
+                        <font-awesome-icon :icon="['fab','instagram']" class="footer__icon instagram" v-on:click="openIg()"/>
+                        <font-awesome-icon :icon="['fab','twitter']" class="footer__icon twitter" />
+                    </div>
                 </ul>
             </div>
         </div>
@@ -78,6 +78,7 @@ export default {
 
 <style lang="scss" scoped>
 .footer{
+    font-size: 16px;
     padding: .8em 15vw;
     border-top: 1px solid $extra-light-grey;
 
@@ -100,6 +101,7 @@ export default {
         color: $secondary-text;
         list-style: none;
         margin-bottom: .6em;
+        font-size: 15px;
 
         &:hover{
             color: $text;
@@ -216,9 +218,13 @@ export default {
             }
         }
 
-        &__with-icons,
+        &__right,
         &__about {
             margin-right: 0em;
+            margin-left: 1em;
+        }
+
+        &__with-icons {
             margin-left: 1em;
         }
     }
@@ -232,7 +238,7 @@ export default {
             margin-right: 1em;
         }
 
-        &__with-icons {
+        &__right {
             margin-right: 1em;
             margin-left: 1em;
         }
@@ -263,9 +269,13 @@ export default {
             margin: 0 0 1.8em 0;
         }
 
-        &__with-icons {
+        &__right {
             margin-right: 0em;
             margin-left: 1em;
+        }
+
+        &__with-icons {
+            margin-left: 0em;
         }
     }
 }
