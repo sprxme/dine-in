@@ -12,7 +12,7 @@ const state = {
         {id: 'c10', name: 'Coca Me Maybe', price:'140000', image:'colamemaybe', category: 'COCKTAILS', desc:'Lemongrass infused gin, lychee, earl grey tea, homemade lemon ginger honey.'},
         {id: 'c11', name: 'Crazy Rich Sesame', price:'140000', image:'crazyrichsesame', category: 'COCKTAILS', desc:'Gin, whiskey cinnamon liqueur, ginger syrup, lemon, black sesame paste, egg white.'},
         {id: 'c12', name: 'Candy Corn Martini with Pop Rocks Rim', price:'120000', image:'candycornmartini', category: 'COCKTAILS', desc:'Vodka, martini, vermouth, candy, with pop rocks rim.'},
-        {id: 'c13', name: 'Ocha Negroni', price:'135000', image:'ochanegroni', category: 'COCKTAILS', desc:''},
+        {id: 'c13', name: 'Ocha Negroni', price:'135000', image:'ochanegroni', category: 'COCKTAILS', desc:'Whiskey infused with strawberry juice and topped with flowers fragrant'},
         {id: 'c14', name: 'XXL Joy Punch!', price:'135000', image:'xxljoypunch', category: 'COCKTAILS', desc:'Rum, apple, strawberry, soursop juice, apple syrup, topped with a bottle of soju.'},
 
         {id: 'm1', name: 'Sum Ting Wong?', price:'90000', image:'sumtingwong', category: 'MOCKTAILS', desc:'Kyuri, lemon, blueberry syrup, topped with soda.'},

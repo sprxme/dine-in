@@ -38,8 +38,7 @@
     </div>
 
     <div class="about__title">
-      <label>Supreme's premier restaurant</label>
-      <label>Boasting an inimitably cozy dining experience. </label>
+      <p>Supreme's premier dimsum restaurant Boasting an inimitably cozy dining experience. </p>
     </div>
 
     <div class="about__garis">
@@ -115,6 +114,15 @@ export default {
   },
   methods: {
     startAnimation: function() {
+      gsap.from(".about__logo", {duration: 2, opacity: 0, ease:"power2.in"}) 
+      gsap.from(".about__logo", {duration: 2, y: -70, ease:"power2.out"})
+
+      gsap.from(".about__title", {duration: 1.5, opacity: 0, ease:"power2.in"})
+      gsap.from(".about__title", {duration: 2, y: -70, ease:"power2.out"})
+
+      gsap.from(".about__garis", {duration: 1.5, opacity: 0, ease:"power2.in"})
+      gsap.from(".about__garis", {duration: 2, y: -70, ease:"power2.out"})
+
       gsap.registerPlugin(ScrollTrigger); //missing
 
       gsap.to(".banner", {
@@ -280,13 +288,19 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-width: 500px;
+    margin-top: 1vw;
+    margin-left: auto;
+    text-align: center;
+    margin-right: auto;
     padding-bottom:3em;
+    line-height: 2;
   }
 
   &__column{
     display: grid;
     margin: 0.5em 0 1em 0;
-    padding: 5em 5em;
+    padding: 4em 5em;
     grid-template-columns: repeat(2,1fr);
   }
 
@@ -316,7 +330,7 @@ export default {
     justify-content: center;
     flex-direction: column;
     border-top: 1px solid $light-grey;
-    max-width: 700px;
+    max-width: 500px;
     margin: 0rem 2rem 10rem;
     margin-left: auto;
     margin-right: auto;
@@ -329,7 +343,7 @@ export default {
   }
 
   &__boldtitle{
-    margin-top:2em;
+    margin-top:3em;
     font-size: 25px;
     font-style: bold;
     flex-direction: column;
@@ -347,7 +361,7 @@ export default {
 
   &__par{
     font-size: 18px;
-    line-height: 2.5;
+    line-height: 3;
     text-align:center;
     display: flex;
     flex-direction: column;
