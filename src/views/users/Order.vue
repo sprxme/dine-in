@@ -1,33 +1,39 @@
 <template>
     <div class="orderlist">
-        <div class="orderlist__title">Orders</div>
-        <div class="orderlist__table">
-            <span class="orderlist__table__name">
-                <div class="custom__input">
-                    <span class = "custom__input-row">
-                        <input class="field" type="text" name="name" autofocus required>
-                        <span class="placeholder">Enter Name </span>
-                    </span>
-                </div>
-                <!-- <div class="table__name_box">Name :</div>
-                <input type="field" id="name" placeholder="your name"> -->
-            </span>
-            <div class="orderlist__table__number">
-                <div class="custom__input">
-                    <span class = "custom__input-row">
-                        <input class="field" type="text" name="TableNo" autofocus required>
-                        <span class="placeholder">Table No </span>
-                    </span>
-                </div>
-                <!-- <div class="orderlist__table__no">Table No :</div>
-                <input type="text" id="number" placeholder="your table number"> -->
+        <div class="orderlist__customer">
+            <div class="orderlist__customer__title">Customer Book</div>
+            <div class="orderlist__table">
+                <span class="orderlist__table__name">
+                    <div class="custom__input">
+                        <span class = "custom__input-row">
+                            <input class="field" type="text" name="name" autofocus required>
+                            <span class="placeholder">Enter Name </span>
+                        </span>
+                    </div>
+                </span>
+                <div class="orderlist__table__number">
+                    <div class="custom__input">
+                        <span class = "custom__input-row">
+                            <input class="field" type="text" name="TableNo" autofocus required>
+                            <span class="placeholder">Table No </span>
+                        </span>
+                    </div>
+                </div>  
             </div>
-            
         </div>
-        <OrderCard v-for="index in 5" :key="index"/>
-        <span class="orderlist__button primary-button" v-on:click="generateToken()">
-            Confirm 
-        </span>
+       
+        
+        <div class="orderlist__items">
+            <div class="orderlist__title-container">
+                <div class="orderlist__title">Order item(s) </div>
+                <div class="orderlist__additems">Add Items</div>
+            </div>
+           <OrderCard v-for="index in 5" :key="index"/>
+            <span class="orderlist__button primary-button" v-on:click="generateToken()">
+                Confirm 
+            </span>
+        </div>
+        
          
     </div>
 </template>
@@ -53,10 +59,39 @@ export default {
 .orderlist{
     padding: 5em 15vw ;
 
-    &__title{
-        font-size: 48px;
-        font-weight: 600;
+    &__customer{
+        padding: 1em 0em;
+        
+        &__title{
+            border-bottom: 1px solid $light-grey;
+            font-size: 40px;
+            font-weight: 400;
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 0.3rem;
+        }
+        
     }
+
+    &__title-container{ 
+        padding: 0.5rem 0em;
+        //border-top: 1px solid $light-grey;
+        //display: flex;
+        //flex-basis: 100%;
+        //max-width: 100%;
+    }
+
+    &__title{
+        font-size: 40px;
+        font-weight: 400;
+        font-family: 'Montserrat', sans-serif;
+        
+    }
+
+    &__additems{
+        border: 1px solid $light-grey;
+        text-align: right;
+    }
+
     &__button{
         padding: .8em 1.2em;
         border-radius: 8px;
@@ -65,21 +100,29 @@ export default {
     &__table{
         display: flex;
         align-items: center; //bikin tengah atas bwhnya
-        border-top: 1px solid $light-grey;
-        padding: 1em 0em;
         
-        &__name ,
+        //justify-content: center;
+        
+        &__name{
+            max-width: 50%;
+            flex-basis: 50%;
+        }
+        
         &__number {
+            max-width: 50%;
+            flex-basis: 50%;
             border: none;
             outline: none;
-            margin-right: 8rem;
+            justify-content: center;
+            //margin-right: 8rem; //geser ke kanan 
         }
 
         &__name input ,
         &__number input {
             border: none;
             outline: none;
-            border-bottom: 5px solid #ddd;
+            border-bottom: 4px solid #ddd;
+            max-width: 400px;
         }
 
         
@@ -135,9 +178,10 @@ export default {
     box-sizing: border-box;
     transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
     color: #525252;
-
+    text-align: center;
+    
     &:hover{
-        background: transparent;
+        background: #e7e7e7;
       }
       
     &:focus{
@@ -150,7 +194,7 @@ export default {
     position: absolute;
     top: 30%;
     left: 8%;
-    font-weight: 600;
+    font-weight: 400;
     font-size: 22px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     color: $secondary-text;
