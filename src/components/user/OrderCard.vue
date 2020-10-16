@@ -1,15 +1,12 @@
 <template>
     <div class="order">
         <div class="order__image"><!--  Gambar-->
-            <!-- <img src="@/assets/food/shumai.jpg" class="order__image" /> -->
             <img :src="require('@/assets/food/'+food.image+'.jpg')" class="order__image">
         </div>
         <div class="order__block">
             <div class="order__details">
                 <div class="order__details__name">{{food.name}}</div>
                 <div class="order__details__price">{{food.price/1000}}k</div>
-                <!-- <div class="order__details__name">Harga Diri Jacob Andrean</div>
-                <div class="order__details__price">Rp 1.000.000</div> -->
         <span class="menu__price"></span>
             </div>
             <div class="order__note">
@@ -23,9 +20,6 @@
                 </div>
             </div>
         </div>
-            
-        
-
     </div>
 </template>
 

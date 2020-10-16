@@ -9,8 +9,6 @@
                         <span class="placeholder">Enter Name </span>
                     </span>
                 </div>
-                <!-- <div class="table__name_box">Name :</div>
-                <input type="field" id="name" placeholder="your name"> -->
             </span>
             <div class="orderlist__table__number">
                 <div class="custom__input">
@@ -19,23 +17,19 @@
                         <span class="placeholder">Table No </span>
                     </span>
                 </div>
-                <!-- <div class="orderlist__table__no">Table No :</div>
-                <input type="text" id="number" placeholder="your table number"> -->
             </div>
-            
         </div>
-        <!-- <MenuCard v-for="food in sortCategory(category.name)" :key="food.id" :food="food"/> -->
         <OrderCard v-for="trackItem in allOrders" :key="trackItem.index" :food="trackItem"/>
         <span class="orderlist__button primary-button" v-on:click="generateToken()">
             Confirm 
         </span>
-         
     </div>
 </template>
 
 <script>
 import OrderCard from '@/components/user/OrderCard.vue';
 import { mapGetters } from 'vuex';
+
 export default {
     components:{
         OrderCard
@@ -49,7 +43,6 @@ export default {
     computed: {
         ...mapGetters(['allOrders', 'allFoods'])
     }
-
 }
 
 </script>
