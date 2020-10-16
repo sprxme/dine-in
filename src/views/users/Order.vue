@@ -21,18 +21,20 @@
                 </div>  
             </div>
         </div>
-       
-        
         <div class="orderlist__items">
             <div class="orderlist__title-container">
                 <div class="orderlist__title">Order item(s) </div>
-                <div class="orderlist__additems">Add Items</div>
+                <div class="orderlist__additems" v-on:click="addMore()">Add more</div>
             </div>
-           <OrderCard v-for="trackItem in allOrders" :key="trackItem.index" :food="trackItem"/>
-            <span class="orderlist__button primary-button" v-on:click="generateToken()">
-                Confirm 
-            </span>
+           <OrderCard v-for="trackItem in allOrders" :key="trackItem.id" :food="trackItem"/>
         </div>
+        <div class="orderlist__summary-container">
+            <div class="orderlist__summary">Total </div>
+            <div class="orderlist__total">Rp {{ totalPrice(allOrders) / 1000 }}k</div>
+        </div>
+        <span class="orderlist__button primary-button" v-on:click="generateToken()">
+            Confirm 
+        </span>
     </div>
 </template>
 
@@ -48,6 +50,15 @@ export default {
         generateToken(){
             var token = Math.random().toString(36).slice(-8).toUpperCase()
             this.$router.push('/confirm/'+token)
+        },
+        addMore() {
+            this.$router.push('/food')
+        },
+        totalPrice(orders) {
+        const total = orders.reduce((total, order) => {
+          return total + (order.price * order.quantity)
+        }, 0)
+        return total
         }
     },
     computed: {
@@ -59,25 +70,26 @@ export default {
 
 <style lang="scss" scoped>
 .orderlist{
-    padding: 5em 15vw ;
+    padding: 3em 25vw ;
 
     &__customer{
-        padding: 1em 0em;
+        margin-bottom: 2em;
         
         &__title{
             border-bottom: 1px solid $light-grey;
             font-size: 40px;
             font-weight: 400;
             font-family: 'Montserrat', sans-serif;
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.5rem;
         }
         
     }
 
     &__title-container{ 
         padding: 0.5rem 0em;
+        display: flex;
+        align-items: center;
         //border-top: 1px solid $light-grey;
-        //display: flex;
         //flex-basis: 100%;
         //max-width: 100%;
     }
@@ -90,8 +102,16 @@ export default {
     }
 
     &__additems{
-        border: 1px solid $light-grey;
-        text-align: right;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #007bff;
+        margin-left: auto;
+        text-align: center;
+        height: 40px;
+        border-radius: 0.5em;
+        color: #007bff;
+        width: 150px;
     }
 
     &__button{
@@ -101,8 +121,7 @@ export default {
 
     &__table{
         display: flex;
-        align-items: center; //bikin tengah atas bwhnya
-        
+        //align-items: center; //bikin tengah atas bwhnya
         //justify-content: center;
         
         &__name{
@@ -113,9 +132,9 @@ export default {
         &__number {
             max-width: 50%;
             flex-basis: 50%;
-            border: none;
-            outline: none;
-            justify-content: center;
+            //border: none;
+            //outline: none;
+            //justify-content: center;
             //margin-right: 8rem; //geser ke kanan 
         }
 
@@ -127,11 +146,6 @@ export default {
             max-width: 400px;
         }
 
-        
-        // &__date{
-        //     padding: 1em;
-        // }
-
         &__no input{
             border: none;
             border-bottom: 1px solid #ddd;
@@ -140,16 +154,11 @@ export default {
             margin-bottom: 15px;
             padding: 0.5em 1em 0.5em 0;
             width: 200px;
-        }
-        
+        } 
     }
 
-    &__image{
-        height: 50px;
-        width: 50px;
-        object-fit: cover;
-        border-radius: 10px;
-        box-shadow: 0px 2px 8px 4px rgba(0,0,0,0.09);
+    &__summary-container{
+        padding-bottom: 20px;
     }
 }
 
@@ -180,7 +189,7 @@ export default {
     box-sizing: border-box;
     transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
     color: #525252;
-    text-align: center;
+    
     
     &:hover{
         background: #e7e7e7;
@@ -202,36 +211,6 @@ export default {
     color: $secondary-text;
 
 }  
-
-.placeholder__textarea{
-    pointer-events: none;
-    position: absolute;
-    margin-top: -20px;
-    padding: 0 .8em 0;
-    font-weight: 400;
-    font-size: 18px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    color: $secondary-text;
-}  
-
-.custom__textarea{
-    width: 100%;
-    border:1px solid $light-grey;
-    padding: 1.3em .8em 0.5em;
-}
-
-.custom__input-row textarea:focus + .placeholder__textarea,
-.custom__input-row textarea:valid + .placeholder__textarea{
-    top: 22px;
-    left: 2px;
-    font-size: 14px;
-    color: $secondary-text;
-}
-
-.custom__input-row textarea:focus,
-.custom__input-row textarea:valid{
-    border: 1px solid $secondary-text;
-}
 
 .input{
     min-width: 0;
