@@ -76,23 +76,24 @@
     <div class="about__column">
 
       <div class="about__left">
-        <label style="font-weight:bold">GRAND INDONESIA</label>
-        <label>1ST FLOOR</label>
-        <label>JL. M.H THAMRIN NO.1</label>
-        <label>JAKARTA 10310</label>
-        <br>
-        <label style="font-weight:bold">CONTACT US</label>
-        <label style="text-decoration:underline">+6221 1063 8926</label>
+        <p class="about__left__par">
+          <label style="font-weight:bold">GRAND INDONESIA</label><br>
+          1ST FLOOR<br>
+          JL. M.H THAMRIN NO.1<br>
+          JAKARTA 10310<br><br>
+          <label style="font-weight:bold">CONTACT US</label><br>
+          <label style="text-decoration:underline">+6221 1063 8926</label>
+        </p>
       </div>
-
       <div class="about__right">
-        <label style="font-weight:bold">PLAZA INDONESIA</label>
-        <label>GROUND FLOOR</label>
-        <label>JL. M.H THAMRIN NO.28-30</label>
-        <label>JAKARTA 10350</label>
-        <br>
-        <label style="font-weight:bold">CONTACT US</label>
-        <label style="text-decoration:underline">+6212 9612 5588</label>
+        <p class="about__right__par">
+          <label style="font-weight:bold">PLAZA INDONESIA</label><br>
+          GROUND FLOOR<br>
+          JL. M.H THAMRIN NO.28-30<br>
+          JAKARTA 10350<br><br>
+          <label style="font-weight:bold">CONTACT US</label><br>
+          <label style="text-decoration:underline">+6212 9612 5588</label>
+        </p>
       </div>
     </div>
 
@@ -321,6 +322,10 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
+    &__par{
+      text-align: center;
+      line-height: 2;
+    }
   }
 
   &__right{
@@ -328,7 +333,10 @@ export default {
     flex-direction: column;
     align-items: center;
     border-left: 1px solid $light-grey;
-    //height: 50em;
+    &__par{
+      text-align: center;
+      line-height: 2;
+    }
   }
 
   &__desc{
@@ -401,16 +409,22 @@ export default {
   height: 100px;
 }
 
-@media screen and (max-width: 1000px){
+@media screen and (max-width: 600px){
     .about{
         &__column { 
             grid-template-columns: repeat(1,1fr);
         }
 
         &__right{
+          padding: 2em 0 1em 0;
           border-left: 0px;
           //height: 50em;
         }
+        &__left {
+          padding: 1em 0 1em 0;
+          border-bottom: 1px solid $light-grey;
+        }
     }
 }
+
 </style>
