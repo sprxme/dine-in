@@ -48,7 +48,7 @@ const state = {
 
 const getters = {
     allDrinks: (state) => state.drinks,
-    allDrinkCategories: (state) => state.categories
+    allDrinkCategories: (state) => state.categories.sort((a, b) => a.index - b.index)
 }
 
 const actions = {
