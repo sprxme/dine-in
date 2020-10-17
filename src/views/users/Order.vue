@@ -11,14 +11,12 @@
                         </span>
                     </div>
                 </span>
-                <div class="orderlist__table__number">
-                    <div class="custom__input">
-                        <span class = "custom__input-row">
-                            <input class="field" type="text" name="TableNo" autofocus required>
-                            <span class="placeholder">Table No </span>
-                        </span>
-                    </div>
-                </div>  
+                <b-form-select class="orderlist__table__number" v-model="selected" :options="tableNumber">
+                    <!-- This slot appears above the options from 'options' prop -->
+                    <template v-slot:first>
+                        <b-form-select-option :value="null" disabled>-- Table No. --</b-form-select-option>
+                    </template>
+                </b-form-select>
             </div>
         </div>
         <div class="orderlist__items">
@@ -43,6 +41,29 @@ import OrderCard from '@/components/user/OrderCard.vue';
 import { mapGetters } from 'vuex';
 
 export default {
+    data: function() {
+        return {
+            selected: null,
+            tableNumber: [
+                {
+                    value: 1,
+                    text: 'Table 1'
+                },
+                {
+                    value: 2,
+                    text: 'Table 2'
+                },
+                {
+                    value: 3,
+                    text: 'Table 3'
+                },
+                {
+                    value: 4,
+                    text: 'Table 4'
+                }
+            ]
+        }
+    },
     components:{
         OrderCard
     },
@@ -73,14 +94,15 @@ export default {
     padding: 3em 25vw ;
 
     &__customer{
-        margin-bottom: 2em;
+        margin-bottom: 3em;
         
         &__title{
             border-bottom: 1px solid $light-grey;
             font-size: 40px;
             font-weight: 400;
             font-family: 'Montserrat', sans-serif;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: .5rem;
         }
         
     }
@@ -89,6 +111,7 @@ export default {
         padding: 0.5rem 0em;
         display: flex;
         align-items: center;
+        border-bottom: 1px solid $light-grey;
         //border-top: 1px solid $light-grey;
         //flex-basis: 100%;
         //max-width: 100%;
@@ -121,17 +144,23 @@ export default {
 
     &__table{
         display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
         //align-items: center; //bikin tengah atas bwhnya
         //justify-content: center;
         
         &__name{
-            max-width: 50%;
-            flex-basis: 50%;
+            flex-grow: 1;
+            margin-right: 4rem;
         }
         
         &__number {
-            max-width: 50%;
-            flex-basis: 50%;
+            max-width: 150px;
+            margin-bottom: .5rem;
+            height: 40px;
+            font-weight: 500;
+            font-size: 16px;
+            font-family: 'Montserrat', sans-serif;
             //border: none;
             //outline: none;
             //justify-content: center;
@@ -142,8 +171,9 @@ export default {
         &__number input {
             border: none;
             outline: none;
-            border-bottom: 4px solid #ddd;
-            max-width: 400px;
+            border-bottom: 2px solid #ddd;
+            border-radius: 0;
+            padding-left: 2px;
         }
 
         &__no input{
@@ -168,8 +198,8 @@ export default {
 
 .custom__input-row input:focus + .placeholder,
 .custom__input-row input:valid + .placeholder{
-    top: 10px;
-    left: 12px;
+    top: 6px;
+    left: 2px;
     font-size: 14px;
     color: $text;
 
@@ -179,7 +209,7 @@ export default {
 .field {
     width: 100%;
     font-size: 18px;
-    padding: 1.3em 1.2em 0.5em 0.7em;
+    padding: 1.3em 1.2em 0.4em 0.7em;
     margin: 10px auto;
     display: inline-block;
     background: transparent;
@@ -192,7 +222,7 @@ export default {
     
     
     &:hover{
-        background: #e7e7e7;
+        background: none;
       }
       
     &:focus{
@@ -203,8 +233,8 @@ export default {
 .placeholder{
     pointer-events: none;
     position: absolute;
-    top: 30%;
-    left: 8%;
+    top: 32%;
+    left: 2px;
     font-weight: 400;
     font-size: 22px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);

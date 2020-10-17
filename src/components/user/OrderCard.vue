@@ -6,10 +6,14 @@
         <div class="order__block">
             <div class="order__details">
                 <div class="order__details__name">{{food.name}}</div>
-                <div class="order__details__price">{{food.price/1000}}k</div>
+                <div class="order__details__price">{{food.price * food.quantity / 1000}}k</div>
             </div>
             <div class="order__note">
-                <textarea name="input" placeholder=" Add some notes for your order"></textarea>
+                <div class="custom__input input__textarea">
+                    <span class = "custom__input-row">
+                        <textarea class="menu__modal__input custom__textarea" type="text" required v-model="desc" placeholder="Notes"/>
+                    </span>
+                </div>
             </div>
             <div class="order__iconbar">
                 <div class="order__quantity" v-show="food.quantity>0">
@@ -32,41 +36,45 @@ export default {
     data: function(){
         return{
            // quantity: 0,
-           interval: false
+           interval: false,
+           desc: ''
         }
     },
     methods: {
         ...mapActions(['updateCart']),
         updateQuantity(value, order) {
-        let food = { ...order }
-        food.quantity = undefined
+            let food = { ...order }
+            food.quantity = undefined
 
-        let qty = this.quantity(food.id)
-        qty += value
-        if (qty < 0) { return this.stop() }
-        this.updateCart({ food: food, quantity: qty })
-      },
-       startRemove(order) {
-        if (!this.interval) {
-          this.interval = setInterval(() => this.updateQuantity(-1, order), 200)	
-        }
-      },
-      startAdd(order) {
-        if (!this.interval) {
-            this.interval = setInterval(() => this.updateQuantity(1, order), 200)	
-        }
-      },
+            let qty = this.quantity(food.id)
+            qty += value
+            if (qty < 0) { return this.stop() }
+            this.updateCart({ food: food, quantity: qty })
+        },
+        startRemove(order) {
+            if (!this.interval) {
+                this.interval = setInterval(() => this.updateQuantity(-1, order), 200)	
+            }
+        },
+        startAdd(order) {
+            if (!this.interval) {
+                this.interval = setInterval(() => this.updateQuantity(1, order), 200)	
+            }
+        },
+        stop() {
+            clearInterval(this.interval)
+            this.interval = false
+        },
         quantity(foodId) {
-        let qty = 0
-        this.allOrders.forEach(order => {
-          if (order.id == foodId) {
-            qty = order.quantity
-          }
-        })
-        return qty
-      }
+            let qty = 0
+            this.allOrders.forEach(order => {
+            if (order.id == foodId) {
+                qty = order.quantity
+            }
+            })
+            return qty
+        }
     },
-
     computed: {
         ...mapGetters(['allOrders','allFoods'])
     }
@@ -76,14 +84,13 @@ export default {
 <style lang="scss" scoped>
 .order{
     display: flex;
-    flex: warp;
-    margin-bottom: 30px;
-    padding-top: 30px;
-    border-top: 1px solid $light-grey;
+    margin-top: 30px;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid $light-grey;
 
     &__block{
         flex-basis: 100%;
-        margin-left: 2em;
+        margin-left: 1.5em;
         
     }
 
@@ -94,7 +101,7 @@ export default {
         width: 165px;
         object-fit: cover;
         border-radius: 10px;
-        box-shadow: 0px 2px 8px 4px rgba(0,0,0,0.09);
+        // box-shadow: 1px 1px 10px 2px rgba(0,0,0,0.09);
     }
 
     &__details{
@@ -133,15 +140,15 @@ export default {
         display: flex;
         justify-content: center;
         align-items: center;
-        border: 1px solid $light-grey;
-        padding: .3em 1em;
-        border-radius: 10px;
+        border: 1px solid $btn-primary;
+        padding: .35em 1.2em;
+        border-radius: 5px;
         width: 150px;
 
         &__number{
             margin: 0;
             padding: 0;
-            font-size: 18px;
+            font-size: 16px;
         }
     }
 } 
@@ -150,12 +157,14 @@ export default {
     float: left;
     margin-right: auto;
     cursor: pointer;
+    font-size: 14px;
 }
 
 .plus{
     float: right;
     margin-left: auto;
     cursor: pointer;
+    font-size: 14px;
 }
 
 textarea{
