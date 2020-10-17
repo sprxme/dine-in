@@ -90,6 +90,7 @@ $empty-progress-circle: #D3D3D3;
 
     .menu-image {
         height: 100%;
+        object-fit: cover;
     }
 
     .image-cropper {

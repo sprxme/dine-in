@@ -1,20 +1,41 @@
 <template>
   <div class="home">
     <div class="background"/>
-    <div class="home__title-container">
-      <h1 class="home__title">FULL MOON</h1>
-    </div>
     <div class="home">
       <div class="home__comparison-container">
         <section class="home__comparisonSection">
-          <div class="home__comparisonImage beforeImage">
-            <img src="@/assets/about/bar.jpg" alt="before">
+          <div class="home__title-container">
+            <h1 class="home__title">FULL MOON</h1>
           </div>
-          <div class="home__comparisonImage afterImage">
-            <img src="@/assets/about/conversation.jpg" alt="after">        
+          <div class="home__comparisonWrapper">
+            <div class="home__comparisonImage beforeImage">
+              <img src="@/assets/about/bar.jpg" alt="before">
+            </div>
+            <div class="home__comparisonImage afterImage">
+              <img src="@/assets/about/conversation.jpg" alt="after">        
+            </div>
           </div>
         </section>
       </div>
+    </div>
+    <div class='home__horizontal'>
+      <section class='home__horizontal__text horizontal-animate'>
+        <div class='home__horizontal__wtext text'>
+          EAT. LAUGH. ENJOY. REPEAT. EAT. LAUGH. ENJOY. REPEAT.
+        </div>
+      </section>
+      <section v-for="index in 2" :key="index" class='demo-gallery horizontal-animate'>
+        <ul class='home__horizontal__wtext'>
+          <li class="home__horizontal__list" v-for="index in 4" :key="index"> 
+            <img class="home__horizontal__image" src="@/assets/about/shumai.jpg">
+          </li>
+        </ul>
+      </section>
+      <section class='home__horizontal__text horizontal-animate'>
+        <div class='home__horizontal__wtext text'>
+           EAT. LAUGH. ENJOY. REPEAT. EAT. LAUGH. ENJOY. REPEAT. 
+        </div>
+      </section>
     </div>
   </div>
 </template>
@@ -32,24 +53,21 @@ export default {
     startAnimation: function() {
       gsap.registerPlugin(ScrollTrigger); //missing
       gsap.from(".home__title-container", {duration: 1.5, opacity: 0, ease:"power2.in"})
-      gsap.from(".home__title-container", {duration: 2, y: -70, ease:"power2.out"})
+      gsap.from(".home__title-container", {duration: 2, y: 0, ease:"power2.out"})
 
       const tl = gsap.timeline({
         scrollTrigger:{
-          trigger: "home__title-container",
+          trigger: ".home__title-container",
           start: 'top top',
-          end: "+=2500",
-          markers: true,
-          scrub: true
+          end: "100%",
+          // markers:true,
+          pin: true,
+          scrub: true,
         }
       });
-      tl.to(".home__title",{scale: 100})
+      tl.to(".home__title",{scale: 40, x:500}, 0)
+        .from(".home__comparisonWrapper",{opacity: 0}, 0)
   
-      // gsap.from(".home__title-container",{
-      //   duration: 1.5,
-      //   scale: 50,
-      //   scrollTrigger: ".home__title-container",
-      // })
       gsap.utils.toArray(".home__comparisonSection").forEach(section => {
         let tl = gsap.timeline({
           scrollTrigger: {
@@ -63,9 +81,22 @@ export default {
           },
           defaults: {ease: "none"}
         });
-        tl.fromTo(section.querySelector(".afterImage"), {xPercent: 100, x: 0}, {xPercent: 0})
-          .fromTo(section.querySelector(".afterImage img"), {xPercent: -100, x: 0}, {xPercent: 0}, 0);
+        tl.fromTo(section.querySelector(".afterImage"), {xPercent: 100, x: 0}, {xPercent: 0}, .3)
+          .fromTo(section.querySelector(".afterImage img"), {xPercent: -100, x: 0}, {xPercent: 0}, .3);
       });
+          
+      gsap.utils.toArray(".horizontal-animate").forEach((section, index) => {
+        const w = section.querySelector('.home__horizontal__wtext');
+        const [x, xEnd] = (index % 2) ? ['100%', (w.scrollWidth - section.offsetWidth) * -1] : [w.scrollWidth * -1, 0];
+        gsap.fromTo(w, {  x  }, {
+          x: xEnd,
+          scrollTrigger: { 
+            trigger: section, 
+            scrub: 0.5 
+          }
+        });
+      });
+      
     }
   }
 }
@@ -90,6 +121,7 @@ export default {
   &__title-container {
     height: 90vh;
     position: relative;
+    z-index: 99;
   }
 
   &__title {
@@ -107,7 +139,7 @@ export default {
   }
 
   &__comparison-container {
-    height: 300vh;
+    height: 280vh;
     overflow: hidden;
   }
 
@@ -130,6 +162,36 @@ export default {
     top: 0;
     object-fit: cover;
   }
+
+  &__horizontal{
+    overflow: hidden;
+    margin-bottom: 10rem;
+
+    &__wtext{
+      display: flex;
+      padding-left: 1rem;
+      list-style: none;
+    }
+
+    &__text .text{
+      font-size: clamp(3rem, 15vw, 6rem);
+      line-height: 1;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    &__list{
+      flex-shrink: 0;
+      width: clamp(500px, 60vw, 800px);
+      padding-right: 1rem;
+    }
+
+    &__image{
+      width: 100%;
+      height: auto;
+      background: #f0f0f0;
+    }
+  }
 }
 
 .afterImage {
@@ -142,4 +204,5 @@ export default {
 .afterImage img {
   transform: translate(-100%, 0px);
 }
+
 </style>

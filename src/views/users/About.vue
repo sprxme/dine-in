@@ -50,11 +50,9 @@
 
       <div class="about__desc">
         <p class="about__par">
-          A restaurant and bar inside, 
-          FULL MOON's Kitchen is a sophisticated dining destination
-          conveniently located in Jakarta's hip Thamrin and SCBD area. 
-          Our cellar is home to the largest wine,vodka and whiskey selection in the country,
-          while the kitchen focuses on an extensive comprising Asian favorites. 
+          Full Moon Liquor Bar & Dim Sum is a Hong kong-inspired bar and dim sum parlour, dressed in a vintage industrial interior like a seductive Chinese temptress. With bright red neon lights that decorate the entrance as well as bar counter, Full Moon has attracted loyal devotees ever since its establishment in 2014.
+          <br><br>
+          From the bar, Pao Pao boasts an infinite list of liquor, perfect to hype up the young night. Beside the highly-curated Asian cuisines, Full Moon's house cocktails are mostly seasonal, which depends on the best available fresh ingredient of the season. Not to mention the range of dim sum that arrives in generous servings.
         </p>
       </div>
     </div> 
@@ -118,13 +116,9 @@ export default {
   methods: {
     startAnimation: function() {
 
-      const tl = gsap.timeline({
-        scrollTrigger:{
-          trigger: "about__garis",
-          start: "top top",
-        }
-      });
-      tl.to(".about__garis",{duration: 2, opacity: 1, y:-60, ease:"power2.in"})
+      gsap.registerPlugin(ScrollTrigger) //missing
+
+      gsap.to(".about__garis",{duration: 1, opacity: 1, ease:"power2.in"})
       // gsap.from(".about__logo", {duration: 2, opacity: 0, ease:"power2.in"}) 
       // gsap.from(".about__logo", {duration: 2, y: -70, ease:"power2.out"})
 
@@ -133,8 +127,6 @@ export default {
 
       // gsap.from(".about__garis", {duration: 1.5, opacity: 0, ease:"power2.in"})
       // gsap.from(".about__garis", {duration: 2, y: -70, ease:"power2.out"})
-
-      gsap.registerPlugin(ScrollTrigger); //missing
 
       gsap.to(".banner", {
         scrollTrigger: {
@@ -148,6 +140,7 @@ export default {
           ease: "power2"
         }
       });
+
       gsap.to(".banner__image", {
         scrollTrigger: {
           trigger: ".container-container",
@@ -279,8 +272,6 @@ export default {
 }
 
 .about {
- // background-color: #111;
-//  color: white;
   padding:0rem 0em ;
 
   &__logo{
@@ -313,7 +304,7 @@ export default {
   &__column{
     display: grid;
     margin: 0.5em 0 1em 0;
-    padding: 4em 5em;
+    padding: 4em 5vw;
     grid-template-columns: repeat(2,1fr);
   }
 
@@ -350,8 +341,8 @@ export default {
     justify-content: center;
     flex-direction: column;
     //border-top: 1px solid $light-grey;
-    max-width: 550px;
-    margin: 4rem 2rem 2rem;
+    max-width: 900px;
+    margin: 3.2rem 2rem 5rem;
     margin-left: auto;
     margin-right: auto;
     opacity: 0;
@@ -364,12 +355,16 @@ export default {
   }
 
   &__boldtitle{
-    margin-top:4em;
+    // font-weight: 500;
     font-size: 30px;
     flex-direction: column;
     align-items: center;
     font-family: 'Montserrat', sans-serif ;
-    margin-bottom: 1em;
+    padding-left: 18px;
+    padding-right: 13px;
+    letter-spacing: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid $light-grey;
   }
 
   &__boldcolumn{
@@ -381,14 +376,16 @@ export default {
   }
 
   &__par{
-    font-size: 18px;
-    line-height: 3.5;
+    font-size: 16px;
+    padding: 0 2rem;
+    line-height: 2;
+    font-weight: 500;
     text-align:center;
     display: flex;
     flex-direction: column;
     align-items: center;
     //margin:0rem 0rem 1rem 2rem;
-    font-family: 'Montserrat', sans-serif ;
+    // font-family: 'Montserrat', sans-serif ;
   }
 
 }
@@ -400,7 +397,7 @@ export default {
 }
 
 .container-image {
-  max-height: 550px;
+  max-height: 500px;
   height: 100%;
 }
 
@@ -408,10 +405,12 @@ export default {
   height: 100px;
 }
 
-@media screen and (max-width: 600px){
+@media screen and (max-width: 500px){
     .about{
         &__column { 
             grid-template-columns: repeat(1,1fr);
+            padding-top: 1rem;
+            padding-bottom: 1rem;
         }
 
         &__right{
@@ -422,6 +421,10 @@ export default {
         &__left {
           padding: 1em 0 1em 0;
           border-bottom: 1px solid $light-grey;
+        }
+
+        &__par{
+          text-align:left;
         }
     }
 }
