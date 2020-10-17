@@ -65,9 +65,8 @@ export default {
           scrub: true,
         }
       });
-      tl.to(".home__title",{scale: 50})
-       tl.from(document.querySelector(".home__comparisonWrapper"),{opacity: 0}, 0)
-
+      tl.to(".home__title",{scale: 100})
+        .from(".home__comparisonWrapper",{opacity: 0},0)
   
       gsap.utils.toArray(".home__comparisonSection").forEach(section => {
         let tl = gsap.timeline({
