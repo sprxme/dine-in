@@ -33,6 +33,7 @@
       </b-carousel>
     </div>
 
+    <!--
     <div>
       <img class="about__logo" src="@/assets/about/logo2rev.png" />
     </div>
@@ -40,19 +41,20 @@
     <div class="about__title">
       <p>Supreme's premier dimsum restaurant Boasting an inimitably cozy dining experience. </p>
     </div>
+    -->
 
     <div class="about__garis">
       <div class="about__baris">
-        <label class="about__boldtitle">About Us</label>
+        <label class="about__boldtitle">ABOUT US</label>
       </div>
 
       <div class="about__desc">
         <p class="about__par">
-          A restaurant and bar inside a wine shop, 
-          Supreme's Kitchen is a sophisticated dining destination
+          A restaurant and bar inside, 
+          FULL MOON's Kitchen is a sophisticated dining destination
           conveniently located in Jakarta's hip Thamrin and SCBD area. 
-          Our cellar is home to the largest wine selection in the country,
-          while the kitchen focuses on an extensive comprising of European and Asian favorites. 
+          Our cellar is home to the largest wine,vodka and whiskey selection in the country,
+          while the kitchen focuses on an extensive comprising Asian favorites. 
         </p>
       </div>
     </div> 
@@ -268,6 +270,8 @@ export default {
 }
 
 .about {
+  background-color: #111;
+  color: white;
   padding:0rem 0em ;
 
   &__logo{
@@ -329,8 +333,8 @@ export default {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    border-top: 1px solid $light-grey;
-    max-width: 500px;
+    //border-top: 1px solid $light-grey;
+    max-width: 550px;
     margin: 0rem 2rem 10rem;
     margin-left: auto;
     margin-right: auto;
@@ -343,12 +347,12 @@ export default {
   }
 
   &__boldtitle{
-    margin-top:3em;
-    font-size: 25px;
-    font-style: bold;
+    margin-top:4em;
+    font-size: 30px;
     flex-direction: column;
     align-items: center;
-
+    font-family: 'Montserrat', sans-serif ;
+    margin-bottom: 1em;
   }
 
   &__boldcolumn{
@@ -361,12 +365,13 @@ export default {
 
   &__par{
     font-size: 18px;
-    line-height: 3;
+    line-height: 3.5;
     text-align:center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin:0 1rem 1rem 2rem;
+    //margin:0rem 0rem 1rem 2rem;
+    font-family: 'Montserrat', sans-serif ;
   }
 
 }
