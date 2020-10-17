@@ -111,12 +111,12 @@ export default {
         margin-bottom: 0.5rem;
         &__name{
             //padding: 0em 0em 0em 1em;
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 600;
         }
         &__price{
-            font-size: 24px;
-            font-weight: 600;
+            font-size: 22px;
+            font-weight: 400;
             display: flex;
             float: right;
             margin-left: auto;
@@ -145,6 +145,13 @@ export default {
         border-radius: 5px;
         width: 150px;
 
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        
         &__number{
             margin: 0;
             padding: 0;

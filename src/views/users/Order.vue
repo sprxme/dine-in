@@ -6,8 +6,8 @@
                 <span class="orderlist__table__name">
                     <div class="custom__input">
                         <span class = "custom__input-row">
-                            <input class="field" type="text" name="name" autofocus required>
-                            <span class="placeholder">Enter Name </span>
+                            <input v-model="name" class="field" type="text" name="name" autofocus required>
+                            <span class="placeholder">Customer Name </span>
                         </span>
                     </div>
                 </span>
@@ -27,12 +27,24 @@
            <OrderCard v-for="trackItem in allOrders" :key="trackItem.id" :food="trackItem"/>
         </div>
         <div class="orderlist__summary-container">
-            <div class="orderlist__summary">Total </div>
-            <div class="orderlist__total">Rp {{ totalPrice(allOrders) / 1000 }}k</div>
+            <div class="orderlist__row-container">
+                <div class="orderlist__price-title">Customer Name </div>
+                <div class="orderlist__name">{{ customerName }}</div>
+            </div>
+            <div class="orderlist__row-container table-number">
+                <div class="orderlist__price-title">Table Number </div>
+                <div class="orderlist__name">Table {{ selected }}</div>
+            </div>
+            <div class="orderlist__row-container price">
+                <div class="orderlist__price-title">Total </div>
+                <div class="orderlist__total">Rp {{ totalPrice(allOrders) / 1000 }}k</div>
+            </div>
         </div>
-        <span class="orderlist__button primary-button" v-on:click="generateToken()">
-            Confirm 
-        </span>
+        <div class="orderlist__button-container">
+            <span class="orderlist__button primary-button" v-on:click="generateToken()">
+                Place Order 
+            </span>
+        </div>
     </div>
 </template>
 
@@ -43,6 +55,7 @@ import { mapGetters } from 'vuex';
 export default {
     data: function() {
         return {
+            name: '',
             selected: null,
             tableNumber: [
                 {
@@ -76,14 +89,23 @@ export default {
             this.$router.push('/food')
         },
         totalPrice(orders) {
-        const total = orders.reduce((total, order) => {
-          return total + (order.price * order.quantity)
-        }, 0)
-        return total
+            const total = orders.reduce((total, order) => {
+            return total + (order.price * order.quantity)
+            }, 0)
+            return total
         }
     },
     computed: {
-        ...mapGetters(['allOrders', 'allFoods'])
+        ...mapGetters(['allOrders', 'allFoods']),
+        customerName: function() {
+            const trimemdName = this.name.trim()
+
+            if (trimemdName === '' || trimemdName === undefined || trimemdName === null) {
+                return '-'
+            } else {
+                return trimemdName
+            }
+        }
     }
 }
 
@@ -91,7 +113,7 @@ export default {
 
 <style lang="scss" scoped>
 .orderlist{
-    padding: 3em 25vw ;
+    padding: 3em 25vw 7em;
 
     &__customer{
         margin-bottom: 3em;
@@ -135,10 +157,14 @@ export default {
         border-radius: 0.5em;
         color: #007bff;
         width: 150px;
+
+        &:hover {
+            cursor: pointer;
+        }
     }
 
     &__button{
-        padding: .8em 1.2em;
+        padding: .6em 2em;
         border-radius: 8px;
     }
 
@@ -187,9 +213,41 @@ export default {
         } 
     }
 
-    &__summary-container{
-        padding-bottom: 20px;
+    &__summary-container {
+        margin-bottom: 2rem;
+        padding-top: .8rem;
     }
+
+    &__row-container{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: .4rem;
+    }
+
+    &__price-title {
+        font-size: 16px;
+    }
+
+    &__total {
+        font-weight: 600;
+        font-size: 23px;
+    }
+
+    &__button-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+}
+
+.table-number {
+    border-bottom: 1px solid $light-grey;
+    padding-bottom: .8rem;
+}
+
+.price {
+    margin-top: 1rem;
 }
 
 .custom__input-row{
