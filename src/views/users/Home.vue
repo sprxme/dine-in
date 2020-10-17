@@ -1,17 +1,19 @@
 <template>
   <div class="home">
     <div class="background"/>
-    <div class="home__title-container">
-      <h1 class="home__title">FULL MOON</h1>
-    </div>
     <div class="home">
       <div class="home__comparison-container">
         <section class="home__comparisonSection">
-          <div class="home__comparisonImage beforeImage">
-            <img src="@/assets/about/bar.jpg" alt="before">
+          <div class="home__title-container">
+            <h1 class="home__title">FULL MOON</h1>
           </div>
-          <div class="home__comparisonImage afterImage">
-            <img src="@/assets/about/conversation.jpg" alt="after">        
+          <div class="home__comparisonWrapper">
+            <div class="home__comparisonImage beforeImage">
+              <img src="@/assets/about/bar.jpg" alt="before">
+            </div>
+            <div class="home__comparisonImage afterImage">
+              <img src="@/assets/about/conversation.jpg" alt="after">        
+            </div>
           </div>
         </section>
       </div>
@@ -58,17 +60,12 @@ export default {
           trigger: "home__title-container",
           start: 'top top',
           end: "+=2500",
-        
-          scrub: true
+          pin: true,
+          scrub: true,
         }
       });
       tl.to(".home__title",{scale: 100})
   
-      // gsap.from(".home__title-container",{
-      //   duration: 1.5,
-      //   scale: 50,
-      //   scrollTrigger: ".home__title-container",
-      // })
       gsap.utils.toArray(".home__comparisonSection").forEach(section => {
         let tl = gsap.timeline({
           scrollTrigger: {
@@ -82,6 +79,7 @@ export default {
           },
           defaults: {ease: "none"}
         });
+        tl.from(section.querySelector(".home__comparisonWrapper"),{opacity: 0})
         tl.fromTo(section.querySelector(".afterImage"), {xPercent: 100, x: 0}, {xPercent: 0})
           .fromTo(section.querySelector(".afterImage img"), {xPercent: -100, x: 0}, {xPercent: 0}, 0);
       });
@@ -122,6 +120,7 @@ export default {
   &__title-container {
     height: 90vh;
     position: relative;
+    z-index: 99;
   }
 
   &__title {
