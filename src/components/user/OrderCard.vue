@@ -121,6 +121,7 @@ export default {
             float: right;
             margin-left: auto;
             text-align: right;
+            padding-left: 1rem;
         }
     }
     
@@ -151,7 +152,7 @@ export default {
         -moz-user-select: none;
         -ms-user-select: none;
         user-select: none;
-        
+
         &__number{
             margin: 0;
             padding: 0;
@@ -185,5 +186,64 @@ textarea{
     // position: relative;
     // margin: 20px 0 0 20px;
     // z-index: 1;
+}
+
+
+@media screen and (max-width:600px){
+    .order{
+        &__image{
+            width: 140px;
+            height: 140px;
+        }
+
+        &__details{
+            &__name{
+                //padding: 0em 0em 0em 1em;
+                font-size: 20px;
+            }
+            &__price{
+                font-size: 20px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:400px){
+    .order{
+        &__block{
+            margin-left: .6em;
+            
+        }
+
+        &__image{
+            width: 100px;
+            height: 100px;
+        }
+
+        &__details{
+            &__name{
+                //padding: 0em 0em 0em 1em;
+                font-size: 18px;
+            }
+            &__price{
+                font-size: 18px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:350px){
+    .order{
+ 
+        &__details{
+            &__name{
+                //padding: 0em 0em 0em 1em;
+                font-size: 15px;
+            }
+            &__price{
+                font-size: 15px;
+            }
+        }
+    }
 }
 </style>

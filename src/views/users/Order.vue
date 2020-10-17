@@ -24,26 +24,32 @@
                 <div class="orderlist__title">Order item(s) </div>
                 <div class="orderlist__additems" v-on:click="addMore()">Add more</div>
             </div>
+            <div class="orderlist__unavailable" v-if="allOrders.length <= 0">
+                <span class="orderlist__unavailable__title">Looking for your order?</span>
+                <span class="orderlist__unavailable__subtitle">Food and beverages you select from the menu will appear here.</span>
+            </div>
            <OrderCard v-for="trackItem in allOrders" :key="trackItem.id" :food="trackItem"/>
         </div>
-        <div class="orderlist__summary-container">
+        <div class="orderlist__summary-container" v-if="allOrders.length > 0">
             <div class="orderlist__row-container">
                 <div class="orderlist__price-title">Customer Name </div>
-                <div class="orderlist__name">{{ customerName }}</div>
+                <span class="orderlist__name">{{ customerName }}</span>
             </div>
             <div class="orderlist__row-container table-number">
                 <div class="orderlist__price-title">Table Number </div>
-                <div class="orderlist__name">Table {{ selected }}</div>
+                <div class="orderlist__name">{{ selectedTable }}</div>
             </div>
             <div class="orderlist__row-container price">
                 <div class="orderlist__price-title">Total </div>
                 <div class="orderlist__total">Rp {{ totalPrice(allOrders) / 1000 }}k</div>
             </div>
-        </div>
-        <div class="orderlist__button-container">
-            <span class="orderlist__button primary-button" v-on:click="generateToken()">
-                Place Order 
-            </span>
+
+            <div class="orderlist__warning" v-if="alert">{{ generateWarningMessage() }}</div>
+            <div class="orderlist__button-container">
+                <span class="orderlist__button primary-button unselectable" v-on:click="generateToken()">
+                    Place Order 
+                </span>
+            </div>
         </div>
     </div>
 </template>
@@ -57,6 +63,7 @@ export default {
         return {
             name: '',
             selected: null,
+            alert: false,
             tableNumber: [
                 {
                     value: 1,
@@ -81,7 +88,13 @@ export default {
         OrderCard
     },
     methods:{
-        generateToken(){
+        generateToken(){            
+            if (this.trimmedName === '' || this.trimmedName === undefined || this.trimmedName === null) {
+                this.alert = true
+                return
+            }
+            this.alert = false
+
             var token = Math.random().toString(36).slice(-8).toUpperCase()
             this.$router.push('/confirm/'+token)
         },
@@ -93,17 +106,43 @@ export default {
             return total + (order.price * order.quantity)
             }, 0)
             return total
+        },
+        generateWarningMessage() {
+            let message = ''
+            if (this.trimmedName === '' || this.trimmedName === undefined || this.trimmedName === null) {
+                message += 'Please enter your name '
+
+                if (this.selected === null || this.selected === undefined) {
+                    message += 'and table number '
+                }
+            } else {
+                if (this.selected === null || this.selected === undefined) {
+                    message = 'Please enter your table number '
+                } else {
+                    this.alert = false
+                }
+            }
+            message += 'in the form above'
+            return message
         }
     },
     computed: {
         ...mapGetters(['allOrders', 'allFoods']),
+        trimmedName: function() {
+            return this.name.trim()
+        },
         customerName: function() {
-            const trimemdName = this.name.trim()
-
-            if (trimemdName === '' || trimemdName === undefined || trimemdName === null) {
+            if (this.trimmedName === '' || this.trimmedName === undefined || this.trimmedName === null) {
                 return '-'
             } else {
-                return trimemdName
+                return this.trimmedName
+            }
+        },
+        selectedTable: function() {
+            if (this.selected === null || this.selected === undefined) {
+                return '-'
+            } else {
+                return 'Table ' + this.selected
             }
         }
     }
@@ -114,6 +153,29 @@ export default {
 <style lang="scss" scoped>
 .orderlist{
     padding: 3em 25vw 7em;
+    overflow-x: hidden;
+
+    &__unavailable {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        font-weight: 600;
+        font-size: 16px;
+        margin-bottom: 4rem;
+        margin-top: 3rem;
+        
+        &__title {
+            display: inline;
+            margin-left: .3rem;
+        }
+
+        &__subtitle {
+            margin-top: .1rem;
+            font-size: 14px;
+            font-weight: normal;
+            color: $secondary-text;
+        }
+    }
 
     &__customer{
         margin-bottom: 3em;
@@ -132,7 +194,8 @@ export default {
     &__title-container{ 
         padding: 0.5rem 0em;
         display: flex;
-        align-items: center;
+        // align-items: center;
+        align-items: flex-end;
         border-bottom: 1px solid $light-grey;
         //border-top: 1px solid $light-grey;
         //flex-basis: 100%;
@@ -143,6 +206,7 @@ export default {
         font-size: 40px;
         font-weight: 400;
         font-family: 'Montserrat', sans-serif;
+        padding-right: 2rem;
         
     }
 
@@ -157,6 +221,7 @@ export default {
         border-radius: 0.5em;
         color: #007bff;
         width: 150px;
+        margin-bottom: .3rem;
 
         &:hover {
             cursor: pointer;
@@ -166,6 +231,7 @@ export default {
     &__button{
         padding: .6em 2em;
         border-radius: 8px;
+        margin-top: 1rem;
     }
 
     &__table{
@@ -214,7 +280,6 @@ export default {
     }
 
     &__summary-container {
-        margin-bottom: 2rem;
         padding-top: .8rem;
     }
 
@@ -238,6 +303,19 @@ export default {
         display: flex;
         flex-direction: column;
         align-items: flex-end;
+    }
+
+    &__warning{
+        // color: $btn-destructive;
+        min-width: 240px;
+        margin-top: 1rem;
+        margin-bottom: .3rem;
+        // margin: auto;
+        padding: 12px 1rem;
+        border: 1px solid $input-error;
+        background: $secondary-input-error;
+        border-radius: 8px;
+        // display: block;
     }
 }
 
@@ -297,11 +375,98 @@ export default {
     font-size: 22px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     color: $secondary-text;
-
 }  
 
 .input{
     min-width: 0;
     width: 90%;
+}
+
+
+@media screen and (max-width:1200px){
+    .orderlist{
+        padding: 3em 20vw 7em;
+    }
+
+}
+
+@media screen and (max-width:800px){
+    .orderlist{
+        padding: 3em 10vw 7em;
+    }
+}
+
+@media screen and (max-width:500px){
+    .orderlist{
+        padding: 3em 10vw 7em;
+
+        &__customer{
+            margin-bottom: 2em;
+            
+            &__title{
+                text-align: center;
+                font-size: 30px;
+            }
+            
+        }
+
+        &__title {
+            font-size: 30px;
+        }
+
+        &__table{
+            flex-direction: column;
+
+            &__name{
+                margin-right: 0rem;
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+            
+            &__number {
+                max-width: none;
+                margin-bottom: .5rem;
+                height: 40px;
+                font-weight: 500;
+                font-size: 16px;
+                font-family: 'Montserrat', sans-serif;
+                //border: none;
+                //outline: none;
+                //justify-content: center;
+                //margin-right: 8rem; //geser ke kanan 
+            }
+        }
+
+        &__price-title {
+            font-size: 14px;
+        }
+
+        &__total {
+            font-size: 20px;
+        }
+
+        &__name {
+            padding-left: 1rem;
+            font-size: 14px;
+            white-space: pre-wrap;
+        }
+    }
+
+    .placeholder{
+        top: 40%;
+        font-size: 18px;
+    }  
+}
+
+
+
+@media screen and (max-width:400px){
+    .orderlist{
+        padding: 3em 1rem 7em;
+
+        &__warning {
+            font-size: 14px;
+        }
+    }
 }
 </style>
