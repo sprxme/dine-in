@@ -163,6 +163,8 @@
     border:1px solid $light-grey;
     padding: .35em .5rem .35rem;
     line-height: 1.4;
+    // outline: none;
+    outline-color: $btn-primary;
 }
 
 .custom__input-row textarea:focus + .placeholder__textarea,

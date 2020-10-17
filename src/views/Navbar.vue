@@ -23,7 +23,7 @@
     <div class="sidebar__routes">
       <div class="sidebar__titlebar" @click="hide">
         <font-awesome-icon icon="bars" class="sidebar__icon icon-primary--dark" />
-        <h2 class="sidebar__title">SPRXME</h2>
+        <h2 class="sidebar__title">FULL MOON</h2>
       </div>
       <ul class="sidebar__route-container">
         <li v-for="nav in sortNav" :key="nav.name" class="sidebar__router" v-bind:class="{'menu-dropdown': nav.child != null}">

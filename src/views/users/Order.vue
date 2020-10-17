@@ -247,7 +247,7 @@ export default {
         }
         
         &__number {
-            max-width: 150px;
+            max-width: 152px;
             margin-bottom: .5rem;
             height: 40px;
             font-weight: 500;
@@ -420,7 +420,7 @@ export default {
             &__name{
                 margin-right: 0rem;
                 width: 100%;
-                margin-bottom: 1rem;
+                margin-bottom: 1.3rem;
             }
             
             &__number {

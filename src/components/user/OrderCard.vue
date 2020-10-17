@@ -11,7 +11,7 @@
             <div class="order__note">
                 <div class="custom__input input__textarea">
                     <span class = "custom__input-row">
-                        <textarea class="menu__modal__input custom__textarea" type="text" required v-model="desc" placeholder="Notes"/>
+                        <textarea class="menu__modal__input custom__textarea" type="text" required v-model="note" placeholder="Notes"/>
                     </span>
                 </div>
             </div>
@@ -37,11 +37,10 @@ export default {
         return{
            // quantity: 0,
            interval: false,
-           desc: ''
         }
     },
     methods: {
-        ...mapActions(['updateCart']),
+        ...mapActions(['updateCart', 'updateNote']),
         updateQuantity(value, order) {
             let food = { ...order }
             food.quantity = undefined
@@ -76,7 +75,15 @@ export default {
         }
     },
     computed: {
-        ...mapGetters(['allOrders','allFoods'])
+        ...mapGetters(['allOrders','allFoods']),
+        note: {
+            get() {
+                return this.food.note
+            },
+            set(value) {
+                this.updateNote({ food: this.food, note: value })
+            }
+        }
     }
 }
 </script>
@@ -229,6 +236,23 @@ textarea{
                 font-size: 18px;
             }
         }
+
+        &__quantity{
+            &__number{
+                margin: 0;
+                padding: 0;
+                font-size: 13px;
+            }
+        }
+
+        .plus,
+        .minus {
+            font-size: 12px;
+        }
+    }
+
+    textarea {
+        font-size: 14px;
     }
 }
 

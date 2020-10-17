@@ -17,6 +17,9 @@ const actions = {
         } else {
             commit('updateOrders', orderItem)
         }
+    },
+    updateNote({ commit }, data) {
+        commit('updateNote', data)
     }
 }
 
@@ -48,6 +51,14 @@ const mutations = {
     removeOrder: (state, orderItem) => {
         state.orders = state.orders.filter(order => {
             return order.id != orderItem.id
+        })
+    },
+    updateNote: (state, data) => {
+        state.orders = state.orders.map(order => {
+            if (order.id === data.food.id) {
+                order.note = data.note
+            }
+            return order
         })
     }
 }
