@@ -4,15 +4,17 @@
     <div class="home__title-container">
       <h1 class="home__title">FULL MOON</h1>
     </div>
-    <div class="home__comparison-container">
-      <section class="home__comparisonSection">
-        <div class="home__comparisonImage beforeImage">
-          <img src="@/assets/about/bar.jpg" alt="before">
-        </div>
-        <div class="home__comparisonImage afterImage">
-          <img src="@/assets/about/conversation.jpg" alt="after">        
-        </div>
-      </section>
+    <div class="home">
+      <div class="home__comparison-container">
+        <section class="home__comparisonSection">
+          <div class="home__comparisonImage beforeImage">
+            <img src="@/assets/about/bar.jpg" alt="before">
+          </div>
+          <div class="home__comparisonImage afterImage">
+            <img src="@/assets/about/conversation.jpg" alt="after">        
+          </div>
+        </section>
+      </div>
     </div>
   </div>
 </template>
@@ -28,10 +30,26 @@ export default {
   },
   methods: {
     startAnimation: function() {
+      gsap.registerPlugin(ScrollTrigger); //missing
       gsap.from(".home__title-container", {duration: 1.5, opacity: 0, ease:"power2.in"})
       gsap.from(".home__title-container", {duration: 2, y: -70, ease:"power2.out"})
 
-      gsap.registerPlugin(ScrollTrigger); //missing
+      const tl = gsap.timeline({
+        scrollTrigger:{
+          trigger: "home__title-container",
+          start: 'top top',
+          end: "+=2500",
+          markers: true,
+          scrub: true
+        }
+      });
+      tl.to(".home__title",{scale: 100})
+  
+      // gsap.from(".home__title-container",{
+      //   duration: 1.5,
+      //   scale: 50,
+      //   scrollTrigger: ".home__title-container",
+      // })
       gsap.utils.toArray(".home__comparisonSection").forEach(section => {
         let tl = gsap.timeline({
           scrollTrigger: {
