@@ -122,10 +122,9 @@ export default {
         scrollTrigger:{
           trigger: "about__garis",
           start: "top top",
-          markers: true,
         }
       });
-      tl.to(".about__garis",{duration: 2, opacity: 1, ease:"power2.in"})
+      tl.to(".about__garis",{duration: 2, opacity: 1, y:-60, ease:"power2.in"})
       // gsap.from(".about__logo", {duration: 2, opacity: 0, ease:"power2.in"}) 
       // gsap.from(".about__logo", {duration: 2, y: -70, ease:"power2.out"})
 
@@ -280,8 +279,8 @@ export default {
 }
 
 .about {
-  background-color: #111;
-  color: white;
+ // background-color: #111;
+//  color: white;
   padding:0rem 0em ;
 
   &__logo{
@@ -352,7 +351,7 @@ export default {
     flex-direction: column;
     //border-top: 1px solid $light-grey;
     max-width: 550px;
-    margin: 0rem 2rem 10rem;
+    margin: 4rem 2rem 2rem;
     margin-left: auto;
     margin-right: auto;
     opacity: 0;
