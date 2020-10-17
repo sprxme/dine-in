@@ -65,6 +65,7 @@ export default {
         }
       });
       tl.to(".home__title",{scale: 100})
+        .from(".home__comparisonWrapper",{opacity: 0},0)
   
       gsap.utils.toArray(".home__comparisonSection").forEach(section => {
         let tl = gsap.timeline({
@@ -79,9 +80,8 @@ export default {
           },
           defaults: {ease: "none"}
         });
-        tl.from(section.querySelector(".home__comparisonWrapper"),{opacity: 0})
-        tl.fromTo(section.querySelector(".afterImage"), {xPercent: 100, x: 0}, {xPercent: 0})
-          .fromTo(section.querySelector(".afterImage img"), {xPercent: -100, x: 0}, {xPercent: 0}, 0);
+        tl.fromTo(section.querySelector(".afterImage"), {xPercent: 100, x: 0}, {xPercent: 0}, .5)
+          .fromTo(section.querySelector(".afterImage img"), {xPercent: -100, x: 0}, {xPercent: 0}, .5);
       });
           
       gsap.utils.toArray(".horizontal-animate").forEach((section, index) => {
