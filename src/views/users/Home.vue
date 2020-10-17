@@ -57,14 +57,17 @@ export default {
 
       const tl = gsap.timeline({
         scrollTrigger:{
-          trigger: "home__title-container",
-          start: 'top top',
-          end: "+=2500",
+          trigger: ".home__title-container",
+          start: 'top -70px',
+          end: "90%",
+          // markers:true,
           pin: true,
           scrub: true,
         }
       });
-      tl.to(".home__title",{scale: 100})
+      tl.to(".home__title",{scale: 50})
+       tl.from(document.querySelector(".home__comparisonWrapper"),{opacity: 0}, 0)
+
   
       gsap.utils.toArray(".home__comparisonSection").forEach(section => {
         let tl = gsap.timeline({
@@ -79,9 +82,8 @@ export default {
           },
           defaults: {ease: "none"}
         });
-        tl.from(section.querySelector(".home__comparisonWrapper"),{opacity: 0})
-        tl.fromTo(section.querySelector(".afterImage"), {xPercent: 100, x: 0}, {xPercent: 0})
-          .fromTo(section.querySelector(".afterImage img"), {xPercent: -100, x: 0}, {xPercent: 0}, 0);
+        tl.fromTo(section.querySelector(".afterImage"), {xPercent: 100, x: 0}, {xPercent: 0}, .3)
+          .fromTo(section.querySelector(".afterImage img"), {xPercent: -100, x: 0}, {xPercent: 0}, .3);
       });
           
       gsap.utils.toArray(".horizontal-animate").forEach((section, index) => {
