@@ -116,14 +116,23 @@ export default {
   },
   methods: {
     startAnimation: function() {
-      gsap.from(".about__logo", {duration: 2, opacity: 0, ease:"power2.in"}) 
-      gsap.from(".about__logo", {duration: 2, y: -70, ease:"power2.out"})
 
-      gsap.from(".about__title", {duration: 1.5, opacity: 0, ease:"power2.in"})
-      gsap.from(".about__title", {duration: 2, y: -70, ease:"power2.out"})
+      const tl = gsap.timeline({
+        scrollTrigger:{
+          trigger: "about__garis",
+          start: "top top",
+          markers: true,
+        }
+      });
+      tl.to(".about__garis",{duration: 2, opacity: 1, ease:"power2.in"})
+      // gsap.from(".about__logo", {duration: 2, opacity: 0, ease:"power2.in"}) 
+      // gsap.from(".about__logo", {duration: 2, y: -70, ease:"power2.out"})
 
-      gsap.from(".about__garis", {duration: 1.5, opacity: 0, ease:"power2.in"})
-      gsap.from(".about__garis", {duration: 2, y: -70, ease:"power2.out"})
+      // gsap.from(".about__title", {duration: 1.5, opacity: 0, ease:"power2.in"})
+      // gsap.from(".about__title", {duration: 2, y: -70, ease:"power2.out"})
+
+      // gsap.from(".about__garis", {duration: 1.5, opacity: 0, ease:"power2.in"})
+      // gsap.from(".about__garis", {duration: 2, y: -70, ease:"power2.out"})
 
       gsap.registerPlugin(ScrollTrigger); //missing
 
@@ -338,6 +347,7 @@ export default {
     margin: 0rem 2rem 10rem;
     margin-left: auto;
     margin-right: auto;
+    opacity: 0;
   }
 
   &__baris{
