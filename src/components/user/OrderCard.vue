@@ -35,7 +35,6 @@ export default {
     },
     data: function(){
         return{
-           // quantity: 0,
            interval: false,
         }
     },
@@ -108,7 +107,6 @@ export default {
         width: 165px;
         object-fit: cover;
         border-radius: 10px;
-        // box-shadow: 1px 1px 10px 2px rgba(0,0,0,0.09);
     }
 
     &__details{
@@ -117,7 +115,6 @@ export default {
         max-width: 100%;
         margin-bottom: 0.5rem;
         &__name{
-            //padding: 0em 0em 0em 1em;
             font-size: 22px;
             font-weight: 600;
         }
@@ -133,7 +130,6 @@ export default {
     }
     
     &__note{
-        //padding: 1em;
         align-items: center;
         padding: 0.5rem 0;
     }
@@ -186,13 +182,6 @@ textarea{
     height: 100%;
     width: 100%;
     resize: none;
-    // -webkit-box-sizing: border-box;
-    // -moz-box-sizing: border-box;
-    // box-sizing: border-box;
-    // resize: none;
-    // position: relative;
-    // margin: 20px 0 0 20px;
-    // z-index: 1;
 }
 
 
@@ -205,7 +194,6 @@ textarea{
 
         &__details{
             &__name{
-                //padding: 0em 0em 0em 1em;
                 font-size: 20px;
             }
             &__price{
@@ -229,7 +217,6 @@ textarea{
 
         &__details{
             &__name{
-                //padding: 0em 0em 0em 1em;
                 font-size: 18px;
             }
             &__price{
@@ -261,7 +248,6 @@ textarea{
  
         &__details{
             &__name{
-                //padding: 0em 0em 0em 1em;
                 font-size: 15px;
             }
             &__price{

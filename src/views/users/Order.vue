@@ -194,12 +194,8 @@ export default {
     &__title-container{ 
         padding: 0.5rem 0em;
         display: flex;
-        // align-items: center;
         align-items: flex-end;
         border-bottom: 1px solid $light-grey;
-        //border-top: 1px solid $light-grey;
-        //flex-basis: 100%;
-        //max-width: 100%;
     }
 
     &__title{
@@ -238,8 +234,6 @@ export default {
         display: flex;
         justify-content: space-between;
         align-items: flex-end;
-        //align-items: center; //bikin tengah atas bwhnya
-        //justify-content: center;
         
         &__name{
             flex-grow: 1;
@@ -253,10 +247,6 @@ export default {
             font-weight: 500;
             font-size: 16px;
             font-family: 'Montserrat', sans-serif;
-            //border: none;
-            //outline: none;
-            //justify-content: center;
-            //margin-right: 8rem; //geser ke kanan 
         }
 
         &__name input ,
@@ -310,12 +300,10 @@ export default {
         min-width: 240px;
         margin-top: 1rem;
         margin-bottom: .3rem;
-        // margin: auto;
         padding: 12px 1rem;
         border: 1px solid $input-error;
         background: $secondary-input-error;
         border-radius: 8px;
-        // display: block;
     }
 }
 
@@ -430,10 +418,6 @@ export default {
                 font-weight: 500;
                 font-size: 16px;
                 font-family: 'Montserrat', sans-serif;
-                //border: none;
-                //outline: none;
-                //justify-content: center;
-                //margin-right: 8rem; //geser ke kanan 
             }
         }
 
