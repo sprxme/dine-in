@@ -16,6 +16,25 @@
         </section>
       </div>
     </div>
+    <div class='home__horizontal'>
+      <section class='home__horizontal__text horizontal-animate'>
+        <div class='home__horizontal__wtext text'>
+          EAT. LAUGH. ENJOY. REPEAT. EAT. LAUGH. ENJOY. REPEAT.
+        </div>
+      </section>
+      <section v-for="index in 4" :key="index" class='demo-gallery horizontal-animate'>
+        <ul class='home__horizontal__wtext'>
+          <li class="home__horizontal__list" v-for="index in 4" :key="index"> 
+            <img class="home__horizontal__image" src="@/assets/about/shumai.jpg">
+          </li>
+        </ul>
+      </section>
+      <section class='home__horizontal__text horizontal-animate'>
+        <div class='home__horizontal__wtext text'>
+           EAT. LAUGH. ENJOY. REPEAT. EAT. LAUGH. ENJOY. REPEAT. 
+        </div>
+      </section>
+    </div>
   </div>
 </template>
 
@@ -39,7 +58,7 @@ export default {
           trigger: "home__title-container",
           start: 'top top',
           end: "+=2500",
-          markers: true,
+        
           scrub: true
         }
       });
@@ -66,6 +85,19 @@ export default {
         tl.fromTo(section.querySelector(".afterImage"), {xPercent: 100, x: 0}, {xPercent: 0})
           .fromTo(section.querySelector(".afterImage img"), {xPercent: -100, x: 0}, {xPercent: 0}, 0);
       });
+          
+      gsap.utils.toArray(".horizontal-animate").forEach((section, index) => {
+        const w = section.querySelector('.home__horizontal__wtext');
+        const [x, xEnd] = (index % 2) ? ['100%', (w.scrollWidth - section.offsetWidth) * -1] : [w.scrollWidth * -1, 0];
+        gsap.fromTo(w, {  x  }, {
+          x: xEnd,
+          scrollTrigger: { 
+            trigger: section, 
+            scrub: 0.5 
+          }
+        });
+      });
+      
     }
   }
 }
@@ -130,6 +162,35 @@ export default {
     top: 0;
     object-fit: cover;
   }
+
+  &__horizontal{
+    overflow: hidden;
+
+    &__wtext{
+      display: flex;
+      padding-left: 1rem;
+      list-style: none;
+    }
+
+    &__text .text{
+      font-size: clamp(3rem, 15vw, 6rem);
+      line-height: 1;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    &__list{
+      flex-shrink: 0;
+      width: clamp(500px, 60vw, 800px);
+      padding-right: 1rem;
+    }
+
+    &__image{
+      width: 100%;
+      height: auto;
+      background: #f0f0f0;
+    }
+  }
 }
 
 .afterImage {
@@ -142,4 +203,5 @@ export default {
 .afterImage img {
   transform: translate(-100%, 0px);
 }
+
 </style>
