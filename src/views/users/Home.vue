@@ -65,7 +65,7 @@ export default {
           scrub: true,
         }
       });
-      tl.to(".home__title",{scale: 40}, 0)
+      tl.to(".home__title",{scale: 40, x:500}, 0)
         .from(".home__comparisonWrapper",{opacity: 0}, 0)
   
       gsap.utils.toArray(".home__comparisonSection").forEach(section => {
