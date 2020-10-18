@@ -99,7 +99,7 @@ export default {
             this.$router.push('/confirm/'+token)
         },
         addMore() {
-            this.$router.push('/food')
+            this.$router.push('/foods')
         },
         totalPrice(orders) {
             const total = orders.reduce((total, order) => {
