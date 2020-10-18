@@ -1,8 +1,8 @@
 <h1 align="center" >FULL MOON 🌕</h1>
-Full Moon is a web application to offer a new dining experience. With features such as ordering food and beverages, price calculation, writing notes, and tracking orders right from the web app.
-<br>
+Full Moon is a web application to offer a new dining experience. With features such as ordering food and beverages, price calculation, writing notes, and tracking orders right from the web app.  
 
-For the live demo of Full Moon, see [Full Moon Website](https://sprxme-fullmoon.herokuapp.com).
+
+For the live demo of Full Moon, see [Full Moon website](https://sprxme-fullmoon.herokuapp.com).
 <br><br>
 
 <p align="center">
@@ -22,14 +22,14 @@ For the live demo of Full Moon, see [Full Moon Website](https://sprxme-fullmoon.
 </p>
 
 # :book: Table of Contents
-* [Setup and Installation](#setup-and-installation)
-  * [Project Setup](#project-setup)
+* [Setup and Installation](#floppy_disk-setup-and-installation)
+  * [Project Setup](#gear-project-setup)
   * [Run Project (development)](#running-run-project-development)
   * [Start Server (production)](#computer-start-server-production)
 * [Pages](#page_facing_up-pages)
 * [Author](#blue_book-author)
   
-## Setup and Installation
+## :floppy_disk: Setup and Installation
 This project requires Node.js installed on your system. To download Node.js, see [Node.js website](https://nodejs.org/en/).
 
 ### :gear: Project Setup
@@ -48,7 +48,7 @@ npm run start
 ```
 
 ## :page_facing_up: Pages
-Here are the list of all the pages available on Full Moon.
+Here are the list of all the pages available on Full Moon. For more information, see [Full Moon website](https://sprxme-fullmoon.herokuapp.com).
 * Customer
   * Home
   * Menu
