@@ -1,5 +1,5 @@
 <template>
-    <div class="footer">
+    <div class="footer" v-bind:class="{ darkmode: isDarkmode }">
         <div class="footer__columns">
             <div class="footer__column">
                 <ul class="footer__column-list">
@@ -48,7 +48,7 @@
             </div>
         </div>
         <div class="footer__footer">
-            <span class = "footer__shop">
+            <span class = "footer__shop" v-bind:class="{ darkmode__footer: isDarkmode }">
                 More ways to shop: 
                 <label class = "footer__shop-link">Find a Restaurant</label>
                  near you. Or call 021-8182 919398.
@@ -56,9 +56,9 @@
             <div class="footer__copyright">
                 <span class="footer__copyright__left">Copyright © 2020 Sprxme. All rights reserved</span>
                 <div class="footer__copyright__middle">
-                    <span class="footer__label__middle">Privacy Policy</span>
-                    <span class="footer__label__middle">Terms of Use</span>
-                    <span class="footer__label__middle">Site Map</span>
+                    <span class="footer__label__middle" v-bind:class="{ darkmode__middle: isDarkmode }">Privacy Policy</span>
+                    <span class="footer__label__middle" v-bind:class="{ darkmode__middle: isDarkmode }">Terms of Use</span>
+                    <span class="footer__label__middle" v-bind:class="{ darkmode__middle: isDarkmode }">Site Map</span>
                 </div>
                 <span class="footer__copyright__right">Indonesia</span>
             </div>
@@ -68,6 +68,9 @@
 
 <script>
 export default {
+    props: {
+        isDarkmode: Boolean
+    },
     methods:{
         openIg: function(){
             window.open('https://www.instagram.com/sprxme/?hl=en')
@@ -93,7 +96,7 @@ export default {
     }
 
     &__title{
-        color: $text;
+        // color: $text;
         font-weight: 650;
     }
 
@@ -105,6 +108,7 @@ export default {
 
         &:hover{
             color: $text;
+            color: var(--hover-color);
             cursor: pointer;
         }
     }
@@ -130,6 +134,7 @@ export default {
     &__shop{
         color: $secondary-text;
         border-bottom: 1px solid $extra-light-grey;
+        // border-color: var(--border-color);
         padding-bottom: 8px;
         margin-bottom: 7px;
     }
@@ -160,6 +165,7 @@ export default {
         &__middle .footer__label__middle {
             &:hover{
                 color: $text;
+                color: var(--hover-color);
                 cursor: pointer;
             }
         }
@@ -293,4 +299,18 @@ export default {
     }
 }
 
+.darkmode {
+    background-color: #161616;
+    color: $off-white;
+    --hover-color: white;
+    border-color: $subtitle-text;
+
+    &__footer {
+        border-color: $subtitle-text;
+    }
+}
+
+.footer__copyright__middle .darkmode__middle:not(:first-child) {
+    border-color: $subtitle-text;
+}
 </style>

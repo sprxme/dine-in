@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <!-- <div class="background"></div> -->
     <div class="home">
       <div class="home__comparison-container">
         <section class="home__comparisonSection">
@@ -118,14 +119,14 @@ export default {
 
 .background {
   position: absolute;
-  background: #111;
+  background: #161616;
   top: -60px;
   height: 60px;
   width: 100vw;
 }
 
 .home {
-  background-color: #111;
+  background-color: #161616;
   color: white;
   overflow-x: hidden;
   scroll-behavior: smooth;
