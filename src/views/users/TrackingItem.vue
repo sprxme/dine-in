@@ -118,23 +118,27 @@ $empty-progress-circle: #D3D3D3;
 }
 
 .tracking{
+    overflow-x: hidden;
     padding-top: 3em;
     &__label {
         font-size: 40px;
         font-weight: 550;
         text-align: center;
-        width: 100%;
+        // width: 100%;
+        margin: 0 1em;
+        display: block;
     }
 
     &__table {
         margin: 1em 2em 5em 2em;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
+        column-gap: 1rem;
     }
 
     &__container {     
-        padding-top: 2em;
-        margin: auto;
+        padding: 2em 0em;
+        // margin: auto;
     
         &__status {
             display: flex;
@@ -157,6 +161,62 @@ $empty-progress-circle: #D3D3D3;
         display: flex;
         flex-direction: column;
         text-align: center;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .tracking {
+        &__table {
+            margin: 1em 1em;
+        }
+    }
+
+    .circle-wrapper {
+        @include size($default-size *.7, $default-size * .7);
+
+        .circle {
+            @include size(100%, 100%);
+            clip: rect(0, $default-size * .7, $default-size * .7, $default-size * .7 / 2);
+
+            .half-circle {
+                @include size(100%, 100%);
+                border: ($default-size / $size-divider) solid $progress-circle;
+            }
+
+            .empty-half-circle {
+                @include size(100%, 100%);
+                border: ($default-size / $size-divider) solid $empty-progress-circle;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .tracking {
+        &__table {
+            margin: 1em 1em;
+            column-gap: .5rem;
+
+        }
+    }
+
+    .circle-wrapper {
+        @include size($default-size *.6, $default-size * .6);
+
+        .circle {
+            @include size(100%, 100%);
+            clip: rect(0, $default-size *.6, $default-size *.6, $default-size *.6 / 2);
+
+            .half-circle {
+                @include size(100%, 100%);
+                border: ($default-size / $size-divider) solid $progress-circle;
+            }
+
+            .empty-half-circle {
+                @include size(100%, 100%);
+                border: ($default-size / $size-divider) solid $empty-progress-circle;
+            }
+        }
     }
 }
 

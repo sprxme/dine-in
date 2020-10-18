@@ -59,15 +59,15 @@ export default {
         scrollTrigger:{
           trigger: ".home__title-container",
           start: 'top top',
-          end: "100%",
+          end: "200%",
           // markers:true,
           pin: true,
           scrub: true,
         }
       });
-      tl.to(".home__title",{scale: 40, x:500}, 0)
+      tl.to(".home__title",{scale: 40, x:500, opacity: 0}, 0)
         .from(".home__comparisonWrapper",{opacity: 0}, 0)
-  
+        
       gsap.utils.toArray(".home__comparisonSection").forEach(section => {
         let tl = gsap.timeline({
           scrollTrigger: {
@@ -139,7 +139,7 @@ export default {
   }
 
   &__comparison-container {
-    height: 280vh;
+    height: 270vh;
     overflow: hidden;
   }
 
@@ -166,6 +166,7 @@ export default {
   &__horizontal{
     overflow: hidden;
     margin-bottom: 10rem;
+    margin-top: 5rem;
 
     &__wtext{
       display: flex;

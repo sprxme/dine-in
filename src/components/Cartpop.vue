@@ -23,7 +23,7 @@
                 </li>
               <!-- </transition-group> -->
             </div>
-            <div class="cartpop__price-container">
+            <div class="cartpop__price-container unselectable">
               <span class="cartpop__price-title">Total</span> 
               <span class="cartpop__price-total">Rp {{ totalPrice(allOrders) / 1000 }}k</span>
             </div>
