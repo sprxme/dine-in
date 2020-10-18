@@ -1,8 +1,7 @@
 <h1 align="center" >FULL MOON 🌕</h1>
-Full Moon is a web application to offer a new dining experience. With features such as ordering food and beverages, price calculation, writing notes, and tracking orders right from the web app.  
+Full Moon is a web application to offer a new dining experience. With features such as ordering food and beverages, price calculation, writing notes, and tracking orders right from the web app.
 
-
-For the live demo of Full Moon, see [Full Moon website](https://sprxme-fullmoon.herokuapp.com).
+<br>For the live demo of Full Moon, see [Full Moon website](https://sprxme-fullmoon.herokuapp.com).
 <br><br>
 
 <p align="center">
