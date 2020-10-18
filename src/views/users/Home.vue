@@ -7,7 +7,6 @@
           <div class="home__title-container">
             <h1 class="home__title">WELCOME</h1>
           </div>
-          <div>
           <div class="home__comparisonWrapper">
             <div class="home__comparisonImage beforeImage">
               <img src="@/assets/about/bar.jpg" alt="before" class="clip-svg">
@@ -23,9 +22,14 @@
               <img src="@/assets/about/conversation.jpg" alt="after">        
             </div>
           </div>
-          </div>
         </section>
       </div>
+        <section class="home__content">
+          <div class="home__content__intro">
+            <h1 class="home__content__text">"With true friends even water drunk together is sweet enough"</h1>
+            <h2 class="home__content__text">-Unknown</h2>
+          </div>
+        </section>
     </div>
     <div class='home__horizontal'>
       <section class='home__horizontal__text horizontal-animate'>
@@ -72,9 +76,8 @@ export default {
       const tl = gsap.timeline({
         scrollTrigger:{
           trigger: ".home__title-container",
-          start: 'top top',
-          end: "200%",
-          // markers:true,
+          start: 'top',
+          end: "100%",
           pin: true,
           scrub: true,
         }
@@ -90,7 +93,6 @@ export default {
             trigger: section,
             start: 'top',
             end: () => "+=" + (section.offsetHeight + 500),
-            // markers: true,
             scrub: true,
             pin: true,
             anticipatePin: 1
@@ -99,8 +101,19 @@ export default {
         });
         tl.fromTo(section.querySelector(".afterImage"), {xPercent: 100, x: 0}, {xPercent: 0}, 1)
           .fromTo(section.querySelector(".afterImage img"), {xPercent: -100, x: 0}, {xPercent: 0}, 1)
+          .fromTo(section,{scale:1},{scale:0.75},2)
       });
-          
+      
+      const intro = gsap.timeline({
+        scrollTrigger:{
+          trigger:".home__content",
+          start:'top',
+          end: 'bottom',
+          scrub: true
+        }
+      });
+      intro.to(".home__content__text", {y:30,opacity:1,stagger:0.1}, 3)
+
       gsap.utils.toArray(".horizontal-animate").forEach((section, index) => {
         const w = section.querySelector('.home__horizontal__wtext');
         const [x, xEnd] = (index % 2) ? ['100%', (w.scrollWidth - section.offsetWidth) * -1] : [w.scrollWidth * -1, 0];
@@ -194,6 +207,13 @@ export default {
     object-fit: cover;
   }
 
+   &__content{
+    display: flex;
+    justify-content: center;
+    position: relative;
+  
+  }
+
   &__horizontal{
     overflow: hidden;
     margin-bottom: 15rem;
@@ -223,6 +243,7 @@ export default {
       width: 100%;      
       background: #f0f0f0;
     }
+
   }
 }
 
