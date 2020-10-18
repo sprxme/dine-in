@@ -52,7 +52,7 @@
         <p class="about__par">
           Full Moon Liquor Bar & Dim Sum is a Hong kong-inspired bar and dim sum parlour, dressed in a vintage industrial interior like a seductive Chinese temptress. With bright red neon lights that decorate the entrance as well as bar counter, Full Moon has attracted loyal devotees ever since its establishment in 2014.
           <br><br>
-          From the bar, Pao Pao boasts an infinite list of liquor, perfect to hype up the young night. Beside the highly-curated Asian cuisines, Full Moon's house cocktails are mostly seasonal, which depends on the best available fresh ingredient of the season. Not to mention the range of dim sum that arrives in generous servings.
+          From the bar, Full Moon boasts an infinite list of liquor, perfect to hype up the young night. Beside the highly-curated Asian cuisines, Full Moon's house cocktails are mostly seasonal, which depends on the best available fresh ingredient of the season. Not to mention the range of dim sum that arrives in generous servings.
         </p>
       </div>
     </div> 
