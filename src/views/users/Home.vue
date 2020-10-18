@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    <div class="background"/>
     <div class="home">
       <div class="home__comparison-container">
         <section class="home__comparisonSection">
@@ -24,10 +23,11 @@
           EAT. LAUGH. ENJOY. REPEAT. EAT. LAUGH. ENJOY. REPEAT.
         </div>
       </section>
-      <section v-for="index in 2" :key="index" class='demo-gallery horizontal-animate'>
+      <section v-for="indexI in 2" :key="indexI" class='demo-gallery horizontal-animate'>
         <ul class='home__horizontal__wtext'>
-          <li class="home__horizontal__list" v-for="index in 4" :key="index"> 
-            <img class="home__horizontal__image" src="@/assets/about/shumai.jpg">
+          <li class="home__horizontal__list" v-for="indexJ in 4" :key="indexJ"> 
+            <img class="home__horizontal__image" :src="require('@/assets/home/'+indexJ+'.jpeg')" v-if="indexI < 2">
+            <img class="home__horizontal__image" :src="require('@/assets/home/'+(indexJ+4)+'.jpeg')" v-else>
           </li>
         </ul>
       </section>
@@ -182,13 +182,13 @@ export default {
 
     &__list{
       flex-shrink: 0;
+      overflow: hidden;
       width: clamp(500px, 60vw, 800px);
       padding-right: 1rem;
     }
 
     &__image{
-      width: 100%;
-      height: auto;
+      width: 100%;      
       background: #f0f0f0;
     }
   }
