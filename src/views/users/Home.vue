@@ -80,8 +80,8 @@ export default {
           },
           defaults: {ease: "none"}
         });
-        tl.fromTo(section.querySelector(".afterImage"), {xPercent: 100, x: 0}, {xPercent: 0}, .5)
-          .fromTo(section.querySelector(".afterImage img"), {xPercent: -100, x: 0}, {xPercent: 0}, .5);
+        tl.fromTo(section.querySelector(".afterImage"), {xPercent: 100, x: 0}, {xPercent: 0}, 1)
+          .fromTo(section.querySelector(".afterImage img"), {xPercent: -100, x: 0}, {xPercent: 0}, 1);
       });
           
       gsap.utils.toArray(".horizontal-animate").forEach((section, index) => {
