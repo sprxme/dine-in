@@ -23,11 +23,11 @@
 
 <script>
 export default {
-   props: {
-       token: String
-   },
-   methods: {
-       doCopy() {
+    props: {
+        token: String
+    },
+    methods: {
+        doCopy() {
             navigator.clipboard.writeText(this.$refs.token.innerHTML)
                 .then(() => this.$bvModal.show('alert'))
         }

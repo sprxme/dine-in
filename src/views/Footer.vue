@@ -261,15 +261,15 @@ export default {
         }
 
         &__title{
-            font-size: 14px;
+            font-size: 16px;
         }
 
         &__label{
-            font-size: 12px;
+            font-size: 14px;
         }
 
         &__footer{
-            font-size: 10px;
+            font-size: 12px;
         }
 
         &__about {
