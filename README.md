@@ -28,6 +28,7 @@ For the live demo of Full Moon, see [Full Moon website](https://sprxme-fullmoon.
   * [Start Server (production)](#computer-start-server-production)
 * [Pages](#page_facing_up-pages)
 * [Author](#blue_book-author)
+* [Disclaimer](#warning-disclaimer)
   
 ## :floppy_disk: Setup and Installation
 This project requires Node.js installed on your system. To download Node.js, see [Node.js website](https://nodejs.org/en/).
@@ -82,3 +83,6 @@ Oh how lovely this project is, if it weren't for our lovely (often highly caffei
 
 <br/>
 The warnings along the way, the errors that jumpscares our development team, and all the bugs we fought fiercely. May those things become our good luck charm on our next journey ahead. These memories - will stay with me. 💞
+
+## :warning: Disclaimer
+All the images and names used in the web application belong to their respective owners and I or this organization does not claim any right over them. This web app is for educational purposes only.
