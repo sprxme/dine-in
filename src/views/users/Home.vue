@@ -59,7 +59,7 @@ export default {
         scrollTrigger:{
           trigger: ".home__title-container",
           start: 'top top',
-          end: "100%",
+          end: "300%",
           // markers:true,
           pin: true,
           scrub: true,
@@ -67,6 +67,7 @@ export default {
       });
       tl.to(".home__title",{scale: 40, x:500}, 0)
         .from(".home__comparisonWrapper",{opacity: 0}, 0)
+        .fromTo(".home__title-container", {opacity: 1}, {opacity: 0} )
   
       gsap.utils.toArray(".home__comparisonSection").forEach(section => {
         let tl = gsap.timeline({

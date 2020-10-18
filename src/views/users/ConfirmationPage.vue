@@ -30,6 +30,7 @@ export default {
         doCopy() {
             navigator.clipboard.writeText(this.$refs.token.innerHTML)
                 .then(() => this.$bvModal.show('alert'))
+                .catch((error) => console.log('Unable to show alert: ' + error.message))
         }
     },
     created: function () {

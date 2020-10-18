@@ -159,7 +159,7 @@ export default {
 
   &__titlebar{
     display: flex;
-    padding: .8rem 2rem;
+    padding: .8rem .5rem .8rem 2rem;
     height: 55px;
     border-bottom: 1px solid rgba(0,0,0,0.1);
     cursor: pointer;
