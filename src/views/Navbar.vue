@@ -2,7 +2,7 @@
 <div class="container-nav">
   <div class="sidebar">
     <font-awesome-icon icon="bars" class="sidebar__icon float-left" v-b-toggle.sidebar-1/>
-    <h2 class="sidebar__navtitle">FULL MOON</h2>
+    <h2 class="sidebar__navtitle" @click="goToHome">FULL MOON</h2>
     <div class="sidebar__end">
       <div class="sidebar__end-shop">
         <font-awesome-icon icon="shopping-bag" class="sidebar__icon icon-primary" v-on:click="show = !show; dim = !dim; $emit('tap-cart')"/>
@@ -85,7 +85,17 @@ export default {
       } else {
         document.body.classList.remove('overflow-hidden')
       }
-    }
+    },
+    goToHome() {
+      this.$router.replace('/')
+        .then(() => {
+          this.$router.go(0);
+        })
+        .catch(() => {
+          // already pointing to the same route, so just refresh
+          this.$router.go(0)
+        })
+      },
   },
   components:{
     Cartpop
@@ -184,6 +194,9 @@ export default {
     padding-left: 15px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   &__title{
