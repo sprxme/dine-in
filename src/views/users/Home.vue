@@ -126,7 +126,7 @@ export default {
 }
 
 .home {
-  background-color: #161616;
+  background-color: #111;
   color: white;
   overflow-x: hidden;
   scroll-behavior: smooth;
@@ -178,7 +178,7 @@ export default {
 
   &__horizontal{
     overflow: hidden;
-    margin-bottom: 10rem;
+    margin-bottom: 15rem;
     margin-top: 5rem;
 
     &__wtext{
