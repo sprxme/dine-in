@@ -11,6 +11,7 @@ import BootstrapVue from 'bootstrap-vue';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 import store from './store'
+import titleMixin from './mixins/titleMixin'
 
 library.add(
               faListUl,
@@ -46,6 +47,8 @@ library.add(
 Vue.use(VueMaterial);
 Vue.use(BootstrapVue);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
+
+Vue.mixin(titleMixin)
 
 Vue.config.productionTip = false;
 

@@ -45,10 +45,10 @@
             <font-awesome-icon icon="user-circle" class="cartpop__icon" />
             <span>Sign in</span>
         </router-link>
-        <router-link v-if="checkAuth" class="cartpop__menu route-menu" to="/profile" @click.native="dim = false; $emit('change-route')">
+        <!-- <router-link v-if="checkAuth" class="cartpop__menu route-menu" to="/profile" @click.native="dim = false; $emit('change-route')">
             <font-awesome-icon icon="user-circle" class="cartpop__icon" />
             <span>Profile</span>
-        </router-link>
+        </router-link> -->
         <span v-if="checkAuth" class="cartpop__menu route-menu" v-b-modal.modal-sign-out @click="dim = false; ">
             <font-awesome-icon icon="sign-out-alt" class="cartpop__icon" />
             <span>Sign out</span>
@@ -81,8 +81,14 @@ export default {
       ...mapActions(['updateCart']),
       signOut() {
         this.$store.commit("setAuth", false);
-        this.$router.replace('/');
-        this.$router.go();
+        this.$router.push('/')
+          .then(() => {
+            this.$router.go(0);
+          })
+          .catch(() => {
+            // already pointing to the same route, so just refresh
+            this.$router.go(0)
+          })
       },
       updateQuantity(value, order) {
         let food = { ...order }

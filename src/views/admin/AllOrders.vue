@@ -27,6 +27,7 @@
 <script>
 import { mapGetters } from 'vuex'
 export default {
+    title: 'Admin - Order List',
     data: function(){
         return{
             search: null

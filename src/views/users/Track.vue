@@ -52,6 +52,7 @@
 <script>
 import { mapGetters } from 'vuex';
 export default {
+    title: 'Tracking 🔍',
      data: function(){
         return{
             myIcon: 'eye',

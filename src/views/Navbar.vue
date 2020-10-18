@@ -180,7 +180,8 @@ export default {
   &__navtitle{
     font-size: 24px;
     margin: auto;
-    letter-spacing: 5px;
+    letter-spacing: 15px;
+    padding-left: 15px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
   }
@@ -335,4 +336,12 @@ export default {
   }
 }
 
+@media screen and (max-width:400px){
+  .sidebar {
+    &__navtitle{
+      letter-spacing: 5px;
+      padding-left: 5px;
+    }
+  }
+}
 </style>

@@ -26,6 +26,7 @@
 
 <script>
 export default {
+  title: 'Full Moon 🌕 - Sign In',
   name: 'login',
   data: function(){
     return{

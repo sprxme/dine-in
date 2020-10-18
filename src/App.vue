@@ -3,7 +3,7 @@
     <Navbar v-show="$route.path.includes('/account') ? false : true" v-on:tap-cart="disableScroll" v-on:change-route="enableScroll"/>
     <SafetyPrecautions v-show="$route.path.includes('/account') ? false : true" />
     <router-view/>    
-    <Footer v-show="$route.path.includes('/account') ? false : true"/>
+    <Footer v-show="$route.path.includes('/account') ? false : true" v-bind:isDarkmode="$route.path === '/'"/>
   </div>
 </template>
 

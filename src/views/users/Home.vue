@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <!-- <div class="background"></div> -->
     <div class="home">
       <div class="home__comparison-container">
         <section class="home__comparisonSection">
@@ -43,8 +44,12 @@
 <script>
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { mapGetters } from 'vuex';
 
 export default {
+  title () {
+    return 'Full Moon 🌕' + this.checkAdmin
+  },
   name: 'Home',
   mounted: function() {
     this.startAnimation();
@@ -96,7 +101,15 @@ export default {
           }
         });
       });
-      
+    }
+  },
+  computed: {
+    ...mapGetters(['checkAuth']),
+    checkAdmin: function() {
+      if (this.checkAuth) {
+        return ' - Admin'
+      }
+      return ''
     }
   }
 }
@@ -106,7 +119,7 @@ export default {
 
 .background {
   position: absolute;
-  background: #111;
+  background: #161616;
   top: -60px;
   height: 60px;
   width: 100vw;
@@ -165,7 +178,7 @@ export default {
 
   &__horizontal{
     overflow: hidden;
-    margin-bottom: 10rem;
+    margin-bottom: 15rem;
     margin-top: 5rem;
 
     &__wtext{

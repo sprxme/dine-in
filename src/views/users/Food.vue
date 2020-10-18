@@ -21,6 +21,7 @@ import MenuCard from '@/components/user/MenuCard.vue';
 import { mapGetters } from 'vuex';
 
 export default {
+    title: 'Menu - Foods 🍽',
     methods:{
         sortCategory: function(category){
             return this.allFoods.filter(function(food){
