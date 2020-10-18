@@ -1,7 +1,8 @@
 <template>
 <div class="container-nav">
   <div class="sidebar">
-    <font-awesome-icon icon="bars" class="sidebar__icon" v-b-toggle.sidebar-1/>
+    <font-awesome-icon icon="bars" class="sidebar__icon float-left" v-b-toggle.sidebar-1/>
+    <h2 class="sidebar__navtitle">FULL MOON</h2>
     <div class="sidebar__end">
       <div class="sidebar__end-shop">
         <font-awesome-icon icon="shopping-bag" class="sidebar__icon icon-primary" v-on:click="show = !show; dim = !dim; $emit('tap-cart')"/>
@@ -176,6 +177,14 @@ export default {
     user-select: none;
   }
 
+  &__navtitle{
+    font-size: 24px;
+    margin: auto;
+    letter-spacing: 5px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+  }
+
   &__title{
     font-size: 18px;
     padding: 0;
@@ -313,6 +322,11 @@ export default {
 
 .menu-dropdown {
   padding: .8rem 0 0 0;
+}
+
+.float-left{
+  float: left;
+  margin-right: auto;
 }
 
 @media screen and (min-width:780px){
