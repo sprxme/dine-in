@@ -1,50 +1,56 @@
 <h1 align="center" >FULL MOON 🌕</h1>
 Full Moon is a web application to offer a new dining experience. With features such as ordering food and beverages, price calculation, writing notes, and tracking orders right from the web app.
 
+
 For the live demo of Full Moon, see [Full Moon Website](https://sprxme-fullmoon.herokuapp.com).
 <br>
 
 # :book: Table of Contents
 * [Setup and Installation](#setup-and-installation)
   * [Project Setup](#project-setup)
-  * [Run Project (development)](#:running:-run-project-(development))
-  * [Start Server (production)](#:computer:-start-server-(production))
-* [Pages](#pages)
-  * [Customer](#customer)
-    * Home
-    * Menu
-      * Foods
-      * Drinks
-    * About
-    * Order
-    * Confirmation
-    * Track Order
-  * Admin
-    * All Orders
-    * Menu Edit
-      * Food Edit
-      * Beverage Edit
-      * Category Edit
-  * Others
-    * Sign In
-    * Page Not Found
+  * [Run Project (development)](#running-run-project-(development))
+  * [Start Server (production)](#computer-start-server-(production))
+* [Pages](#page-facing-up-pages)
 * [Author](#:blue_book:-author:)
+  
+## Setup and Installation
+This project requires Node.js installed on your system. To download Node.js, see [Node.js website](https://nodejs.org/en/).
 
-## :gear: Project setup
+### :gear: Project Setup
 ```
 npm install
 ```
 
-## :running: Run project (development)
+### :running: Run Project (development)
 ```
 npm run serve
 ```
 
-## :computer: Start server (production)
+### :computer: Start Server (production)
 ```
 npm run start
 ```
 
+## :page_facing_up: Pages
+Here are the list of all the pages available on Full Moon.
+* [Customer](#customer)
+  * [Home](#home)
+  * [Menu](#menu)
+    * Foods
+    * Drinks
+  * About
+  * Order
+  * Confirmation
+  * Track Order
+* Admin
+  * All Orders
+  * Menu Edit
+    * Food Edit
+    * Beverage Edit
+    * Category Edit
+* Others
+  * Sign In
+  * Page Not Found
 
 ## :blue_book: Author:
 Oh how lovely this project is, if it weren't for our lovely (often highly caffeinated ☕️) in-house development team. All the thoughts and work our talented team put into this project hopes to inspire many of you boys and girls! 🧒 👧. Curious about our development team? 🧐 **boom** instagram profile links are provided also! 
