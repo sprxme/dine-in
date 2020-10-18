@@ -1,13 +1,13 @@
 # :earth_asia: Web Dine-in
 
-## :gear: Project setup
-```
-npm install
-```
-
-## :running: Run project
+## :running: Run project (development)
 ```
 npm run serve
+```
+
+## :computer: Start server (production)
+```
+npm run start
 ```
 
 
