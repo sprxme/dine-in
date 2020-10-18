@@ -8,17 +8,23 @@
     </div>
 </template>
 
+<script>
+export default {
+  title: 'Page Not Found 🔍',
+}
+</script>
+
 <style lang="scss" scoped>
 .PNF{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 13.5em 10vw 10em;
+    padding: 13.5em 10vw 13.5em;
     
     &__title{
         text-align: center;
-        width: 502px;
+        max-width: 502px;
         margin-bottom: 40px;
     }
 
