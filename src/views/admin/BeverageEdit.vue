@@ -75,6 +75,7 @@ import MenuCardEdit from '@/components/admin/AdminMenuCard';
 import { mapGetters, mapActions } from 'vuex';
 
 export default {
+    title: 'Admin - Beverage Edit 🍸',
     data: function(){
         return{
             selected: null,

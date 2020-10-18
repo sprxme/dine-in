@@ -59,6 +59,7 @@
 import { mapGetters } from 'vuex';
 import CategoryCard from '@/components/admin/CategoryCard'
 export default {
+    title: 'Admin - Category Edit',
     data: function(){
         return{
             name: null,

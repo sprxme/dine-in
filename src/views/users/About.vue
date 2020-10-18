@@ -103,6 +103,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 export default {
+  title: 'Full Moon 🌕 - About',
   name: 'Home',
   data: function() {
     return {

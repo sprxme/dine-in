@@ -43,8 +43,12 @@
 <script>
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { mapGetters } from 'vuex';
 
 export default {
+  title () {
+    return 'Full Moon 🌕' + this.checkAdmin
+  },
   name: 'Home',
   mounted: function() {
     this.startAnimation();
@@ -96,7 +100,15 @@ export default {
           }
         });
       });
-      
+    }
+  },
+  computed: {
+    ...mapGetters(['checkAuth']),
+    checkAdmin: function() {
+      if (this.checkAuth) {
+        return ' - Admin'
+      }
+      return ''
     }
   }
 }

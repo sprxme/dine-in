@@ -14,11 +14,11 @@ const state = {
             child: [
                 {
                     name: 'Food',
-                    routeLink: '/food'
+                    routeLink: '/foods'
                 },
                 {
                     name: 'Beverages',
-                    routeLink: '/beverage'
+                    routeLink: '/beverages'
                 }
             ],
             permission: ['user']

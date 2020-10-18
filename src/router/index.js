@@ -45,12 +45,12 @@ Vue.use(VueRouter)
     ]
   },
   {
-    path: '/food',
+    path: '/foods',
     name: 'Food',
     component: Food
   },
   {
-    path: '/beverage',
+    path: '/beverages',
     name: 'Beverage',
     component: Beverage
   },
