@@ -45,27 +45,28 @@
         </div>
       </div>
     </section>
-
-    <div class="about__column">
-      <div class="about__left">
-        <p class="about__left__par">
-          <label style="font-weight:bold">GRAND INDONESIA</label><br>
-          1ST FLOOR<br>
-          JL. M.H THAMRIN NO.1<br>
-          JAKARTA 10310<br><br>
-          <label style="font-weight:bold">CONTACT US</label><br>
-          <label style="text-decoration:underline">+6221 1063 8926</label>
-        </p>
-      </div>
-      <div class="about__right">
-        <p class="about__right__par">
-          <label style="font-weight:bold">PLAZA INDONESIA</label><br>
-          GROUND FLOOR<br>
-          JL. M.H THAMRIN NO.28-30<br>
-          JAKARTA 10350<br><br>
-          <label style="font-weight:bold">CONTACT US</label><br>
-          <label style="text-decoration:underline">+6212 9612 5588</label>
-        </p>
+    <div class="about__column__container">
+      <div class="about__column">
+        <div class="about__left">
+          <p class="about__left__par">
+            <label style="font-weight:bold">GRAND INDONESIA</label><br>
+            1ST FLOOR<br>
+            JL. M.H THAMRIN NO.1<br>
+            JAKARTA 10310<br><br>
+            <label style="font-weight:bold">CONTACT US</label><br>
+            <label style="text-decoration:underline">+6221 1063 8926</label>
+          </p>
+        </div>
+        <div class="about__right">
+          <p class="about__right__par">
+            <label style="font-weight:bold">PLAZA INDONESIA</label><br>
+            GROUND FLOOR<br>
+            JL. M.H THAMRIN NO.28-30<br>
+            JAKARTA 10350<br><br>
+            <label style="font-weight:bold">CONTACT US</label><br>
+            <label style="text-decoration:underline">+6212 9612 5588</label>
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -115,6 +116,22 @@ export default {
         },
         y: "-30%"
       });
+
+      gsap.to(".about__left",{duration: 1, opacity: 1, ease:"power2.in"},1)
+
+      const intro = gsap.timeline({
+        scrollTrigger:{
+          trigger:".about__column__container",
+          start:'top 75%',
+          end: 'bottom 25%',
+        }
+      });
+      intro.fromTo(".about__column", {
+          y:25,
+          opacity:0,
+          stagger:0.1,
+          scrub: 0.5,
+        }, {y:0, opacity: 1}, 0)
     },
 
     onSlideStart() {
