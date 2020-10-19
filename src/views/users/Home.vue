@@ -3,23 +3,31 @@
     <!-- <div class="background"></div> -->
     <div class="home">
       <div class="home__comparison-container">
+        <!-- <section class="section section--intro">
+          <article class="section__content">
+            <h2 class="text">Apples</h2>
+            <h1 class="text">Lots of flavor.</h1>
+            <h1 class="text">Less of the calories.</h1>
+            <h2 class="text">One of your 5 a day!</h2>
+            <div class="blurb">
+              <p>Some say, "An apple a day, keeps the doctor away!".</p>
+            </div>
+          </article>
+        </section> -->
         <section class="home__comparisonSection">
-          <div>
-            
-          </div>
           <div class="home__title-container">
             <h1 class="home__title">WELCOME</h1>
           </div>
           <div class="home__comparisonWrapper">
             <div class="home__comparisonImage beforeImage">
               <img src="@/assets/about/bar.jpg" alt="before" class="clip-svg">
-              <svg class="clip-image">
+              <!-- <svg class="clip-image">
                 <defs>
                   <clipPath id="clipPath" class="clip__comparisonImage">
                     <circle r="5%" cx="49.7vw" cy="40.5vh" class="clip-circle"/>
                   </clipPath>
                 </defs>
-              </svg>
+              </svg> -->
             </div>
             <div class="home__comparisonImage afterImage">
               <img src="@/assets/about/conversation.jpg" alt="after">        
@@ -108,7 +116,7 @@ export default {
       });
       tl.to(".home__title",{scale: 118,opacity: 0}, 0)
         .from(".home__comparisonWrapper",{opacity: 0}, 0)
-        .fromTo(".clip-circle",{attr:{r:0}},{attr:{r:1400,cx:'73vw',cy:'50vh'}},0)
+        //.fromTo(".clip-circle",{attr:{r:0}},{attr:{r:1400,cx:'73vw',cy:'50vh'}},0)
         
         
       gsap.utils.toArray(".home__comparisonSection").forEach(section => {
@@ -144,46 +152,46 @@ export default {
         , 0)
 
 
-      gsap.set(".panel", { zIndex: (i, target, targets) => targets.length - i });
+      // gsap.set(".panel", { zIndex: (i, target, targets) => targets.length - i });
 
 
-      gsap.utils.toArray(".panel:not(.purple)").forEach((image, i) => {
+      // gsap.utils.toArray(".panel:not(.purple)").forEach((image, i) => {
         
-        let tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: ".black",
-            start: () => "top -" + (window.innerHeight*(i+0.5)),
-            end: () => "+=" + window.innerHeight,
-            scrub: true,
-            markers: true,
-            toggleActions: "play none reverse none",
-            invalidateOnRefresh: true,   
-            pin: true,
-          }
-        })
-        tl.to(image, { height: 0 },0);
-      });
+      //   let tl = gsap.timeline({
+      //     scrollTrigger: {
+      //       trigger: ".black",
+      //       start: () => "top -" + (window.innerHeight*(i+0.5)),
+      //       end: () => "+=" + window.innerHeight,
+      //       scrub: true,
+      //       markers: true,
+      //       toggleActions: "play none reverse none",
+      //       invalidateOnRefresh: true,   
+      //       pin: true,
+      //     }
+      //   })
+      //   tl.to(image, { height: 0 },0);
+      // });
 
-      gsap.set(".panel-text", { zIndex: (i, target, targets) => targets.length - i });
+      // gsap.set(".panel-text", { zIndex: (i, target, targets) => targets.length - i });
 
-      gsap.utils.toArray('.panel-text').forEach((text, i) => {
+      // gsap.utils.toArray('.panel-text').forEach((text, i) => {
         
-        let tl = gsap.timeline({
+      //   let tl = gsap.timeline({
           
-          scrollTrigger: {
-            trigger: ".black",
-            start: () => "top -" + (window.innerHeight*i),
-            end: () => "+=" + window.innerHeight,
-            scrub: true,
-            toggleActions: "play none reverse none",
-            invalidateOnRefresh: true,
-            pin: true,
-          }
+      //     scrollTrigger: {
+      //       trigger: ".black",
+      //       start: () => "top -" + (window.innerHeight*i),
+      //       end: () => "+=" + window.innerHeight,
+      //       scrub: true,
+      //       toggleActions: "play none reverse none",
+      //       invalidateOnRefresh: true,
+      //       pin: true,
+      //     }
           
-        })
-        tl.to(text, { duration: 0.33, opacity: 1, y:"50%" },0)  
-          .to(text, { duration: 0.33, opacity: 0, y:"0%" }, 0.66,0);
-      });
+      //   })
+      //   tl.to(text, { duration: 0.33, opacity: 1, y:"50%" },0)  
+      //     .to(text, { duration: 0.33, opacity: 0, y:"0%" }, 0.66,0);
+      // });
 
       gsap.utils.toArray(".horizontal-animate").forEach((section, index) => {
         const w = section.querySelector('.home__horizontal__wtext');
@@ -349,6 +357,7 @@ export default {
 
 .clip-svg{
   clip-path: url(#clipPath);
+   -webkit-clip-path:  url(#clipPath);
 }
 
 .scroller {
@@ -483,4 +492,11 @@ export default {
   background-image: none;
 }
 
+@media screen and (max-width: 400px){
+  .home{
+    &__title{
+      font-size: 20px;
+    }
+  }
+}
 </style>
