@@ -27,10 +27,31 @@
       <section class="home__content">
         <div class="home__content__intro">
           <h1 class="home__content__text">"With true friends even water drunk together is sweet enough"</h1>
-          <h2 class="home__content__text subtext">-Unknown</h2>
+          <h2 class="home__content__text subtext">-Chinese Proverbs</h2>
         </div>
       </section>
     </div>
+
+    <!-- <div class="scroller">
+      <section class="black">
+        <div class="text-wrap">  
+          <div class="scroller__fixed-text">Craving</div>        
+          <div class="panel-text blue-text">Fried Dimsum?</div> 
+          <div class="panel-text red-text">Steamed Dimsum?</div>   
+          <div class="panel-text orange-text">Noodles?</div> 
+          <div class="panel-text purple-text">Dessert?</div> 
+          <div class="panel-text end-text">We got all here.</div>
+        </div>
+        
+        <div class="p-wrap">
+          <div class="panel blue"></div> 
+          <div class="panel red"></div>
+          <div class="panel orange"></div> 
+          <div class="panel purple"></div> 
+        </div>
+      </section>
+    </div> -->
+
     <div class='home__horizontal'>
       <section class='home__horizontal__text horizontal-animate'>
         <div class='home__horizontal__wtext text'>
@@ -47,7 +68,7 @@
       </section>
       <section class='home__horizontal__text horizontal-animate'>
         <div class='home__horizontal__wtext text'>
-           EAT. LAUGH. ENJOY. REPEAT. EAT. LAUGH. ENJOY. REPEAT. 
+           REPEAT. ENJOY. LAUGH. EAT. REPEAT. ENJOY. LAUGH. EAT. REPEAT. ENJOY. LAUGH. EAT.
         </div>
       </section>
     </div>
@@ -109,16 +130,57 @@ export default {
           trigger:".home__content",
           start:'top 75%',
           end: 'bottom 25%',
-          toggleActions: "restart complete complete reset"
+          toggleActions: "restart none complete reset"
         }
       });
       intro.fromTo(".home__content__text", {
           y:25,
           opacity:0,
-          stagger:0.1,
-          scrub: 0.5,
+          stagger:1,
         }, {y:0, opacity: 1}
         , 0)
+
+
+      gsap.set(".panel", { zIndex: (i, target, targets) => targets.length - i });
+
+
+      gsap.utils.toArray(".panel:not(.purple)").forEach((image, i) => {
+        
+        let tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".black",
+            start: () => "top -" + (window.innerHeight*(i+0.5)),
+            end: () => "+=" + window.innerHeight,
+            scrub: true,
+            markers: true,
+            toggleActions: "play none reverse none",
+            invalidateOnRefresh: true,   
+            pin: true,
+          }
+        })
+        tl.to(image, { height: 0 },0);
+      });
+
+      gsap.set(".panel-text", { zIndex: (i, target, targets) => targets.length - i });
+
+      gsap.utils.toArray('.panel-text').forEach((text, i) => {
+        
+        let tl = gsap.timeline({
+          
+          scrollTrigger: {
+            trigger: ".black",
+            start: () => "top -" + (window.innerHeight*i),
+            end: () => "+=" + window.innerHeight,
+            scrub: true,
+            toggleActions: "play none reverse none",
+            invalidateOnRefresh: true,
+            pin: true,
+          }
+          
+        })
+        tl.to(text, { duration: 0.33, opacity: 1, y:"50%" },0)  
+          .to(text, { duration: 0.33, opacity: 0, y:"0%" }, 0.66,0);
+      });
 
       gsap.utils.toArray(".horizontal-animate").forEach((section, index) => {
         const w = section.querySelector('.home__horizontal__wtext');
@@ -127,7 +189,7 @@ export default {
           x: xEnd,
           scrollTrigger: { 
             trigger: section, 
-            scrub: 0.5 
+            scrub: true, 
           }
         });
       });
@@ -239,7 +301,7 @@ export default {
     }
 
     &__text .text{
-      font-size: clamp(3rem, 15vw, 6rem);
+      font-size: clamp(3rem, 4rem, 6rem);
       line-height: 1;
       font-weight: 900;
       white-space: nowrap;
@@ -248,7 +310,7 @@ export default {
     &__list{
       flex-shrink: 0;
       overflow: hidden;
-      width: clamp(500px, 60vw, 800px);
+      width: clamp(500px, 55vw, 800px);
       padding-right: 1rem;
     }
 
@@ -285,4 +347,137 @@ export default {
 .clip-svg{
   clip-path: url(#clipPath);
 }
+
+.scroller {
+  height: 100vh;
+}
+
+.orange {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: #753500;
+}
+
+.text {
+  color: #fff;
+}
+
+.black {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100vh;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #111;
+}
+
+.blue {
+  height: 100vh;
+  background-color: #00026d;
+}
+
+
+.text-wrap {
+  position: relative;
+  overflow: hidden;
+  width: 450px;
+  height: 80vh;
+}
+
+.panel-text {
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  right: 0%;
+  bottom: 0%;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  font-size: 40px;
+  text-transform: uppercase;
+  font-weight: 900;
+  text-align:center;
+  background-color: #111;
+  
+  transform:translateY(100%);
+  opacity: 0;
+}
+
+.panel-text.blue-text {
+  color: blue;
+}
+
+.panel-text.red-text {
+  color: red;
+}
+
+.panel-text.purple-text {
+  color: purple;
+}
+
+.panel-text.orange-text {
+  color: orange;
+}
+
+
+
+
+
+
+.p-wrap {
+  position: relative;
+  overflow: hidden;
+  width: 450px;
+  height: 80vh;
+}
+
+.panel {
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  right: 0%;
+  bottom: 0%;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  //background-image: url("../images/5ed12171d9d512cb2feead83_5.jpg");
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.panel._2 {
+  z-index: 1;
+  //background-image: url("../images/5f5a5b3515c4dd0c2c455925_110642301_938622823267359_7859124022958180678_n201.jpg");
+}
+
+.panel.blue {
+  z-index: auto;
+}
+
+.panel.red {
+  z-index: auto;
+  background-color: red;
+  background-image: none;
+}
+
+.panel.orange {
+  z-index: auto;
+  background-color: #cf5d00;
+  background-image: none;
+}
+
+.panel.purple {
+  z-index: auto;
+  background-color: #808;
+  background-image: none;
+}
+
 </style>
