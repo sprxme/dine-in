@@ -251,7 +251,8 @@ export default {
     top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 0 1rem 0 3rem;
+    padding: 0 1rem 0 1rem;
+    margin-left: 12px;
   }
   
   &__comparisonWrapper{
@@ -496,6 +497,13 @@ export default {
   .home{
     &__title{
       font-size: 20px;
+    }
+
+    &__content{
+      &__text{
+        font-size: 1rem;
+        text-align: center;
+      }
     }
   }
 }
