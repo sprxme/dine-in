@@ -296,7 +296,6 @@ export default {
     }
 
     &__warning{
-        // color: $btn-destructive;
         min-width: 240px;
         margin-top: 1rem;
         margin-bottom: .3rem;
@@ -375,7 +374,6 @@ export default {
     .orderlist{
         padding: 3em 20vw 7em;
     }
-
 }
 
 @media screen and (max-width:800px){
@@ -395,7 +393,6 @@ export default {
                 text-align: center;
                 font-size: 30px;
             }
-            
         }
 
         &__title {
