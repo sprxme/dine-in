@@ -4,6 +4,9 @@
     <div class="home">
       <div class="home__comparison-container">
         <section class="home__comparisonSection">
+          <div>
+            
+          </div>
           <div class="home__title-container">
             <h1 class="home__title">WELCOME</h1>
           </div>
