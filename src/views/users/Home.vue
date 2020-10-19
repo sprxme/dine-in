@@ -24,12 +24,12 @@
           </div>
         </section>
       </div>
-        <section class="home__content">
-          <div class="home__content__intro">
-            <h1 class="home__content__text">"With true friends even water drunk together is sweet enough"</h1>
-            <h2 class="home__content__text">-Unknown</h2>
-          </div>
-        </section>
+      <section class="home__content">
+        <div class="home__content__intro">
+          <h1 class="home__content__text">"With true friends even water drunk together is sweet enough"</h1>
+          <h2 class="home__content__text subtext">-Unknown</h2>
+        </div>
+      </section>
     </div>
     <div class='home__horizontal'>
       <section class='home__horizontal__text horizontal-animate'>
@@ -107,12 +107,18 @@ export default {
       const intro = gsap.timeline({
         scrollTrigger:{
           trigger:".home__content",
-          start:'top',
-          end: 'bottom',
-          scrub: true
+          start:'top 75%',
+          end: 'bottom 25%',
+          toggleActions: "restart complete complete reset"
         }
       });
-      intro.to(".home__content__text", {y:30,opacity:1,stagger:0.1}, 3)
+      intro.fromTo(".home__content__text", {
+          y:25,
+          opacity:0,
+          stagger:0.1,
+          scrub: 0.5,
+        }, {y:0, opacity: 1}
+        , 0)
 
       gsap.utils.toArray(".horizontal-animate").forEach((section, index) => {
         const w = section.querySelector('.home__horizontal__wtext');
@@ -152,7 +158,7 @@ export default {
 .home {
   background-color: #111;
   color: white;
-  overflow-x: hidden;
+  overflow: hidden;
   scroll-behavior: smooth;
 
   &__title-container {
@@ -211,7 +217,14 @@ export default {
     display: flex;
     justify-content: center;
     position: relative;
-  
+    margin-top: -120px;
+    overflow: hidden;
+    padding: 0 15vw;
+
+    &__text{
+      font-size: clamp(1rem, 2rem, 3rem);
+      text-align: center;
+    }
   }
 
   &__horizontal{
@@ -247,6 +260,10 @@ export default {
   }
 }
 
+.subtext{
+  font-size: clamp(0.5rem, 1.5rem, 2rem);
+}
+
 .afterImage {
   position: absolute;
   overflow: hidden;
@@ -268,5 +285,4 @@ export default {
 .clip-svg{
   clip-path: url(#clipPath);
 }
-
 </style>
