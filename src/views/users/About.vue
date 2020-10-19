@@ -119,14 +119,14 @@ export default {
 
       gsap.to(".about__left",{duration: 1, opacity: 1, ease:"power2.in"},1)
 
-      const intro = gsap.timeline({
+      const tlLocation = gsap.timeline({
         scrollTrigger:{
           trigger:".about__column__container",
           start:'top 75%',
           end: 'bottom 25%',
         }
       });
-      intro.fromTo(".about__column", {
+      tlLocation.fromTo(".about__column", {
           y:25,
           opacity:0,
           stagger:0.1,
