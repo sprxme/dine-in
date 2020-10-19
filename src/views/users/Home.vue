@@ -5,11 +5,18 @@
       <div class="home__comparison-container">
         <section class="home__comparisonSection">
           <div class="home__title-container">
-            <h1 class="home__title">FULL MOON</h1>
+            <h1 class="home__title">WELCOME</h1>
           </div>
           <div class="home__comparisonWrapper">
             <div class="home__comparisonImage beforeImage">
-              <img src="@/assets/about/bar.jpg" alt="before">
+              <img src="@/assets/about/bar.jpg" alt="before" class="clip-svg">
+              <svg class="clip-image">
+                <defs>
+                  <clipPath id="clipPath" class="clip__comparisonImage">
+                    <circle r="5%" cx="49.7vw" cy="40.5vh" class="clip-circle"/>
+                  </clipPath>
+                </defs>
+              </svg>
             </div>
             <div class="home__comparisonImage afterImage">
               <img src="@/assets/about/conversation.jpg" alt="after">        
@@ -17,6 +24,12 @@
           </div>
         </section>
       </div>
+        <section class="home__content">
+          <div class="home__content__intro">
+            <h1 class="home__content__text">"With true friends even water drunk together is sweet enough"</h1>
+            <h2 class="home__content__text">-Unknown</h2>
+          </div>
+        </section>
     </div>
     <div class='home__horizontal'>
       <section class='home__horizontal__text horizontal-animate'>
@@ -63,15 +76,16 @@ export default {
       const tl = gsap.timeline({
         scrollTrigger:{
           trigger: ".home__title-container",
-          start: 'top top',
-          end: "200%",
-          // markers:true,
+          start: 'top',
+          end: "100%",
           pin: true,
           scrub: true,
         }
       });
-      tl.to(".home__title",{scale: 40, x:500, opacity: 0}, 0)
+      tl.to(".home__title",{scale: 118,opacity: 0}, 0)
         .from(".home__comparisonWrapper",{opacity: 0}, 0)
+        .fromTo(".clip-circle",{attr:{r:0}},{attr:{r:1400,cx:'73vw',cy:'50vh'}},0)
+        
         
       gsap.utils.toArray(".home__comparisonSection").forEach(section => {
         let tl = gsap.timeline({
@@ -79,7 +93,6 @@ export default {
             trigger: section,
             start: 'top',
             end: () => "+=" + (section.offsetHeight + 500),
-            // markers: true,
             scrub: true,
             pin: true,
             anticipatePin: 1
@@ -87,9 +100,20 @@ export default {
           defaults: {ease: "none"}
         });
         tl.fromTo(section.querySelector(".afterImage"), {xPercent: 100, x: 0}, {xPercent: 0}, 1)
-          .fromTo(section.querySelector(".afterImage img"), {xPercent: -100, x: 0}, {xPercent: 0}, 1);
+          .fromTo(section.querySelector(".afterImage img"), {xPercent: -100, x: 0}, {xPercent: 0}, 1)
+          .fromTo(section,{scale:1},{scale:0.75},2)
       });
-          
+      
+      const intro = gsap.timeline({
+        scrollTrigger:{
+          trigger:".home__content",
+          start:'top',
+          end: 'bottom',
+          scrub: true
+        }
+      });
+      intro.to(".home__content__text", {y:30,opacity:1,stagger:0.1}, 3)
+
       gsap.utils.toArray(".horizontal-animate").forEach((section, index) => {
         const w = section.querySelector('.home__horizontal__wtext');
         const [x, xEnd] = (index % 2) ? ['100%', (w.scrollWidth - section.offsetWidth) * -1] : [w.scrollWidth * -1, 0];
@@ -150,6 +174,13 @@ export default {
     transform: translate(-50%, -50%);
     padding: 0 1rem 0 3rem;
   }
+  
+  &__comparisonWrapper{
+    overflow: hidden;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+  }
 
   &__comparison-container {
     height: 270vh;
@@ -174,6 +205,13 @@ export default {
     position: absolute;
     top: 0;
     object-fit: cover;
+  }
+
+   &__content{
+    display: flex;
+    justify-content: center;
+    position: relative;
+  
   }
 
   &__horizontal{
@@ -205,6 +243,7 @@ export default {
       width: 100%;      
       background: #f0f0f0;
     }
+
   }
 }
 
@@ -217,6 +256,17 @@ export default {
 
 .afterImage img {
   transform: translate(-100%, 0px);
+}
+
+.beforeImage__text{
+  position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+}
+
+.clip-svg{
+  clip-path: url(#clipPath);
 }
 
 </style>
