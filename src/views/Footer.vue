@@ -4,8 +4,8 @@
             <div class="footer__column">
                 <ul class="footer__column-list">
                     <label class="footer__title">Shop and Learn</label>
-                    <li class="footer__label">Food</li>
-                    <li class="footer__label">Beverage</li>
+                    <li class="footer__label" @click="navigateTo('/foods')">Food</li>
+                    <li class="footer__label" @click="navigateTo('/beverages')">Beverage</li>
                     <li class="footer__label">Gift Vouchers</li>
                     <li class="footer__label">How to Order</li>
                 </ul>
@@ -74,6 +74,13 @@ export default {
     methods:{
         openIg: function(){
             window.open('https://www.instagram.com/sprxme/?hl=en')
+        },
+        navigateTo(path) {
+            this.$router.push(path)
+                .catch(() => {
+                    // already pointing to the same route, so just scroll to top
+                    window.scrollTo(0, 0)
+                })
         }
     }
 }

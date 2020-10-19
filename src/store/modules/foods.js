@@ -26,9 +26,9 @@ const state = {
         {id: 'f11', name: 'Fried Crab Balls', price:'55000', image:'crabballs', category: 'FRIED DIM SUM', desc:'Fried meaty crab leg combined with chicken meat, and chive.'},
         {id: 'f12', name: 'Fried Mashed Potato Cake', price:'35000', image:'perkedel', category: 'FRIED DIM SUM', desc:'Mashed potato mixed with beef meat and fried until golden brown.'},
 
-        {id: 'n1', name: 'Classic Wanton Noodle', price:'65000', image:'classicwantonnoodle', category: 'NOODLES', desc:''},
-        {id: 'n2', name: 'Char Siew Wanton Noodle', price:'50000', image:'charsiewwantonnoodle', category: 'NOODLES', desc:'Soft Charsiew combined with flavorful wonton served with extra light noodles.'},
-        {id: 'n3', name: 'Beef Noodle Soup', price:'65000', image:'beefnoodle', category: 'NOODLES', desc:'Red braised beef, beef broth, vegetables and Chinese noodles cooked to perfection'},
+        {id: 'n1', name: 'Classic Wanton Noodle', price:'50000', image:'classicwantonnoodle', category: 'NOODLES', desc:'The classic HK style wanton noodle with flavorful wanton soup.'},
+        {id: 'n2', name: 'Char Siew Wanton Noodle', price:'75000', image:'charsiewwantonnoodle', category: 'NOODLES', desc:'Soft Charsiew combined with flavorful wanton served with extra light noodles.'},
+        {id: 'n3', name: 'Beef Noodle Soup', price:'75000', image:'beefnoodle', category: 'NOODLES', desc:'Red braised beef, beef broth, vegetables and Chinese noodles cooked to perfection'},
         {id: 'n4', name: 'Sichuan Dan Dan Mian', price:'65000', image:'sichuan', category: 'NOODLES', desc:'Freshly boiled thin noodles are served in a savory, spicy sichuan sauce topped with crispy pork and peanut flakes.'},
         {id: 'n5', name: 'Zhang Jiang Mian', price:'60000', image:'zhangjiang', category: 'NOODLES', desc:'Noodle with minced pork, extra firm tofu, chili bean sauce, and sweet bean sauce.'},
         {id: 'n6', name: 'La Mian', price:'70000', image:'lamian', category: 'NOODLES', desc:'Hand pulled noodles combined with braised beef and flavorful chicken broth.'},
@@ -37,7 +37,7 @@ const state = {
         {id: 'n9', name: 'Classic Noodle Salad', price:'50000', image:'noodlesalad', category: 'NOODLES', desc:'Cold noodle salad with a delicious sauce and refreshing ingredients.'},
         {id: 'n10', name: 'Dao Xiao Mian', price:'75000', image:'daoxiao', category: 'NOODLES', desc:'Knife cut noodles stir fried with braised meat and chicken stocks.'},
         {id: 'n11', name: 'Misua Patola', price:'65000', image:'misua', category: 'NOODLES', desc:'Salted wheat noodles cooked with patola and ground chicken.'},
-        {id: 'n12', name: 'HK Chicken Roll Noodle', price:'65000', image:'hkchickenrollnoodle', category: 'NOODLES', desc:''},
+        {id: 'n12', name: 'HK Chicken Roll Noodle', price:'65000', image:'hkchickenrollnoodle', category: 'NOODLES', desc:'HK street food style noodle topped with deep fried crispy chicken roll.'},
 
         {id: 'd1', name: 'Fried Sesame Balls', price:'32000', image:'sesameballs', category: 'DESSERT', desc:'Fried sesame balls with glutinous rice flour and red bean paste.'},
         {id: 'd2', name: 'HK Soursop', price:'35000', image:'hksoursop', category: 'DESSERT', desc:'The bowl, the color, the taste. Introducing HK Soursop to replace your midnight chicken soup craving.'},

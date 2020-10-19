@@ -16,6 +16,7 @@
             <font-awesome-icon :icon="myIcon" class="icon" v-on:click="togglePassword()"/>
           </span>
         </div>
+        <span class="warning" v-if="alert">Invalid username or password.</span>
         <input id="submit-btn" type="submit" class="primary-button" value="Sign In" v-on:click="signin($event)"/>
       </form>
       <a class="account__route">Forgot your username or password?</a>
@@ -34,7 +35,8 @@ export default {
       input: {
         username: "",
         password: "",
-      }
+      },
+      alert: false
     }
   },
   iconEye:{
@@ -59,14 +61,16 @@ export default {
       },
       //temporary login method for admin (testing)
       signin(e){
-        if(this.input.username == "admin" && this.input.password == "jasublog"){
+        if(this.input.username == "admin" && this.input.password == "fullmoon"){
+          this.alert = false
           e.preventDefault()
           this.$store.commit("setAuth",true);
           this.$router.replace('/');
         } else {
           // HANDLE INVALID AUTHENTICATION
-          // this.input.username = "";
-          // this.input.password = "";
+          this.input.username = "";
+          this.input.password = "";
+          this.alert = true
         }
       }
     }
@@ -86,6 +90,20 @@ export default {
     background: rgba(126,126,126,0.1);
 ;
   }
+}
+
+.warning{
+  // color: $btn-destructive;
+  min-width: 240px;
+  width: 100%;
+  // width: 400px;
+  margin: auto;
+  margin-top: 1rem;
+  padding: 12px 1rem;
+  border: 1px solid $input-error;
+  background: $secondary-input-error;
+  border-radius: 8px;
+  display: block;
 }
 
 </style>

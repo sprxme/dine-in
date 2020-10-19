@@ -1,7 +1,7 @@
 <h1 align="center" >FULL MOON 🌕</h1>
 Full Moon is a web application to offer a new dining experience. With features such as ordering food and beverages, price calculation, writing notes, and tracking orders right from the web app.
 
-<br>For the live demo of Full Moon, see [Full Moon website](https://sprxme-fullmoon.herokuapp.com).
+<br>For the live demo of Full Moon, see [Full Moon website](https://sprxme-fullmoon.herokuapp.com). (*psst: username: admin, password: fullmoon)
 <br>
 
 <p align="center">
@@ -68,7 +68,7 @@ Here are the list of all the pages available on Full Moon. For more information,
   * Order
   * Confirmation
   * Track Order
-* Admin
+* Admin (username: admin, password: fullmoon)
   * All Orders
   * Menu Edit
     * Food Edit
