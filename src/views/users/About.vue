@@ -1,53 +1,29 @@
 <template>
   <div class="about">
-    
     <div class="container-container">
       <b-carousel class="container-carousel" id="carousel"  v-model="slide" :interval="4000" controls indicators @sliding-start="onSlideStart" @sliding-end="onSlideEnd">
         <b-carousel-slide class="container-image">
           <template v-slot:img>
-            <img
-              class="img-fluid w-100 carousel-image"
-              src="@/assets/about/openinghours.jpeg"
-              alt="image slot"
-            >
+            <img class="img-fluid w-100 carousel-image" src="@/assets/about/openinghours.jpeg" alt="image slot">
           </template>
         </b-carousel-slide>
         <b-carousel-slide class="container-image">
           <template v-slot:img>
-            <img
-              class="img-fluid w-100 carousel-image"
-              src="@/assets/about/queue.jpeg"
-              alt="image slot"
-            >
+            <img class="img-fluid w-100 carousel-image" src="@/assets/about/queue.jpeg" alt="image slot">
           </template>
         </b-carousel-slide>
         <b-carousel-slide class="container-image">
           <template v-slot:img>
-            <img
-              class="img-fluid w-100 carousel-image"
-              src="@/assets/about/dining.jpeg"
-              alt="image slot"
-            >
+            <img class="img-fluid w-100 carousel-image" src="@/assets/about/dining.jpeg" alt="image slot">
           </template>
         </b-carousel-slide>
       </b-carousel>
     </div>
 
-    <!--
-    <div>
-      <img class="about__logo" src="@/assets/about/logo2rev.png" />
-    </div>
-
-    <div class="about__title">
-      <p>Supreme's premier dimsum restaurant Boasting an inimitably cozy dining experience. </p>
-    </div>
-    -->
-
     <div class="about__garis">
       <div class="about__baris">
         <label class="about__boldtitle">ABOUT US</label>
       </div>
-
       <div class="about__desc">
         <p class="about__par">
           Full Moon Liquor Bar & Dim Sum is a Hong kong-inspired bar and dim sum parlour, dressed in a vintage industrial interior like a seductive Chinese temptress. With bright red neon lights that decorate the entrance as well as bar counter, Full Moon has attracted loyal devotees ever since its establishment in 2014.
@@ -70,9 +46,7 @@
       </div>
     </section>
 
-  
     <div class="about__column">
-
       <div class="about__left">
         <p class="about__left__par">
           <label style="font-weight:bold">GRAND INDONESIA</label><br>
@@ -94,7 +68,6 @@
         </p>
       </div>
     </div>
-
   </div>
 </template> 
 
@@ -117,24 +90,14 @@ export default {
   methods: {
     startAnimation: function() {
 
-      gsap.registerPlugin(ScrollTrigger) //missing
+      gsap.registerPlugin(ScrollTrigger) 
 
       gsap.to(".about__garis",{duration: 1, opacity: 1, ease:"power2.in"})
-      // gsap.from(".about__logo", {duration: 2, opacity: 0, ease:"power2.in"}) 
-      // gsap.from(".about__logo", {duration: 2, y: -70, ease:"power2.out"})
-
-      // gsap.from(".about__title", {duration: 1.5, opacity: 0, ease:"power2.in"})
-      // gsap.from(".about__title", {duration: 2, y: -70, ease:"power2.out"})
-
-      // gsap.from(".about__garis", {duration: 1.5, opacity: 0, ease:"power2.in"})
-      // gsap.from(".about__garis", {duration: 2, y: -70, ease:"power2.out"})
 
       gsap.to(".banner", {
         scrollTrigger: {
           trigger: ".banner",
           scrub: true,
-          // markers: true,
-          //pin: true,
           start: "50% 80%",
           end: "bottom -100%",
           toggleClass: "active",
@@ -146,7 +109,6 @@ export default {
         scrollTrigger: {
           trigger: ".container-container",
           scrub: 0.5,
-          // markers:true,
           start: "top bottom",
           end: "bottom -300%",
           ease: "power2"
@@ -156,11 +118,11 @@ export default {
     },
 
     onSlideStart() {
-        this.sliding = true
-      },
-      onSlideEnd() {
-        this.sliding = false
-      }
+      this.sliding = true
+    },
+    onSlideEnd() {
+      this.sliding = false
+    }
   }
 }
 </script>
@@ -173,8 +135,6 @@ export default {
   justify-content: center;
   width: 100%;
   height: 400px;
-  // height: 100vh;
-  // height: -webkit-fill-available;
   color: white;
   text-align: center;
   overflow: hidden;
@@ -187,20 +147,15 @@ export default {
   position: relative;
   width: 100vw;
   height: 200%;
-  // max-height: 100vh;
   overflow: hidden;
 
   &::before {
     content: "";
     display: block;
-    // padding-bottom: calc(100% / (16 / 9));
   }
 }
 
 .banner__image {
-  // position: absolute;
-  // top: 0;
-  // left: 0;
   width: 100vw;
   height: 100%;
   object-fit: cover;
@@ -224,7 +179,6 @@ export default {
   letter-spacing: 10px;
   font-weight: 600;
   max-width: 80vw;
-  // margin-bottom: .5rem;
 }
 
 .banner__caption {
@@ -236,8 +190,6 @@ export default {
   position: absolute;
   display: inline-block;
   overflow: hidden;
-  // min-width: 300px;
-  // margin-top: calc(var(--padding) * -1);
   top: 50%;
   transform: translateY(-50%);
   padding: var(--padding);
@@ -341,7 +293,6 @@ export default {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    //border-top: 1px solid $light-grey;
     max-width: 900px;
     margin: 3.2rem 2rem 5rem;
     margin-left: auto;
@@ -356,7 +307,6 @@ export default {
   }
 
   &__boldtitle{
-    // font-weight: 500;
     font-size: 30px;
     flex-direction: column;
     align-items: center;
@@ -381,14 +331,11 @@ export default {
     padding: 0 2rem;
     line-height: 2;
     font-weight: 500;
-    text-align:center;
     display: flex;
     flex-direction: column;
+    text-align:center;
     align-items: center;
-    //margin:0rem 0rem 1rem 2rem;
-    // font-family: 'Montserrat', sans-serif ;
   }
-
 }
 
 .carousel-image{
@@ -417,15 +364,11 @@ export default {
         &__right{
           padding: 2em 0 1em 0;
           border-left: 0px;
-          //height: 50em;
         }
+
         &__left {
           padding: 1em 0 1em 0;
           border-bottom: 1px solid $light-grey;
-        }
-
-        &__par{
-          text-align:left;
         }
     }
 }

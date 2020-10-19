@@ -7,7 +7,6 @@
                 <div class="set-size">
                     <div class="circle-wrapper progress-number">
                         <div class="image-cropper">
-                            <!-- <img class="menu-image" src="@/assets/about/aboutimage.jpg"/> -->
                             <img :src="require('@/assets/food/'+trackItem.image+'.jpg')" class="menu-image" >
                         </div>
                         <div class="circle">
@@ -124,7 +123,6 @@ $empty-progress-circle: #D3D3D3;
         font-size: 40px;
         font-weight: 550;
         text-align: center;
-        // width: 100%;
         margin: 0 1em;
         display: block;
     }
@@ -138,7 +136,6 @@ $empty-progress-circle: #D3D3D3;
 
     &__container {     
         padding: 2em 0em;
-        // margin: auto;
     
         &__status {
             display: flex;
@@ -196,7 +193,6 @@ $empty-progress-circle: #D3D3D3;
         &__table {
             margin: 1em 1em;
             column-gap: .5rem;
-
         }
     }
 
