@@ -2,7 +2,17 @@
 Full Moon is a web application to offer a new dining experience. With features such as ordering food and beverages, price calculation, writing notes, and tracking orders right from the web app.
 
 <br>For the live demo of Full Moon, see [Full Moon website](https://sprxme-fullmoon.herokuapp.com).
-<br><br>
+<br>
+
+<p align="center">
+  <a href="https://sprxme-fullmoon.herokuapp.com/">
+    <img
+      alt="Full Moon"
+      src="https://user-images.githubusercontent.com/62132009/96399647-0e565580-11f9-11eb-8424-8150bb940239.png"
+      width="200"
+    />
+  </a>
+</p>
 
 <p align="center">
   <a href="https://github.com/sprxme/dine-in/graphs/contributors" alt="Contributors">
