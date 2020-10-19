@@ -133,7 +133,7 @@ export default {
           trigger:".home__content",
           start:'top 75%',
           end: 'bottom 25%',
-          toggleActions: "restart none complete reset"
+          toggleActions: "restart none none reverse"
         }
       });
       intro.fromTo(".home__content__text", {
