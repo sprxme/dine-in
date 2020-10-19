@@ -115,7 +115,7 @@ export default {
         }
       });
       tl.to(".home__title",{scale: 118,opacity: 0}, 0)
-        .from(".home__comparisonWrapper",{opacity: 0}, 0)
+        .from(".beforeImage",{opacity: 0}, 0)
         //.fromTo(".clip-circle",{attr:{r:0}},{attr:{r:1400,cx:'73vw',cy:'50vh'}},0)
         
         
