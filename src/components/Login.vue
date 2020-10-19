@@ -59,7 +59,7 @@ export default {
       },
       //temporary login method for admin (testing)
       signin(e){
-        if(this.input.username == "admin" && this.input.password == "jasublog"){
+        if(this.input.username == "admin" && this.input.password == "Full Moon"){
           e.preventDefault()
           this.$store.commit("setAuth",true);
           this.$router.replace('/');
