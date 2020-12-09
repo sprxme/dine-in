@@ -1,6 +1,8 @@
 const express = require('express')
 const app = express()
 const history = require('connect-history-api-fallback')
+const dotenv = require('dotenv')
+dotenv.config()
 
 const PORT = process.env.PORT || 8080
 const staticFileMiddleware = express.static(__dirname + '/../dist')
@@ -11,7 +13,7 @@ const mongoose = require('mongoose')
 const foods = require('./routes/foods')
 const orders = require('./routes/orders')
 
-const uri = `mongodb+srv://username:password@node-rest.yritf.mongodb.net/FULL_MOON_DB?retryWrites=true&w=majority`
+const uri = `mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@node-rest.yritf.mongodb.net/FULL_MOON_DB?retryWrites=true&w=majority`
 
 // Connect to MongoDB
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true }, (err) => {
