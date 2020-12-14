@@ -107,7 +107,8 @@ export default {
         },
         onFileChange(e){
             const file = e.target.files[0];
-            this.foodData.image = URL.createObjectURL(file);
+            this.image = URL.createObjectURL(file)
+            this.foodData.image = file;
         },
         resetData(){
             this.selected = null
@@ -132,12 +133,29 @@ export default {
             })
         },
         addFood(e) {
+            let data = new FormData()
+            let image = this.foodData.image
             
-            axios.post('http://localhost:8080/api/foods', this.foodData)
+            data.append('name',this.foodData.name)
+            data.append('type',this.foodData.type)
+            data.append('price',this.foodData.price)
+            data.append('image', image)
+            data.append('category',this.foodData.category)
+            data.append('desc',this.foodData.desc)
+
+            axios.post('http://localhost:8080/api/foods', data)
             .then((res)=>{
                 console.log(res)
             })
             e.preventDefault()
+
+            this.foodData.name = ''
+            this.foodData.price = ''
+            this.foodData.image = null
+            this.image = null
+            this.foodData.category = null
+            this.foodData.desc = ''
+            
             this.$bvModal.hide('modal-add-food')
 
             // handle add food
