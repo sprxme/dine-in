@@ -19,6 +19,7 @@
 <script>
 import MenuCard from '@/components/user/MenuCard.vue';
 import { mapGetters } from 'vuex';
+import axios from 'axios';
 
 export default {
     title: 'Menu - Foods 🍽',
@@ -34,11 +35,12 @@ export default {
             },
         };
     },
-    created: function() {
-        this.fetchTemp('http://localhost:8080/api/foods');
-        setInterval(() => {
-            this.fetchItems('http://localhost:8080/api/foods');
-        }, 500);
+    mounted() {
+        axios
+            .get('http://localhost:8080/api/foods')
+            .then(response => {
+                
+            })
     },
     methods:{
         fetchTemp(uri) {
