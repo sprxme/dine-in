@@ -22,7 +22,30 @@ import { mapGetters } from 'vuex';
 
 export default {
     title: 'Menu - Foods 🍽',
+    data() {
+        return {
+            foodData:{
+                name: '',
+                type: 'food',
+                price: '',
+                image: null,
+                category: null,
+                desc: '',
+            },
+        };
+    },
+    created: function() {
+        this.fetchTemp('http://localhost:8080/api/foods');
+        setInterval(() => {
+            this.fetchItems('http://localhost:8080/api/foods');
+        }, 500);
+    },
     methods:{
+        fetchTemp(uri) {
+            axios.get(uri).then((res) => {
+                this.foodData = res.data.foodData;
+            });
+        },
         sortCategory: function(category){
             return this.allFoods.filter(function(food){
                 return food.category == category;
