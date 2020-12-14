@@ -47,7 +47,7 @@ export default {
                 return drink.category === categoryName
             })
         },
-        sortedCategories() {
+        sortedCategories(){
             return [...this.allFoodCategories].sort((a, b) => {
                 return a.index - b.index
             })

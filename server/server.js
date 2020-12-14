@@ -5,7 +5,7 @@ const dotenv = require('dotenv')
 const cors = require('cors')
 dotenv.config()
 
-const PORT = process.env.PORT || 8080
+const PORT = process.env.PORT || 8000
 const staticFileMiddleware = express.static(__dirname + '/../dist')
 const staticImageMiddleware = express.static(__dirname + '/../server/uploads')
 
