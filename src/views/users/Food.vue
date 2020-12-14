@@ -36,11 +36,11 @@ export default {
         };
     },
     mounted() {
-        axios
-            .get('http://localhost:8080/api/foods')
-            .then(response => {
+        // axios
+        //     .get('http://localhost:8080/api/foods')
+        //     //.then(response => {
                 
-            })
+        //     })
     },
     methods:{
         fetchTemp(uri) {
