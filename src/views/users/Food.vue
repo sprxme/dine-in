@@ -25,31 +25,20 @@ export default {
     title: 'Menu - Foods 🍽',
     data() {
         return {
-            foodData:{
-                name: '',
-                type: 'food',
-                price: '',
-                image: null,
-                category: null,
-                desc: '',
-            },
+            foodData: []
         };
     },
     mounted() {
         axios
             .get('http://localhost:8080/api/foods')
-            .then(response => {
-                
+            .then(res => {
+                console.log(res.data)
+                this.foodData = res.data
             })
     },
     methods:{
-        fetchTemp(uri) {
-            axios.get(uri).then((res) => {
-                this.foodData = res.data.foodData;
-            });
-        },
-        sortCategory: function(category){
-            return this.allFoods.filter(function(food){
+        sortCategory: function(category) {
+            return this.foodData.filter(function(food){
                 return food.category == category;
             })
         },
@@ -64,7 +53,7 @@ export default {
             })
         }
     },
-    components:{
+    components: {
         MenuCard
     },
     computed: {
