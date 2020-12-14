@@ -23,49 +23,51 @@
             </div>
         </transition-group>
         <b-modal id="modal-add-food" centered hide-footer title="Add Food" @show="resetData" @hide="resetData">
-            <label for="file-upload" class="menu__fileupload border">
-                <div v-show="!foodData.image" class="menu__fileupload__container">
-                    <span for="file-upload" class="menu__fileupload__content">
-                        <font-awesome-icon icon="image"  class="menu__fileupload__icon"/>
-                        <span class="menu__fileupload__text">Add image</span>
-                    </span>
-                    <input type="file" id="file-upload" accept="image/x-png,image/gif,image/jpeg" @change="onFileChange"/>
+            <form>
+                <label for="file-upload" class="menu__fileupload border">
+                    <div v-show="!foodData.image" class="menu__fileupload__container">
+                        <span for="file-upload" class="menu__fileupload__content">
+                            <font-awesome-icon icon="image"  class="menu__fileupload__icon"/>
+                            <span class="menu__fileupload__text">Add image</span>
+                        </span>
+                        <input type="file" id="file-upload" accept="image/x-png,image/gif,image/jpeg" @change="onFileChange"/>
+                    </div>
+                    <img v-show="foodData.image" :src="image" class="menu__fileupload__image"/>
+                </label>
+                <div class="menu__modal">
+                    <div class="custom__input">
+                        <span class = "custom__input-row">
+                            <input v-model="foodData.name" class="field menu__modal__input" type="text" required>
+                            <span class="placeholder menu__modal__placeholder">Name</span>
+                        </span>
+                    </div>
+                    <div class="custom__input">
+                        <span class = "custom__input-row">
+                            <input v-model="foodData.price" class="field menu__modal__input" type="text" required>
+                            <span class="placeholder menu__modal__placeholder">Price</span>
+                        </span>
+                    </div>
                 </div>
-                <img v-show="foodData.image" :src="image" class="menu__fileupload__image"/>
-            </label>
-            <div class="menu__modal">
-                <div class="custom__input">
+                <div class="menu__catselect">
+                    <b-form-select v-model="foodData.category" class="menu__catselect__select">
+                        <b-form-select-option :value="null" disabled class="menu__catselect__select__title">Category</b-form-select-option>
+                        <b-form-select-option v-for="option in allFoodCategories" :key="option.id" :value="option.name">
+                            {{option.name}}
+                        </b-form-select-option>
+                    </b-form-select>
+                </div>
+                <span class="menu__desc-title">Description</span>
+                <div class="custom__input input__textarea">
                     <span class = "custom__input-row">
-                        <input v-model="foodData.name" class="field menu__modal__input" type="text" required>
-                        <span class="placeholder menu__modal__placeholder">Name</span>
+                        <textarea v-model="foodData.desc" class="menu__modal__input custom__textarea" type="text" required />
+                        <!-- <span class="placeholder__textarea menu__modal__placeholder">Description</span> -->
                     </span>
                 </div>
-                <div class="custom__input">
-                    <span class = "custom__input-row">
-                        <input v-model="foodData.price" class="field menu__modal__input" type="text" required>
-                        <span class="placeholder menu__modal__placeholder">Price</span>
-                    </span>
+                <div class="menu__modal__buttongroup">
+                    <span class="menu__modal__buttongroup__button destructive-secondary" @click="$bvModal.hide('modal-add-food')">Cancel</span>
+                    <span type="submit" class="menu__modal__buttongroup__button primary-button" @click="addFood">Add</span>
                 </div>
-            </div>
-            <div class="menu__catselect">
-                <b-form-select v-model="foodData.category" class="menu__catselect__select">
-                    <b-form-select-option :value="null" disabled class="menu__catselect__select__title">Category</b-form-select-option>
-                    <b-form-select-option v-for="option in allFoodCategories" :key="option.id" :value="option.name">
-                        {{option.name}}
-                    </b-form-select-option>
-                </b-form-select>
-            </div>
-            <span class="menu__desc-title">Description</span>
-            <div class="custom__input input__textarea">
-                <span class = "custom__input-row">
-                    <textarea v-model="foodData.desc" class="menu__modal__input custom__textarea" type="text" required />
-                    <!-- <span class="placeholder__textarea menu__modal__placeholder">Description</span> -->
-                </span>
-            </div>
-            <div class="menu__modal__buttongroup">
-                <span class="menu__modal__buttongroup__button destructive-secondary" @click="$bvModal.hide('modal-add-food')">Cancel</span>
-                <span class="menu__modal__buttongroup__button primary-button" @click="addFood">Add</span>
-            </div>
+            </form>
         </b-modal>
     </div>
 </template>
@@ -129,9 +131,13 @@ export default {
                 return a.index - b.index
             })
         },
-        addFood() {
-
+        addFood(e) {
+            
             axios.post('http://localhost:8080/api/foods', this.foodData)
+            .then((res)=>{
+                console.log(res)
+            })
+            e.preventDefault()
             this.$bvModal.hide('modal-add-food')
 
             // handle add food
