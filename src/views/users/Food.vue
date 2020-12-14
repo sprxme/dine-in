@@ -29,20 +29,12 @@ export default {
         };
     },
     mounted() {
-<<<<<<< HEAD
-        // axios
-        //     .get('http://localhost:8080/api/foods')
-        //     //.then(response => {
-                
-        //     })
-=======
         axios
             .get('http://localhost:8080/api/foods')
             .then(res => {
                 console.log(res.data)
                 this.foodData = res.data
             })
->>>>>>> 7aa502a9e69c725d759e43af99936baef63000e6
     },
     methods:{
         sortCategory: function(category) {
