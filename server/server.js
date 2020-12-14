@@ -14,7 +14,6 @@ const mongoose = require('mongoose')
 const foods = require('./routes/foods')
 const orders = require('./routes/orders')
 
-//const uri = `mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@node-rest.yritf.mongodb.net/FULL_MOON_DB?retryWrites=true&w=majority`
 const uri = `mongodb+srv://supreme:fullmoon@fullmoon.bost3.mongodb.net/supremeDB?retryWrites=true&w=majority`
 
 // Connect to MongoDB

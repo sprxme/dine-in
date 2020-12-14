@@ -28,17 +28,17 @@ export default {
             foodData: []
         };
     },
-    mounted() {
-        axios
+    async mounted() {
+        await axios
             .get('http://localhost:8080/api/foods')
-            .then(response => {
-                this.foodData = response.data
+            .then(res => {
+                this.foodData = res.data
             })
             console.log(this.foodData)
     },
     methods:{
         sortCategory: function(category){
-            return this.allFoods.filter(function(food){
+            return this.foodData.filter(function(food){
                 return food.category == category;
             })
         },
