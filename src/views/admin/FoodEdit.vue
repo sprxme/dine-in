@@ -24,31 +24,31 @@
         </transition-group>
         <b-modal id="modal-add-food" centered hide-footer title="Add Food" @show="resetData" @hide="resetData">
             <label for="file-upload" class="menu__fileupload border">
-                <div v-show="!image" class="menu__fileupload__container">
+                <div v-show="!foodData.image" class="menu__fileupload__container">
                     <span for="file-upload" class="menu__fileupload__content">
                         <font-awesome-icon icon="image"  class="menu__fileupload__icon"/>
                         <span class="menu__fileupload__text">Add image</span>
                     </span>
                     <input type="file" id="file-upload" accept="image/x-png,image/gif,image/jpeg" @change="onFileChange"/>
                 </div>
-                <img v-show="image" :src="image" class="menu__fileupload__image"/>
+                <img v-show="foodData.image" :src="image" class="menu__fileupload__image"/>
             </label>
             <div class="menu__modal">
                 <div class="custom__input">
                     <span class = "custom__input-row">
-                        <input class="field menu__modal__input" type="text" required>
+                        <input v-model="foodData.name" class="field menu__modal__input" type="text" required>
                         <span class="placeholder menu__modal__placeholder">Name</span>
                     </span>
                 </div>
                 <div class="custom__input">
                     <span class = "custom__input-row">
-                        <input class="field menu__modal__input" type="text" required>
+                        <input v-model="foodData.price" class="field menu__modal__input" type="text" required>
                         <span class="placeholder menu__modal__placeholder">Price</span>
                     </span>
                 </div>
             </div>
             <div class="menu__catselect">
-                <b-form-select v-model="selected" class="menu__catselect__select">
+                <b-form-select v-model="foodData.category" class="menu__catselect__select">
                     <b-form-select-option :value="null" disabled class="menu__catselect__select__title">Category</b-form-select-option>
                     <b-form-select-option v-for="option in allFoodCategories" :key="option.id" :value="option.name">
                         {{option.name}}
@@ -58,7 +58,7 @@
             <span class="menu__desc-title">Description</span>
             <div class="custom__input input__textarea">
                 <span class = "custom__input-row">
-                    <textarea class="menu__modal__input custom__textarea" type="text" required />
+                    <textarea v-model="foodData.desc" class="menu__modal__input custom__textarea" type="text" required />
                     <!-- <span class="placeholder__textarea menu__modal__placeholder">Description</span> -->
                 </span>
             </div>
@@ -73,11 +73,20 @@
 <script>
 import MenuCardEdit from '@/components/admin/AdminMenuCard';
 import { mapGetters, mapActions } from 'vuex';
+import axios from 'axios';
 
 export default {
     title: 'Admin - Food Edit 🍽',
     data: function(){
         return{
+            foodData:{
+                name: '',
+                type: 'food',
+                price: '',
+                image: null,
+                category: null,
+                desc: '',
+            },
             image: null,
             selected: null,
         }
@@ -96,11 +105,11 @@ export default {
         },
         onFileChange(e){
             const file = e.target.files[0];
-            this.image = URL.createObjectURL(file);
+            this.foodData.image = URL.createObjectURL(file);
         },
         resetData(){
             this.selected = null
-            this.image = null
+            this.foodData.image = null
         },
         getCategoriesIndex() {
             const len = this.allFoodCategories.length
@@ -121,6 +130,8 @@ export default {
             })
         },
         addFood() {
+
+            axios.post('http://localhost:8080/api/foods', this.foodData)
             this.$bvModal.hide('modal-add-food')
 
             // handle add food
