@@ -53,7 +53,7 @@ export default {
             })
         }
     },
-    components:{
+    components: {
         MenuCard
     },
     computed: {
