@@ -26,6 +26,7 @@
     "gsap": "^3.5.1",
     "mongoose": "^5.11.7",
     "multer": "^1.4.2",
+    "nanoid": "^3.1.20",
     "smooth-scrollbar": "^8.5.3",
     "vue": "^2.6.12",
     "vue-axios": "^3.2.0",

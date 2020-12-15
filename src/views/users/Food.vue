@@ -28,16 +28,16 @@ export default {
             foodData: []
         };
     },
-    mounted() {
-        axios
-            .get('http://localhost:8080/api/foods')
+    async mounted() {
+        await axios
+            .get('https://sprxme-fullmoon.herokuapp.com/api/foods')
             .then(res => {
-                console.log(res.data)
                 this.foodData = res.data
             })
+            console.log(this.foodData)
     },
     methods:{
-        sortCategory: function(category) {
+        sortCategory: function(category){
             return this.foodData.filter(function(food){
                 return food.category == category;
             })

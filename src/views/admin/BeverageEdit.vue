@@ -143,7 +143,7 @@ export default {
             data.append('category',this.beverageData.category)
             data.append('desc',this.beverageData.desc)
 
-            axios.post('http://localhost:8080/api/foods', data)
+            axios.post('https://sprxme-fullmoon.herokuapp.com/api/foods', data)
             .then((res)=>{
                 console.log(res)
             })

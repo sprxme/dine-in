@@ -6,12 +6,12 @@
                 <span class="orderlist__table__name">
                     <div class="custom__input">
                         <span class = "custom__input-row">
-                            <input v-model="name" class="field" type="text" name="name" autofocus required>
+                            <input v-model="orderData.customerName" class="field" type="text" name="name" autofocus required>
                             <span class="placeholder">Customer Name </span>
                         </span>
                     </div>
                 </span>
-                <b-form-select class="orderlist__table__number" v-model="selected" :options="tableNumber">
+                <b-form-select class="orderlist__table__number" v-model="orderData.tableNumber" :options="tableNumber">
                     <!-- This slot appears above the options from 'options' prop -->
                     <template v-slot:first>
                         <b-form-select-option :value="null" disabled>-- Table No. --</b-form-select-option>
@@ -28,16 +28,16 @@
                 <span class="orderlist__unavailable__title">Looking for your order?</span>
                 <span class="orderlist__unavailable__subtitle">Food and beverages you select from the menu will appear here.</span>
             </div>
-           <OrderCard v-for="trackItem in allOrders" :key="trackItem.id" :food="trackItem"/>
+            <OrderCard v-for="trackItem in allOrders" :key="trackItem.id" :food="trackItem"/>
         </div>
         <div class="orderlist__summary-container" v-if="allOrders.length > 0">
             <div class="orderlist__row-container">
                 <div class="orderlist__price-title">Customer Name </div>
-                <span class="orderlist__name">{{ customerName }}</span>
+                <span class="orderlist__name">{{ this.orderData.customerName }}</span>
             </div>
             <div class="orderlist__row-container table-number">
                 <div class="orderlist__price-title">Table Number </div>
-                <div class="orderlist__name">{{ selectedTable }}</div>
+                <div class="orderlist__name">{{ this.orderData.tableNumber }}</div>
             </div>
             <div class="orderlist__row-container price">
                 <div class="orderlist__price-title">Total </div>
@@ -57,6 +57,7 @@
 <script>
 import OrderCard from '@/components/user/OrderCard.vue';
 import { mapGetters } from 'vuex';
+import axios from 'axios';
 
 export default {
     data: function() {
@@ -81,7 +82,14 @@ export default {
                     value: 4,
                     text: 'Table 4'
                 }
-            ]
+            ],
+            orderData: {
+                customerName: '',
+                tableNumber: null,
+                order: [],
+                totalPrice: '',
+                status: 'Preparing',
+            }
         }
     },
     components:{
@@ -95,8 +103,26 @@ export default {
             }
             this.alert = false
 
-            var token = Math.random().toString(36).slice(-8).toUpperCase()
-            this.$router.push('/confirm/'+token)
+            //var token = Math.random().toString(36).slice(-8).toUpperCase()
+            this.postData()
+            //this.$router.push('/confirm/'+token)
+        },
+        postData(){
+            let data = new FormData()
+            this.orderData.totalPrice = this.totalPrice(this.allOrders)
+            this.orderData.order = this.allOrders
+           
+            data.append('customerName', this.orderData.customerName)
+            data.append('tableNumber', this.orderData.tableNumber)
+            data.append('order', this.orderData.order)
+            data.append('totalPrice', this.orderData.totalPrice)
+            data.append('status', this.orderData.status)
+
+            axios
+                .post('https://sprxme-fullmoon.herokuapp.com/api/orders',data)
+                .then(res=>{
+                    console.log(res)
+                })
         },
         addMore() {
             this.$router.push('/foods')
@@ -129,7 +155,7 @@ export default {
     computed: {
         ...mapGetters(['allOrders', 'allFoods']),
         trimmedName: function() {
-            return this.name.trim()
+            return this.orderData.customerName.trim()
         },
         customerName: function() {
             if (this.trimmedName === '' || this.trimmedName === undefined || this.trimmedName === null) {
@@ -145,7 +171,7 @@ export default {
                 return 'Table ' + this.selected
             }
         }
-    }
+    },
 }
 
 </script>
