@@ -1,7 +1,7 @@
 <template>
 <div class="menu__card">
     <div class="menu__image-container">
-        <img :src="require('@/assets/food/'+food.image+'.jpg')" class="menu__image"> 
+        <img :src=food.image class="menu__image"> 
     </div>
     <div class="menu__details">
         <span class="menu__name">{{food.name}}</span>

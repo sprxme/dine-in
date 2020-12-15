@@ -19,12 +19,29 @@
 <script>
 import MenuCard from '@/components/user/MenuCard.vue';
 import { mapGetters } from 'vuex';
+import axios from 'axios';
 
 export default {
     title: 'Menu - Beverages 🍸',
+    data() {
+        return {
+            drinkData: []
+        }
+    },
+    async mounted() {
+        await axios
+            .get('https://sprxme-fullmoon.herokuapp.com/api/foods')
+            .then(res => {
+                const data = res.data.filter((data) => {
+                    return data.type === 'drink'
+                })
+                this.drinkData = data
+            })
+            console.log(this.drinkData)
+    },
     methods:{
         sortCategory: function(category){
-            return this.allDrinks.filter(function(drink){
+            return this.drinkData.filter(function(drink){
                 return drink.category === category;
             })
         },

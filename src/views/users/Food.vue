@@ -32,7 +32,10 @@ export default {
         await axios
             .get('https://sprxme-fullmoon.herokuapp.com/api/foods')
             .then(res => {
-                this.foodData = res.data
+                const data = res.data.filter((data) => {
+                    return data.type === 'food'
+                })
+                this.foodData = data
             })
             console.log(this.foodData)
     },
