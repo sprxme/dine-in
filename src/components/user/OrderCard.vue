@@ -1,7 +1,7 @@
 <template>
     <div class="order">
         <div class="order__image-container"><!--  Gambar-->
-            <img :src="require('@/assets/food/'+food.image+'.jpg')" class="order__image">
+            <img :src=food.image class="order__image">
         </div>
         <div class="order__block">
             <div class="order__details">
@@ -44,7 +44,7 @@ export default {
             let food = { ...order }
             food.quantity = undefined
 
-            let qty = this.quantity(food.id)
+            let qty = this.quantity(food._id)
             qty += value
             if (qty < 0) { return this.stop() }
             this.updateCart({ food: food, quantity: qty })
@@ -66,7 +66,7 @@ export default {
         quantity(foodId) {
             let qty = 0
             this.allOrders.forEach(order => {
-            if (order.id == foodId) {
+            if (order._id == foodId) {
                 qty = order.quantity
             }
             })

@@ -108,21 +108,32 @@ export default {
             //this.$router.push('/confirm/'+token)
         },
         postData(){
-            let data = new FormData()
-            this.orderData.totalPrice = this.totalPrice(this.allOrders)
-            this.orderData.order = this.allOrders
-           
-            data.append('customerName', this.orderData.customerName)
-            data.append('tableNumber', this.orderData.tableNumber)
-            data.append('order', this.orderData.order)
-            data.append('totalPrice', this.orderData.totalPrice)
-            data.append('status', this.orderData.status)
+            let orders = this.allOrders.map(order => {
+                return {
+                    item: order._id,
+                    quantity: order.quantity,
+                    notes: order.notes || ""
+                }
+            })
+            console.log(orders);
 
-            axios
-                .post('https://sprxme-fullmoon.herokuapp.com/api/orders',data)
-                .then(res=>{
-                    console.log(res)
-                })
+            const data = {
+                customerName: this.orderData.customerName,
+                tableNumber: this.orderData.tableNumber,
+                orders: orders,
+                totalPrice: this.totalPrice(this.allOrders)
+            }
+            console.log(data);
+
+            axios({
+                method: 'post',
+                url: 'https://sprxme-fullmoon.herokuapp.com/api/orders',
+                data: data
+            })
+            .then(res=>{
+                console.log(res.data.token)
+                this.$router.push('/confirm/'+res.data.token)
+            })
         },
         addMore() {
             this.$router.push('/foods')

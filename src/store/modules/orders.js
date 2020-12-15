@@ -31,7 +31,7 @@ const mutations = {
         }
 
         const isFound = state.orders.find(order => {
-            return order.id == orderItem.id
+            return order._id == orderItem._id
         })
 
         // If food not found in orders, push new item
@@ -40,7 +40,7 @@ const mutations = {
         } else {
             // Otherwise if found, just update the existing order
             state.orders = state.orders.map(order => {
-                if (order.id == orderItem.id) {
+                if (order._id == orderItem._id) {
                     return orderItem
                 } else {
                     return order
@@ -50,12 +50,12 @@ const mutations = {
     },
     removeOrder: (state, orderItem) => {
         state.orders = state.orders.filter(order => {
-            return order.id != orderItem.id
+            return order._id != orderItem._id
         })
     },
     updateNote: (state, data) => {
         state.orders = state.orders.map(order => {
-            if (order.id === data.food.id) {
+            if (order._id === data.food._id) {
                 order.note = data.note
             }
             return order

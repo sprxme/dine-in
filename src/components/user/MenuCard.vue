@@ -62,7 +62,7 @@ export default {
         quantity() {
             let qty = 0
             this.allOrders.forEach(order => {
-                if (order.id == this.food.id) {
+                if (order._id == this.food._id) {
                     qty = order.quantity
                 }
             })

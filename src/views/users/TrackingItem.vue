@@ -2,12 +2,12 @@
 <div class="tracking">
     <label class="tracking__label">Order ID: {{token.toUpperCase()}}</label>
     <div class="tracking__table">
-        <div class="tracking__container" v-for="trackItem in allOrders" :key="trackItem.id">
+        <div class="tracking__container" v-for="trackItem in trackingData.orders" :key="trackItem.item._id">
             <div class="tracking__container__status">
                 <div class="set-size">
                     <div class="circle-wrapper progress-number">
                         <div class="image-cropper">
-                            <img :src="require('@/assets/food/'+trackItem.image+'.jpg')" class="menu-image" >
+                            <img :src=trackItem.item.image class="menu-image" >
                         </div>
                         <div class="circle">
                             <div class="left-side half-circle"></div>
@@ -21,7 +21,7 @@
                         </div>
                     </div>
                 </div>
-                <span class="tracking__menu-name">{{trackItem.name}} ({{trackItem.quantity}}x)</span>
+                <span class="tracking__menu-name">{{trackItem.item.name}} ({{trackItem.quantity}}x)</span>
                 <span class="tracking__progress-name">Preparing</span> 
             </div>
         </div>
@@ -30,11 +30,27 @@
 </template>
 <script>
 import { mapGetters } from 'vuex';
+import axios from 'axios';
 
 export default {
     props: {
         token: String,
         food: Object
+    },
+    data() {
+        return {
+            trackingData: {}
+        };
+    },
+    async mounted() {
+        await axios
+            .get('https://sprxme-fullmoon.herokuapp.com/api/orders')
+            .then(res => {
+                const data = res.data.filter((data) => {
+                    return data.token === this.token
+                })
+                this.trackingData = data[0]
+            })
     },
     computed: {
         ...mapGetters(['allOrders', 'allFoods'])

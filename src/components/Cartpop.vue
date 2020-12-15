@@ -4,9 +4,9 @@
         <ul class="cartpop__orders" v-if="allOrders.length">
             <div class="cartpop__menu-list">
               <!-- <transition-group name="order-list" tag="li"> -->
-                <li v-for="order in allOrders" :key="order.id" class="cartpop__order-menu">
+                <li v-for="order in allOrders" :key="order._id" class="cartpop__order-menu">
                     <div class="cartpop__image-container">
-                      <img :src="require('../assets/food/'+order.image+'.jpg')" class="cartpop__image"/>
+                      <img :src=order.image class="cartpop__image"/>
                     </div>
                     <div class="cartpop__order-details">
                       <span class="cartpop__menu-name">{{order.name}}</span>
@@ -94,7 +94,7 @@ export default {
         let food = { ...order }
         food.quantity = undefined
 
-        let qty = this.quantity(food.id)
+        let qty = this.quantity(food._id)
         qty += value
         if (qty < 0) { return this.stop() }
         this.updateCart({ food: food, quantity: qty })
@@ -122,7 +122,7 @@ export default {
       quantity(foodId) {
         let qty = 0
         this.allOrders.forEach(order => {
-          if (order.id == foodId) {
+          if (order._id == foodId) {
             qty = order.quantity
           }
         })

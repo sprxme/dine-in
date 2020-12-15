@@ -26,6 +26,7 @@ router.get('/', async (req, res) => {
 // POST /orders
 router.post('/', async (req, res) => {
     const orders = req.body.orders
+    console.log(req.body)
 
     try {
         // Checks every given food_id exists in the database
