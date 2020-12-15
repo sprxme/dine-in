@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 
 const orderSchema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
+    token: { type: String, required: true },
     customerName: { type: String, required: true },
     tableNumber: { type: Number, required: true },
     orders: [

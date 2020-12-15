@@ -49,7 +49,9 @@ router.post('/', upload.single('image'), async (req, res, next) => {
         // TODO: - Update base url on production
         imageURL = `http://localhost:8080/${req.file.originalname}`
     } else {
-        return next(new Error('Invalid image file'))
+        const error = new Error('Invalid image file')
+        error.status = 400
+        return next(error)
     }
 
     // // Create a new food schema object
@@ -100,7 +102,7 @@ router.patch('/:id', async (req, res) => {
             res.status(204)
             throw 'No entry updated'
         }
-        console.log('hello');
+
         // Find the updated food
         const food = await Food.findById(id)
         const item = food.toObject()

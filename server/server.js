@@ -25,10 +25,6 @@ mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true }, (err)
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
-app.get('/api', (req, res) => {
-    res.send('Hello World!')
-})
-
 // Import routes
 app.use('/api/foods', foods)
 app.use('/api/orders', orders)
@@ -43,6 +39,13 @@ app.use(staticFileMiddleware)
 
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/../dist/index.html')
+})
+
+// Error handling
+app.use((req, res, next) => {
+    const error = new Error('Unable to find endpoint')
+    error.status = 404
+    next(error)
 })
 
 app.use((error, req, res, next) => {
