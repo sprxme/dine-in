@@ -23,49 +23,51 @@
             </div>
         </transition-group>
         <b-modal id="modal-add-beverage" centered hide-footer title="Add Beverage" @show="resetData" @hide="resetData">
-            <label for="file-upload" class="menu__fileupload border">
-                <div v-show="!image" class="menu__fileupload__container">
-                    <span for="file-upload" class="menu__fileupload__content">
-                        <font-awesome-icon icon="image"  class="menu__fileupload__icon"/>
-                        <span class="menu__fileupload__text">Add image</span>
-                    </span>
-                    <input type="file" id="file-upload" accept="image/x-png,image/gif,image/jpeg" @change="onFileChange"/>
+            <form>
+                <label for="file-upload" class="menu__fileupload border">
+                    <div v-show="!beverageData.image" class="menu__fileupload__container">
+                        <span for="file-upload" class="menu__fileupload__content">
+                            <font-awesome-icon icon="image"  class="menu__fileupload__icon"/>
+                            <span class="menu__fileupload__text">Add image</span>
+                        </span>
+                        <input type="file" id="file-upload" accept="image/x-png,image/gif,image/jpeg" @change="onFileChange"/>
+                    </div>
+                    <img v-show="beverageData.image" :src="image" class="menu__fileupload__image"/>
+                </label>
+                <div class="menu__modal">
+                    <div class="custom__input">
+                        <span class = "custom__input-row">
+                            <input v-model="beverageData.name" class="field menu__modal__input" type="text" required>
+                            <span class="placeholder menu__modal__placeholder">Name</span>
+                        </span>
+                    </div>
+                    <div class="custom__input">
+                        <span class = "custom__input-row">
+                            <input v-model="beverageData.price" class="field menu__modal__input" type="text" required>
+                            <span class="placeholder menu__modal__placeholder">Price</span>
+                        </span>
+                    </div>
                 </div>
-                <img v-show="image" :src="image" class="menu__fileupload__image"/>
-            </label>
-            <div class="menu__modal">
-                <div class="custom__input">
+                <div class="menu__catselect">
+                    <b-form-select v-model="beverageData.category" class="menu__catselect__select">
+                        <b-form-select-option :value="null" disabled class="menu__catselect__select__title">Category</b-form-select-option>
+                        <b-form-select-option v-for="option in allDrinkCategories" :key="option.id" :value="option.name">
+                            {{option.name}}
+                        </b-form-select-option>
+                    </b-form-select>
+                </div>
+                <span class="menu__desc-title">Description</span>
+                <div class="custom__input input__textarea">
                     <span class = "custom__input-row">
-                        <input class="field menu__modal__input" type="text" required>
-                        <span class="placeholder menu__modal__placeholder">Name</span>
+                        <textarea v-model="beverageData.desc" class="menu__modal__input custom__textarea" type="text" required />
+                        <!-- <span class="placeholder__textarea menu__modal__placeholder">Description</span> -->
                     </span>
                 </div>
-                <div class="custom__input">
-                    <span class = "custom__input-row">
-                        <input class="field menu__modal__input" type="text" required>
-                        <span class="placeholder menu__modal__placeholder">Price</span>
-                    </span>
+                <div class="menu__modal__buttongroup">
+                    <span class="menu__modal__buttongroup__button destructive-secondary" @click="$bvModal.hide('modal-add-beverage')">Cancel</span>
+                    <span class="menu__modal__buttongroup__button primary-button" @click="addBeverage">Add</span>
                 </div>
-            </div>
-            <div class="menu__catselect">
-                <b-form-select v-model="selected" class="menu__catselect__select">
-                    <b-form-select-option :value="null" disabled class="menu__catselect__select__title">Category</b-form-select-option>
-                    <b-form-select-option v-for="option in allDrinkCategories" :key="option.id" :value="option.name">
-                        {{option.name}}
-                    </b-form-select-option>
-                </b-form-select>
-            </div>
-            <span class="menu__desc-title">Description</span>
-            <div class="custom__input input__textarea">
-                <span class = "custom__input-row">
-                    <textarea class="menu__modal__input custom__textarea" type="text" required />
-                    <!-- <span class="placeholder__textarea menu__modal__placeholder">Description</span> -->
-                </span>
-            </div>
-            <div class="menu__modal__buttongroup">
-                <span class="menu__modal__buttongroup__button destructive-secondary" @click="$bvModal.hide('modal-add-beverage')">Cancel</span>
-                <span class="menu__modal__buttongroup__button primary-button" @click="addBeverage">Add</span>
-            </div>
+            </form>
         </b-modal>
     </div>
 </template>
@@ -73,11 +75,20 @@
 <script>
 import MenuCardEdit from '@/components/admin/AdminMenuCard';
 import { mapGetters, mapActions } from 'vuex';
+import axios from 'axios';
 
 export default {
     title: 'Admin - Beverage Edit 🍸',
     data: function(){
         return{
+            beverageData:{
+                name: '',
+                type: 'beverage',
+                price: '',
+                image: null,
+                category: null,
+                desc: '',
+            },
             selected: null,
             image: null,
         }
@@ -96,7 +107,8 @@ export default {
         },
         onFileChange(e){
             const file = e.target.files[0];
-            this.image = URL.createObjectURL(file);
+            this.image = URL.createObjectURL(file)
+            this.beverageData.image = file;
         },
         resetData(){
             this.selected = null
@@ -120,7 +132,30 @@ export default {
                 return a.index - b.index
             })
         },
-        addBeverage() {
+        addBeverage(e) {
+            let data = new FormData()
+            let image = this.beverageData.image
+            
+            data.append('name',this.beverageData.name)
+            data.append('type',this.beverageData.type)
+            data.append('price',this.beverageData.price)
+            data.append('image', image)
+            data.append('category',this.beverageData.category)
+            data.append('desc',this.beverageData.desc)
+
+            axios.post('http://localhost:8080/api/foods', data)
+            .then((res)=>{
+                console.log(res)
+            })
+            e.preventDefault()
+
+            this.beverageData.name = ''
+            this.beverageData.price = ''
+            this.beverageData.image = null
+            this.image = null
+            this.beverageData.category = null
+            this.beverageData.desc = ''
+
             this.$bvModal.hide('modal-add-beverage')
 
             // handle add beverage

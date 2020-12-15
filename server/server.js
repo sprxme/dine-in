@@ -2,9 +2,10 @@ const express = require('express')
 const app = express()
 const history = require('connect-history-api-fallback')
 const dotenv = require('dotenv')
+const cors = require('cors')
 dotenv.config()
 
-const PORT = process.env.PORT || 8080
+const PORT = process.env.PORT || 8000
 const staticFileMiddleware = express.static(__dirname + '/../dist')
 const staticImageMiddleware = express.static(__dirname + '/../server/uploads')
 
@@ -13,7 +14,7 @@ const mongoose = require('mongoose')
 const foods = require('./routes/foods')
 const orders = require('./routes/orders')
 
-const uri = `mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@node-rest.yritf.mongodb.net/FULL_MOON_DB?retryWrites=true&w=majority`
+const uri = `mongodb+srv://supreme:fullmoon@fullmoon.bost3.mongodb.net/supremeDB?retryWrites=true&w=majority`
 
 // Connect to MongoDB
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true }, (err) => {
@@ -22,8 +23,15 @@ mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true }, (err)
 })
 
 // Middlewares
+app.use(cors())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
+<<<<<<< HEAD
+=======
+app.get('/api', (req, res) => {
+    res.send('Hello World!')
+})
+>>>>>>> 01d826d6725fd2326bc69529210df4d99c799200
 
 // Import routes
 app.use('/api/foods', foods)
