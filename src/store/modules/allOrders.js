@@ -104,10 +104,10 @@ const state = {
     ],
     fields:[
         {
-            key: 'table_number'
+            key: 'tableNumber'
         },
         {
-            key:'name'
+            key:'customerName'
         },
         {
             key:'token'

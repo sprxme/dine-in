@@ -6,20 +6,20 @@
                 <label class="details__title">Order Details</label>
             </div>
             <div class="details__content">
-                <div class="details__token">#{{item[0].token}}</div>
+                <div class="details__token">#{{orderDetail.token}}</div>
                 <div class="details__detail">
                     <span class="details__subtitle">Name: </span>
-                    <span class="details__detail__content">{{item[0].name}}</span>
+                    <span class="details__detail__content">{{orderDetail.customerName}}</span>
                 </div>
                 <div class="details__detail">
                     <span class="details__subtitle">Table number: </span>
-                    <span class="details__detail__content">{{item[0].table_number}}</span>
+                    <span class="details__detail__content">{{orderDetail.tableNumber}}</span>
                 </div>
                 <div class="details__order"> 
                     <label class="details__subtitle">Order Menu:</label>
                     <ul class="details__menu">
-                        <li class="details__item" v-for="order in item[0].menu" :key="order.name">
-                            <span class="details__item__name">{{order.name}}</span>
+                        <li class="details__item" v-for="order in orderDetail.orders" :key="order.item._id">
+                            <span class="details__item__name">{{ order.quantity }} {{ order.item.name }}</span>
                             <b-form-radio-group
                                 v-model="order.status"
                                 :options="status"
@@ -35,17 +35,47 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import axios from 'axios';
+
 export default {
     data: function(){
         return{
             item: '',
             status:[
-                {text: 'Received', value: 'received'},
-                {text: 'Cooking', value: 'cooking'},
-                {text: 'Cooked', value: 'cooked'},
-                {text: 'Served', value: 'served'}
-            ]
+                {text: 'Received', value: 0},
+                {text: 'Cooking', value: 1},
+                {text: 'Cooked', value: 2},
+                {text: 'Served', value: 3}
+            ],
+            orderDetail: {}
         }
+    },
+    async mounted() {
+        await axios
+            .get('https://sprxme-fullmoon.herokuapp.com/api/orders')
+            .then(res => {
+                const data = res.data.filter(data => {
+                    if (data.token != this.$route.params.token) { return false }
+
+                    // switch (data.status) {
+                    //     case 0:
+                    //         data.status = 'Preparing'
+                    //         break
+                    //     case 1:
+                    //         data.status = 'Cooking'
+                    //         break
+                    //     case 2:
+                    //         data.status = 'Cooked'
+                    //         break
+                    //     case 3:
+                    //         data.status = 'Served'
+                    //         break
+                    // } 
+                    return data
+                })
+                this.orderDetail = data[0]
+                console.log(this.orderDetail)
+            })
     },
     computed: {
         ...mapGetters(['orderList'])

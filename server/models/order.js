@@ -10,11 +10,11 @@ const orderSchema = mongoose.Schema({
             _id: false,
             item: { type: mongoose.Schema.Types.ObjectId, ref: 'Food', required: true },
             quantity: { type: Number, default: 1 },
-            notes: { type: String, default: '' }
+            notes: { type: String, default: '' },
+            status: { type: Number, default: 0 }
         }
-    ],
+    ],  
     totalPrice: { type: Number, required: true },
-    status: { type: Number, default: 0 }
 })
 
 module.exports = mongoose.model('Order', orderSchema)

@@ -13,7 +13,7 @@
                     </span>
                 </div>
             </div>
-            <b-table sort-by="status" :sort-desc=true no-sort-reset fixed stacked="md" responsive show-empty :filter="search" hover class="allorders__table" :items="orderList" :fields="fields">                    
+            <b-table sort-by="status" :sort-desc=true no-sort-reset fixed stacked="md" responsive show-empty :filter="search" hover class="allorders__table" :items="orderData" :fields="fields">                    
                 <template v-slot:cell(actions)="row">
                     <router-link :to="'/all-orders/'+row.item.token">
                         <font-awesome-icon icon="eye"/>
@@ -26,12 +26,40 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import axios from 'axios';
+
 export default {
     title: 'Admin - Order List',
     data: function(){
         return{
-            search: null
+            search: null,
+            orderData: []
         }
+    },
+    async mounted() {
+        await axios
+            .get('https://sprxme-fullmoon.herokuapp.com/api/orders')
+            .then(res => {
+                const data = res.data.map(data => {
+                    switch (data.status) {
+                        case 0:
+                            data.status = 'Preparing'
+                            break
+                        case 1:
+                            data.status = 'Cooking'
+                            break
+                        case 2:
+                            data.status = 'Cooked'
+                            break
+                        case 3:
+                            data.status = 'Served'
+                            break
+                    } 
+                    return data
+                })
+                this.orderData = data
+                console.log(this.orderData)
+            })
     },
     methods:{
         getItems: function(){
