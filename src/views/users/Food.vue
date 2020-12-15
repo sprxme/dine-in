@@ -19,12 +19,26 @@
 <script>
 import MenuCard from '@/components/user/MenuCard.vue';
 import { mapGetters } from 'vuex';
+import axios from 'axios';
 
 export default {
     title: 'Menu - Foods 🍽',
+    data() {
+        return {
+            foodData: []
+        };
+    },
+    async mounted() {
+        await axios
+            .get('http://localhost:8080/api/foods')
+            .then(res => {
+                this.foodData = res.data
+            })
+            console.log(this.foodData)
+    },
     methods:{
         sortCategory: function(category){
-            return this.allFoods.filter(function(food){
+            return this.foodData.filter(function(food){
                 return food.category == category;
             })
         },
@@ -33,13 +47,13 @@ export default {
                 return drink.category === categoryName
             })
         },
-        sortedCategories() {
+        sortedCategories(){
             return [...this.allFoodCategories].sort((a, b) => {
                 return a.index - b.index
             })
         }
     },
-    components:{
+    components: {
         MenuCard
     },
     computed: {
