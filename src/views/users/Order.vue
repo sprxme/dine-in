@@ -119,7 +119,7 @@ export default {
             data.append('status', this.orderData.status)
 
             axios
-                .post('http://localhost:8080/api/orders',data)
+                .post('https://sprxme-fullmoon.herokuapp.com/api/orders',data)
                 .then(res=>{
                     console.log(res)
                 })

@@ -30,7 +30,7 @@ export default {
     },
     async mounted() {
         await axios
-            .get('http://localhost:8080/api/foods')
+            .get('https://sprxme-fullmoon.herokuapp.com/api/foods')
             .then(res => {
                 this.foodData = res.data
             })

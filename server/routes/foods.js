@@ -47,7 +47,7 @@ router.post('/', upload.single('image'), async (req, res, next) => {
     let imageURL = ''
     if (req.file) {
         // TODO: - Update base url on production
-        imageURL = `http://localhost:8080/${req.file.originalname}`
+        imageURL = `https://sprxme-fullmoon.herokuapp.com/${req.file.originalname}`
     } else {
         const error = new Error('Invalid image file')
         error.status = 400
