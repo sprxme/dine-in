@@ -26,12 +26,6 @@ mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true }, (err)
 app.use(cors())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
-<<<<<<< HEAD
-=======
-app.get('/api', (req, res) => {
-    res.send('Hello World!')
-})
->>>>>>> 01d826d6725fd2326bc69529210df4d99c799200
 
 // Import routes
 app.use('/api/foods', foods)
